@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Sourcing Sense — Procurement. We Make It DONE!</title>
+    <meta name="description" content="AI-powered procurement consulting by David Račak. Lean Six Sigma meets AI automation. ROI-focused, action-oriented. Book your free consultation.">
+    <meta name="keywords" content="AI procurement consultant, procurement automation, lean procurement, sourcing optimization, supply chain AI, procurement digitalization">
+    <meta property="og:title" content="Sourcing Sense — Procurement. We Make It DONE!">
+    <meta property="og:description" content="AI consulting that delivers ROI, not corporate BS. 8 years of procurement expertise meets Lean Six Sigma precision.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://procurement-sense.com">
+    <link rel="canonical" href="https://procurement-sense.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ══════════════════════════════════════════════════════════════
+           ROOT VARIABLES
+           Roman Gold × Deep Indigo × Japanese negative space
+        ══════════════════════════════════════════════════════════════ */
+        :root {
+            --bg-deep: #08080c;
+            --bg-primary: #0c0c12;
+            --bg-secondary: #101018;
+            --bg-card: rgba(18, 18, 28, 0.6);
+            --bg-card-solid: #12121c;
+            --bg-card-hover: rgba(24, 24, 38, 0.7);
+            --bg-glass: rgba(16, 16, 26, 0.4);
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.1);
+            --border-active: rgba(212, 175, 55, 0.3);
+            --gold: #d4af37;
+            --gold-light: #e8c84a;
+            --gold-dim: #b8962e;
+            --gold-pale: #f0dfa0;
+            --gold-glow: rgba(212, 175, 55, 0.06);
+            --gold-glow-md: rgba(212, 175, 55, 0.1);
+            --gold-glow-strong: rgba(212, 175, 55, 0.18);
+            --indigo: rgba(30, 40, 80, 0.5);
+            --indigo-solid: #1e2850;
+            --bronze: #cd7f32;
+            --blue-1: #2a7fd4;
+            --blue-2: #3b9be0;
+            --blue-3: #5eb8f7;
+            --blue-4: #8dd8ff;
+            --text-primary: #eeeee8;
+            --text-secondary: #8a8a96;
+            --text-muted: #4e4e5a;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           RESET
+        ══════════════════════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--gold); color: var(--bg-deep); }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--sans); border: none; cursor: pointer; background: none; }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        /* ══════════════════════════════════════════════════════════════
+           AMBIENT BACKGROUND — LAYERED GRADIENTS + NOISE + GRID
+        ══════════════════════════════════════════════════════════════ */
+        .bg-ambient {
+            position: fixed; inset: 0;
+            pointer-events: none; z-index: 0;
+        }
+
+        /* Orb gradients */
+        .bg-ambient::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 900px 700px at 15% 5%, rgba(30, 40, 80, 0.45) 0%, transparent 60%),
+                radial-gradient(ellipse 500px 500px at 85% 15%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 600px 400px at 70% 85%, rgba(30, 40, 80, 0.2) 0%, transparent 55%),
+                radial-gradient(ellipse 300px 300px at 10% 90%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+        }
+
+        /* Noise texture */
+        .bg-ambient::after {
+            content: '';
+            position: absolute; inset: 0;
+            opacity: 0.028;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 256px;
+        }
+
+        /* Subtle vertical lines (Roman columns) */
+        .bg-lines {
+            position: fixed; inset: 0;
+            pointer-events: none; z-index: 0;
+            opacity: 0.012;
+            background-image: repeating-linear-gradient(
+                90deg, transparent, transparent 199px,
+                rgba(212, 175, 55, 1) 199px, rgba(212, 175, 55, 1) 200px
+            );
+        }
+
+        /* Floating orb that follows mouse (desktop) */
+        .bg-orb {
+            position: fixed;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: left 0.8s ease, top 0.8s ease;
+            opacity: 0.5;
+        }
+
+        .content-wrap { position: relative; z-index: 1; }
+
+        /* ══════════════════════════════════════════════════════════════
+           NAV
+        ══════════════════════════════════════════════════════════════ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 8, 12, 0.7);
+            backdrop-filter: blur(30px) saturate(1.4);
+            -webkit-backdrop-filter: blur(30px) saturate(1.4);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.6rem 2rem;
+            background: rgba(8, 8, 12, 0.92);
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+
+        .nav-logo svg { height: 28px; width: auto; }
+
+        .nav-logo-text {
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex; align-items: center; gap: 1.8rem;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta-btn {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+            color: var(--bg-deep);
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px var(--gold-glow-strong);
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            padding: 0.25rem;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           MOBILE NAV
+        ══════════════════════════════════════════════════════════════ */
+        .mobile-overlay {
+            position: fixed; inset: 0; z-index: 999;
+            background: rgba(8, 8, 12, 0.97);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.8rem;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+        .mobile-overlay a {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .mobile-overlay a:hover { color: var(--gold); }
+
+        .mobile-close {
+            position: absolute; top: 1rem; right: 1.5rem;
+            color: var(--text-primary); font-size: 1.6rem;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           HERO
+        ══════════════════════════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Decorative vertical accent */
+        .hero-accent {
+            position: absolute;
+            right: 5%; top: 18%; bottom: 18%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(212,175,55,0.12) 30%, rgba(212,175,55,0.12) 70%, transparent);
+        }
+
+        .hero-accent::before, .hero-accent::after {
+            content: '';
+            position: absolute; left: -6px;
+            width: 13px; height: 2px;
+            background: var(--gold); opacity: 0.2;
+            border-radius: 1px;
+        }
+        .hero-accent::before { top: 0; }
+        .hero-accent::after { bottom: 0; }
+
+        /* Badge */
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            width: fit-content;
+            margin-bottom: 2rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            animation: fadeUp 0.7s var(--ease) both;
+        }
+
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--gold-glow-strong);
+            animation: pulse-dot 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-weight: 700;
+            font-size: clamp(3rem, 7.5vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.7s var(--ease) 0.08s both;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--bronze) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 540px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.7s var(--ease) 0.16s both;
+        }
+
+        .hero-actions {
+            display: flex; gap: 0.8rem;
+            align-items: center; flex-wrap: wrap;
+            animation: fadeUp 0.7s var(--ease) 0.24s both;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           BUTTONS — GRADIENT BORDER STYLE
+        ══════════════════════════════════════════════════════════════ */
+        .btn-gold {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem; font-weight: 500;
+            padding: 0.8rem 1.6rem;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--gold-glow-strong), 0 0 60px var(--gold-glow);
+        }
+
+        .btn-gold svg {
+            width: 15px; height: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-gold:hover svg { transform: translateX(3px); }
+
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.88rem; font-weight: 400;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            background: var(--bg-glass);
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           SECTION STYLING
+        ══════════════════════════════════════════════════════════════ */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+
+        .section-label::before {
+            content: ''; width: 20px; height: 1px;
+            background: var(--gold); opacity: 0.5;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 560px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        }
+
+        .divider hr {
+            border: none; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border) 25%, var(--border) 75%, transparent);
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           CARDS — GLASSMORPHISM + GRADIENT BORDER
+        ══════════════════════════════════════════════════════════════ */
+        .glass-card {
+            position: relative;
+            padding: 2rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.45s var(--ease);
+            overflow: hidden;
+        }
+
+        /* Gradient top border on hover */
+        .glass-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--bronze), var(--gold));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Radial glow on hover */
+        .glass-card::after {
+            content: '';
+            position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 0%, var(--gold-glow) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .glass-card:hover::before { opacity: 1; }
+        .glass-card:hover::after { opacity: 1; }
+
+        .glass-card > * { position: relative; z-index: 1; }
+
+        /* ══════════════════════════════════════════════════════════════
+           SERVICES GRID
+        ══════════════════════════════════════════════════════════════ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .service-icon {
+            width: 44px; height: 44px;
+            background: var(--indigo);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover .service-icon {
+            border-color: var(--border-active);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .glass-card h3 {
+            font-size: 1.05rem; font-weight: 600;
+            margin-bottom: 0.5rem; letter-spacing: -0.01em;
+        }
+
+        .glass-card .card-text {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .service-tag {
+            display: inline-block; margin-top: 1rem;
+            padding: 0.25rem 0.7rem;
+            background: var(--gold-glow);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            border-radius: 100px;
+            font-size: 0.68rem; font-weight: 500;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           PRICING PHILOSOPHY
+        ══════════════════════════════════════════════════════════════ */
+        .pricing-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--gold);
+            backdrop-filter: blur(12px);
+        }
+
+        .pricing-box p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .pricing-box p strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .pricing-box .pricing-quote {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--gold-pale);
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--gold-glow-md);
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           PROCESS
+        ══════════════════════════════════════════════════════════════ */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute; top: 32px; left: 12%; right: 12%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+
+        .step { position: relative; z-index: 1; }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 0.72rem; font-weight: 500;
+            color: var(--gold);
+            opacity: 0.5;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .step h3 {
+            font-size: 1.05rem; font-weight: 600;
+            margin-bottom: 0.5rem; letter-spacing: -0.01em;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.7; font-weight: 300;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           ABOUT
+        ══════════════════════════════════════════════════════════════ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 0.92rem; line-height: 1.85;
+            font-weight: 300; margin-bottom: 1.25rem;
+        }
+
+        .about-text p strong {
+            color: var(--text-primary); font-weight: 500;
+        }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .cred {
+            padding: 1.15rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .cred:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .cred-val {
+            font-family: var(--serif);
+            font-size: 1.7rem; font-weight: 600;
+            color: var(--gold); line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .cred-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ══════════════════════════════════════════════════════════════
+           AI VALIDATOR
+        ══════════════════════════════════════════════════════════════ */
+        .validator-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 7rem 2rem;
+            max-width: none; margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .validator-section::before {
+            content: '';
+            position: absolute; top: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, var(--gold-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .validator-inner {
+            max-width: 720px; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+
+        /* Progress */
+        .v-progress {
+            display: flex; gap: 3px; margin-bottom: 2rem;
+        }
+
+        .v-bar {
+            flex: 1; height: 3px;
+            background: var(--border);
+            border-radius: 3px;
+            transition: all 0.35s ease;
+            overflow: hidden;
+        }
+
+        .v-bar.done { background: var(--gold); }
+        .v-bar.active {
+            background: linear-gradient(90deg, var(--gold), var(--border));
+        }
+
+        /* Steps */
+        .v-step {
+            display: none;
+            animation: fadeUp 0.45s var(--ease) both;
+        }
+        .v-step.active { display: block; }
+
+        .v-question {
+            font-family: var(--serif);
+            font-size: 1.4rem; font-weight: 500;
+            margin-bottom: 0.4rem; line-height: 1.3;
+        }
+
+        .v-hint {
+            color: var(--text-muted);
+            font-size: 0.82rem; margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .v-options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+        .v-opt {
+            padding: 0.85rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex; align-items: flex-start; gap: 0.6rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .v-opt:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .v-opt.selected {
+            border-color: var(--gold);
+            background: var(--gold-glow-md);
+            color: var(--text-primary);
+        }
+
+        .v-dot {
+            width: 16px; height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .v-opt.selected .v-dot {
+            border-color: var(--gold);
+            background: var(--gold);
+        }
+
+        .v-opt.selected .v-dot::after {
+            content: '';
+            width: 5px; height: 5px;
+            background: var(--bg-deep);
+            border-radius: 50%;
+        }
+
+        .v-nav {
+            display: flex; justify-content: space-between;
+            align-items: center; margin-top: 1.5rem;
+        }
+
+        .v-back {
+            font-size: 0.85rem; color: var(--text-muted);
+            padding: 0.6rem 1rem;
+            transition: color 0.2s;
+        }
+        .v-back:hover { color: var(--text-secondary); }
+
+        .v-next {
+            font-size: 0.85rem; font-weight: 500;
+            padding: 0.6rem 1.3rem;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+        .v-next:hover {
+            background: var(--gold-light);
+            transform: translateY(-1px);
+        }
+        .v-next:disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Input fields */
+        .v-inputs { display: flex; flex-direction: column; gap: 0.6rem; }
+
+        .v-input {
+            width: 100%; padding: 0.8rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .v-input:focus { border-color: var(--gold); }
+        .v-input::placeholder { color: var(--text-muted); }
+
+        /* Results */
+        .v-result {
+            display: none;
+            text-align: center;
+            animation: fadeUp 0.5s var(--ease) both;
+        }
+        .v-result.active { display: block; }
+
+        .v-score {
+            font-family: var(--serif);
+            font-size: 4.5rem; font-weight: 700;
+            line-height: 1; margin-bottom: 0.4rem;
+        }
+
+        .v-score.low { color: #e74c3c; }
+        .v-score.mid { color: var(--bronze); }
+        .v-score.high { color: var(--gold); }
+
+        .v-score-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .v-analysis {
+            text-align: left;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .v-analysis p {
+            color: var(--text-secondary);
+            font-size: 0.9rem; line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .v-loading {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 1rem;
+            padding: 3rem 0;
+        }
+
+        .spinner {
+            width: 36px; height: 36px;
+            border: 3px solid var(--border);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ══════════════════════════════════════════════════════════════
+           BLOG
+        ══════════════════════════════════════════════════════════════ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .blog-cat {
+            font-size: 0.65rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.65rem;
+        }
+
+        .blog-card h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem; font-weight: 500;
+            margin-bottom: 0.5rem; line-height: 1.3;
+        }
+
+        .blog-card .card-text {
+            color: var(--text-muted);
+            font-size: 0.82rem; line-height: 1.6;
+        }
+
+        .blog-coming {
+            display: flex; align-items: center;
+            justify-content: center;
+            min-height: 170px;
+            border-style: dashed !important;
+        }
+
+        .blog-coming p { text-align: center; color: var(--text-muted); font-size: 0.88rem; }
+        .blog-coming a { color: var(--gold); text-decoration: underline; }
+
+        /* ══════════════════════════════════════════════════════════════
+           CTA / BOOKING
+        ══════════════════════════════════════════════════════════════ */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute; top: -50px; left: 50%;
+            transform: translateX(-50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--gold-glow-md) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .cta-section .section-label { justify-content: center; }
+        .cta-section .section-title { max-width: 580px; margin: 0 auto 1rem; }
+        .cta-section .section-desc { max-width: 460px; margin: 0 auto 2.5rem; text-align: center; }
+
+        .cta-meta {
+            display: flex; justify-content: center;
+            gap: 1.8rem; margin-top: 1.5rem; flex-wrap: wrap;
+        }
+
+        .cta-meta span {
+            display: flex; align-items: center; gap: 0.35rem;
+            color: var(--text-muted); font-size: 0.78rem;
+        }
+
+        .cta-meta svg { width: 13px; height: 13px; color: var(--gold-dim); }
+
+        /* ══════════════════════════════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════════════════════════════ */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            max-width: 1200px; margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; flex-wrap: wrap;
+            gap: 2rem; margin-bottom: 2rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.82rem; font-weight: 300;
+            margin-top: 0.6rem; max-width: 280px; line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 0.68rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a {
+            display: block; font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: var(--text-primary); }
+
+        .footer-bottom {
+            display: flex; justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap; gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted); font-size: 0.72rem;
+        }
+
+        .footer-social a {
+            width: 30px; height: 30px;
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        .footer-social a svg { width: 13px; height: 13px; }
+
+        /* ══════════════════════════════════════════════════════════════
+           COOKIE
+        ══════════════════════════════════════════════════════════════ */
+        .cookie-bar {
+            position: fixed; bottom: 1.2rem; left: 50%;
+            transform: translateX(-50%) translateY(120px);
+            z-index: 9999;
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.85rem 1.25rem;
+            display: flex; align-items: center; gap: 0.8rem;
+            max-width: 480px; width: calc(100% - 2rem);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            transition: transform 0.5s var(--ease);
+        }
+
+        .cookie-bar.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .cookie-bar p {
+            font-size: 0.75rem; color: var(--text-secondary);
+            line-height: 1.4; flex: 1;
+        }
+
+        .cookie-bar a { color: var(--gold); text-decoration: underline; }
+
+        .cookie-ok {
+            padding: 0.4rem 0.9rem;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border-radius: 6px;
+            font-size: 0.72rem; font-weight: 500;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .cookie-ok:hover { background: var(--gold-light); }
+
+        /* ══════════════════════════════════════════════════════════════
+           ANIMATIONS
+        ══════════════════════════════════════════════════════════════ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: all 0.65s var(--ease);
+        }
+        .reveal.vis { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: 0.08s; }
+        .d2 { transition-delay: 0.16s; }
+        .d3 { transition-delay: 0.24s; }
+
+        /* ══════════════════════════════════════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-accent { display: none; }
+            .process-grid::before { display: none; }
+            .bg-orb { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.8rem 1.2rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .hero { padding: 6.5rem 1.2rem 3.5rem; }
+            section { padding: 5rem 1.2rem; }
+            .validator-section { padding: 5rem 1.2rem; }
+            .cta-section { padding: 5rem 1.2rem; }
+            .hero-actions { flex-direction: column; width: 100%; }
+            .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
+            .cred-grid { grid-template-columns: 1fr 1fr; }
+            .footer-top { flex-direction: column; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .cta-meta { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 400px) {
+            .cred-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-ambient"></div>
+<div class="bg-lines"></div>
+<div class="bg-orb" id="bgOrb"></div>
+
+<div class="content-wrap">
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="nav">
+        <a href="#" class="nav-logo">
+            <svg viewBox="0 0 40 36" fill="none">
+                <path d="M2 2H38L34 10H6L2 2Z" fill="url(#lg1)" opacity=".9"/>
+                <path d="M6 12H34L30 20H10L6 12Z" fill="url(#lg2)" opacity=".85"/>
+                <path d="M10 22H30L26 30H14L10 22Z" fill="url(#lg3)" opacity=".8"/>
+                <path d="M14 32H26L20 36L14 32Z" fill="url(#lg4)" opacity=".75"/>
+                <defs>
+                    <linearGradient id="lg1" x1="2" y1="2" x2="38" y2="2"><stop stop-color="#2a7fd4"/><stop offset="1" stop-color="#5eb8f7"/></linearGradient>
+                    <linearGradient id="lg2" x1="6" y1="12" x2="34" y2="12"><stop stop-color="#3b9be0"/><stop offset="1" stop-color="#6ec5fa"/></linearGradient>
+                    <linearGradient id="lg3" x1="10" y1="22" x2="30" y2="22"><stop stop-color="#4daceb"/><stop offset="1" stop-color="#7dd0ff"/></linearGradient>
+                    <linearGradient id="lg4" x1="14" y1="32" x2="26" y2="32"><stop stop-color="#5eb8f7"/><stop offset="1" stop-color="#8dd8ff"/></linearGradient>
+                </defs>
+            </svg>
+            <span class="nav-logo-text">Sourcing Sense</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#validator">AI Check-up</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#booking" class="nav-cta-btn">Book a Call</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+    </nav>
+
+    <div class="mobile-overlay" id="mob">
+        <button class="mobile-close" onclick="toggleMob()">✕</button>
+        <a href="#services" onclick="toggleMob()">Services</a>
+        <a href="#process" onclick="toggleMob()">Process</a>
+        <a href="#about" onclick="toggleMob()">About</a>
+        <a href="#validator" onclick="toggleMob()">AI Check-up</a>
+        <a href="#insights" onclick="toggleMob()">Insights</a>
+        <a href="#booking" onclick="toggleMob()" style="color:var(--gold)">Book a Call</a>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-accent"></div>
+        <div class="hero-badge"><span class="dot"></span> AI-Powered Procurement Consulting</div>
+        <h1>Procurement.<br>We Make It <span class="accent">DONE!</span></h1>
+        <p class="hero-sub">
+            AI consulting that delivers ROI, not corporate BS.<br>
+            8 years of procurement expertise meets Lean Six Sigma precision.
+        </p>
+        <div class="hero-actions">
+            <a href="#booking" class="btn-gold">
+                Book Free 15-Min Call
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <a href="#process" class="btn-ghost">See How It Works</a>
+        </div>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section id="services">
+        <div class="reveal">
+            <span class="section-label">What I Do</span>
+            <h2 class="section-title">Procurement that makes sense</h2>
+            <p class="section-desc">
+                No fluffy presentations. No buzzword bingo. If AI can show ROI in your procurement within 90 days, I'll build it with you. If it can't — I'll tell you straight.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="glass-card reveal d1">
+                <div class="service-icon">🏛️</div>
+                <h3>AI Strategy Sessions</h3>
+                <p class="card-text">ROI-focused AI roadmap for your procurement. We pinpoint where automation makes real impact and build a clear action plan with measurable outcomes.</p>
+                <span class="service-tag">Strategic Consulting</span>
+            </div>
+            <div class="glass-card reveal d2">
+                <div class="service-icon">⛩️</div>
+                <h3>AI Implementation Projects</h3>
+                <p class="card-text">From assessment to execution. Quick wins first, then systematic improvement. Lean Six Sigma methodology applied to AI integration in your procurement stack.</p>
+                <span class="service-tag">End-to-End Delivery</span>
+            </div>
+            <div class="glass-card reveal d3">
+                <div class="service-icon">🤝</div>
+                <h3>First 2 Projects — FREE</h3>
+                <p class="card-text">Complete AI implementation at zero cost, in exchange for a detailed testimonial and LinkedIn case study. Limited availability — serious inquiries only.</p>
+                <span class="service-tag">Launch Offer</span>
+            </div>
+        </div>
+
+        <!-- Pricing philosophy -->
+        <div class="pricing-box reveal">
+            <p>
+                <strong>How pricing works:</strong> Every engagement is priced based on the value and savings it delivers to your business. During our initial call, I'll assess whether I can genuinely improve your procurement. If I can't offer a meaningful improvement — I won't even try to sell you anything.
+            </p>
+            <p class="pricing-quote">
+                "If it doesn't make sense, I walk away. If it does, I'll defend it and make it happen."
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- ═══ PROCESS ═══ -->
+    <section id="process">
+        <div class="reveal">
+            <span class="section-label">The Process</span>
+            <h2 class="section-title">From conversation to results</h2>
+            <p class="section-desc">
+                Roman engineering discipline meets Japanese Lean efficiency. Strong foundations, zero waste, measurable results.
+            </p>
+        </div>
+        <div class="process-grid">
+            <div class="step reveal d1">
+                <div class="step-num">Step 01</div>
+                <h3>Free Discovery Call</h3>
+                <p>15 minutes. We talk about your biggest procurement challenge. No sales pitch — just an honest assessment of whether AI can help.</p>
+            </div>
+            <div class="step reveal d2">
+                <div class="step-num">Step 02</div>
+                <h3>Structured Assessment</h3>
+                <p>You receive a detailed questionnaire covering your sourcing, ordering, supplier management, and approval workflows. Built on Lean methodology.</p>
+            </div>
+            <div class="step reveal d3">
+                <div class="step-num">Step 03</div>
+                <h3>Strategy or Implementation</h3>
+                <p>Get a focused strategy session with a concrete action plan, or go all-in with a full implementation project. Clear deliverables, measurable outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about">
+        <div class="reveal">
+            <span class="section-label">Who Is David?</span>
+            <h2 class="section-title">The person behind the process</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>I'm <strong>David Račak</strong>, and I've spent 8 years in procurement learning what works and what's just expensive noise.</p>
+                <p>Green Belt Lean Six Sigma certified. 20+ years of leadership experience from Scouting — yes, really. It taught me more about leading teams than any MBA could.</p>
+                <p>I don't do fluffy presentations or buzzword bingo. If AI can't show ROI in your procurement within 90 days, I'll tell you to wait. If it can, I'll build it with you.</p>
+                <p><strong>My approach:</strong> Ancient Roman engineering discipline meets Japanese Lean efficiency. Strong foundations, zero waste, measurable results.</p>
+            </div>
+            <div class="cred-grid reveal">
+                <div class="cred">
+                    <div class="cred-val">8+</div>
+                    <div class="cred-label">Years Procurement<br>& Supply Chain</div>
+                </div>
+                <div class="cred">
+                    <div class="cred-val">6σ</div>
+                    <div class="cred-label">Green Belt Lean<br>Six Sigma</div>
+                </div>
+                <div class="cred">
+                    <div class="cred-val">20+</div>
+                    <div class="cred-label">Years Leadership<br>Experience</div>
+                </div>
+                <div class="cred">
+                    <div class="cred-val">AI</div>
+                    <div class="cred-label">Automation &<br>AI Specialist</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ AI VALIDATOR ═══ -->
+    <section class="validator-section" id="validator">
+        <div class="validator-inner">
+            <div class="reveal">
+                <span class="section-label">Procurement AI Readiness Check</span>
+                <h2 class="section-title">Is your procurement ready for AI?</h2>
+                <p class="section-desc">
+                    2-minute assessment. Get a personalized score and actionable recommendations — AI-analyzed based on your specific answers.
+                </p>
+            </div>
+            <div class="reveal" id="validatorForm">
+                <div class="v-progress" id="vProgress"></div>
+                <div id="vSteps"></div>
+                <div class="v-result" id="vResult">
+                    <div class="v-loading" id="vLoading">
+                        <div class="spinner"></div>
+                        <p style="color:var(--text-muted);font-size:0.85rem;">Analyzing your procurement maturity…</p>
+                    </div>
+                    <div id="vContent" style="display:none;">
+                        <div class="v-score" id="vScore"></div>
+                        <div class="v-score-label" id="vLabel"></div>
+                        <div class="v-analysis" id="vAnalysis"></div>
+                        <a href="#booking" class="btn-gold" style="margin-top:0.5rem;">
+                            Discuss Results With David
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- ═══ INSIGHTS ═══ -->
+    <section id="insights">
+        <div class="reveal">
+            <span class="section-label">Insights & Blueprints</span>
+            <h2 class="section-title">Thoughts on procurement & AI</h2>
+            <p class="section-desc">Deep dives from LinkedIn, expanded. Case studies, AI tools, Lean tips, and honest takes on what actually works.</p>
+        </div>
+        <div class="blog-grid">
+            <div class="glass-card blog-card reveal d1">
+                <div class="blog-cat">AI Tools</div>
+                <h3>Why 90% of Procurement AI Projects Fail</h3>
+                <p class="card-text">And the 3 things that separate the 10% that deliver actual ROI. Hint: it's not about the technology.</p>
+            </div>
+            <div class="glass-card blog-card reveal d2">
+                <div class="blog-cat">Case Study</div>
+                <h3>From Excel Hell to Automated Sourcing</h3>
+                <p class="card-text">How a mid-size manufacturer cut their RFQ cycle time by 60% with a simple AI workflow.</p>
+            </div>
+            <div class="glass-card blog-coming reveal d3">
+                <p>More insights coming soon.<br>Follow me on <a href="#">LinkedIn</a> for 2× weekly posts.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"><hr></div>
+
+    <!-- ═══ BOOKING ═══ -->
+    <section class="cta-section" id="booking">
+        <div style="position:relative;z-index:1;">
+            <span class="section-label">Let's Talk</span>
+            <h2 class="section-title">Ready to make procurement <em style="font-family:var(--serif);color:var(--gold);">DONE</em>?</h2>
+            <p class="section-desc">15-minute discovery call. No sales pitch — just an honest look at whether AI can move the needle for your procurement.</p>
+            <a href="https://calendly.com/soursingsense" target="_blank" class="btn-gold" style="font-size:1rem;padding:0.9rem 2rem;">
+                Book Your Free Call
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <div class="cta-meta">
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                    15 minutes
+                </span>
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    No obligation
+                </span>
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    Video call
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <svg viewBox="0 0 40 36" fill="none" style="height:22px">
+                        <path d="M2 2H38L34 10H6L2 2Z" fill="#3b9be0" opacity=".8"/>
+                        <path d="M6 12H34L30 20H10L6 12Z" fill="#4daceb" opacity=".7"/>
+                        <path d="M10 22H30L26 30H14L10 22Z" fill="#5eb8f7" opacity=".6"/>
+                        <path d="M14 32H26L20 36L14 32Z" fill="#6ec5fa" opacity=".5"/>
+                    </svg>
+                    <span class="nav-logo-text" style="font-size:0.9rem;">Sourcing Sense</span>
+                </a>
+                <p>Procurement. We Make It DONE!<br>AI consulting by David Račak.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#about">About</a>
+                <a href="#validator">AI Check-up</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://calendly.com/soursingsense" target="_blank">Book a Call</a>
+                <a href="mailto:hello@sourcing-sense.com">hello@sourcing-sense.com</a>
+                <a href="#" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račak · All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- COOKIE -->
+<div class="cookie-bar" id="cookieBar">
+    <p>We use cookies to improve your experience. <a href="#">Privacy Policy</a></p>
+    <button class="cookie-ok" onclick="okCookie()">Accept</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════════════ -->
+<script>
+// ─── NAV SCROLL ───
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+// ─── MOBILE NAV ───
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// ─── MOUSE ORB ───
+const orb = document.getElementById('bgOrb');
+if (window.innerWidth > 900) {
+    document.addEventListener('mousemove', e => {
+        orb.style.left = e.clientX + 'px';
+        orb.style.top = e.clientY + 'px';
+    });
+}
+
+// ─── REVEAL ON SCROLL ───
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─── COOKIE ───
+function okCookie() {
+    document.getElementById('cookieBar').classList.remove('show');
+    try { localStorage.setItem('ck', '1'); } catch(e) {}
+}
+try { if (!localStorage.getItem('ck')) setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1800); } catch(e) {}
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        const h = this.getAttribute('href');
+        if (h === '#') return;
+        e.preventDefault();
+        const t = document.querySelector(h);
+        if (t) window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - nav.offsetHeight - 16, behavior: 'smooth' });
+    });
+});
+
+// ═══════════════════════════════════════════════════════════
+// AI VALIDATOR — PROCUREMENT-SPECIFIC QUESTIONS
+// ═══════════════════════════════════════════════════════════
+const Qs = [
+    {
+        q: "How are quotations managed in your company?",
+        hint: "Think about your RFQ process — from request to decision.",
+        opts: [
+            "Informally — via email, no central storage or history",
+            "We collect quotes but storage is inconsistent (shared drives, emails)",
+            "Structured process — quotes are logged, compared, and stored centrally",
+            "Fully auditable — versioned, approval history tracked, analytics on win rates"
+        ]
+    },
+    {
+        q: "How do you send purchase orders to suppliers?",
+        hint: "What's the typical flow from approved request to placed order?",
+        opts: [
+            "Manually — email or phone, sometimes paper",
+            "PDF generated from ERP, sent manually via email",
+            "Semi-automated — ERP generates and sends POs with some manual steps",
+            "Fully integrated — API/EDI connections or internal catalog with auto-dispatch"
+        ]
+    },
+    {
+        q: "How do you manage your supplier base?",
+        hint: "Think about how you onboard, evaluate, and maintain supplier data.",
+        opts: [
+            "No formal process — we use whoever we've always used",
+            "Basic list/spreadsheet, updated occasionally",
+            "Managed database with periodic reviews and evaluations",
+            "Automated master data — enriched, scored, and regularly audited by a dedicated team or system"
+        ]
+    },
+    {
+        q: "How visible is your total procurement spend?",
+        hint: "Could you answer 'who buys what, from whom, for how much' within an hour?",
+        opts: [
+            "Very limited — it would take days or weeks to compile",
+            "We have data but it's fragmented across systems and departments",
+            "Good visibility — regular reports with category breakdowns",
+            "Real-time dashboards with drill-down by category, supplier, and department"
+        ]
+    },
+    {
+        q: "How does your approval workflow function?",
+        hint: "From purchase request to approved PO — how many steps and how smooth?",
+        opts: [
+            "Informal — approvals happen via email or verbal confirmation",
+            "Defined process but lots of manual follow-up and bottlenecks",
+            "Structured workflow in ERP/system with clear escalation rules",
+            "Fully automated — role-based, with SLA tracking and exception handling"
+        ]
+    },
+    {
+        q: "How is contract management handled?",
+        hint: "Think about how you store, track, and renew supplier agreements.",
+        opts: [
+            "Contracts live in filing cabinets or random folders — we sometimes miss renewals",
+            "Stored digitally but no alerts or systematic tracking",
+            "Centralized repository with expiry alerts and key term tracking",
+            "Active management — compliance monitoring, auto-renewal flags, performance-linked terms"
+        ]
+    },
+    {
+        q: "What role does data play in your sourcing decisions?",
+        hint: "When choosing a supplier or negotiating — what informs the decision?",
+        opts: [
+            "Mostly gut feeling and existing relationships",
+            "Basic price comparison, maybe some market data",
+            "Structured scoring with defined criteria and historical data",
+            "Data-driven — market intelligence, TCO analysis, predictive analytics"
+        ]
+    },
+    {
+        q: "Has your team experimented with AI or automation tools?",
+        hint: "Including personal use of ChatGPT, copilots, RPA, or similar.",
+        opts: [
+            "Not at all — AI isn't on our radar yet",
+            "Some individuals use tools like ChatGPT for personal productivity",
+            "We've piloted automation or AI for specific procurement tasks",
+            "AI/automation is actively integrated into our procurement workflows"
+        ]
+    },
+    {
+        q: "How does leadership view the procurement function?",
+        hint: "Honest answer — what's the perception in the C-suite?",
+        opts: [
+            "Purely administrative — 'the ordering department'",
+            "Cost center — focused on getting the lowest price",
+            "Strategic partner — involved in business planning and decisions",
+            "Innovation driver — seen as a competitive advantage and transformation leader"
+        ]
+    },
+    {
+        q: "What's your organization's appetite for change?",
+        hint: "How ready are people and management to adopt new ways of working?",
+        opts: [
+            "Low — 'if it ain't broke, don't fix it' mentality",
+            "Cautious — open to change but need strong ROI proof first",
+            "Moderate — management supports and funds innovation initiatives",
+            "High — we actively seek improvements and have a culture of continuous optimization"
+        ]
+    }
+];
+
+let cur = 0, ans = [];
+
+function initV() {
+    const stepsEl = document.getElementById('vSteps');
+    const progEl = document.getElementById('vProgress');
+
+    // Progress bars (questions + email step)
+    for (let i = 0; i <= Qs.length; i++) {
+        const b = document.createElement('div');
+        b.className = 'v-bar';
+        progEl.appendChild(b);
+    }
+
+    // Question steps
+    Qs.forEach((q, i) => {
+        const s = document.createElement('div');
+        s.className = 'v-step' + (i === 0 ? ' active' : '');
+        s.id = 's' + i;
+        s.innerHTML = `
+            <h3 class="v-question">${q.q}</h3>
+            <p class="v-hint">${q.hint}</p>
+            <div class="v-options">${q.opts.map((o, oi) => `
+                <div class="v-opt" onclick="pick(${i},${oi})">
+                    <div class="v-dot"></div><span>${o}</span>
+                </div>`).join('')}
+            </div>
+            <div class="v-nav">
+                <button class="v-back" onclick="prev()" ${i === 0 ? 'style="visibility:hidden"' : ''}>← Back</button>
+                <button class="v-next" id="n${i}" onclick="next()" disabled>Next →</button>
+            </div>`;
+        stepsEl.appendChild(s);
+    });
+
+    // Email step
+    const em = document.createElement('div');
+    em.className = 'v-step';
+    em.id = 's' + Qs.length;
+    em.innerHTML = `
+        <h3 class="v-question">Get your personalized AI readiness report</h3>
+        <p class="v-hint">We'll analyze your answers and send you a detailed report with actionable recommendations.</p>
+        <div class="v-inputs">
+            <input class="v-input" id="uName" placeholder="Your name" required>
+            <input class="v-input" id="uEmail" type="email" placeholder="Work email" required>
+            <input class="v-input" id="uCompany" placeholder="Company name (optional)">
+        </div>
+        <div class="v-nav">
+            <button class="v-back" onclick="prev()">← Back</button>
+            <button class="v-next" onclick="submitV()">Get My Score →</button>
+        </div>`;
+    stepsEl.appendChild(em);
+
+    updProg();
+}
+
+function pick(qi, oi) {
+    ans[qi] = oi;
+    document.getElementById('s' + qi).querySelectorAll('.v-opt').forEach((o, i) => o.classList.toggle('selected', i === oi));
+    document.getElementById('n' + qi).disabled = false;
+}
+
+function next() {
+    document.getElementById('s' + cur).classList.remove('active');
+    cur++;
+    document.getElementById('s' + cur).classList.add('active');
+    updProg();
+}
+
+function prev() {
+    document.getElementById('s' + cur).classList.remove('active');
+    cur--;
+    document.getElementById('s' + cur).classList.add('active');
+    updProg();
+}
+
+function updProg() {
+    document.querySelectorAll('.v-bar').forEach((b, i) => {
+        b.className = 'v-bar' + (i < cur ? ' done' : i === cur ? ' active' : '');
+    });
+}
+
+async function submitV() {
+    const name = document.getElementById('uName').value.trim();
+    const email = document.getElementById('uEmail').value.trim();
+    const company = document.getElementById('uCompany').value.trim();
+
+    if (!name || !email) return alert('Please fill in your name and email.');
+
+    // Hide form, show loading
+    document.getElementById('s' + cur).classList.remove('active');
+    document.getElementById('vResult').classList.add('active');
+    document.getElementById('vProgress').style.display = 'none';
+
+    // Score: 0-100
+    const raw = ans.reduce((s, a) => s + a, 0);
+    const max = Qs.length * 3;
+    const score = Math.round((raw / max) * 100);
+
+    const answersText = Qs.map((q, i) => `Q: ${q.q}\nA: ${q.opts[ans[i]]}`).join('\n\n');
+
+    try {
+        const res = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                model: "claude-sonnet-4-20250514",
+                max_tokens: 1000,
+                messages: [{
+                    role: "user",
+                    content: `You are David Račak, an experienced AI procurement consultant with 8 years in procurement and Lean Six Sigma Green Belt certification. Analyze this procurement maturity assessment and provide a brief, brutally honest, actionable report. No corporate fluff.
+
+Name: ${name}
+Company: ${company || 'Not specified'}
+Score: ${score}/100
+
+Assessment:
+${answersText}
+
+Provide in this exact format:
+1. Two-sentence overall assessment (be specific to THEIR answers, not generic)
+2. "Top 3 Quick Wins:" — three specific, actionable items they could start this month (one sentence each, reference their actual weak areas)
+3. "Biggest Risk:" — the #1 thing that will hurt them if they don't address it
+4. Final one-liner recommendation
+
+Keep total under 220 words. Address ${name} directly. Be direct and practical — like a consultant who respects their time.`
+                }]
+            })
+        });
+
+        const data = await res.json();
+        const analysis = data.content.map(c => c.text || '').join('');
+        showResult(score, name, analysis);
+    } catch (err) {
+        // Fallback
+        const fb = score < 35
+            ? `${name}, your procurement is running on manual processes and gut decisions. That's not unusual — but it means there's massive untapped potential. AI could automate your quoting process, bring structure to supplier management, and give you spend visibility you've never had. The ROI opportunity here is significant.`
+            : score < 65
+            ? `${name}, you've built some foundation but there are clear gaps — especially in automation and data-driven decision making. The good news: you're past the hardest part (awareness). AI can now help you leap from "good enough" to genuinely strategic procurement.`
+            : `${name}, your procurement is more mature than most. AI can help you unlock the next level — predictive analytics, autonomous sourcing workflows, and real-time market intelligence. Your biggest risk is complacency.`;
+        showResult(score, name, fb + '\n\nBook a call with David to discuss your specific results and identify your best next move.');
+    }
+
+    // Send to Formspree (replace YOUR_FORMSPREE_ID)
+    try {
+        fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name, email, company, score,
+                answers: Qs.map((q, i) => ({ question: q.q, answer: q.opts[ans[i]] })),
+                _subject: `🏛️ AI Validator: ${name} — ${score}/100`
+            })
+        });
+    } catch (e) { /* Formspree not set up yet */ }
+}
+
+function showResult(score, name, analysis) {
+    document.getElementById('vLoading').style.display = 'none';
+    document.getElementById('vContent').style.display = 'block';
+
+    const el = document.getElementById('vScore');
+    el.textContent = score + '/100';
+    el.className = 'v-score ' + (score < 35 ? 'low' : score < 65 ? 'mid' : 'high');
+
+    document.getElementById('vLabel').textContent =
+        score < 35 ? 'Early Stage — High AI Potential' :
+        score < 65 ? 'Developing — Strategic AI Opportunities' :
+        'Advanced — Ready for AI Acceleration';
+
+    document.getElementById('vAnalysis').innerHTML = `<p>${analysis.replace(/\n/g, '<br>')}</p>`;
+}
+
+initV();
+</script>
+</body>
+</html>
