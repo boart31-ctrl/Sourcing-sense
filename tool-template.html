@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ✏️ CHANGE per tool -->
+    <title>TOOL NAME — Sourcing Sense</title>
+    <meta name="description" content="TOOL DESCRIPTION for SEO">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ TOOL HEADER ═══ */
+        .tool-header {
+            padding: 7.5rem 2rem 2rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%);
+        }
+        .tool-header-inner {
+            max-width: 800px; margin: 0 auto;
+        }
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+
+        .tool-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400; line-height: 1.2; margin-bottom: 0.75rem;
+        }
+        .tool-header-desc {
+            font-size: 1.02rem; color: var(--light-text-secondary);
+            line-height: 1.7; max-width: 560px; margin-bottom: 1rem;
+        }
+
+        /* Usage counter */
+        .usage-bar {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); margin-top: 0.5rem;
+            font-size: 0.82rem;
+        }
+        .usage-dots {
+            display: flex; gap: 0.3rem;
+        }
+        .usage-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            border: 2px solid var(--light-border);
+            transition: all 0.3s;
+        }
+        .usage-dot.used {
+            background: var(--accent); border-color: var(--accent);
+        }
+        .usage-dot.current {
+            border-color: var(--accent);
+            animation: dot-pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes dot-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.3); }
+            50% { box-shadow: 0 0 0 4px rgba(37,99,235,0); }
+        }
+        .usage-text { color: var(--light-text-muted); font-weight: 500; }
+        .usage-text strong { color: var(--light-text); }
+
+        /* ═══ TOOL WORKSPACE ═══ */
+        .tool-workspace {
+            max-width: 800px; margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tool-card {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); padding: 2rem;
+            position: relative;
+        }
+
+        /* Form elements */
+        .tool-label {
+            display: block; font-size: 0.82rem; font-weight: 600;
+            color: var(--light-text); margin-bottom: 0.4rem;
+        }
+        .tool-sublabel {
+            font-size: 0.75rem; color: var(--light-text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-input, .tool-textarea, .tool-select {
+            width: 100%; padding: 0.8rem 1rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body);
+            font-size: 0.92rem; color: var(--light-text); outline: none;
+            transition: all 0.2s;
+        }
+        .tool-input:focus, .tool-textarea:focus, .tool-select:focus {
+            border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .tool-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+
+        .tool-group { margin-bottom: 1.25rem; }
+
+        .tool-run-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.95rem; font-weight: 600; padding: 0.9rem 2rem;
+            background: var(--accent); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s; margin-top: 0.5rem;
+        }
+        .tool-run-btn:hover:not(:disabled) {
+            background: var(--accent-light); transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+        .tool-run-btn:disabled {
+            opacity: 0.5; cursor: not-allowed; transform: none;
+        }
+        .tool-run-btn svg { width: 18px; height: 18px; }
+
+        /* Loading state */
+        .tool-loading {
+            display: none; align-items: center; gap: 0.75rem;
+            padding: 1.5rem; margin-top: 1rem;
+            background: var(--accent-subtle); border-radius: var(--radius-sm);
+            font-size: 0.9rem; color: var(--accent); font-weight: 500;
+        }
+        .tool-loading.active { display: flex; }
+
+        .spinner {
+            width: 20px; height: 20px; border: 2.5px solid rgba(37,99,235,0.2);
+            border-top-color: var(--accent); border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Result area */
+        .tool-result {
+            display: none; margin-top: 1.5rem;
+            padding: 1.5rem; background: var(--light-bg-alt);
+            border: 1px solid var(--light-border); border-radius: var(--radius-sm);
+        }
+        .tool-result.active { display: block; }
+
+        .tool-result-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1rem;
+        }
+        .tool-result-header h3 {
+            font-size: 1rem; font-weight: 600;
+        }
+        .tool-copy-btn {
+            font-size: 0.78rem; font-weight: 600; padding: 0.4rem 0.8rem;
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); color: var(--light-text-secondary);
+            transition: all 0.2s;
+        }
+        .tool-copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .tool-result-content {
+            font-size: 0.95rem; color: var(--light-text-secondary);
+            line-height: 1.8; white-space: pre-wrap;
+        }
+
+        /* ═══ LIMIT REACHED GATE ═══ */
+        .limit-gate {
+            display: none;
+            text-align: center; padding: 3rem 2rem;
+        }
+        .limit-gate.active { display: block; }
+
+        .limit-gate-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+        .limit-gate h2 {
+            font-family: var(--font-display); font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .limit-gate p {
+            font-size: 0.95rem; color: var(--light-text-secondary);
+            line-height: 1.7; margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto;
+        }
+
+        .limit-gate-actions {
+            display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+        }
+        .limit-btn-primary {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.9rem; font-weight: 600; padding: 0.8rem 1.5rem;
+            background: var(--accent); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .limit-btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .limit-btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.9rem; font-weight: 500; padding: 0.8rem 1.5rem;
+            background: white; color: var(--light-text-secondary);
+            border: 1px solid var(--light-border); border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .limit-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        .limit-timer {
+            font-size: 0.82rem; color: var(--light-text-muted);
+            margin-top: 1.5rem;
+        }
+        .limit-timer strong { color: var(--light-text); font-family: var(--font-mono); }
+
+        /* ═══ EMAIL GATE (for premium tools) ═══ */
+        .email-gate {
+            display: none;
+            text-align: center; padding: 3rem 2rem;
+        }
+        .email-gate.active { display: block; }
+
+        .email-gate h2 {
+            font-family: var(--font-display); font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .email-gate p {
+            font-size: 0.95rem; color: var(--light-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .email-gate-form {
+            display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;
+        }
+        .email-gate-input {
+            flex: 1; padding: 0.8rem 1rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body);
+            font-size: 0.9rem; outline: none;
+        }
+        .email-gate-input:focus { border-color: var(--accent); }
+        .email-gate-btn {
+            padding: 0.8rem 1.4rem; background: var(--accent); color: white;
+            font-size: 0.88rem; font-weight: 600; border-radius: var(--radius-sm);
+            transition: all 0.25s; white-space: nowrap;
+        }
+        .email-gate-btn:hover { background: var(--accent-light); }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; } .nav-center { display: none; } .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .tool-header { padding: 7rem 1.25rem 1.5rem; }
+            .tool-workspace { padding: 1.5rem 1.25rem; }
+            .tool-card { padding: 1.5rem; }
+            .email-gate-form { flex-direction: column; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ TOOL HEADER ═══ -->
+<section class="tool-header">
+    <div class="tool-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <!-- ✏️ CHANGE: tool name in breadcrumb -->
+            <span><span class="en">Email Template Generator</span><span class="cz">Generátor emailových šablon</span></span>
+        </div>
+
+        <!-- ✏️ CHANGE: tool title and description -->
+        <h1>
+            <span class="en">📧 Email Template Generator</span>
+            <span class="cz">📧 Generátor emailových šablon</span>
+        </h1>
+        <p class="tool-header-desc">
+            <span class="en">AI-powered professional procurement and business email templates. Describe your situation and get a ready-to-send email.</span>
+            <span class="cz">AI profesionální šablony pro nákupní a obchodní emaily. Popište situaci a získejte email připravený k odeslání.</span>
+        </p>
+
+        <!-- Usage counter — auto-updated by JS -->
+        <div class="usage-bar" id="usageBar">
+            <div class="usage-dots" id="usageDots">
+                <span class="usage-dot" id="dot0"></span>
+                <span class="usage-dot" id="dot1"></span>
+                <span class="usage-dot" id="dot2"></span>
+            </div>
+            <span class="usage-text" id="usageText"></span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ TOOL WORKSPACE ═══ -->
+<div class="tool-workspace">
+
+    <!-- Active tool interface -->
+    <div class="tool-card" id="toolInterface">
+
+        <!-- ✏️ CHANGE: tool-specific form fields -->
+        <div class="tool-group">
+            <label class="tool-label"><span class="en">Email type</span><span class="cz">Typ emailu</span></label>
+            <select class="tool-select" id="emailType">
+                <option value="negotiation"><span class="en">Supplier negotiation</span></option>
+                <option value="rfq">RFQ / Request for quote</option>
+                <option value="escalation"><span class="en">Escalation</span></option>
+                <option value="followup">Follow-up</option>
+                <option value="rejection"><span class="en">Polite rejection</span></option>
+                <option value="intro"><span class="en">Introduction / Cold outreach</span></option>
+                <option value="custom"><span class="en">Custom</span></option>
+            </select>
+        </div>
+
+        <div class="tool-group">
+            <label class="tool-label"><span class="en">Describe the situation</span><span class="cz">Popište situaci</span></label>
+            <p class="tool-sublabel"><span class="en">What's the context? Who are you writing to? What outcome do you want?</span><span class="cz">Jaký je kontext? Komu píšete? Jakého výsledku chcete dosáhnout?</span></p>
+            <textarea class="tool-textarea" id="toolInput" placeholder=""></textarea>
+        </div>
+
+        <div class="tool-group">
+            <label class="tool-label"><span class="en">Tone</span><span class="cz">Tón</span></label>
+            <select class="tool-select" id="emailTone">
+                <option value="professional"><span class="en">Professional & firm</span></option>
+                <option value="friendly"><span class="en">Friendly & collaborative</span></option>
+                <option value="direct"><span class="en">Direct & concise</span></option>
+                <option value="diplomatic"><span class="en">Diplomatic & careful</span></option>
+            </select>
+        </div>
+
+        <button class="tool-run-btn" id="runBtn" onclick="runTool()">
+            <span class="en">Generate email</span><span class="cz">Vygenerovat email</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </button>
+
+        <!-- Loading -->
+        <div class="tool-loading" id="loadingState">
+            <div class="spinner"></div>
+            <span class="en">Generating your email...</span><span class="cz">Generuji váš email...</span>
+        </div>
+
+        <!-- Result -->
+        <div class="tool-result" id="resultArea">
+            <div class="tool-result-header">
+                <h3><span class="en">Your email</span><span class="cz">Váš email</span></h3>
+                <button class="tool-copy-btn" onclick="copyResult()">
+                    <span class="en">📋 Copy</span><span class="cz">📋 Kopírovat</span>
+                </button>
+            </div>
+            <div class="tool-result-content" id="resultContent"></div>
+        </div>
+    </div>
+
+    <!-- ═══ LIMIT REACHED GATE ═══ -->
+    <div class="limit-gate" id="limitGate">
+        <div class="limit-gate-icon">⏳</div>
+        <h2>
+            <span class="en">Daily limit reached</span>
+            <span class="cz">Denní limit vyčerpán</span>
+        </h2>
+        <p>
+            <span class="en">You've used all 3 free generations for today. Come back tomorrow, or let's talk about unlimited access for your team.</span>
+            <span class="cz">Využili jste všechny 3 bezplatné generace pro dnešek. Vraťte se zítra, nebo se pojďme pobavit o neomezeném přístupu pro váš tým.</span>
+        </p>
+        <div class="limit-gate-actions">
+            <a href="https://calendly.com/sourcing-sense/" target="_blank" class="limit-btn-primary">
+                <span class="en">📅 Book a call — get unlimited</span>
+                <span class="cz">📅 Domluvit hovor — neomezený přístup</span>
+            </a>
+            <a href="/contact" class="limit-btn-secondary">
+                <span class="en">✉️ Send a message</span>
+                <span class="cz">✉️ Napsat zprávu</span>
+            </a>
+        </div>
+        <p class="limit-timer">
+            <span class="en">Resets in <strong id="resetTimer">--:--</strong></span>
+            <span class="cz">Obnoví se za <strong id="resetTimerCz">--:--</strong></span>
+        </p>
+    </div>
+
+    <!-- ═══ EMAIL GATE (for premium tools — uncomment if needed) ═══ -->
+    <!--
+    <div class="email-gate" id="emailGate">
+        <h2>
+            <span class="en">🔓 Enter email for continued access</span>
+            <span class="cz">🔓 Zadejte email pro pokračování</span>
+        </h2>
+        <p>
+            <span class="en">Your first use was free! Register to continue using this tool.</span>
+            <span class="cz">První použití bylo zdarma! Zaregistrujte se pro další používání.</span>
+        </p>
+        <div class="email-gate-form">
+            <input type="email" class="email-gate-input" id="gateEmail" placeholder="your@email.com">
+            <button class="email-gate-btn" onclick="submitGateEmail()">
+                <span class="en">Unlock</span><span class="cz">Odemknout</span>
+            </button>
+        </div>
+    </div>
+    -->
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račak</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — Rate Limiting + Claude API
+═══════════════════════════════════════════════════════ -->
+<script>
+// ═══════════════════════════════════════
+// ✏️ CONFIGURATION — change per tool
+// ═══════════════════════════════════════
+const TOOL_CONFIG = {
+    id: 'email-generator',       // ✏️ unique ID for localStorage
+    dailyLimit: 3,               // ✏️ max calls per day
+    isPremium: false,            // ✏️ true = email gate after 1st use
+    apiModel: 'claude-sonnet-4-20250514',
+    // ✏️ System prompt for Claude API:
+    systemPrompt: `You are a professional business email writer specializing in procurement and B2B communication. 
+Write clear, professional emails based on the user's situation. 
+Always include: Subject line, Greeting, Body, Closing, Signature placeholder [Your Name].
+Match the requested tone. Keep emails concise but complete.
+If the user writes in Czech, respond in Czech. If in English, respond in English.`
+};
+
+// ═══════════════════════════════════════
+// RATE LIMITING ENGINE
+// ═══════════════════════════════════════
+function getToday() {
+    return new Date().toISOString().split('T')[0]; // "2026-02-22"
+}
+
+function getUsage() {
+    try {
+        const raw = localStorage.getItem(`ss-tool-${TOOL_CONFIG.id}`);
+        if (!raw) return { date: getToday(), count: 0 };
+        const data = JSON.parse(raw);
+        // Reset if new day
+        if (data.date !== getToday()) return { date: getToday(), count: 0 };
+        return data;
+    } catch { return { date: getToday(), count: 0 }; }
+}
+
+function saveUsage(usage) {
+    try { localStorage.setItem(`ss-tool-${TOOL_CONFIG.id}`, JSON.stringify(usage)); } catch {}
+}
+
+function incrementUsage() {
+    const usage = getUsage();
+    usage.count++;
+    usage.date = getToday();
+    saveUsage(usage);
+    return usage;
+}
+
+function canUse() {
+    return getUsage().count < TOOL_CONFIG.dailyLimit;
+}
+
+function getRemainingUses() {
+    return Math.max(0, TOOL_CONFIG.dailyLimit - getUsage().count);
+}
+
+// ═══════════════════════════════════════
+// UI UPDATE
+// ═══════════════════════════════════════
+function updateUI() {
+    const usage = getUsage();
+    const remaining = getRemainingUses();
+    const lang = document.documentElement.getAttribute('data-lang');
+
+    // Update dots
+    for (let i = 0; i < TOOL_CONFIG.dailyLimit; i++) {
+        const dot = document.getElementById(`dot${i}`);
+        if (!dot) continue;
+        dot.className = 'usage-dot';
+        if (i < usage.count) dot.classList.add('used');
+    }
+
+    // Update text
+    const textEl = document.getElementById('usageText');
+    if (textEl) {
+        if (lang === 'cs') {
+            textEl.innerHTML = `<strong>${remaining}</strong> z ${TOOL_CONFIG.dailyLimit} použití zbývá dnes`;
+        } else {
+            textEl.innerHTML = `<strong>${remaining}</strong> of ${TOOL_CONFIG.dailyLimit} uses remaining today`;
+        }
+    }
+
+    // Show/hide interface vs limit gate
+    if (!canUse()) {
+        document.getElementById('toolInterface').style.display = 'none';
+        document.getElementById('limitGate').classList.add('active');
+        updateResetTimer();
+    } else {
+        document.getElementById('toolInterface').style.display = 'block';
+        document.getElementById('limitGate').classList.remove('active');
+    }
+}
+
+function updateResetTimer() {
+    const now = new Date();
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    const diff = tomorrow - now;
+    const hours = Math.floor(diff / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const timeStr = `${hours}h ${mins}m`;
+    const el1 = document.getElementById('resetTimer');
+    const el2 = document.getElementById('resetTimerCz');
+    if (el1) el1.textContent = timeStr;
+    if (el2) el2.textContent = timeStr;
+}
+
+// ═══════════════════════════════════════
+// ✏️ TOOL EXECUTION — customize per tool
+// ═══════════════════════════════════════
+async function runTool() {
+    // Check limit
+    if (!canUse()) { updateUI(); return; }
+
+    // Get inputs
+    const input = document.getElementById('toolInput').value.trim();
+    if (!input) {
+        document.getElementById('toolInput').style.borderColor = '#ef4444';
+        setTimeout(() => document.getElementById('toolInput').style.borderColor = '', 1500);
+        return;
+    }
+
+    const emailType = document.getElementById('emailType').value;
+    const tone = document.getElementById('emailTone').value;
+
+    // UI: loading state
+    const btn = document.getElementById('runBtn');
+    const loading = document.getElementById('loadingState');
+    const result = document.getElementById('resultArea');
+    btn.disabled = true;
+    loading.classList.add('active');
+    result.classList.remove('active');
+
+    // ✏️ BUILD PROMPT — customize per tool
+    const userPrompt = `Write a ${emailType} email with a ${tone} tone.
+
+Situation: ${input}
+
+Generate a complete, ready-to-send email.`;
+
+    try {
+        // ═══ CLAUDE API CALL ═══
+        const response = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': API_KEY,                    // ✏️ Set your API key
+                'anthropic-version': '2023-06-01',
+                'anthropic-dangerous-direct-browser-access': 'true'
+            },
+            body: JSON.stringify({
+                model: TOOL_CONFIG.apiModel,
+                max_tokens: 1000,
+                system: TOOL_CONFIG.systemPrompt,
+                messages: [{ role: 'user', content: userPrompt }]
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.content && data.content[0]) {
+            const text = data.content[0].text;
+            document.getElementById('resultContent').textContent = text;
+            result.classList.add('active');
+
+            // Increment usage ONLY on success
+            incrementUsage();
+            updateUI();
+        } else {
+            throw new Error(data.error?.message || 'API error');
+        }
+    } catch (err) {
+        console.error('API Error:', err);
+        document.getElementById('resultContent').textContent =
+            document.documentElement.getAttribute('data-lang') === 'cs'
+                ? '❌ Chyba při generování. Zkuste to prosím znovu.'
+                : '❌ Error generating result. Please try again.';
+        result.classList.add('active');
+    } finally {
+        btn.disabled = false;
+        loading.classList.remove('active');
+    }
+}
+
+// ═══════════════════════════════════════
+// COPY RESULT
+// ═══════════════════════════════════════
+function copyResult() {
+    const text = document.getElementById('resultContent').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.tool-copy-btn');
+        const lang = document.documentElement.getAttribute('data-lang');
+        btn.textContent = lang === 'cs' ? '✅ Zkopírováno' : '✅ Copied';
+        setTimeout(() => { btn.innerHTML = lang === 'cs' ? '📋 Kopírovat' : '📋 Copy'; }, 2000);
+    });
+}
+
+// ═══════════════════════════════════════
+// EMAIL GATE (for premium tools)
+// ═══════════════════════════════════════
+function submitGateEmail() {
+    const email = document.getElementById('gateEmail').value.trim();
+    if (!email || !email.includes('@')) return;
+
+    // TODO: Send to Formspree/Mailchimp
+    console.log('Gate email:', email);
+
+    // Unlock tool for 7 days
+    try {
+        localStorage.setItem(`ss-premium-${TOOL_CONFIG.id}`, JSON.stringify({
+            email: email,
+            unlocked: new Date().toISOString(),
+            expires: new Date(Date.now() + 7 * 86400000).toISOString()
+        }));
+    } catch {}
+
+    // Show tool
+    document.getElementById('emailGate')?.classList.remove('active');
+    document.getElementById('toolInterface').style.display = 'block';
+}
+
+// ═══════════════════════════════════════
+// NAV & LANGUAGE
+// ═══════════════════════════════════════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    document.getElementById('toolInput').placeholder = lang === 'cs'
+        ? 'Např: Potřebuji napsat dodavateli XYZ že jejich cena je o 15% vyšší než konkurence a chci vyjednat slevu...'
+        : 'E.g.: I need to write to supplier XYZ that their price is 15% above competition and I want to negotiate a discount...';
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+    updateUI(); // refresh usage text in correct language
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+
+// ═══════════════════════════════════════
+// ✏️ API KEY — replace with yours
+// ═══════════════════════════════════════
+const API_KEY = 'YOUR-API-KEY-HERE';  // ⚠️ For production: move to backend proxy!
+</script>
+</body>
+</html>
