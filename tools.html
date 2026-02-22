@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools — Sourcing Sense</title>
+    <meta name="description" content="Free AI-powered business tools. Email templates, savings calculators, supplier classifiers. Try them now — no sign-up required.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8; --dark-text-muted: #475569;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ SHARED ═══ */
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section-eyebrow::before { content: ''; width: 18px; height: 2px; background: var(--accent); border-radius: 1px; }
+        .section-heading { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        .section-desc { font-size: 1.05rem; color: var(--light-text-secondary); max-width: 540px; line-height: 1.75; margin-bottom: 2.5rem; }
+
+        /* ═══ PAGE HERO ═══ */
+        .page-hero { padding: 8rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #ffffff 50%); position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 65%); pointer-events: none; }
+        .page-hero .container { position: relative; z-index: 1; }
+
+        .hero-tabs {
+            display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap;
+        }
+        .hero-tab {
+            font-size: 0.82rem; font-weight: 500;
+            padding: 0.5rem 1rem; border-radius: 100px;
+            border: 1px solid var(--light-border);
+            color: var(--light-text-secondary);
+            transition: all 0.2s; cursor: pointer;
+        }
+        .hero-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .hero-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* ═══ TOOLS GRID ═══ */
+        .tools-section { padding: 4rem 2rem 5rem; }
+        .tools-section-alt { padding: 4rem 2rem 5rem; background: var(--light-bg-alt); border-top: 1px solid var(--light-border); }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .tool-card {
+            padding: 0;
+            background: white;
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.35s var(--ease);
+            display: flex; flex-direction: column;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .tool-card-top {
+            padding: 1.75rem 1.75rem 0;
+            flex: 1;
+        }
+
+        .tool-card-header {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon {
+            width: 52px; height: 52px;
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; flex-shrink: 0;
+        }
+        .tool-icon.free { background: var(--emerald-subtle); }
+        .tool-icon.premium { background: var(--accent-subtle); }
+        .tool-icon.coming { background: var(--amber-subtle); }
+
+        .tool-badge {
+            font-size: 0.65rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 0.25rem 0.6rem; border-radius: 100px;
+        }
+        .tool-badge.free { background: var(--emerald-subtle); color: var(--emerald); }
+        .tool-badge.premium { background: var(--accent-subtle); color: var(--accent); }
+        .tool-badge.coming { background: var(--amber-subtle); color: var(--amber); }
+
+        .tool-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .tool-card p { font-size: 0.88rem; color: var(--light-text-secondary); line-height: 1.7; margin-bottom: 1rem; }
+
+        .tool-features {
+            display: flex; flex-wrap: wrap; gap: 0.35rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-feature {
+            font-size: 0.7rem; font-weight: 500;
+            padding: 0.2rem 0.55rem; border-radius: 100px;
+            background: var(--light-bg-alt); color: var(--light-text-muted);
+            border: 1px solid rgba(226,232,240,0.6);
+        }
+
+        .tool-card-bottom {
+            padding: 1rem 1.75rem 1.5rem;
+            border-top: 1px solid var(--light-border);
+            background: var(--light-bg-alt);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .tool-cta {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; font-weight: 600;
+            padding: 0.6rem 1.2rem; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .tool-cta.free-btn { background: var(--emerald); color: white; }
+        .tool-cta.free-btn:hover { background: #0ea572; transform: translateY(-1px); }
+        .tool-cta.premium-btn { background: var(--accent); color: white; }
+        .tool-cta.premium-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .tool-cta.coming-btn { background: var(--light-border); color: var(--light-text-muted); cursor: default; }
+        .tool-cta svg { width: 14px; height: 14px; }
+
+        .tool-meta {
+            font-size: 0.75rem; color: var(--light-text-muted);
+        }
+
+        /* ═══ SUGGESTION BOX ═══ */
+        .suggest-section {
+            padding: 5rem 2rem;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        .suggest-section .section-eyebrow { color: var(--blue-300); }
+        .suggest-section .section-eyebrow::before { background: var(--blue-300); }
+        .suggest-section .section-heading { color: var(--dark-text); }
+        .suggest-section .section-desc { color: var(--dark-text-secondary); }
+
+        .suggest-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+        }
+
+        .suggest-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius);
+            transition: all 0.35s var(--ease);
+        }
+        .suggest-card:hover { border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); }
+
+        .suggest-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+        .suggest-card-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .suggest-card-icon.tools { background: rgba(16,185,129,0.12); }
+        .suggest-card-icon.articles { background: rgba(139,92,246,0.12); }
+        .suggest-card-header h3 { font-size: 1.05rem; font-weight: 600; color: var(--dark-text); }
+        .suggest-card-header p { font-size: 0.78rem; color: var(--dark-text-muted); }
+
+        .suggest-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+        .suggest-tag {
+            font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem;
+            border-radius: 100px; border: 1px solid var(--dark-border);
+            color: var(--dark-text-secondary); cursor: pointer; transition: all 0.2s; user-select: none;
+        }
+        .suggest-tag:hover { border-color: var(--blue-300); color: var(--blue-300); }
+        .suggest-tag.selected { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .suggest-textarea {
+            width: 100%; min-height: 80px; padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body);
+            font-size: 0.88rem; color: var(--dark-text); resize: vertical;
+            outline: none; transition: all 0.2s; margin-bottom: 0.75rem;
+        }
+        .suggest-textarea:focus { border-color: var(--blue-300); box-shadow: 0 0 0 3px rgba(96,165,250,0.15); }
+        .suggest-textarea::placeholder { color: var(--dark-text-muted); }
+
+        .suggest-submit {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 600; padding: 0.65rem 1.2rem;
+            border-radius: var(--radius-sm); transition: all 0.25s;
+        }
+        .suggest-submit.tools-btn { background: var(--emerald); color: white; }
+        .suggest-submit.tools-btn:hover { background: #0ea572; transform: translateY(-1px); }
+        .suggest-submit.articles-btn { background: var(--purple); color: white; }
+        .suggest-submit.articles-btn:hover { background: #7c4ddb; transform: translateY(-1px); }
+        .suggest-submit svg { width: 14px; height: 14px; }
+
+        .suggest-success { display: none; padding: 0.75rem; background: rgba(16,185,129,0.1); border-radius: var(--radius-sm); text-align: center; color: var(--emerald); font-weight: 500; font-size: 0.85rem; margin-top: 0.5rem; }
+
+        .suggest-popular { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--dark-border); }
+        .suggest-popular h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dark-text-muted); margin-bottom: 0.6rem; }
+        .popular-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .popular-item:last-child { border-bottom: none; }
+        .popular-item span { font-size: 0.85rem; color: var(--dark-text-secondary); }
+        .popular-vote { font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 100px; cursor: pointer; transition: all 0.2s; user-select: none; }
+        .popular-vote.tools-vote { background: rgba(16,185,129,0.1); color: var(--emerald); }
+        .popular-vote.tools-vote:hover { background: rgba(16,185,129,0.2); }
+        .popular-vote.articles-vote { background: rgba(139,92,246,0.1); color: var(--purple); }
+        .popular-vote.articles-vote:hover { background: rgba(139,92,246,0.2); }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; color: var(--dark-text-secondary); }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
+
+        /* ═══ ANIMATIONS ═══ */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s var(--ease); }
+        .reveal.vis { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: 0.06s; } .d2 { transition-delay: 0.12s; } .d3 { transition-delay: 0.18s; } .d4 { transition-delay: 0.24s; }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 900px) { .suggest-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; } .nav-center { display: none; } .nav-cta { display: none; }
+            .hamburger { display: block; } .page-hero { padding: 7rem 1.25rem 2.5rem; }
+            .tools-section, .tools-section-alt { padding: 3rem 1.25rem 4rem; }
+            .suggest-section { padding: 3.5rem 1.25rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/#services"><span class="en">Services</span><span class="cz">Služby</span></a></li>
+        <li><a href="/#process"><span class="en">Process</span><span class="cz">Proces</span></a></li>
+        <li><a href="/#cases"><span class="en">Use Cases</span><span class="cz">Případy</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()">Home</a>
+    <a href="/#cases" onclick="toggleMob()"><span class="en">Use Cases</span><span class="cz">Případy</span></a>
+    <a href="/tools" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+    <div class="container">
+        <span class="section-eyebrow"><span class="en">AI Tools</span><span class="cz">AI Nástroje</span></span>
+        <h1 class="section-heading" style="font-size:clamp(2.2rem,5vw,3.2rem);">
+            <span class="en">Practical AI tools you can use today</span>
+            <span class="cz">Praktické AI nástroje, které můžete použít hned</span>
+        </h1>
+        <p class="section-desc" style="margin-bottom:0;">
+            <span class="en">Simple tools that solve real problems. Free tools require no sign-up. Premium tools — first use free, then register for full access.</span>
+            <span class="cz">Jednoduché nástroje řešící reálné problémy. Bezplatné nástroje bez registrace. Premium nástroje — první použití zdarma, pak registrace pro plný přístup.</span>
+        </p>
+        <div class="hero-tabs">
+            <span class="hero-tab active" onclick="filterTools('all')"><span class="en">All tools</span><span class="cz">Všechny</span></span>
+            <span class="hero-tab" onclick="filterTools('free')"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+            <span class="hero-tab" onclick="filterTools('premium')"><span class="en">Premium</span><span class="cz">Premium</span></span>
+            <span class="hero-tab" onclick="filterTools('coming')"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FREE TOOLS ═══ -->
+<section class="tools-section" id="free-tools">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-eyebrow" style="color:var(--emerald);">
+                <span style="background:var(--emerald);" class="section-eyebrow-line"></span>
+                <span class="en">Free — No sign-up required</span><span class="cz">Zdarma — bez registrace</span>
+            </span>
+        </div>
+        <div class="tools-grid">
+
+            <div class="tool-card reveal d1" data-type="free">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon free">📧</div>
+                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Email Template Generator</span><span class="cz">Generátor emailových šablon</span></h3>
+                    <p><span class="en">Professional procurement and business communication templates. Supplier negotiations, RFQ responses, escalations, follow-ups — all AI-generated for your specific context.</span><span class="cz">Profesionální šablony pro nákupní a obchodní komunikaci. Vyjednávání s dodavateli, odpovědi na RFQ, eskalace, follow-upy — vše generováno AI pro váš konkrétní kontext.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature"><span class="en">Negotiations</span><span class="cz">Vyjednávání</span></span>
+                        <span class="tool-feature">RFQ</span>
+                        <span class="tool-feature"><span class="en">Escalations</span><span class="cz">Eskalace</span></span>
+                        <span class="tool-feature"><span class="en">Follow-ups</span><span class="cz">Follow-upy</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <a href="#" class="tool-cta free-btn">
+                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                </div>
+            </div>
+
+            <div class="tool-card reveal d2" data-type="free">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon free">💰</div>
+                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Savings Calculator</span><span class="cz">Kalkulačka úspor</span></h3>
+                    <p><span class="en">Estimate potential savings from automating your procurement processes. Input your current metrics — headcount, manual hours, error rates — and get projected ROI.</span><span class="cz">Odhadněte potenciální úspory z automatizace vašich nákupních procesů. Zadejte aktuální metriky — počet lidí, manuální hodiny, chybovost — a získejte projekci návratnosti.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature">ROI</span>
+                        <span class="tool-feature"><span class="en">Time savings</span><span class="cz">Úspora času</span></span>
+                        <span class="tool-feature"><span class="en">Cost reduction</span><span class="cz">Snížení nákladů</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <a href="#" class="tool-cta free-btn">
+                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                </div>
+            </div>
+
+            <div class="tool-card reveal d3" data-type="free">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon free">📋</div>
+                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Meeting Notes Formatter</span><span class="cz">Formátovač zápisů z jednání</span></h3>
+                    <p><span class="en">Paste your raw meeting notes and get structured, professional minutes with action items, owners, and deadlines automatically extracted.</span><span class="cz">Vložte hrubé poznámky z jednání a získejte strukturovaný zápis s akčními body, zodpovědnými osobami a termíny automaticky extrahovanými.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature"><span class="en">Action items</span><span class="cz">Akční body</span></span>
+                        <span class="tool-feature"><span class="en">Deadlines</span><span class="cz">Termíny</span></span>
+                        <span class="tool-feature"><span class="en">Export</span><span class="cz">Export</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <a href="#" class="tool-cta free-btn">
+                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PREMIUM TOOLS ═══ -->
+<section class="tools-section-alt" id="premium-tools">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-eyebrow">
+                <span class="en">Premium — First use free</span><span class="cz">Premium — první použití zdarma</span>
+            </span>
+        </div>
+        <div class="tools-grid">
+
+            <div class="tool-card reveal d1" data-type="premium">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon premium">🔬</div>
+                        <span class="tool-badge premium"><span class="en">1st free</span><span class="cz">1. zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Supplier Classifier</span><span class="cz">Klasifikátor dodavatelů</span></h3>
+                    <p><span class="en">Upload a CSV of suppliers and see AI categorization in action. Automatic mapping to commodity hierarchies, GL accounts, and spend categories.</span><span class="cz">Nahrajte CSV s dodavateli a uvidíte AI kategorizaci v akci. Automatické mapování na komoditní hierarchie, GL účty a kategorie nákladů.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature">CSV upload</span>
+                        <span class="tool-feature"><span class="en">AI classification</span><span class="cz">AI klasifikace</span></span>
+                        <span class="tool-feature"><span class="en">Export results</span><span class="cz">Export výsledků</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <a href="#" class="tool-cta premium-btn">
+                        <span class="en">Try free</span><span class="cz">Vyzkoušet zdarma</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <span class="tool-meta"><span class="en">Then email required</span><span class="cz">Pak vyžaduje email</span></span>
+                </div>
+            </div>
+
+            <div class="tool-card reveal d2" data-type="premium">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon premium">📑</div>
+                        <span class="tool-badge premium"><span class="en">1st free</span><span class="cz">1. zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Contract Risk Scanner</span><span class="cz">Skener rizik ve smlouvách</span></h3>
+                    <p><span class="en">Paste or upload a contract and get instant AI analysis — key terms, risks, missing clauses, expiry dates, and compliance flags.</span><span class="cz">Vložte nebo nahrajte smlouvu a získejte okamžitou AI analýzu — klíčové podmínky, rizika, chybějící klauzule, data expirace a compliance upozornění.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature"><span class="en">Risk scoring</span><span class="cz">Skóre rizik</span></span>
+                        <span class="tool-feature"><span class="en">Key terms</span><span class="cz">Klíčové podmínky</span></span>
+                        <span class="tool-feature"><span class="en">Compliance</span><span class="cz">Compliance</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <a href="#" class="tool-cta premium-btn">
+                        <span class="en">Try free</span><span class="cz">Vyzkoušet zdarma</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <span class="tool-meta"><span class="en">Then email required</span><span class="cz">Pak vyžaduje email</span></span>
+                </div>
+            </div>
+
+            <div class="tool-card reveal d3" data-type="coming">
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon coming">📊</div>
+                        <span class="tool-badge coming"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+                    </div>
+                    <h3><span class="en">Spend Analyzer</span><span class="cz">Analyzátor nákladů</span></h3>
+                    <p><span class="en">Upload your spend data and get instant category breakdowns, supplier concentration analysis, and savings opportunities — all AI-powered.</span><span class="cz">Nahrajte data o nákladech a získejte okamžitý rozpad do kategorií, analýzu koncentrace dodavatelů a příležitosti k úsporám — vše řízeno AI.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature"><span class="en">Spend visibility</span><span class="cz">Viditelnost nákladů</span></span>
+                        <span class="tool-feature"><span class="en">Savings ID</span><span class="cz">Identifikace úspor</span></span>
+                        <span class="tool-feature"><span class="en">Charts</span><span class="cz">Grafy</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <span class="tool-cta coming-btn">
+                        <span class="en">Coming soon</span><span class="cz">Připravujeme</span>
+                    </span>
+                    <span class="tool-meta"><span class="en">Q2 2026</span><span class="cz">Q2 2026</span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SUGGESTION BOX — DARK ═══ -->
+<section class="suggest-section" id="suggest">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-eyebrow">
+                <span class="en">Your ideas matter</span><span class="cz">Vaše nápady mají smysl</span>
+            </span>
+            <h2 class="section-heading">
+                <span class="en">What should I build next?</span>
+                <span class="cz">Co mám vytvořit příště?</span>
+            </h2>
+            <p class="section-desc">
+                <span class="en">I build tools and write about topics that real people actually need. Your suggestions directly shape what comes next.</span>
+                <span class="cz">Stavím nástroje a píšu o tématech, které lidé skutečně potřebují. Vaše podněty přímo ovlivňují co bude dál.</span>
+            </p>
+        </div>
+
+        <div class="suggest-grid">
+            <!-- Tool suggestions -->
+            <div class="suggest-card reveal d1">
+                <div class="suggest-card-header">
+                    <div class="suggest-card-icon tools">🛠️</div>
+                    <div>
+                        <h3><span class="en">Suggest a tool</span><span class="cz">Navrhnout nástroj</span></h3>
+                        <p><span class="en">What would save you time?</span><span class="cz">Co by vám ušetřilo čas?</span></p>
+                    </div>
+                </div>
+                <div class="suggest-tags" id="toolTags">
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Spend analyzer</span><span class="cz">Analyzátor nákladů</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">RFQ generator</span><span class="cz">RFQ generátor</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Supplier scorecard</span><span class="cz">Scorecard dodavatelů</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Contract analyzer</span><span class="cz">Analyzátor smluv</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Email drafter</span><span class="cz">Tvůrce emailů</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">KPI dashboard</span><span class="cz">KPI dashboard</span></span>
+                </div>
+                <textarea class="suggest-textarea" id="toolIdea"></textarea>
+                <button class="suggest-submit tools-btn" onclick="submitSuggestion('tool')">
+                    <span class="en">Submit idea</span><span class="cz">Odeslat nápad</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+                <div class="suggest-success" id="toolSuccess"><span class="en">🎉 Thanks! Your tool idea has been submitted.</span><span class="cz">🎉 Díky! Váš nápad byl odeslán.</span></div>
+                <div class="suggest-popular">
+                    <h4><span class="en">Popular requests</span><span class="cz">Populární požadavky</span></h4>
+                    <div class="popular-item"><span><span class="en">Supplier categorization tool</span><span class="cz">Kategorizace dodavatelů</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 12</span></div>
+                    <div class="popular-item"><span><span class="en">Contract risk scanner</span><span class="cz">Skener rizik ve smlouvách</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 9</span></div>
+                    <div class="popular-item"><span><span class="en">Savings opportunity finder</span><span class="cz">Hledač příležitostí k úsporám</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 7</span></div>
+                </div>
+            </div>
+
+            <!-- Article suggestions -->
+            <div class="suggest-card reveal d2">
+                <div class="suggest-card-header">
+                    <div class="suggest-card-icon articles">📝</div>
+                    <div>
+                        <h3><span class="en">Suggest an article</span><span class="cz">Navrhnout článek</span></h3>
+                        <p><span class="en">What topic interests you?</span><span class="cz">Jaké téma vás zajímá?</span></p>
+                    </div>
+                </div>
+                <div class="suggest-tags" id="articleTags">
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">AI in procurement</span><span class="cz">AI v nákupu</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Process automation</span><span class="cz">Automatizace procesů</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ChatGPT for work</span><span class="cz">ChatGPT pro práci</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Lean + AI</span><span class="cz">Lean + AI</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ROI of automation</span><span class="cz">ROI automatizace</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Career in AI era</span><span class="cz">Kariéra v éře AI</span></span>
+                </div>
+                <textarea class="suggest-textarea" id="articleIdea"></textarea>
+                <button class="suggest-submit articles-btn" onclick="submitSuggestion('article')">
+                    <span class="en">Submit idea</span><span class="cz">Odeslat nápad</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+                <div class="suggest-success" id="articleSuccess"><span class="en">🎉 Thanks! Your article suggestion has been submitted.</span><span class="cz">🎉 Díky! Váš návrh byl odeslán.</span></div>
+                <div class="suggest-popular">
+                    <h4><span class="en">Popular topics</span><span class="cz">Populární témata</span></h4>
+                    <div class="popular-item"><span><span class="en">AI tools comparison for procurement</span><span class="cz">Srovnání AI nástrojů pro nákup</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 15</span></div>
+                    <div class="popular-item"><span><span class="en">How to start with AI automation</span><span class="cz">Jak začít s AI automatizací</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 11</span></div>
+                    <div class="popular-item"><span><span class="en">AI prompt engineering for business</span><span class="cz">Prompt engineering pro business</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 8</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račak</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// Reveal
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Language
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    // Update placeholders
+    document.getElementById('toolIdea').placeholder = lang === 'cs' ? 'Popište svůj nápad na nástroj...' : 'Describe your tool idea...';
+    document.getElementById('articleIdea').placeholder = lang === 'cs' ? 'Popište téma článku...' : 'Describe the article topic...';
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+
+// Tool filter tabs
+function filterTools(type) {
+    document.querySelectorAll('.hero-tab').forEach(t => t.classList.remove('active'));
+    event.target.closest('.hero-tab').classList.add('active');
+
+    document.querySelectorAll('.tool-card').forEach(card => {
+        const cardType = card.getAttribute('data-type');
+        if (type === 'all' || cardType === type) {
+            card.style.display = '';
+            card.style.opacity = '1';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Tag toggle
+function toggleTag(el) { el.classList.toggle('selected'); }
+
+// Suggestion submit
+function submitSuggestion(type) {
+    const textarea = document.getElementById(type === 'tool' ? 'toolIdea' : 'articleIdea');
+    const tagsEl = document.getElementById(type === 'tool' ? 'toolTags' : 'articleTags');
+    const selected = [...tagsEl.querySelectorAll('.selected')].map(t => t.textContent.trim());
+    const text = textarea.value.trim();
+    if (!text && selected.length === 0) {
+        textarea.style.borderColor = '#ef4444';
+        setTimeout(() => textarea.style.borderColor = '', 1500);
+        return;
+    }
+    console.log(`Suggestion (${type}):`, { tags: selected, idea: text });
+    document.getElementById(type === 'tool' ? 'toolSuccess' : 'articleSuccess').style.display = 'block';
+    textarea.value = '';
+    tagsEl.querySelectorAll('.selected').forEach(t => t.classList.remove('selected'));
+}
+
+// Vote
+function vote(el) {
+    const current = parseInt(el.textContent.match(/\d+/)[0]);
+    el.textContent = '👍 ' + (current + 1);
+    el.style.pointerEvents = 'none';
+    el.style.opacity = '0.6';
+}
+</script>
+</body>
+</html>
