@@ -1,0 +1,92 @@
+# ============================================================
+# SOURCING SENSE - robots.txt
+# Optimized for maximum AI bot visibility
+# Last updated: February 2026
+# ============================================================
+
+# Default: allow everything for all crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# ——— OPENAI ———
+# GPTBot: training crawler (allows content to appear in ChatGPT responses)
+User-agent: GPTBot
+Allow: /
+
+# OAI-SearchBot: ChatGPT search feature (shows pages as links in ChatGPT)
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT-User: triggered when user asks ChatGPT to browse a specific URL
+User-agent: ChatGPT-User
+Allow: /
+
+# ——— ANTHROPIC (Claude) ———
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ——— PERPLEXITY ———
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ——— GOOGLE AI ———
+# Google-Extended: controls use in Gemini/AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Standard Googlebot (SEO)
+User-agent: Googlebot
+Allow: /
+
+# ——— APPLE ———
+User-agent: Applebot-Extended
+Allow: /
+
+# ——— MICROSOFT / BING ———
+User-agent: Bingbot
+Allow: /
+
+# ——— META ———
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ——— OTHER AI SEARCH ENGINES ———
+User-agent: YouBot
+Allow: /
+
+User-agent: PhindBot
+Allow: /
+
+User-agent: ExaBot
+Allow: /
+
+User-agent: AndiBot
+Allow: /
+
+User-agent: FirecrawlAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ——— SITEMAPS ———
+Sitemap: https://sourcing-sense.com/sitemap.xml

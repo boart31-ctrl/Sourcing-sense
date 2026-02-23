@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ============================================================
+       SOURCING SENSE - sitemap.xml
+       Bot-optimized with all key pages and llms.txt
+       Last updated: 2026-02-23
+       
+       INSTRUKCE: 
+       - Uprav <lastmod> datumy podle reálných updatů
+       - Přidej nové stránky jak je budeš tvořit
+       - <priority> 1.0 = nejdůležitější, 0.1 = nejméně
+       - <changefreq> říká botům jak často se vracet
+       ============================================================ -->
+
+  <!-- === HLAVNÍ STRÁNKY === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/about</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/services</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/book</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/contact</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- === FREE AI TOOLS (highest priority - lead magnets) === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/tools</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/tools/categorization</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/tools/risk-scanner</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/tools/vendor-health</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/assessment</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- === BLOG / CONTENT (přidávej nové posty jak je publikuješ) === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/blog</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Příklad blog postu - duplikuj pro každý nový post:
+  <url>
+    <loc>https://sourcing-sense.com/blog/ai-procurement-guide-2026</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  -->
+
+  <!-- === CASE STUDIES / RESOURCES === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/case-studies</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- === FAQ (klíčové pro AI boty - otázky které lidi kladou) === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/faq</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- === LLM-SPECIFIC FILES (AI boti tohle najdou přes sitemap) === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/llms.txt</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- === LEGAL (nízká priorita ale potřebné) === -->
+
+  <url>
+    <loc>https://sourcing-sense.com/privacy</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/terms</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
