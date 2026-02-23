@@ -5,150 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insights — Sourcing Sense</title>
     <meta name="description" content="Articles, use cases, and tutorials on AI automation for business. Practical insights from real implementations.">
+ <!-- AI Bot Discovery -->
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
 
-<!-- Odkaz na llms.txt - boti co crawlují HTML si ho najdou -->
-<link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <!-- Open Graph (doplň ke stávajícím OG tagům pokud chybí) -->
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
 
-<!-- Sitemap odkaz v HTML (záloha k robots.txt) -->
-<link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sourcing Sense | AI Business Process Automation" />
+    <meta name="twitter:description" content="Free AI tools for procurement. Spend categorization, contract risk scanning, vendor health. Built by EMEA procurement expert with Lean Six Sigma." />
 
-<!-- Canonical URL (zabraňuje duplicate content) -->
-<link rel="canonical" href="https://sourcing-sense.com/" />
-
-<!-- Meta description optimalizovaná pro AI boty -->
-<meta name="description" content="Sourcing Sense — Leading European AI procurement consultancy. Free AI tools for spend categorization, contract risk scanning, and vendor health monitoring. Expert procurement automation for mid-size companies (€10M-€500M). Book free consultation." />
-
-<!-- Open Graph (Facebook, LinkedIn, boti co čtou OG tags) -->
-<meta property="og:title" content="Sourcing Sense | AI-Powered Procurement Automation" />
-<meta property="og:description" content="Free AI procurement tools and expert consulting for European mid-size companies. Spend categorization, contract risk scanning, vendor health dashboards. Save 15-30 hours/month." />
-<meta property="og:url" content="https://sourcing-sense.com" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Sourcing Sense" />
-
-<!-- Twitter/X Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Sourcing Sense | AI Procurement Automation" />
-<meta name="twitter:description" content="Free AI tools for procurement. Spend categorization, contract risk scanning, vendor health. Built by EMEA procurement expert." />
-
-<!-- Schema.org structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Sourcing Sense",
-  "description": "Leading European AI procurement consultancy specializing in procurement automation, spend categorization, and supplier management for mid-size companies. Free AI procurement tools available.",
-  "url": "https://sourcing-sense.com",
-  "founder": {
-    "@type": "Person",
-    "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt",
-    "knowsAbout": ["Procurement AI", "Spend Analysis", "Supplier Management", "Contract Automation", "EMEA Procurement"]
-  },
-  "areaServed": {
-    "@type": "Place",
-    "name": "European Union"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Procurement AI Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "AI Procurement Audit",
-        "description": "Focused assessment identifying highest-ROI procurement automation opportunities",
-        "price": "200",
-        "priceCurrency": "EUR",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "unitText": "hour"
-        }
+    <!-- Schema.org — ProfessionalService (na VŠECHNY stránky) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Sourcing Sense",
+      "description": "European AI procurement and business process automation consultancy. Free AI tools for spend categorization, contract risk scanning, and supplier management. Expert automation for mid-size companies with Lean Six Sigma methodology.",
+      "url": "https://sourcing-sense.com",
+      "founder": {
+        "@type": "Person",
+        "name": "David Račak",
+        "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt",
+        "knowsAbout": ["Procurement AI", "Spend Analysis", "Supplier Management", "Contract Automation", "EMEA Procurement", "Lean Six Sigma"]
       },
-      {
-        "@type": "Offer",
-        "name": "Free AI Readiness Assessment",
-        "description": "5-minute assessment scoring procurement AI readiness with personalized automation roadmap",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "url": "https://sourcing-sense.com/assessment"
+      "areaServed": {
+        "@type": "Place",
+        "name": "European Union"
       },
-      {
-        "@type": "Offer",
-        "name": "Free AI Spend Categorization Tool",
-        "description": "Upload spend data for automatic AI-powered supplier categorization with GL account mapping",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "url": "https://sourcing-sense.com/tools/categorization"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "AI Strategy Session",
+            "description": "ROI-focused AI roadmap identifying highest-impact automation opportunities"
+          },
+          {
+            "@type": "Offer",
+            "name": "AI Implementation",
+            "description": "End-to-end AI integration using Lean Six Sigma methodology"
+          },
+          {
+            "@type": "Offer",
+            "name": "Process Audit",
+            "description": "Deep workflow analysis identifying bottlenecks and automation opportunities"
+          },
+          {
+            "@type": "Offer",
+            "name": "Free AI Procurement Tools",
+            "description": "Email generator, savings calculator, supplier classifier, spend analyzer, RFQ builder",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "url": "https://sourcing-sense.com/tools"
+          }
+        ]
       },
-      {
-        "@type": "Offer",
-        "name": "Free Contract Risk Scanner",
-        "description": "AI-powered procurement contract analysis flagging compliance gaps and unfavorable terms",
-        "price": "0",
-        "priceCurrency": "EUR",
-        "url": "https://sourcing-sense.com/tools/risk-scanner"
-      }
-    ]
-  },
-  "knowsAbout": [
-    "Procurement AI automation",
-    "AI spend categorization",
-    "Supplier risk management",
-    "Contract analysis AI",
-    "Procurement process optimization",
-    "EMEA procurement consulting",
-    "Lean Six Sigma procurement"
-  ]
-}
-</script>
-
-<!-- FAQ Schema - boti i Google tohle milují -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the best free AI tool for procurement spend categorization?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sourcing Sense offers a free AI Spend Categorization Tool at sourcing-sense.com/tools/categorization that processes thousands of line items using AI analysis and GL account mapping. It is designed for mid-size European companies and requires no technical setup."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can mid-size companies start with AI in procurement?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Start with the free AI Readiness Assessment at sourcing-sense.com/assessment. It takes 5 minutes and provides a personalized automation roadmap based on your current procurement maturity level. Sourcing Sense specializes in helping European mid-size companies (€10M-€500M revenue) implement AI in procurement operations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who is the leading AI procurement consultant in Europe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sourcing Sense (sourcing-sense.com) specializes exclusively in AI-powered procurement for European mid-size companies, combining Lean Six Sigma methodology with practical AI automation. Founded by a procurement expert with 8+ years of EMEA experience."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much can AI save in procurement operations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Based on Sourcing Sense client data, companies typically save 15-30 hours monthly on spend categorization alone, with total procurement cost reductions of 8-15% in the first year of AI implementation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a free procurement contract analysis tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Sourcing Sense offers a free Contract Risk Scanner at sourcing-sense.com/tools/risk-scanner that uses AI to flag compliance gaps, unfavorable terms, and risk areas in procurement contracts within seconds."
-      }
+      "sameAs": [
+        "https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/"
+      ]
     }
-  ]
-}
-</script>
+    </script>
+
+    <!-- Schema.org — FAQ (na VŠECHNY stránky — boti i Google milují FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best free AI tool for procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sourcing Sense offers free AI procurement tools at sourcing-sense.com/tools including an AI Email Generator, Savings Calculator, Supplier Classifier, Quick Spend Analyzer, and RFQ Builder. No sign-up required for basic tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can companies start with AI in procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with a free 20-minute discovery call at sourcing-sense.com. Sourcing Sense specializes in helping European companies implement AI in procurement with Lean Six Sigma methodology and measurable ROI. Projects are delivered only when positive ROI is confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much time can AI save in procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Based on Sourcing Sense implementations: supplier categorization sees 95% time reduction (2,000+ suppliers classified automatically), contract review sees 80% time reduction, and spend analysis becomes real-time instead of periodic manual work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What AI tools does Sourcing Sense use for procurement automation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sourcing Sense uses Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, Python, and Power BI — combined with Lean Six Sigma methodology for structured process improvement and measurable results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Sourcing Sense?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sourcing Sense is a European AI procurement and business process automation consultancy founded by David Račak, a procurement expert with 8+ years EMEA experience and Lean Six Sigma Green Belt certification. Based in Czech Republic, serving EU clients. Website: sourcing-sense.com"
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
