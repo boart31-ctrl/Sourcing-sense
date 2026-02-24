@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Killed a Useless Corporate Process With a 4-Step Power Automate Flow — Sourcing Sense</title>
+    <meta name="description" content="Company car booking automation with Power Automate. Resource mailbox trigger, automatic manager lookup via Entra ID, Teams notification. Zero extra cost, saves hundreds of minutes monthly.">
+    <meta property="og:title" content="How I Killed a Useless Corporate Process With Power Automate — Sourcing Sense">
+    <meta property="og:description" content="Company car booking was a mess of paper forms and manual checks. A 4-step Power Automate flow replaced it all. Here's exactly how.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/car-booking-automation.html">
+    <link rel="canonical" href="https://sourcing-sense.com/insights/car-booking-automation.html">
+
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta property="og:site_name" content="Sourcing Sense" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How I Killed a Useless Corporate Process With a 4-Step Power Automate Flow",
+      "description": "Step-by-step guide to automating company car booking with Microsoft Power Automate. Resource mailbox calendar trigger, automatic manager identification via Office 365 Users connector, and Teams notification delivery.",
+      "author": {
+        "@type": "Person",
+        "name": "David Račak",
+        "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt",
+        "url": "https://sourcing-sense.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sourcing Sense",
+        "url": "https://sourcing-sense.com"
+      },
+      "datePublished": "2026-02-23",
+      "dateModified": "2026-02-23",
+      "mainEntityOfPage": "https://sourcing-sense.com/insights/car-booking-automation.html",
+      "keywords": ["Power Automate automation", "company car booking", "corporate process automation", "Microsoft 365 automation", "Teams notification automation", "Lean Six Sigma"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can I automate company car booking with Power Automate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set up a resource mailbox calendar for each car, create a Power Automate flow triggered by new calendar events, use the Office 365 Users connector to identify the booker's manager, and send a Teams notification with who booked, which car, and for how long. Full guide at sourcing-sense.com/insights/car-booking-automation.html"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I automatically notify a manager when an employee books a company car?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use Power Automate's 'Get manager' action from the Office 365 Users connector. It pulls the manager from your organization's Entra ID directory automatically — no lookup tables needed. Then route the notification to that manager via Teams."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8; --dark-text-muted: #475569;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ ARTICLE HEADER ═══ */
+        .article-header {
+            padding: 7.5rem 2rem 3rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%);
+            position: relative; overflow: hidden;
+        }
+        .article-header::before {
+            content: ''; position: absolute; top: -15%; right: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .article-header-inner {
+            max-width: 760px; margin: 0 auto; position: relative; z-index: 1;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.78rem; color: var(--light-text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+
+        /* ✏️ CHANGE: badge class to match category — use-case / article / tutorial */
+        .article-badge {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content;
+            padding: 0.3rem 0.7rem; border-radius: 100px;
+        }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 400; line-height: 1.2;
+            letter-spacing: -0.01em; margin-bottom: 1rem;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--light-text-secondary);
+            line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px;
+        }
+
+        .article-meta {
+            display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+            font-size: 0.82rem; color: var(--light-text-muted);
+            padding-top: 1.25rem; border-top: 1px solid var(--light-border);
+        }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        .article-result-tag {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-size: 0.78rem; font-weight: 600; color: var(--emerald);
+            padding: 0.25rem 0.7rem; background: var(--emerald-subtle);
+            border-radius: 100px;
+        }
+
+        /* ═══ ARTICLE BODY ═══ */
+        .article-body {
+            max-width: 760px; margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* Prose styling */
+        .prose h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 400;
+            margin: 2.5rem 0 1rem; line-height: 1.25;
+        }
+        .prose h3 {
+            font-size: 1.15rem; font-weight: 600;
+            margin: 2rem 0 0.75rem;
+        }
+        .prose p {
+            font-size: 1.05rem; color: var(--light-text-secondary);
+            line-height: 1.85; margin-bottom: 1.25rem;
+        }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+
+        .prose ul, .prose ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            list-style: disc;
+        }
+        .prose ol { list-style: decimal; }
+        .prose li {
+            font-size: 1.02rem; color: var(--light-text-secondary);
+            line-height: 1.8; margin-bottom: 0.4rem;
+        }
+
+        .prose blockquote {
+            padding: 1.25rem 1.75rem;
+            background: var(--accent-subtle);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 2rem 0;
+            font-size: 1.02rem; font-style: italic;
+            color: var(--light-text); line-height: 1.75;
+        }
+
+        .prose code {
+            font-family: var(--font-mono);
+            font-size: 0.88rem; padding: 0.15rem 0.4rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: 4px; color: var(--accent);
+        }
+
+        .prose pre {
+            background: var(--blue-900); color: var(--dark-text);
+            padding: 1.5rem; border-radius: var(--radius-sm);
+            overflow-x: auto; margin: 1.5rem 0;
+            font-family: var(--font-mono); font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .prose pre code {
+            background: none; border: none; padding: 0; color: inherit;
+        }
+
+        .prose img {
+            max-width: 100%; border-radius: var(--radius-sm);
+            border: 1px solid var(--light-border);
+            margin: 1.5rem 0;
+        }
+
+        /* Callout box */
+        .callout {
+            padding: 1.25rem 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1.5rem 0;
+            font-size: 0.95rem; line-height: 1.7;
+        }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+
+        .callout-title {
+            font-weight: 700; font-size: 0.82rem;
+            text-transform: uppercase; letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
+        }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: var(--amber); }
+        .callout.info .callout-title { color: var(--accent); }
+
+        /* Results summary box (for use cases) */
+        .results-box {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem; padding: 1.5rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius); margin: 2rem 0;
+        }
+        .results-box-item { text-align: center; }
+        .results-box-num {
+            font-family: var(--font-display); font-size: 1.6rem;
+            color: var(--accent); line-height: 1; margin-bottom: 0.25rem;
+        }
+        .results-box-label { font-size: 0.78rem; color: var(--light-text-muted); }
+
+        /* ═══ SHARE & TAGS ═══ */
+        .article-footer-strip {
+            max-width: 760px; margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+        .article-tags {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-tag {
+            font-size: 0.72rem; font-weight: 500;
+            padding: 0.3rem 0.7rem; border-radius: 100px;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            color: var(--light-text-muted);
+        }
+
+        .article-share {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding-top: 1.5rem; border-top: 1px solid var(--light-border);
+        }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn {
+            width: 36px; height: 36px; display: inline-flex;
+            align-items: center; justify-content: center;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s;
+        }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        /* ═══ BACK + RELATED ═══ */
+        .related-section {
+            padding: 4rem 2rem;
+            background: var(--light-bg-alt);
+            border-top: 1px solid var(--light-border);
+        }
+        .related-inner { max-width: 1200px; margin: 0 auto; }
+        .related-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.4rem; }
+        .related-back {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; font-weight: 500; color: var(--accent);
+            transition: gap 0.2s;
+        }
+        .related-back:hover { gap: 0.6rem; }
+        .related-back svg { width: 16px; height: 16px; transform: rotate(180deg); }
+
+        .related-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .related-card {
+            padding: 1.5rem; background: white;
+            border: 1px solid var(--light-border); border-radius: var(--radius);
+            transition: all 0.3s var(--ease);
+        }
+        .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
+        .related-badge {
+            font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; padding: 0.2rem 0.5rem;
+            border-radius: 100px; margin-bottom: 0.5rem; display: inline-block;
+        }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.82rem; color: var(--light-text-muted); line-height: 1.5; }
+
+        /* ═══ CTA ═══ */
+        .cta-strip {
+            padding: 4rem 2rem; background: var(--dark-bg); text-align: center;
+        }
+        .cta-strip-inner { max-width: 500px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0.75rem; }
+        .cta-strip p { font-size: 0.95rem; color: var(--dark-text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+        .cta-strip .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; font-weight: 600; padding: 0.85rem 1.6rem; background: white; color: var(--blue-900); border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-strip .btn-primary:hover { background: var(--blue-100); transform: translateY(-2px); }
+        .cta-strip .btn-primary svg { width: 16px; height: 16px; }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; } .nav-center { display: none; } .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2.5rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip { padding: 0 1.25rem 2rem; }
+            .related-section { padding: 3rem 1.25rem; }
+            .cta-strip { padding: 3rem 1.25rem; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV (same on all pages) ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ✏️ ARTICLE HEADER — edit per article
+═══════════════════════════════════════════════════════ -->
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Car Booking Automation</span><span class="cz">Automatizace rezervace aut</span></span>
+        </div>
+
+        <span class="article-badge use-case">
+            <span class="en">Use Case</span><span class="cz">Případ</span>
+        </span>
+
+        <h1>
+            <span class="en">How I Killed a Useless Corporate Process With a 4-Step Power Automate Flow</span>
+            <span class="cz">Jak jsem zabil zbytečný firemní proces 4krokovým Power Automate flow</span>
+        </h1>
+
+        <p class="article-excerpt">
+            <span class="en">Company car booking was paper forms, manual calendar checks, and managers who never knew who was driving what. A 4-step Power Automate flow replaced all of it. No new software. No IT. Hundreds of minutes saved monthly.</span>
+            <span class="cz">Rezervace firemních aut byl chaos papírových formulářů, manuální kontroly kalendářů a manažerů, kteří nevěděli kdo jezdí čím. 4krokový Power Automate flow to celé nahradil. Žádný nový software. Žádné IT. Stovky ušetřených minut měsíčně.</span>
+        </p>
+
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                <span class="en">February 2026</span><span class="cz">Únor 2026</span>
+            </span>
+            <span class="article-result-tag">↓ 100s min <span class="en">saved monthly</span><span class="cz">ušetřeno měsíčně</span></span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ✏️ ARTICLE BODY — write your content here
+═══════════════════════════════════════════════════════ -->
+<article class="article-body">
+    <div class="prose">
+
+        <div class="results-box">
+            <div class="results-box-item">
+                <div class="results-box-num">4</div>
+                <div class="results-box-label"><span class="en">Steps to build</span><span class="cz">Kroky k sestavení</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">100s min</div>
+                <div class="results-box-label"><span class="en">Saved monthly</span><span class="cz">Ušetřeno měsíčně</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">€0</div>
+                <div class="results-box-label"><span class="en">Extra cost</span><span class="cz">Náklady navíc</span></div>
+            </div>
+        </div>
+
+        <h2><span class="en">The Problem</span><span class="cz">Problém</span></h2>
+
+        <p>
+            <span class="en">We had a few company cars shared across the office. The booking "system" was a paper form, a shared spreadsheet that nobody kept up to date, and a lot of walking over to people's desks asking "are you using the Škoda tomorrow?" Managers had no visibility into who was using what and when. Double bookings happened. Cars sat in the lot while three people were arguing over the schedule.</span>
+            <span class="cz">Měli jsme několik firemních aut sdílených v kanceláři. „Systém" rezervací byl papírový formulář, sdílený tabulkový soubor, který nikdo neaktualizoval, a spousta chození ke stolům kolegů s otázkou „jedeš zítra s tou Škodovkou?" Manažeři neměli přehled kdo jezdí čím a kdy. Dvojité rezervace se děly. Auta stála na parkovišti zatímco tři lidi se hádali o rozvrh.</span>
+        </p>
+
+        <p>
+            <span class="en">The process was simple enough that nobody thought it needed fixing. But simple processes that involve multiple people, repeated coordination, and zero visibility are <strong>exactly the kind that waste the most collective time</strong>. Everyone loses five minutes here and there — multiply that by every employee, every booking, every week.</span>
+            <span class="cz">Proces byl dostatečně jednoduchý na to, aby si nikdo nemyslel, že potřebuje opravu. Ale jednoduché procesy, které zahrnují více lidí, opakovanou koordinaci a nulovou viditelnost, jsou <strong>přesně ten typ, který plýtvá nejvíce kolektivním časem</strong>. Každý ztratí pět minut tu a tam — vynásobte to každým zaměstnancem, každou rezervací, každým týdnem.</span>
+        </p>
+
+        <div class="callout info">
+            <div class="callout-title"><span class="en">Lean Six Sigma Perspective</span><span class="cz">Pohled Lean Six Sigma</span></div>
+            <span class="en">In Lean methodology, this is textbook <strong>muda</strong> — waste through unnecessary motion, waiting, and overprocessing. The task itself (booking a car) takes 10 seconds. Everything around it — checking availability, asking colleagues, informing the manager, updating the log — takes 10 minutes. That's a 60:1 waste-to-value ratio.</span>
+            <span class="cz">V Lean metodologii je tohle učebnicové <strong>muda</strong> — plýtvání zbytečným pohybem, čekáním a nadměrným zpracováním. Samotný úkol (rezervace auta) trvá 10 sekund. Všechno kolem — kontrola dostupnosti, dotazy kolegům, informování manažera, aktualizace záznamu — trvá 10 minut. To je poměr plýtvání k hodnotě 60:1.</span>
+        </div>
+
+        <h2><span class="en">The Solution: 4 Steps in Power Automate</span><span class="cz">Řešení: 4 kroky v Power Automate</span></h2>
+
+        <p>
+            <span class="en">The key insight was that Microsoft already had everything we needed. Outlook has resource mailboxes — originally designed for meeting rooms, but they work perfectly for company cars. Power Automate can watch these calendars and react. And the Office 365 Users connector knows your org structure. All included in the corporate license we already had.</span>
+            <span class="cz">Klíčový poznatek byl, že Microsoft už měl všechno co jsme potřebovali. Outlook má resource mailboxy — původně navržené pro zasedací místnosti, ale fungují perfektně pro firemní auta. Power Automate může sledovat tyto kalendáře a reagovat. A Office 365 Users konektor zná vaši organizační strukturu. Vše zahrnuté ve firemní licenci, kterou jsme už měli.</span>
+        </p>
+
+        <h3><span class="en">Step 1: Set Up Resource Mailboxes for Each Car</span><span class="cz">Krok 1: Nastavte resource mailboxy pro každé auto</span></h3>
+
+        <p>
+            <span class="en">In Exchange Admin Center, create a resource mailbox for each company car. Name them clearly — "Car – Škoda Octavia Silver", "Car – VW Passat Blue" — whatever helps people tell them apart. These show up in Outlook just like meeting rooms: employees open the calendar, pick the car, pick the time slot, done.</span>
+            <span class="cz">V Exchange Admin Center vytvořte resource mailbox pro každé firemní auto. Pojmenujte je jasně — „Auto – Škoda Octavia Stříbrná", „Auto – VW Passat Modrý" — cokoliv co pomůže lidi je rozlišit. Tyto se zobrazí v Outlooku stejně jako zasedací místnosti: zaměstnanci otevřou kalendář, vyberou auto, vyberou časový slot, hotovo.</span>
+        </p>
+
+        <p>
+            <span class="en">The beauty is that Outlook handles conflict detection automatically. If the Octavia is booked Tuesday 9–12, nobody else can book it for that slot. No more double bookings. No more "I thought it was free." The calendar is the single source of truth.</span>
+            <span class="cz">Krása je, že Outlook řeší detekci konfliktů automaticky. Pokud je Octavia zarezervovaná v úterý 9–12, nikdo jiný ji na ten slot nemůže zarezervovat. Žádné dvojité rezervace. Žádné „myslel jsem že je volná." Kalendář je jediný zdroj pravdy.</span>
+        </p>
+
+        <h3><span class="en">Step 2: Trigger — "When a new event is created"</span><span class="cz">Krok 2: Trigger — „Když je vytvořena nová událost"</span></h3>
+
+        <p>
+            <span class="en">In Power Automate, create a flow triggered by a new event in the resource mailbox calendar. Every time someone books a car, the flow fires. It captures who booked it, which car, the start time, end time, and duration — all automatically from the calendar event metadata.</span>
+            <span class="cz">V Power Automate vytvořte flow spouštěný novou událostí v kalendáři resource mailboxu. Pokaždé když si někdo zarezervuje auto, flow se spustí. Zachytí kdo to zarezervoval, které auto, čas začátku, konce a trvání — vše automaticky z metadat kalendářní události.</span>
+        </p>
+
+        <h3><span class="en">Step 3: Identify the Manager — "Get manager" action</span><span class="cz">Krok 3: Identifikace manažera — akce „Get manager"</span></h3>
+
+        <p>
+            <span class="en">This is the step that makes it smart. Using the <strong>Office 365 Users connector</strong>, the "Get manager" action takes the booker's email and automatically pulls their direct manager from your company's Entra ID (Azure AD) directory. No lookup tables. No hardcoded names. When someone changes teams, the flow adapts automatically because it always reads the live org structure.</span>
+            <span class="cz">Tohle je krok, který to dělá chytrým. Pomocí <strong>Office 365 Users konektoru</strong> akce „Get manager" vezme email rezervujícího a automaticky stáhne jeho přímého nadřízeného z firemního adresáře Entra ID (Azure AD). Žádné lookup tabulky. Žádná hardcodovaná jména. Když někdo změní tým, flow se automaticky přizpůsobí, protože vždy čte živou organizační strukturu.</span>
+        </p>
+
+        <div class="callout tip">
+            <div class="callout-title"><span class="en">Why This Matters</span><span class="cz">Proč na tom záleží</span></div>
+            <span class="en">Most people building automations hardcode names or maintain a separate list of "who reports to whom." That creates maintenance debt — someone leaves, someone joins, and the flow breaks. The Office 365 Users connector eliminates this entirely. It's one of the most underused connectors in Power Automate.</span>
+            <span class="cz">Většina lidí stavějících automatizace hardcoduje jména nebo udržuje separátní seznam „kdo reportuje komu." To vytváří dluh údržby — někdo odejde, někdo přijde a flow se rozbije. Office 365 Users konektor to kompletně eliminuje. Je to jeden z nejvíce nedoceněných konektorů v Power Automate.</span>
+        </div>
+
+        <h3><span class="en">Step 4: Delivery — "Post message in Teams"</span><span class="cz">Krok 4: Doručení — „Odeslat zprávu do Teams"</span></h3>
+
+        <p>
+            <span class="en">The final step sends a structured message to the manager via Teams. The notification contains: who booked the car, which car they booked, when (date and time), and for how long. Clear, actionable, automatic. The manager sees it in their Teams feed — no extra app, no email to dig through.</span>
+            <span class="cz">Poslední krok pošle strukturovanou zprávu manažerovi přes Teams. Notifikace obsahuje: kdo auto zarezervoval, které auto, kdy (datum a čas) a na jak dlouho. Jasné, akční, automatické. Manažer to vidí ve svém Teams feedu — žádná extra aplikace, žádný email k prohledávání.</span>
+        </p>
+
+        <p>
+            <span class="en">You can also post to a shared channel like #fleet-management so the whole team has visibility. That's the difference between automation and transformation — it's not just faster, it's more transparent.</span>
+            <span class="cz">Můžete také posílat do sdíleného kanálu jako #fleet-management aby měl celý tým přehled. To je rozdíl mezi automatizací a transformací — není to jen rychlejší, je to transparentnější.</span>
+        </p>
+
+        <!-- Screenshot placeholder -->
+        <figure style="margin: 2rem 0;">
+            <img src="/insights/images/car-booking-flow.png"
+                 alt="Power Automate flow with 4 steps: Calendar trigger, Get manager, Format message, Post to Teams"
+                 style="border-radius: var(--radius); border: 1px solid var(--light-border); width: 100%;">
+            <figcaption style="font-size: 0.82rem; color: var(--light-text-muted); margin-top: 0.6rem; text-align: center;">
+                <span class="en">The complete flow. Four steps. No code.</span>
+                <span class="cz">Kompletní flow. Čtyři kroky. Žádný kód.</span>
+            </figcaption>
+        </figure>
+
+        <h2><span class="en">What You Can Add Later</span><span class="cz">Co můžete přidat později</span></h2>
+
+        <p>
+            <span class="en">Once the basic flow is running, you can extend it without rebuilding anything. Approval workflows where the manager clicks "Approve" or "Reject" directly in Teams. Automatic logging to a SharePoint list for monthly fleet reports. Mileage tracking by adding a follow-up form when the car is returned. Cost allocation by linking bookings to project codes or cost centers. Even fuel card assignment notifications.</span>
+            <span class="cz">Jakmile základní flow běží, můžete ho rozšířit bez přestavování čehokoli. Schvalovací workflow kde manažer klikne „Schválit" nebo „Zamítnout" přímo v Teams. Automatické logování do SharePoint seznamu pro měsíční flotilové reporty. Sledování kilometrů přidáním follow-up formuláře při vrácení auta. Alokace nákladů propojením rezervací s projektovými kódy nebo nákladovými středisky. Dokonce notifikace o přiřazení palivové karty.</span>
+        </p>
+
+        <p>
+            <span class="en">But start simple. Get the team used to it. Let them trust it. Then extend.</span>
+            <span class="cz">Ale začněte jednoduše. Nechte tým si zvyknout. Nechte je tomu důvěřovat. Pak rozšiřte.</span>
+        </p>
+
+        <div class="callout warning">
+            <div class="callout-title"><span class="en">Common Pitfall</span><span class="cz">Častá chyba</span></div>
+            <span class="en">Don't over-engineer it from day one. I've seen companies spend months building the "perfect" car booking system with approval chains, mileage tracking, and cost allocation — and then nobody uses it because it's too complicated to book a car for a two-hour client visit. Start with the 4-step flow. Add complexity only when people ask for it.</span>
+            <span class="cz">Nepředělejte to od prvního dne. Viděl jsem firmy strávit měsíce budováním „perfektního" systému rezervace aut se schvalovacími řetězci, sledováním kilometrů a alokací nákladů — a pak to nikdo nepoužívá, protože je to příliš komplikované na zarezervování auta na dvouhodinovou návštěvu klienta. Začněte se 4krokovým flow. Přidejte složitost jen když o to lidé požádají.</span>
+        </div>
+
+        <h2><span class="en">Results</span><span class="cz">Výsledky</span></h2>
+
+        <p>
+            <span class="en">The paper forms disappeared. The "who's using the car" conversations stopped. Double bookings dropped to zero because Outlook's conflict detection handles it natively. Managers now get a Teams notification within seconds of any booking — no more surprises, no more "I didn't know Jan took the car to Brno all day."</span>
+            <span class="cz">Papírové formuláře zmizely. Konverzace „kdo jezdí s tím autem" přestaly. Dvojité rezervace klesly na nulu, protože detekce konfliktů v Outlooku to řeší nativně. Manažeři nyní dostávají Teams notifikaci během sekund od jakékoliv rezervace — žádná překvapení, žádné „nevěděl jsem že Jan vzal auto na celý den do Brna."</span>
+        </p>
+
+        <p>
+            <span class="en">The total time saved? <strong>Hundreds of minutes per month</strong> across the team. Not from one dramatic improvement, but from eliminating dozens of micro-interruptions that nobody was counting. Five minutes of walking to ask. Three minutes of checking a spreadsheet. Two minutes of sending an email to inform the boss. Repeated by every person, every booking, every week.</span>
+            <span class="cz">Celkový ušetřený čas? <strong>Stovky minut měsíčně</strong> napříč týmem. Ne z jednoho dramatického zlepšení, ale z eliminace desítek mikro-přerušení, které nikdo nepočítal. Pět minut chůze k dotazu. Tři minuty kontroly tabulky. Dvě minuty odeslání emailu informujícího šéfa. Opakováno každou osobou, každou rezervací, každý týden.</span>
+        </p>
+
+        <blockquote>
+            <span class="en">"The best automation isn't the one that handles the most complex process. It's the one that removes the most friction from something people do every day."</span>
+            <span class="cz">„Nejlepší automatizace není ta, která zvládne nejsložitější proces. Je to ta, která odstraní nejvíce tření z něčeho, co lidé dělají každý den."</span>
+        </blockquote>
+
+        <p>
+            <span class="en">The entire setup took about 15 minutes. Resource mailbox creation, Power Automate flow, one test booking, done. Everything runs on the Microsoft 365 license the company already pays for. Zero extra cost. Zero IT tickets. Zero vendor evaluations.</span>
+            <span class="cz">Celý setup trval asi 15 minut. Vytvoření resource mailboxu, Power Automate flow, jedna testovací rezervace, hotovo. Všechno běží na Microsoft 365 licenci, kterou firma už platí. Nula extra nákladů. Nula IT tiketů. Nula hodnocení dodavatelů.</span>
+        </p>
+
+        <p>
+            <span class="en">If your company has shared cars, meeting rooms that need booking oversight, or any shared resource that people currently coordinate via email and spreadsheets — this same pattern works. Change the resource mailbox name, adjust the Teams message, and you're done.</span>
+            <span class="cz">Pokud má vaše firma sdílená auta, zasedací místnosti vyžadující dohled nad rezervacemi, nebo jakýkoliv sdílený zdroj, který lidé aktuálně koordinují přes email a tabulky — stejný vzor funguje. Změňte název resource mailboxu, upravte Teams zprávu a máte hotovo.</span>
+        </p>
+
+    </div>
+</article>
+
+<!-- ═══ TAGS & SHARE ═══ -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Power Automate</span>
+        <span class="article-tag">Process Automation</span>
+        <span class="article-tag">Microsoft 365</span>
+        <span class="article-tag">Fleet Management</span>
+        <span class="article-tag">Lean Six Sigma</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <!-- ✏️ CHANGE: update the share URL in the onclick -->
+        <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')" title="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(location.href)" title="Copy link">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.07a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L4.34 8.374"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- ═══ RELATED ARTICLES ═══ -->
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3><span class="en">Related insights</span><span class="cz">Související články</span></h3>
+            <a href="/insights" class="related-back">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                <span class="en">All insights</span><span class="cz">Všechny články</span>
+            </a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/quotation-analyzer.html" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
+                <h4><span class="en">AI Quotation Analyzer in 10 Minutes</span><span class="cz">AI analyzátor nabídek za 10 minut</span></h4>
+                <p><span class="en">3-step Power Automate flow that reads any supplier PDF.</span><span class="cz">3krokový Power Automate flow co přečte jakékoliv PDF od dodavatele.</span></p>
+            </a>
+            <a href="/insights/contract-risk-scanner.html" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
+                <h4><span class="en">Contract Risk Scanner</span><span class="cz">Skener rizik ve smlouvách</span></h4>
+                <p><span class="en">From manual reviews to instant analysis.</span><span class="cz">Od manuálních kontrol k okamžité analýze.</span></p>
+            </a>
+            <a href="/insights/why-ai-projects-fail.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">Why 90% of Procurement AI Projects Fail</span><span class="cz">Proč 90 % AI projektů v nákupu selže</span></h4>
+                <p><span class="en">The 3 things that separate success from failure.</span><span class="cz">3 věci, které oddělují úspěch od neúspěchu.</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA STRIP ═══ -->
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3><span class="en">Want this for your business?</span><span class="cz">Chcete tohle pro váš business?</span></h3>
+        <p><span class="en">Let's discuss how AI automation can deliver similar results for your processes.</span><span class="cz">Pojďme prodiskutovat jak může AI automatizace přinést podobné výsledky pro vaše procesy.</span></p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            <span class="en">Book a Free Call</span><span class="cz">Domluvit hovor zdarma</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račak</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

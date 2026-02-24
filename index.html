@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourcing Sense — Business Process Automation Powered by AI</title>
+    <meta name="description" content="Automate your business processes with AI. From procurement to operations — measurable results, not corporate buzzwords. By David Račak.">
+    <meta property="og:title" content="Sourcing Sense — Business Process Automation Powered by AI">
+    <meta property="og:description" content="AI-powered business process automation. Procurement expertise meets Lean Six Sigma precision.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sourcing-sense.com">
+    <link rel="canonical" href="https://sourcing-sense.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           CSS VARIABLES
+        ═══════════════════════════════════════════ */
+        :root {
+            /* Blues — matched to logo */
+            --blue-900: #0a1628;
+            --blue-800: #0f2140;
+            --blue-700: #152d54;
+            --blue-600: #1a3a6a;
+            --blue-500: #2563eb;
+            --blue-400: #3b82f6;
+            --blue-300: #60a5fa;
+            --blue-200: #93c5fd;
+            --blue-100: #dbeafe;
+            --blue-50: #eff6ff;
+
+            /* Accents */
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --accent-subtle: rgba(37, 99, 235, 0.06);
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --emerald: #10b981;
+
+            /* Light sections */
+            --light-bg: #ffffff;
+            --light-bg-alt: #f8fafc;
+            --light-card: #ffffff;
+            --light-border: #e2e8f0;
+            --light-text: #0f172a;
+            --light-text-secondary: #475569;
+            --light-text-muted: #94a3b8;
+
+            /* Dark sections */
+            --dark-bg: #0a1628;
+            --dark-bg-alt: #0f2140;
+            --dark-card: rgba(15, 33, 64, 0.8);
+            --dark-border: rgba(255, 255, 255, 0.08);
+            --dark-text: #f1f5f9;
+            --dark-text-secondary: #94a3b8;
+            --dark-text-muted: #475569;
+
+            /* Typography */
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Spacing & Shape */
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-lg: 20px;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ═══════════════════════════════════════════
+           RESET
+        ═══════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            background: var(--light-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        /* ═══════════════════════════════════════════
+           NAV
+        ═══════════════════════════════════════════ */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0.85rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid var(--light-border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.6rem 2rem;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+
+        .nav-logo svg { height: 30px; width: auto; }
+
+        .nav-logo-text {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--blue-900);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-center {
+            display: flex; align-items: center; gap: 2rem;
+        }
+
+        .nav-center a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--light-text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-center a:hover { color: var(--accent); }
+
+        .nav-right {
+            display: flex; align-items: center; gap: 1rem;
+        }
+
+        .lang-toggle {
+            display: flex; align-items: center;
+            background: var(--light-bg-alt);
+            border: 1px solid var(--light-border);
+            border-radius: 100px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 100px;
+            color: var(--light-text-muted);
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--accent);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .nav-cta {
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.55rem 1.2rem;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-sm);
+            transition: all 0.25s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--light-text);
+            font-size: 1.4rem;
+            padding: 0.25rem;
+        }
+
+        /* Mobile overlay */
+        .mobile-overlay {
+            position: fixed; inset: 0; z-index: 999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+        .mobile-overlay a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--light-text-secondary);
+            transition: color 0.2s;
+        }
+
+        .mobile-overlay a:hover { color: var(--accent); }
+
+        .mobile-close {
+            position: absolute; top: 1rem; right: 1.5rem;
+            color: var(--light-text); font-size: 1.6rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           HERO — LIGHT SECTION WITH BLUE GRADIENT
+        ═══════════════════════════════════════════ */
+        .hero {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            padding: 7.5rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #ffffff 40%, #ffffff 100%);
+        }
+
+        /* Decorative mesh gradient */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -10%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%; left: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-content { max-width: 580px; flex: 1; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--accent-subtle);
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            width: fit-content;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            animation: fadeUp 0.6s var(--ease) both;
+        }
+
+        .hero-badge .pulse {
+            width: 7px; height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(37,99,235,0); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            color: var(--blue-900);
+            margin-bottom: 1.25rem;
+            animation: fadeUp 0.6s var(--ease) 0.08s both;
+        }
+
+        .hero h1 .accent-word {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--light-text-secondary);
+            line-height: 1.75;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 480px;
+            animation: fadeUp 0.6s var(--ease) 0.16s both;
+        }
+
+        .hero-actions {
+            display: flex; gap: 0.75rem;
+            align-items: center; flex-wrap: wrap;
+            animation: fadeUp 0.6s var(--ease) 0.24s both;
+        }
+
+        /* Hero stats */
+        .hero-stats {
+            display: flex; gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-border);
+            animation: fadeUp 0.6s var(--ease) 0.32s both;
+        }
+
+        .hero-stat-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: var(--light-text-muted);
+            font-weight: 500;
+        }
+
+        /* Hero visual — slim horizontal flow */
+        .hero-flow {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-motto {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--accent);
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            animation: fadeUp 0.6s var(--ease) 0.2s both;
+        }
+
+        .flow-strip {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            animation: fadeUp 0.6s var(--ease) 0.28s both;
+        }
+
+        .flow-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.9rem 1.2rem;
+            background: white;
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            min-width: 90px;
+        }
+
+        .flow-node:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .flow-node-icon {
+            font-size: 1.3rem;
+        }
+
+        .flow-node-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--light-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+
+        .flow-arrow {
+            color: var(--blue-200);
+            font-size: 1.2rem;
+            padding: 0 0.3rem;
+            flex-shrink: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           BUTTONS
+        ═══════════════════════════════════════════ */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.92rem; font-weight: 600;
+            padding: 0.85rem 1.6rem;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-sm);
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        .btn-primary svg { width: 16px; height: 16px; transition: transform 0.2s; }
+        .btn-primary:hover svg { transform: translateX(3px); }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem; font-weight: 500;
+            padding: 0.85rem 1.5rem;
+            color: var(--light-text-secondary);
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm);
+            transition: all 0.25s ease;
+            background: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-subtle);
+        }
+
+        /* Dark section buttons */
+        .dark-section .btn-primary {
+            background: white;
+            color: var(--blue-900);
+        }
+        .dark-section .btn-primary:hover {
+            background: var(--blue-100);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+        }
+
+        .dark-section .btn-secondary {
+            color: var(--dark-text-secondary);
+            border-color: var(--dark-border);
+            background: transparent;
+        }
+        .dark-section .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.2);
+            color: white;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTION UTILITIES
+        ═══════════════════════════════════════════ */
+        .section-light {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .section-light-alt {
+            padding: 6rem 2rem;
+            background: var(--light-bg-alt);
+        }
+
+        .section-dark, .dark-section {
+            padding: 6rem 2rem;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            width: 18px; height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
+        }
+
+        .dark-section .section-eyebrow { color: var(--blue-300); }
+        .dark-section .section-eyebrow::before { background: var(--blue-300); }
+
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .dark-section .section-heading { color: var(--dark-text); }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--light-text-secondary);
+            max-width: 540px;
+            line-height: 1.75;
+            margin-bottom: 3rem;
+        }
+
+        .dark-section .section-desc { color: var(--dark-text-secondary); }
+
+        /* ═══════════════════════════════════════════
+           SERVICES GRID
+        ═══════════════════════════════════════════ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+            transition: all 0.35s var(--ease);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--blue-300));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon-wrap {
+            width: 48px; height: 48px;
+            background: var(--accent-subtle);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon-wrap {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--light-text-secondary);
+            line-height: 1.7;
+        }
+
+        .service-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.25rem 0.7rem;
+            background: var(--accent-subtle);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ═══════════════════════════════════════════
+           TECH STRIP
+        ═══════════════════════════════════════════ */
+        .tech-strip {
+            padding: 3rem 2rem;
+            background: var(--light-bg-alt);
+            border-top: 1px solid var(--light-border);
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .tech-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--light-text-muted);
+            white-space: nowrap;
+        }
+
+        .tech-logos {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tech-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--light-text-muted);
+            transition: color 0.2s;
+        }
+
+        .tech-item:hover { color: var(--light-text-secondary); }
+
+        .tech-item svg, .tech-item img {
+            width: 22px; height: 22px;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+
+        .tech-item:hover svg, .tech-item:hover img { opacity: 0.8; }
+
+        /* ═══════════════════════════════════════════
+           PROCESS — DARK SECTION
+        ═══════════════════════════════════════════ */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 28px; left: 15%; right: 15%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dark-border), transparent);
+        }
+
+        .process-step {
+            position: relative; z-index: 1;
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue-300);
+            margin-bottom: 1.25rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: var(--dark-text-secondary);
+            line-height: 1.7;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════════
+           USE CASES PREVIEW
+        ═══════════════════════════════════════════ */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .case-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+            transition: all 0.35s var(--ease);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        }
+
+        .case-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .case-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .case-card p {
+            font-size: 0.88rem;
+            color: var(--light-text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .case-result {
+            display: inline-flex;
+            align-items: center; gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--emerald);
+            padding: 0.3rem 0.7rem;
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 100px;
+        }
+
+        /* ═══════════════════════════════════════════
+           CTA SECTION — DARK
+        ═══════════════════════════════════════════ */
+        .cta-section {
+            padding: 7rem 2rem;
+            background: var(--dark-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+
+        .cta-inner .section-heading {
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        .cta-inner .section-desc {
+            color: var(--dark-text-secondary);
+            margin: 0 auto 2.5rem;
+            text-align: center;
+        }
+
+        .cta-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-meta span {
+            display: flex; align-items: center; gap: 0.35rem;
+            color: var(--dark-text-muted);
+            font-size: 0.8rem;
+        }
+
+        .cta-meta svg { width: 14px; height: 14px; color: var(--blue-300); }
+
+        /* ═══════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════ */
+        footer {
+            background: var(--blue-900);
+            border-top: 1px solid var(--dark-border);
+            padding: 3.5rem 2rem 2rem;
+            color: var(--dark-text-secondary);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--dark-text-muted);
+            line-height: 1.65;
+            margin-top: 0.75rem;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--dark-text-muted);
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--dark-text-secondary);
+            margin-bottom: 0.45rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover { color: white; }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-border);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--dark-text-muted);
+        }
+
+        .footer-social {
+            display: flex; gap: 0.5rem;
+        }
+
+        .footer-social a {
+            width: 32px; height: 32px;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+            color: var(--dark-text-muted);
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            border-color: rgba(255,255,255,0.15);
+            color: white;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .footer-social a svg { width: 14px; height: 14px; }
+
+        /* ═══════════════════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════════════════ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: all 0.6s var(--ease);
+        }
+        .reveal.vis { opacity: 1; transform: translateY(0); }
+        .d1 { transition-delay: 0.06s; }
+        .d2 { transition-delay: 0.12s; }
+        .d3 { transition-delay: 0.18s; }
+        .d4 { transition-delay: 0.24s; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .hero-top { flex-direction: column; gap: 2rem; }
+            .hero-flow { width: 100%; }
+            .flow-strip { flex-wrap: wrap; justify-content: center; }
+            .flow-node { min-width: 75px; padding: 0.7rem 0.9rem; }
+            .hero-stats { gap: 1.5rem; }
+            .process-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .process-grid::before { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center { display: none; }
+            .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .hero { padding: 7rem 1.25rem 4rem; min-height: auto; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-sub { font-size: 1rem; }
+            .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+            .section-light, .section-light-alt, .section-dark, .dark-section, .cta-section {
+                padding: 4rem 1.25rem;
+            }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ═══════════════════════════════════════════
+           BILINGUAL CONTENT TOGGLE
+        ═══════════════════════════════════════════ */
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ BACKGROUND ═══ -->
+
+<div class="content-wrap">
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="nav">
+        <a href="#" class="nav-logo">
+            <svg viewBox="0 0 40 36" fill="none">
+                <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="40" y2="36">
+                        <stop offset="0%" stop-color="#2563eb"/>
+                        <stop offset="100%" stop-color="#60a5fa"/>
+                    </linearGradient>
+                </defs>
+                <path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/>
+                <path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/>
+                <path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/>
+                <path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/>
+            </svg>
+            <span class="nav-logo-text">Sourcing Sense</span>
+        </a>
+        <ul class="nav-center">
+            <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+            <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+            <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+            <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+            <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+            </div>
+            <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+                <span class="en">Book a Call</span>
+                <span class="cz">Domluvit hovor</span>
+            </a>
+        </div>
+        <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+    </nav>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mob">
+        <button class="mobile-close" onclick="toggleMob()">✕</button>
+        <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+        <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+        <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+        <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+        <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+        <a href="https://calendly.com/sourcing-sense/" onclick="toggleMob()" style="color:var(--accent)">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+        <div class="lang-toggle" style="margin-top:1rem;">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en');toggleMob()">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs');toggleMob()">CZ</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-top">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse"></span>
+                        <span class="en">Business Process Automation</span>
+                        <span class="cz">Automatizace firemních procesů</span>
+                    </div>
+                    <h1>
+                        <span class="en">Your processes.<br>Automated. Measurable.<br><span class="accent-word">Done.</span></span>
+                        <span class="cz">Vaše procesy.<br>Automatizované. Měřitelné.<br><span class="accent-word">Hotovo.</span></span>
+                    </h1>
+                    <p class="hero-sub">
+                        <span class="en">AI-powered automation for procurement, finance, and operations. Projects are delivered only when positive ROI is confirmed.</span>
+                        <span class="cz">AI automatizace pro nákup, finance a provoz. Projekty jsou realizovány pouze na základě potvrzené pozitivní návratnosti.</span>
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#booking" class="btn-primary">
+                            <span class="en">Book Free Discovery Call</span>
+                            <span class="cz">Domluvit hovor zdarma</span>
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                        </a>
+                        <a href="#cases" class="btn-secondary">
+                            <span class="en">See Use Cases</span>
+                            <span class="cz">Zobrazit případy</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-flow">
+                    <div class="hero-motto">
+                        <span class="en">Sourcing Sense — We Make It Done</span>
+                        <span class="cz">Sourcing Sense — Dotáhneme to do konce</span>
+                    </div>
+                    <div class="flow-strip">
+                        <div class="flow-node">
+                            <span class="flow-node-icon">🔍</span>
+                            <span class="flow-node-label"><span class="en">Analyze</span><span class="cz">Analýza</span></span>
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-node">
+                            <span class="flow-node-icon">⚙️</span>
+                            <span class="flow-node-label"><span class="en">Automate</span><span class="cz">Automatizace</span></span>
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-node">
+                            <span class="flow-node-icon">📊</span>
+                            <span class="flow-node-label"><span class="en">Measure</span><span class="cz">Měření</span></span>
+                        </div>
+                        <span class="flow-arrow">→</span>
+                        <div class="flow-node" style="border-color:var(--accent);background:var(--accent-subtle);">
+                            <span class="flow-node-icon">✅</span>
+                            <span class="flow-node-label" style="color:var(--accent);"><span class="en">Done</span><span class="cz">Hotovo</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-num">8+</div>
+                    <div class="hero-stat-label"><span class="en">Years Procurement</span><span class="cz">Let v nákupu</span></div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">6σ</div>
+                    <div class="hero-stat-label"><span class="en">Lean Six Sigma</span><span class="cz">Lean Six Sigma</span></div>
+                </div>
+                <div>
+                    <div class="hero-stat-num">AI</div>
+                    <div class="hero-stat-label"><span class="en">Automation Expert</span><span class="cz">Expert na automatizaci</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TECH STRIP
+    ═══════════════════════════════════════════ -->
+    <div class="tech-strip">
+        <div class="tech-inner">
+            <span class="tech-label">
+                <span class="en">Technologies I work with</span>
+                <span class="cz">Technologie se kterými pracuji</span>
+            </span>
+            <div class="tech-logos">
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    Claude AI
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    SAP
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Python
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
+                    Power BI
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M2 12h20M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
+                    OpenAI
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4zm0 2.18l6 3v5.32c0 4.52-3.13 8.77-6 9.82-2.87-1.05-6-5.3-6-9.82V7.18l6-3z"/><path d="M11 7h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    Perplexity
+                </span>
+                <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+                    Lean Six Sigma
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SERVICES — LIGHT
+    ═══════════════════════════════════════════ -->
+    <section class="section-light" id="services">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-eyebrow">
+                    <span class="en">What I do</span>
+                    <span class="cz">Co dělám</span>
+                </span>
+                <h2 class="section-heading">
+                    <span class="en">AI implementation & training that make sense</span>
+                    <span class="cz">AI implementace & školení, které dávají smysl</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="en">No fluffy presentations. No buzzword bingo. Projects are delivered only when positive ROI is confirmed. Training is provided only after initial knowledge assessment and mutual expectations.</span>
+                    <span class="cz">Žádné prázdné prezentace. Žádné buzzwordy. Projekty jsou realizovány pouze na základě pozitivní návratnosti. Školení probíhá až po úvodním testu znalostí a vzájemném nastavení očekávání.</span>
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal d1">
+                    <div class="service-icon-wrap">🎯</div>
+                    <h3><span class="en">AI Strategy Session</span><span class="cz">AI Strategie</span></h3>
+                    <p>
+                        <span class="en">ROI-focused AI roadmap for your business. We pinpoint where automation delivers real impact and build a clear action plan with measurable outcomes.</span>
+                        <span class="cz">AI roadmapa zaměřená na návratnost. Najdeme kde automatizace přinese reálný dopad a vytvoříme jasný akční plán s měřitelnými výsledky.</span>
+                    </p>
+                    <span class="service-tag"><span class="en">Strategic Consulting</span><span class="cz">Strategické poradenství</span></span>
+                </div>
+                <div class="service-card reveal d2">
+                    <div class="service-icon-wrap">⚡</div>
+                    <h3><span class="en">AI Implementation</span><span class="cz">AI Implementace</span></h3>
+                    <p>
+                        <span class="en">From assessment to execution. Quick wins first, then systematic improvement. Lean Six Sigma methodology applied to AI integration in your processes.</span>
+                        <span class="cz">Od analýzy po realizaci. Nejdřív rychlé výhry, pak systematické zlepšování. Lean Six Sigma metodologie aplikovaná na AI integraci ve vašich procesech.</span>
+                    </p>
+                    <span class="service-tag"><span class="en">End-to-End Delivery</span><span class="cz">Kompletní realizace</span></span>
+                </div>
+                <div class="service-card reveal d3">
+                    <div class="service-icon-wrap">🔍</div>
+                    <h3><span class="en">Process Audit</span><span class="cz">Audit procesů</span></h3>
+                    <p>
+                        <span class="en">Deep dive into your workflows. Identify bottlenecks, manual waste, and automation opportunities. Get a clear report with prioritized recommendations.</span>
+                        <span class="cz">Hloubková analýza vašich workflow. Identifikace úzkých míst, manuální práce a příležitostí k automatizaci. Jasná zpráva s prioritizovanými doporučeními.</span>
+                    </p>
+                    <span class="service-tag"><span class="en">Analysis & Recommendations</span><span class="cz">Analýza & doporučení</span></span>
+                </div>
+                <div class="service-card reveal d4">
+                    <div class="service-icon-wrap">🛠️</div>
+                    <h3><span class="en">AI Tools & Trainings</span><span class="cz">AI Nástroje & Školení</span></h3>
+                    <p>
+                        <span class="en">Custom-built tools and hands-on training tailored to your needs. Supplier categorization, spend analysis, contract scanning — practical solutions and the skills to use them from day one.</span>
+                        <span class="cz">Nástroje a praktická školení na míru vašim potřebám. Kategorizace dodavatelů, analýza nákladů, skenování smluv — praktická řešení a dovednosti k jejich použití od prvního dne.</span>
+                    </p>
+                    <span class="service-tag"><span class="en">Custom Development</span><span class="cz">Vývoj na míru</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PROCESS — DARK
+    ═══════════════════════════════════════════ -->
+    <section class="dark-section" id="process">
+        <div class="container">
+            <div class="reveal" style="text-align:center;">
+                <span class="section-eyebrow" style="justify-content:center;">
+                    <span class="en">How it works</span>
+                    <span class="cz">Jak to funguje</span>
+                </span>
+                <h2 class="section-heading">
+                    <span class="en">From conversation to results</span>
+                    <span class="cz">Od rozhovoru k výsledkům</span>
+                </h2>
+                <p class="section-desc" style="margin:0 auto 3rem;text-align:center;">
+                    <span class="en">Strong foundations, zero waste, measurable results. Three steps — that's all it takes.</span>
+                    <span class="cz">Pevné základy, nulový odpad, měřitelné výsledky. Tři kroky — víc nepotřebujete.</span>
+                </p>
+            </div>
+            <div class="process-grid reveal">
+                <div class="process-step d1">
+                    <div class="step-number">01</div>
+                    <h3><span class="en">Free Discovery Call</span><span class="cz">Bezplatný úvodní hovor</span></h3>
+                    <p>
+                        <span class="en">20 minutes. We talk about your biggest process challenge. No sales pitch — just an honest assessment of whether AI can help.</span>
+                        <span class="cz">20 minut. Probereme váš největší procesní problém. Žádný prodej — jen upřímné zhodnocení, zda může AI pomoci.</span>
+                    </p>
+                </div>
+                <div class="process-step d2">
+                    <div class="step-number">02</div>
+                    <h3><span class="en">Structured Assessment</span><span class="cz">Strukturovaná analýza</span></h3>
+                    <p>
+                        <span class="en">Detailed questionnaire covering your workflows, approval chains, and data landscape. Built on Lean methodology.</span>
+                        <span class="cz">Detailní dotazník pokrývající vaše workflow, schvalovací řetězce a datový landscape. Postaveno na Lean metodologii.</span>
+                    </p>
+                </div>
+                <div class="process-step d3">
+                    <div class="step-number">03</div>
+                    <h3><span class="en">Strategy or Build</span><span class="cz">Strategie nebo realizace</span></h3>
+                    <p>
+                        <span class="en">Get a focused strategy with a concrete action plan, or go all-in with full implementation. Clear deliverables, measurable outcomes.</span>
+                        <span class="cz">Získejte strategii s konkrétním akčním plánem, nebo rovnou plnou implementaci. Jasné výstupy, měřitelné výsledky.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         USE CASES — LIGHT ALT
+    ═══════════════════════════════════════════ -->
+    <section class="section-light-alt" id="cases">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-eyebrow">
+                    <span class="en">Use Cases</span>
+                    <span class="cz">Případové studie</span>
+                </span>
+                <h2 class="section-heading">
+                    <span class="en">Real problems, real solutions</span>
+                    <span class="cz">Reálné problémy, reálná řešení</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="en">Here's what AI automation looks like in practice. Each case shows a specific problem and how it was solved.</span>
+                    <span class="cz">Takhle vypadá AI automatizace v praxi. Každý případ ukazuje konkrétní problém a jeho řešení.</span>
+                </p>
+            </div>
+            <div class="cases-grid">
+                <a href="/insights/quotation-analyzer.html" class="case-card reveal d1" style="text-decoration:none;color:inherit;">
+                    <div class="case-badge"><span class="en">Procurement</span><span class="cz">Nákup</span></div>
+                    <h3><span class="en">AI Quotation Analyzer in 10 Minutes</span><span class="cz">AI analyzátor nabídek za 10 minut</span></h3>
+                    <p>
+                        <span class="en">Upload a supplier PDF in any language — get a structured procurement analysis with scores, risk flags, and negotiation strategies in Teams within two minutes. Built with Power Automate.</span>
+                        <span class="cz">Nahrajte PDF od dodavatele v jakémkoliv jazyce — do dvou minut dostanete strukturovanou analýzu s hodnocením, rizikovými vlajkami a vyjednávacími strategiemi v Teams. Postaveno s Power Automate.</span>
+                    </p>
+                    <span class="case-result">
+                        <span class="en">⚡ 10 min to build · €0 extra cost</span>
+                        <span class="cz">⚡ 10 min na sestavení · €0 navíc</span>
+                    </span>
+                </a>
+                <a href="/insights/car-booking-automation.html" class="case-card reveal d2" style="text-decoration:none;color:inherit;">
+                    <div class="case-badge"><span class="en">Operations</span><span class="cz">Provoz</span></div>
+                    <h3><span class="en">Company Car Booking Automation</span><span class="cz">Automatizace rezervace firemních aut</span></h3>
+                    <p>
+                        <span class="en">Resource mailboxes for conflict-free booking, automatic manager identification via Entra ID, and Teams notifications. Four steps. No code. Hundreds of minutes saved monthly.</span>
+                        <span class="cz">Resource mailboxy pro bezkonfliktní rezervaci, automatická identifikace manažera přes Entra ID a Teams notifikace. Čtyři kroky. Žádný kód. Stovky ušetřených minut měsíčně.</span>
+                    </p>
+                    <span class="case-result">
+                        <span class="en">↓ 100s min saved monthly</span>
+                        <span class="cz">↓ stovky minut ušetřeno měsíčně</span>
+                    </span>
+                </a>
+                <a href="/insights/5-processes-to-automate.html" class="case-card reveal d3" style="text-decoration:none;color:inherit;">
+                    <div class="case-badge"><span class="en">Strategy</span><span class="cz">Strategie</span></div>
+                    <h3><span class="en">5 Processes to Automate First</span><span class="cz">5 procesů k automatizaci jako první</span></h3>
+                    <p>
+                        <span class="en">Ranked by ROI vs effort — from quick wins to advanced plays. Real tool stacks, real implementations. The strategic playbook for procurement automation.</span>
+                        <span class="cz">Seřazeno podle ROI vs náročnosti — od quick wins po pokročilé tahy. Reálné nástroje, reálné implementace. Strategický playbook pro automatizaci nákupu.</span>
+                    </p>
+                    <span class="case-result">
+                        <span class="en">📊 ROI vs Effort matrix inside</span>
+                        <span class="cz">📊 Matice ROI vs náročnost uvnitř</span>
+                    </span>
+                </a>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+                <a href="/insights" class="btn-secondary">
+                    <span class="en">View all use cases</span>
+                    <span class="cz">Zobrazit všechny případy</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TOOLS PREVIEW — LIGHT
+    ═══════════════════════════════════════════ -->
+    <section class="section-light" id="tools-section">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-eyebrow">
+                    <span class="en">Free Tools</span>
+                    <span class="cz">Bezplatné nástroje</span>
+                </span>
+                <h2 class="section-heading">
+                    <span class="en">Try AI automation yourself</span>
+                    <span class="cz">Vyzkoušejte AI automatizaci sami</span>
+                </h2>
+                <p class="section-desc">
+                    <span class="en">Simple, practical tools you can use right now. No sign-up required for basic tools.</span>
+                    <span class="cz">Jednoduché, praktické nástroje které můžete použít hned. Základní nástroje bez registrace.</span>
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal d1" style="border-left: 3px solid var(--emerald);">
+                    <div class="service-icon-wrap" style="background:rgba(16,185,129,0.08);">📧</div>
+                    <h3><span class="en">Email Template Generator</span><span class="cz">Generátor emailových šablon</span></h3>
+                    <p>
+                        <span class="en">Professional procurement and business communication templates. Supplier negotiations, RFQ responses, escalations.</span>
+                        <span class="cz">Profesionální šablony pro nákupní a obchodní komunikaci. Vyjednávání s dodavateli, odpovědi na RFQ, eskalace.</span>
+                    </p>
+                    <span class="service-tag" style="background:rgba(16,185,129,0.08);color:var(--emerald);">
+                        <span class="en">Free — No sign-up</span><span class="cz">Zdarma — bez registrace</span>
+                    </span>
+                </div>
+                <div class="service-card reveal d2" style="border-left: 3px solid var(--emerald);">
+                    <div class="service-icon-wrap" style="background:rgba(16,185,129,0.08);">💰</div>
+                    <h3><span class="en">Savings Calculator</span><span class="cz">Kalkulačka úspor</span></h3>
+                    <p>
+                        <span class="en">Estimate potential savings from automating your procurement processes. Input your current metrics, get projected ROI.</span>
+                        <span class="cz">Odhadněte potenciální úspory z automatizace vašich procesů. Zadejte aktuální metriky, získejte projekci návratnosti.</span>
+                    </p>
+                    <span class="service-tag" style="background:rgba(16,185,129,0.08);color:var(--emerald);">
+                        <span class="en">Free — No sign-up</span><span class="cz">Zdarma — bez registrace</span>
+                    </span>
+                </div>
+                <div class="service-card reveal d3" style="border-left: 3px solid var(--accent);">
+                    <div class="service-icon-wrap">🔬</div>
+                    <h3><span class="en">Supplier Classifier Demo</span><span class="cz">Demo klasifikátoru dodavatelů</span></h3>
+                    <p>
+                        <span class="en">Upload a CSV of suppliers and see AI categorization in action. First use free, then register for full access.</span>
+                        <span class="cz">Nahrajte CSV s dodavateli a uvidíte AI kategorizaci v akci. První použití zdarma, pak registrace pro plný přístup.</span>
+                    </p>
+                    <span class="service-tag">
+                        <span class="en">First use free</span><span class="cz">První použití zdarma</span>
+                    </span>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+                <a href="/tools" class="btn-secondary">
+                    <span class="en">View all tools</span>
+                    <span class="cz">Zobrazit všechny nástroje</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CTA — DARK
+    ═══════════════════════════════════════════ -->
+    <section class="cta-section dark-section" id="booking">
+        <div class="cta-inner">
+            <span class="section-eyebrow" style="justify-content:center;">
+                <span class="en">Let's Talk</span>
+                <span class="cz">Pojďme si promluvit</span>
+            </span>
+            <h2 class="section-heading" style="max-width:500px;margin:0 auto 1rem;">
+                <span class="en">Ready to automate what matters?</span>
+                <span class="cz">Připraveni automatizovat to podstatné?</span>
+            </h2>
+            <p class="section-desc" style="text-align:center;margin:0 auto 2.5rem;">
+                <span class="en">20-minute discovery call. No sales pitch — just an honest look at whether AI can move the needle for your business.</span>
+                <span class="cz">20minutový úvodní hovor. Žádný prodej — jen upřímný pohled na to, zda může AI posunout váš business.</span>
+            </p>
+            <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary" style="font-size:1rem;padding:0.95rem 2rem;">
+                <span class="en">Book Your Free Call</span>
+                <span class="cz">Domluvit hovor zdarma</span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <div class="cta-meta">
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                    <span class="en">20 minutes</span><span class="cz">20 minut</span>
+                </span>
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="en">No obligation</span><span class="cz">Bez závazku</span>
+                </span>
+                <span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span class="en">Video call</span><span class="cz">Videohovor</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <svg viewBox="0 0 40 36" fill="none" style="height:24px">
+                            <path d="M2 2H38L34 10H6L2 2Z" fill="#3b82f6" opacity=".9"/>
+                            <path d="M6 12H34L30 20H10L6 12Z" fill="#60a5fa" opacity=".7"/>
+                            <path d="M10 22H30L26 30H14L10 22Z" fill="#93c5fd" opacity=".55"/>
+                            <path d="M14 32H26L20 36L14 32Z" fill="#bfdbfe" opacity=".4"/>
+                        </svg>
+                        <span class="nav-logo-text" style="font-size:0.92rem;color:white;">Sourcing Sense</span>
+                    </a>
+                    <p>
+                        <span class="en">Business Process Automation powered by AI.<br>By David Račak.</span>
+                        <span class="cz">Automatizace firemních procesů pomocí AI.<br>David Račak.</span>
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4><span class="en">Navigate</span><span class="cz">Navigace</span></h4>
+                    <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+                    <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+                    <a href="/about"><span class="en">About</span><span class="cz">O mně</span></a>
+                    <a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+                </div>
+                <div class="footer-col">
+                    <h4><span class="en">Connect</span><span class="cz">Spojit se</span></h4>
+                    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+                    <a href="/cdn-cgi/l/email-protection#432a2d252c03302c3631202a2d246e30262d30266d202c2e"><span class="__cf_email__" data-cfemail="1871767e77586b776d6a7b71767f356b7d766b7d367b7775">[email&#160;protected]</span></a>
+                    <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Sourcing Sense · David Račak</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─── NAV SCROLL ───
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+// ─── MOBILE NAV ───
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// ─── REVEAL ON SCROLL ───
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        const h = this.getAttribute('href');
+        if (h === '#') return;
+        e.preventDefault();
+        const t = document.querySelector(h);
+        if (t) window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - nav.offsetHeight - 16, behavior: 'smooth' });
+    });
+});
+
+// ─── LANGUAGE SYSTEM ───
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+    });
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+
+// Auto-detect language
+(function() {
+    try {
+        const saved = localStorage.getItem('ss-lang');
+        if (saved) { setLang(saved); return; }
+    } catch(e
