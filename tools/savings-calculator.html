@@ -11,7 +11,7 @@
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:title" content="Procurement Savings Calculator — Sourcing Sense" />
     <meta property="og:description" content="See exactly how much your manual procurement processes cost — and what automation would save." />
-    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -326,6 +326,20 @@
         /* Fade in animation */
         .fade-in { animation: fadeUp 0.5s var(--ease) both; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ═══ FAQ ═══ */
+        .faq-section { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .faq-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--light-text); }
+        .faq-item { border-bottom: 1px solid var(--light-border); }
+        .faq-item:first-child { border-top: 1px solid var(--light-border); }
+        .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; font-size: 0.9rem; font-weight: 600; color: var(--light-text); text-align: left; gap: 1rem; cursor: pointer; background: none; border: none; font-family: var(--font-body); }
+        .faq-q:hover { color: var(--accent); }
+        .faq-arrow { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.25s; }
+        .faq-q.open .faq-arrow { transform: rotate(180deg); }
+        .faq-a { display: none; padding-bottom: 1.1rem; }
+        .faq-a.open { display: block; }
+        .faq-a p { font-size: 0.88rem; color: var(--light-text-secondary); line-height: 1.75; }
+        @media (max-width: 768px) { .faq-section { padding: 0 1.25rem 2.5rem; } }
     </style>
 </head>
 <body>
@@ -407,12 +421,12 @@
             <span class="cz">Načíst příklad procesu (volitelné)</span>
         </label>
         <select class="preset-select" id="presetSelect" onchange="loadPreset()">
-            <option value=""><span class="en">— Custom —</span><span class="cz">— Vlastní —</span></option>
-            <option value="supplier_qual"><span class="en">Supplier qualification (manual)</span><span class="cz">Kvalifikace dodavatele (manuálně)</span></option>
-            <option value="quote_compare"><span class="en">Quote comparison & analysis</span><span class="cz">Porovnání nabídek</span></option>
-            <option value="invoice"><span class="en">Invoice processing & coding</span><span class="cz">Zpracování faktur</span></option>
-            <option value="contract_review"><span class="en">Contract review</span><span class="cz">Kontrola smlouvy</span></option>
-            <option value="spend_report"><span class="en">Spend reporting (monthly)</span><span class="cz">Výkaz spotřeby (měsíční)</span></option>
+            <option value="">— Custom —</option>
+            <option value="supplier_qual">Supplier qualification (manual)</option>
+            <option value="quote_compare">Quote comparison &amp; analysis</option>
+            <option value="invoice">Invoice processing &amp; coding</option>
+            <option value="contract_review">Contract review</option>
+            <option value="spend_report">Spend reporting (monthly)</option>
         </select>
 
         <hr class="divider">
@@ -577,6 +591,59 @@
     </div>
 </div>
 
+
+<!-- ═══ FAQ ═══ -->
+<div class="faq-section">
+    <h2 class="faq-title"><span class="en">Common questions</span><span class="cz">Časté otázky</span></h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">How accurate is this calculation?</span><span class="cz">Jak přesný je výpočet?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Directional, not exact. Real savings depend on process complexity, data quality, and how well the automation is implemented. Use it to build a business case — good enough to justify a conversation with your manager, not a budget commitment.</span><span class="cz">Orientační, ne přesný. Skutečné úspory závisí na složitosti procesu, kvalitě dat a implementaci. Použijte ho k vybudování business case — dostatečný pro rozhovor s manažerem, ne pro závazek rozpočtu.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What automation efficiency should I use?</span><span class="cz">Jakou míru automatizace zadat?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">70% is conservative and a safe default for most routine tasks. Invoice coding and supplier classification often hit 90–95%. Contract review typically lands at 60–75% — some human judgment stays. If you're uncertain, keep 70% and update after your first pilot result.</span><span class="cz">70 % je konzervativní a bezpečný výchozí bod. Kódování faktur a klasifikace dodavatelů dosahují 90–95 %. Kontrola smluv typicky 60–75 % — část rozhodnutí zůstává na člověku. Pokud si nejste jistí, nechte 70 % a upravte po pilotním projektu.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What counts as a "fully loaded" hourly cost?</span><span class="cz">Co zahrnuje "plná" hodinová sazba?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Gross salary + employer contributions (social security, health insurance) + overhead (office space, software, benefits). In the EU, multiply gross salary by 1.3–1.5 to get the real cost. Mid-senior procurement professional: €45/h is a solid estimate for Western Europe. In CZK: 1,100 Kč/h for Czech Republic.</span><span class="cz">Hrubá mzda + odvody zaměstnavatele (sociální, zdravotní pojištění) + overhead (kancelář, software, benefity). Vynásobte hrubou mzdu 1,3–1,5. Nákupčí s hrubou 50 000 Kč/měsíc stojí firmu cca 70–80 000 Kč — přibližně 350–400 Kč/hodinu. Pro střední úroveň je 1 100 Kč/h rozumný odhad.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What implementation cost is realistic for a first project?</span><span class="cz">Jaké náklady na implementaci jsou realistické?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">€500–2,000 for simple automation (Power Automate flows, email templates, basic scripts). €2,000–8,000 for ERP or supplier portal integration. €8,000–20,000 for full AI pipelines with custom data processing. For a first project, €2,000 is a reasonable baseline when done properly.</span><span class="cz">10 000–50 000 Kč pro jednoduché automatizace (Power Automate, emailové šablony). 50 000–200 000 Kč pro integraci s ERP nebo portálem dodavatelů. 200 000+ Kč pro plné AI pipeline s vlastním zpracováním dat. Pro první projekt je 50 000 Kč rozumný výchozí bod.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">Which procurement processes work best for automation?</span><span class="cz">Které procesy jsou vhodné pro automatizaci?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Best candidates: high-frequency, repetitive, with structured outputs. Supplier qualification processing, invoice coding and routing, spend categorization, RFQ generation, and supplier follow-up emails. Poor candidates: negotiation judgment calls, novel supplier assessment, and complex legal decisions.</span><span class="cz">Nejlepší kandidáti: vysokofrekvenční, opakující se procesy s předvídatelným výstupem. Zpracování kvalifikačních dotazníků, kódování a routing faktur, kategorizace výdajů, generování RFQ, follow-up emaily. Slabí kandidáti: obchodní rozhodnutí, posouzení nových dodavatelů, složitá právní interpretace.</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Methodology note -->
 <div class="methodology">
     <p>
@@ -601,6 +668,17 @@
 // ═══════════════════════════
 let currency = 'EUR'; // 'EUR' or 'CZK'
 const EUR_TO_CZK = 25;
+
+const PRESET_LABELS = {
+    en: { '': '— Custom —', supplier_qual: 'Supplier qualification (manual)', quote_compare: 'Quote comparison & analysis', invoice: 'Invoice processing & coding', contract_review: 'Contract review', spend_report: 'Spend reporting (monthly)' },
+    cs: { '': '— Vlastní —', supplier_qual: 'Kvalifikace dodavatele (manuálně)', quote_compare: 'Porovnání nabídek', invoice: 'Zpracování faktur', contract_review: 'Kontrola smlouvy', spend_report: 'Výkaz spotřeby (měsíční)' }
+};
+
+function updateSelectLabels(lang) {
+    const sel = document.getElementById('presetSelect');
+    const labels = PRESET_LABELS[lang] || PRESET_LABELS.en;
+    Array.from(sel.options).forEach(opt => { if (labels[opt.value] !== undefined) opt.textContent = labels[opt.value]; });
+}
 
 const PRESETS = {
     supplier_qual:  { hours: 8,   freq: 24,  people: 3 },
@@ -755,6 +833,7 @@ function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
     try { localStorage.setItem('ss-lang', lang); } catch {}
+    updateSelectLabels(lang);
     recalc();
 }
 
@@ -768,6 +847,14 @@ function toggleMob() { document.getElementById('mob').classList.toggle('open'); 
 // ═══════════════════════════
 // INIT
 // ═══════════════════════════
+
+// ═══════════════════════════
+// FAQ TOGGLE
+// ═══════════════════════════
+function toggleFaq(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+}
 (function() {
     try {
         const s = localStorage.getItem('ss-lang');

@@ -11,7 +11,7 @@
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:title" content="RFQ Builder — Sourcing Sense" />
     <meta property="og:description" content="4-step wizard. Scope, requirements, evaluation criteria, terms. Download your RFQ in minutes." />
-    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json">
@@ -296,6 +296,20 @@
 
         [data-lang="en"] .cz { display: none !important; }
         [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══ FAQ ═══ */
+        .faq-section { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .faq-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--light-text); }
+        .faq-item { border-bottom: 1px solid var(--light-border); }
+        .faq-item:first-child { border-top: 1px solid var(--light-border); }
+        .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 0; font-size: 0.9rem; font-weight: 600; color: var(--light-text); text-align: left; gap: 1rem; cursor: pointer; background: none; border: none; font-family: var(--font-body); }
+        .faq-q:hover { color: var(--accent); }
+        .faq-arrow { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.25s; }
+        .faq-q.open .faq-arrow { transform: rotate(180deg); }
+        .faq-a { display: none; padding-bottom: 1.1rem; }
+        .faq-a.open { display: block; }
+        .faq-a p { font-size: 0.88rem; color: var(--light-text-secondary); line-height: 1.75; }
+        @media (max-width: 768px) { .faq-section { padding: 0 1.25rem 2.5rem; } }
     </style>
 </head>
 <body>
@@ -593,6 +607,59 @@
         </div>
     </div>
 
+</div>
+
+
+<!-- ═══ FAQ ═══ -->
+<div class="faq-section">
+    <h2 class="faq-title"><span class="en">Common questions</span><span class="cz">Časté otázky</span></h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What is an RFQ and who should use this?</span><span class="cz">Co je RFQ a kdo by měl tento nástroj používat?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">An RFQ (Request for Quotation) is a structured document you send to suppliers asking for pricing, delivery terms, and capabilities for a specific need. This builder is for procurement professionals, operations managers, and anyone who regularly sources goods or services and wants to get better, more comparable quotes from suppliers.</span><span class="cz">RFQ (Request for Quotation) je strukturovaný dokument, který posíláte dodavatelům se žádostí o cenu, dodací podmínky a schopnosti pro konkrétní potřebu. Tento nástroj je pro nákupčí, operations manažery a kohokoliv, kdo pravidelně poptává zboží nebo služby a chce získat lepší, srovnatelné nabídky.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">How long does it take to complete the wizard?</span><span class="cz">Jak dlouho trvá vyplnění průvodce?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">3–5 minutes for a standard RFQ if you know your requirements. The 4 steps cover: scope and context, technical specifications, evaluation criteria (weighted), and submission conditions. The more specific your inputs, the better the output document.</span><span class="cz">3–5 minut pro standardní RFQ, pokud znáte své požadavky. Čtyři kroky pokrývají: rozsah a kontext, technické specifikace, hodnotící kritéria (vážená) a podmínky podání nabídky. Čím konkrétnější jsou vaše vstupy, tím lepší je výstupní dokument.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What format is the output and can I edit it?</span><span class="cz">V jakém formátu je výstup a mohu ho upravit?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Plain text with structured formatting. You can copy it to clipboard or download as a .txt file. Paste it into Word, Google Docs, or your email client for final formatting. The structure follows standard procurement practice: header, background, scope, requirements, evaluation criteria, and submission instructions.</span><span class="cz">Prostý text se strukturovaným formátováním. Můžete ho zkopírovat do schránky nebo stáhnout jako soubor .txt. Vložte ho do Wordu, Google Docs nebo emailového klienta pro finální formátování. Struktura odpovídá standardní nákupní praxi: záhlaví, kontext, rozsah, požadavky, hodnotící kritéria a pokyny k podání.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">Can I change the evaluation criteria weights?</span><span class="cz">Mohu upravit váhy hodnotících kritérií?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Yes — step 3 lets you set weights for price, quality, delivery terms, and supplier experience. The total must equal 100%. This is intentional: sending suppliers your evaluation weights upfront leads to more relevant responses and fewer surprises during scoring.</span><span class="cz">Ano — krok 3 umožňuje nastavit váhy pro cenu, kvalitu, dodací podmínky a zkušenosti dodavatele. Součet musí být 100 %. Je to záměrné: sdělení hodnotících vah dodavatelům předem vede k relevantnějším odpovědím a méně překvapením při hodnocení.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">Is this suitable for complex technical specifications?</span><span class="cz">Je tento nástroj vhodný pro složité technické specifikace?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">It works well for indirect procurement (MRO, services, facilities, IT, marketing) and straightforward direct materials. For highly engineered components with tight technical tolerances, use this as the commercial and process framework and supplement it with a separate technical specification document attached to the RFQ.</span><span class="cz">Funguje dobře pro nepřímý nákup (MRO, služby, facility, IT, marketing) a standardní přímé materiály. Pro vysoce technické komponenty s přesnými tolerancemi použijte tento nástroj jako obchodní a procesní rámec a doplňte ho samostatným technickým specifikačním dokumentem připojeným k RFQ.</span></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- ═══ FOOTER ═══ -->
@@ -969,6 +1036,14 @@ function toggleMob() { document.getElementById('mob').classList.toggle('open'); 
 // ═══════════════════════════════════
 // INIT
 // ═══════════════════════════════════
+
+// ═══════════════════════════
+// FAQ TOGGLE
+// ═══════════════════════════
+function toggleFaq(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+}
 (function() {
     try {
         const s = localStorage.getItem('ss-lang');

@@ -10,7 +10,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sourcing-sense.com/insights/supplier-scoreboard">
     <meta property="og:site_name" content="Sourcing Sense" />
-    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <link rel="canonical" href="https://sourcing-sense.com/insights/supplier-scoreboard" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
@@ -227,6 +227,19 @@
 
         [data-lang="en"] .cz { display: none !important; }
         [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══ RELATED ARTICLES ═══ */
+        .related-section { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .related-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light-text-muted); margin-bottom: 1.25rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { padding: 1.25rem; border: 1px solid var(--light-border); border-radius: var(--radius-sm); background: white; transition: all 0.25s var(--ease); display: block; }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .related-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.55rem; border-radius: 100px; display: inline-block; margin-bottom: 0.6rem; }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: rgba(139,92,246,0.06); color: #8b5cf6; }
+        .related-card h4 { font-size: 0.88rem; font-weight: 600; line-height: 1.45; color: var(--light-text); margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.8rem; color: var(--light-text-muted); line-height: 1.5; }
+        @media (max-width: 768px) { .related-section { padding: 0 1.25rem 2.5rem; } }
     </style>
 </head>
 <body>
@@ -732,6 +745,29 @@ Data faktur:
 </div>
 
 <!-- FOOTER -->
+
+<!-- ═══ RELATED ARTICLES ═══ -->
+<div class="related-section">
+    <p class="related-label"><span class="en">More from Sourcing Sense</span><span class="cz">Další z Sourcing Sense</span></p>
+    <div class="related-grid">
+        <a href="/insights/5-processes-to-automate" class="related-card">
+            <span class="related-badge article">Article</span>
+            <h4><span class="en">5 Procurement Processes You Should Automate First</span><span class="cz">5 nákupních procesů, které byste měli automatizovat jako první</span></h4>
+            <p><span class="en">Ranked by ROI vs. effort, with real tool stacks.</span><span class="cz">Seřazeno podle ROI vs. námahy, s reálnými nástroji.</span></p>
+        </a>
+        <a href="/insights/ai-projects-fail" class="related-card">
+            <span class="related-badge article">Article</span>
+            <h4><span class="en">Why 90% of Procurement AI Projects Fail</span><span class="cz">Proč 90 % AI projektů v nákupu selže</span></h4>
+            <p><span class="en">Five reasons — from wrong process selection to no baseline.</span><span class="cz">Pět důvodů — od špatného výběru procesu po chybějící baseline.</span></p>
+        </a>
+        <a href="/insights/prompt-engineering-procurement" class="related-card">
+            <span class="related-badge tutorial">Tutorial</span>
+            <h4><span class="en">Prompt Engineering for Procurement Professionals</span><span class="cz">Prompt engineering pro nákupčí</span></h4>
+            <p><span class="en">Before/after examples for contracts, spend, quotes, and negotiations.</span><span class="cz">Příklady před/po pro smlouvy, výdaje, nabídky a vyjednávání.</span></p>
+        </a>
+    </div>
+</div>
+
 <footer>
     <div class="footer-inner">
         <div class="footer-bottom">
