@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Procurement ROI Calculator — Sourcing Sense</title>
+    <meta name="description" content="Calculate the full value of procurement automation: time savings, contract risk, TCO, maverick spend, payment terms, EHS, and carbon. Free tool with sourced benchmarks.">
+    <link rel="canonical" href="https://sourcing-sense.com/tools/total-procurement-roi" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:title" content="Total Procurement ROI Calculator — Sourcing Sense" />
+    <meta property="og:description" content="Calculate the full value of procurement automation across 8 dimensions: time, contracts, TCO, maverick spend, payments, EHS, space, and carbon." />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Total Procurement ROI Calculator",
+      "description": "Advanced ROI calculator for procurement automation. Covers 8 value dimensions: time/process cost, contract risk, TCO, payment terms, maverick spend, EHS, space, and carbon.",
+      "url": "https://sourcing-sense.com/tools/total-procurement-roi",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": {
+        "@type": "Person",
+        "name": "David Račák",
+        "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt"
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900:#0a1628;--blue-800:#0f2140;--blue-500:#2563eb;
+            --blue-400:#3b82f6;--blue-300:#60a5fa;--blue-200:#93c5fd;--blue-100:#dbeafe;--blue-50:#eff6ff;
+            --accent:#2563eb;--accent-light:#3b82f6;--accent-glow:rgba(37,99,235,0.15);--accent-subtle:rgba(37,99,235,0.06);
+            --emerald:#10b981;--emerald-light:#34d399;--emerald-subtle:rgba(16,185,129,0.08);
+            --amber:#f59e0b;--amber-subtle:rgba(245,158,11,0.08);
+            --purple:#8b5cf6;--purple-subtle:rgba(139,92,246,0.08);
+            --red:#ef4444;--red-subtle:rgba(239,68,68,0.08);
+            --light-bg:#ffffff;--light-bg-alt:#f8fafc;--light-border:#e2e8f0;
+            --light-text:#0f172a;--light-text-secondary:#475569;--light-text-muted:#94a3b8;
+            --dark-bg:#0a1628;--dark-border:rgba(255,255,255,0.08);--dark-text:#f1f5f9;--dark-text-secondary:#94a3b8;
+            --font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+            --font-mono:'JetBrains Mono',monospace;--radius:14px;--radius-sm:8px;--ease:cubic-bezier(0.16,1,0.3,1);
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;}
+        body{font-family:var(--font-body);background:var(--light-bg);color:var(--light-text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+        ::selection{background:var(--accent);color:white;}
+        a{text-decoration:none;color:inherit;}
+        button{font-family:var(--font-body);border:none;cursor:pointer;background:none;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0.85rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid var(--light-border);transition:all 0.3s ease;}
+        nav.scrolled{padding:0.6rem 2rem;box-shadow:0 1px 12px rgba(0,0,0,0.06);}
+        .nav-logo{display:flex;align-items:center;gap:0.6rem;}
+        .nav-logo svg{height:30px;width:auto;}
+        .nav-logo-text{font-weight:700;font-size:1.05rem;color:var(--blue-900);letter-spacing:-0.02em;}
+        .nav-center{display:flex;align-items:center;gap:2rem;list-style:none;}
+        .nav-center a{font-size:0.85rem;font-weight:500;color:var(--light-text-secondary);transition:color 0.2s;}
+        .nav-center a:hover{color:var(--accent);}
+        .nav-center a.active{color:var(--accent);font-weight:600;}
+        .nav-right{display:flex;align-items:center;gap:1rem;}
+        .lang-toggle{display:flex;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:100px;padding:3px;gap:2px;}
+        .lang-btn{font-size:0.72rem;font-weight:600;padding:0.3rem 0.6rem;border-radius:100px;color:var(--light-text-muted);transition:all 0.2s;letter-spacing:0.03em;}
+        .lang-btn.active{background:white;color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+        .nav-cta{font-size:0.82rem;font-weight:600;padding:0.55rem 1.2rem;background:var(--accent);color:white;border-radius:var(--radius-sm);transition:all 0.25s ease;}
+        .nav-cta:hover{background:var(--accent-light);transform:translateY(-1px);}
+        .hamburger{display:none;color:var(--light-text);font-size:1.4rem;padding:0.25rem;}
+        .mobile-overlay{position:fixed;inset:0;z-index:999;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
+        .mobile-overlay.open{opacity:1;pointer-events:auto;}
+        .mobile-overlay a{font-family:var(--font-display);font-size:1.5rem;color:var(--light-text-secondary);}
+        .mobile-close{position:absolute;top:1rem;right:1.5rem;color:var(--light-text);font-size:1.6rem;}
+
+        /* TOOL HEADER */
+        .tool-header{padding:7.5rem 2rem 2.5rem;background:linear-gradient(175deg,var(--blue-50) 0%,#fff 55%);position:relative;overflow:hidden;}
+        .tool-header::before{content:'';position:absolute;top:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(16,185,129,0.06) 0%,transparent 65%);pointer-events:none;}
+        .tool-header-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;}
+        .breadcrumb{display:flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--light-text-muted);margin-bottom:1.5rem;}
+        .breadcrumb a{color:var(--light-text-muted);transition:color 0.2s;}
+        .breadcrumb a:hover{color:var(--accent);}
+        .breadcrumb svg{width:12px;height:12px;flex-shrink:0;}
+        .tool-header h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.4rem);font-weight:400;line-height:1.2;margin-bottom:0.75rem;}
+        .tool-header-desc{font-size:1.02rem;color:var(--light-text-secondary);line-height:1.7;max-width:620px;margin-bottom:1.25rem;}
+        .tool-badge-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
+        .tool-badge{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:0.3rem 0.75rem;border-radius:100px;}
+        .tool-badge.free{background:var(--emerald-subtle);color:var(--emerald);}
+        .tool-badge.no-signup{background:var(--accent-subtle);color:var(--accent);}
+        .tool-badge.advanced{background:var(--purple-subtle);color:var(--purple);}
+
+        /* MAIN LAYOUT */
+        .calc-wrapper{max-width:1000px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:1.1fr 0.9fr;gap:1.5rem;align-items:start;}
+
+        /* INPUT PANEL */
+        .calc-inputs{background:white;border:1px solid var(--light-border);border-radius:var(--radius);padding:1.75rem;}
+        .calc-inputs-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;}
+        .calc-inputs-header h2{font-size:1rem;font-weight:700;}
+        .currency-toggle{display:flex;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:100px;padding:3px;gap:2px;}
+        .currency-btn{font-size:0.78rem;font-weight:700;padding:0.25rem 0.65rem;border-radius:100px;color:var(--light-text-muted);transition:all 0.2s;font-family:var(--font-mono);letter-spacing:0.02em;}
+        .currency-btn.active{background:white;color:var(--emerald);box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+
+        /* Section 0 — metadata */
+        .meta-section{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--light-border);}
+        .meta-row{display:flex;gap:0.75rem;align-items:flex-end;margin-top:0.75rem;}
+        .field-group{margin-bottom:0.85rem;}
+        .field-group:last-child{margin-bottom:0;}
+        .field-label{font-size:0.8rem;font-weight:600;color:var(--light-text);display:block;margin-bottom:0.3rem;}
+        .field-label-sub{font-size:0.72rem;color:var(--light-text-muted);font-weight:400;}
+        .text-input{width:100%;padding:0.55rem 0.8rem;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:0.85rem;color:var(--light-text);outline:none;transition:border-color 0.2s;}
+        .text-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow);}
+        textarea.text-input{resize:vertical;min-height:56px;}
+
+        /* Preset selector */
+        .preset-label{font-size:0.78rem;color:var(--light-text-muted);margin-bottom:0.4rem;display:block;}
+        .preset-select{width:100%;padding:0.6rem 0.85rem;font-size:0.82rem;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:var(--radius-sm);color:var(--light-text);font-family:var(--font-body);outline:none;cursor:pointer;margin-bottom:1.25rem;transition:border-color 0.2s;}
+        .preset-select:focus{border-color:var(--accent);}
+
+        /* Sliders */
+        .slider-group{margin-bottom:1.1rem;}
+        .slider-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.35rem;}
+        .slider-label{font-size:0.82rem;font-weight:600;color:var(--light-text);}
+        .slider-value{font-size:0.88rem;font-weight:700;color:var(--accent);font-family:var(--font-mono);min-width:70px;text-align:right;}
+        input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--light-border);outline:none;cursor:pointer;}
+        input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 2px 8px var(--accent-glow);transition:transform 0.15s;}
+        input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.2);}
+        input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:none;}
+        .slider-hint{font-size:0.72rem;color:var(--light-text-muted);margin-top:0.25rem;}
+
+        /* Money input */
+        .money-wrap{position:relative;}
+        .money-sym{position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);font-size:0.85rem;font-weight:700;color:var(--light-text-secondary);font-family:var(--font-mono);}
+        .money-input{width:100%;padding:0.6rem 0.75rem 0.6rem 1.8rem;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.9rem;font-weight:700;color:var(--light-text);outline:none;transition:border-color 0.2s;}
+        .money-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow);}
+        .num-input{width:100%;padding:0.6rem 0.75rem;background:var(--light-bg-alt);border:1px solid var(--light-border);border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.9rem;font-weight:700;color:var(--light-text);outline:none;transition:border-color 0.2s;}
+        .num-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow);}
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+        .divider{border:none;border-top:1px solid var(--light-border);margin:1.25rem 0;}
+
+        /* Section 1 label */
+        .sec1-title{font-size:0.88rem;font-weight:700;color:var(--light-text);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--accent-subtle);}
+
+        /* Accordion sections 2–8 */
+        .section-block{border:1px solid var(--light-border);border-radius:var(--radius-sm);margin-bottom:0.75rem;overflow:hidden;}
+        .section-header{display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1rem;cursor:pointer;user-select:none;background:var(--light-bg-alt);transition:background 0.15s;}
+        .section-header:hover{background:#f1f5f9;}
+        .section-check{width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex-shrink:0;}
+        .section-title-text{font-size:0.85rem;font-weight:600;flex:1;}
+        .sec-badge{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:0.18rem 0.55rem;border-radius:100px;white-space:nowrap;}
+        .sec-badge.office{background:var(--accent-subtle);color:var(--accent);}
+        .sec-badge.warehouse{background:rgba(100,116,139,0.1);color:#64748b;}
+        .sec-arrow{width:15px;height:15px;flex-shrink:0;transition:transform 0.2s;color:var(--light-text-muted);margin-left:auto;}
+        .sec-arrow.open{transform:rotate(180deg);}
+        .section-body{padding:1.1rem 1rem;border-top:1px solid var(--light-border);display:none;}
+        .section-body.open{display:block;}
+        .sec-source{font-size:0.7rem;color:var(--light-text-muted);margin-top:0.5rem;}
+        .sec-source a{color:var(--accent);}
+
+        /* RESULTS PANEL */
+        .calc-results{position:sticky;top:85px;align-self:start;max-height:calc(100vh - 105px);overflow-y:auto;display:flex;flex-direction:column;gap:0.75rem;scrollbar-width:thin;}
+
+        /* Primary card */
+        .result-primary{background:linear-gradient(135deg,#0a2540 0%,#1a3a6a 100%);border-radius:var(--radius);padding:1.75rem;color:white;text-align:center;position:relative;overflow:hidden;}
+        .result-primary::before{content:'';position:absolute;top:-30%;right:-10%;width:200px;height:200px;background:radial-gradient(circle,rgba(16,185,129,0.15) 0%,transparent 70%);pointer-events:none;}
+        .rp-label{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;}
+        .rp-value{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1;color:var(--emerald-light);margin-bottom:0.2rem;}
+        .rp-sub{font-size:0.78rem;color:rgba(255,255,255,0.4);}
+
+        /* Metric cards */
+        .result-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+        .result-metric{background:white;border:1px solid var(--light-border);border-radius:var(--radius-sm);padding:1rem 1.1rem;}
+        .rm-label{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--light-text-muted);margin-bottom:0.25rem;}
+        .rm-value{font-size:1.3rem;font-weight:700;color:var(--light-text);font-family:var(--font-mono);line-height:1.1;}
+        .rm-value.positive{color:var(--emerald);}
+        .rm-value.accent{color:var(--accent);}
+        .rm-value.purple{color:var(--purple);}
+        .rm-sub{font-size:0.7rem;color:var(--light-text-muted);margin-top:0.1rem;}
+
+        /* Inflation warning */
+        .inflation-warn{background:var(--amber-subtle);border:1px solid rgba(245,158,11,0.25);border-radius:var(--radius-sm);padding:0.8rem 1rem;font-size:0.79rem;color:#92400e;line-height:1.5;display:none;}
+        .inflation-warn.show{display:block;}
+
+        /* Additional value cards */
+        .addl-card{background:white;border:1px solid var(--light-border);border-radius:var(--radius-sm);padding:0.9rem 1.1rem;display:none;}
+        .addl-card.active{display:block;}
+        .addl-label{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--light-text-muted);margin-bottom:0.2rem;}
+        .addl-value{font-size:1.2rem;font-weight:700;color:var(--emerald);font-family:var(--font-mono);line-height:1.1;margin-bottom:0.2rem;}
+        .addl-desc{font-size:0.73rem;color:var(--light-text-secondary);margin-bottom:0.3rem;}
+        .addl-source{font-size:0.68rem;color:var(--light-text-muted);}
+        .addl-source a{color:var(--accent);text-decoration:underline;}
+
+        /* Summary bar */
+        .summary-bar{background:var(--blue-900);border-radius:var(--radius-sm);padding:1.1rem 1.25rem;color:white;}
+        .summary-title{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;}
+        .summary-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.28rem 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.8rem;}
+        .summary-row:last-child{border-bottom:none;}
+        .summary-key{color:rgba(255,255,255,0.6);}
+        .summary-val{font-weight:700;font-family:var(--font-mono);color:var(--emerald-light);}
+
+        /* Non-financial chips */
+        .chip-row{display:flex;flex-wrap:wrap;gap:0.5rem;}
+        .chip{font-size:0.75rem;font-weight:600;padding:0.3rem 0.7rem;border-radius:100px;background:var(--accent-subtle);color:var(--accent);display:none;align-items:center;gap:0.3rem;}
+        .chip.active{display:inline-flex;}
+        .chip.green{background:var(--emerald-subtle);color:var(--emerald);}
+
+        /* CTA */
+        .result-cta{background:var(--emerald-subtle);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);padding:1.1rem;display:flex;flex-direction:column;gap:0.65rem;}
+        .result-cta p{font-size:0.83rem;color:var(--light-text-secondary);line-height:1.5;}
+        .cta-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;padding:0.7rem 1.3rem;background:var(--emerald);color:white;border-radius:var(--radius-sm);transition:all 0.25s;width:fit-content;}
+        .cta-btn:hover{background:#0ea572;transform:translateY(-1px);box-shadow:0 6px 20px rgba(16,185,129,0.25);}
+        .cta-btn svg{width:15px;height:15px;}
+
+        /* Action buttons */
+        .action-buttons{display:flex;gap:0.6rem;}
+        .action-btn{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:600;padding:0.55rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--light-border);color:var(--light-text-secondary);background:white;cursor:pointer;transition:all 0.2s;flex:1;justify-content:center;}
+        .action-btn:hover{border-color:var(--accent);color:var(--accent);}
+        .action-btn svg{width:14px;height:14px;}
+
+        /* Print report */
+        @media screen{.print-report{display:none;}}
+        @media print{
+            nav,.calc-wrapper,.faq-section,.methodology,.related-articles,footer,.action-buttons,.result-cta,.chip-row{display:none!important;}
+            .print-report{display:block!important;}
+            body{font-family:Georgia,serif;color:#000;background:#fff;}
+            .pr-header{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #0a1628;padding-bottom:1rem;margin-bottom:1.5rem;}
+            .pr-title{font-size:1.5rem;font-weight:700;color:#0a1628;}
+            .pr-meta{font-size:0.85rem;color:#475569;margin-bottom:1.5rem;}
+            .pr-exec{background:#f8fafc;border:1px solid #e2e8f0;padding:1rem;margin-bottom:1.5rem;border-radius:6px;}
+            .pr-exec-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.75rem;color:#0a1628;}
+            .pr-exec-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+            .pr-exec-item label{font-size:0.72rem;color:#64748b;display:block;}
+            .pr-exec-item span{font-size:1.3rem;font-weight:700;color:#10b981;}
+            .pr-notes{font-size:0.85rem;color:#475569;margin-bottom:1.5rem;font-style:italic;}
+            .pr-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;}
+            .pr-table th{background:#0a1628;color:white;font-size:0.78rem;padding:0.5rem 0.75rem;text-align:left;}
+            .pr-table td{font-size:0.82rem;padding:0.45rem 0.75rem;border-bottom:1px solid #e2e8f0;}
+            .pr-table tr:last-child td{font-weight:700;background:#f8fafc;}
+            .pr-nonfin{font-size:0.85rem;color:#475569;margin-bottom:1.5rem;}
+            .pr-method{font-size:0.72rem;color:#94a3b8;border-left:3px solid #e2e8f0;padding-left:0.75rem;margin-bottom:1.5rem;line-height:1.6;}
+            .pr-sources{font-size:0.72rem;color:#94a3b8;margin-bottom:1.5rem;}
+            .pr-sources a{color:#2563eb;}
+            .pr-footer{border-top:1px solid #e2e8f0;padding-top:0.75rem;font-size:0.72rem;color:#94a3b8;display:flex;justify-content:space-between;}
+        }
+
+        /* FAQ */
+        .faq-section{max-width:1000px;margin:0 auto;padding:0 2rem 3rem;}
+        .faq-title{font-family:var(--font-display);font-size:1.35rem;font-weight:400;margin-bottom:1.5rem;color:var(--light-text);}
+        .faq-item{border-bottom:1px solid var(--light-border);}
+        .faq-item:first-child{border-top:1px solid var(--light-border);}
+        .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;font-size:0.9rem;font-weight:600;color:var(--light-text);text-align:left;gap:1rem;cursor:pointer;background:none;border:none;font-family:var(--font-body);}
+        .faq-q:hover{color:var(--accent);}
+        .faq-arrow{width:16px;height:16px;flex-shrink:0;transition:transform 0.25s;}
+        .faq-q.open .faq-arrow{transform:rotate(180deg);}
+        .faq-a{display:none;padding-bottom:1.1rem;}
+        .faq-a.open{display:block;}
+        .faq-a p{font-size:0.88rem;color:var(--light-text-secondary);line-height:1.75;}
+
+        /* Related articles */
+        .related-articles{max-width:1000px;margin:0 auto;padding:0 2rem 3rem;}
+        .related-title{font-family:var(--font-display);font-size:1.2rem;font-weight:400;margin-bottom:1.25rem;color:var(--light-text);}
+        .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
+        .related-card{border:1px solid var(--light-border);border-radius:var(--radius-sm);padding:1.1rem;transition:border-color 0.2s,box-shadow 0.2s;}
+        .related-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(37,99,235,0.08);}
+        .related-card-label{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent);margin-bottom:0.4rem;}
+        .related-card h3{font-size:0.9rem;font-weight:600;line-height:1.4;margin-bottom:0.3rem;}
+        .related-card p{font-size:0.78rem;color:var(--light-text-muted);}
+
+        /* Methodology */
+        .methodology{max-width:1000px;margin:0 auto;padding:0 2rem 3rem;}
+        .methodology p{font-size:0.78rem;color:var(--light-text-muted);line-height:1.6;border-left:3px solid var(--light-border);padding-left:0.85rem;}
+
+        /* Footer */
+        footer{background:var(--blue-900);border-top:1px solid var(--dark-border);padding:3rem 2rem 2rem;}
+        .footer-inner{max-width:1200px;margin:0 auto;}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-bottom p{font-size:0.75rem;color:var(--dark-text-secondary);}
+        .footer-link{font-size:0.75rem;color:var(--dark-text-secondary);transition:color 0.2s;}
+        .footer-link:hover{color:var(--blue-300);}
+
+        /* Responsive */
+        @media(max-width:768px){
+            nav{padding:0.7rem 1rem;}
+            .nav-center,.nav-cta{display:none;}
+            .hamburger{display:block;}
+            .tool-header{padding:7rem 1.25rem 1.75rem;}
+            .calc-wrapper{grid-template-columns:1fr;padding:1.25rem;}
+            .calc-results{position:static;max-height:none;}
+            .result-metrics{grid-template-columns:1fr 1fr;}
+            .faq-section,.methodology,.related-articles{padding-left:1.25rem;padding-right:1.25rem;}
+        }
+        @media(max-width:480px){.result-metrics{grid-template-columns:1fr;}.action-buttons{flex-direction:column;}}
+
+        [data-lang="en"] .cz{display:none!important;}
+        [data-lang="cs"] .en{display:none!important;}
+        .fade-in{animation:fadeUp 0.5s var(--ease) both;}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- TOOL HEADER -->
+<section class="tool-header">
+    <div class="tool-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Total Procurement ROI</span><span class="cz">Celkový výnos nákupu</span></span>
+        </div>
+        <h1>
+            <span class="en">Total Procurement ROI Calculator</span>
+            <span class="cz">Kalkulátor celkového výnosu nákupu</span>
+        </h1>
+        <p class="tool-header-desc">
+            <span class="en">Build a complete business case for procurement automation. Time savings are just the start — add contract risk, TCO, maverick spend, payments, EHS, and carbon to get the full picture.</span>
+            <span class="cz">Sestavte kompletní business case pro automatizaci nákupu. Úspora času je jen začátek — přidejte smluvní rizika, TCO, maverick spend, platby, BOZP a uhlíkovou stopu.</span>
+        </p>
+        <div class="tool-badge-row">
+            <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+            <span class="tool-badge no-signup"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+            <span class="tool-badge advanced"><span class="en">8 value dimensions</span><span class="cz">8 dimenzí hodnoty</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- CALCULATOR -->
+<div class="calc-wrapper">
+
+<!-- LEFT: Inputs -->
+<div class="calc-inputs">
+    <div class="calc-inputs-header">
+        <h2><span class="en">Inputs</span><span class="cz">Vstupy</span></h2>
+        <div class="currency-toggle">
+            <button id="btnEur" class="currency-btn active" onclick="setCurrency('EUR')">€ EUR</button>
+            <button id="btnCzk" class="currency-btn" onclick="setCurrency('CZK')">Kč CZK</button>
+        </div>
+    </div>
+
+    <!-- SECTION 0: Project metadata -->
+    <div class="meta-section">
+        <div class="field-group">
+            <label class="field-label" for="projName"><span class="en">Project name</span><span class="cz">Název projektu</span></label>
+            <input type="text" id="projName" class="text-input" placeholder="e.g. AP Automation 2026">
+        </div>
+        <div class="field-group">
+            <label class="field-label" for="projNotes"><span class="en">Notes / context</span><span class="cz">Poznámky / kontext</span></label>
+            <textarea id="projNotes" class="text-input" rows="2" placeholder="Process, department, scope…"></textarea>
+        </div>
+        <div class="meta-row">
+            <div class="field-group" style="flex:1;margin-bottom:0;">
+                <label class="field-label" for="implDate"><span class="en">Target implementation date</span><span class="cz">Cílové datum implementace</span></label>
+                <input type="date" id="implDate" class="text-input" onchange="recalc()">
+            </div>
+        </div>
+    </div>
+
+    <!-- PRESET SELECTOR -->
+    <span class="preset-label"><span class="en">Load a scenario preset</span><span class="cz">Načíst přednastavený scénář</span></span>
+    <select class="preset-select" id="presetSel" onchange="loadPreset()">
+        <option value="">— Custom —</option>
+        <option value="contract_review">Contract Review Automation</option>
+        <option value="ap_workflow">AP &amp; Invoice Workflow</option>
+        <option value="warehouse">Warehouse Process Automation</option>
+        <option value="full_transform">Full Procurement Transformation</option>
+    </select>
+
+    <!-- SECTION 1: Core (always open) -->
+    <p class="sec1-title"><span class="en">Section 1 — Time &amp; Process Cost</span><span class="cz">Sekce 1 — Čas a náklady procesu</span></p>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">Hours per occurrence</span><span class="cz">Hodiny na výskyt</span></span>
+            <span class="slider-value" id="valHours">3 h</span>
+        </div>
+        <input type="range" id="slHours" min="0.5" max="24" step="0.5" value="3" oninput="onSlide('slHours','valHours',v=>v+' h')">
+    </div>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">Occurrences per year</span><span class="cz">Počet výskytů ročně</span></span>
+            <span class="slider-value" id="valFreq">50×</span>
+        </div>
+        <input type="range" id="slFreq" min="1" max="500" step="1" value="50" oninput="onSlide('slFreq','valFreq',v=>v+'×')">
+    </div>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">People involved</span><span class="cz">Počet zapojených lidí</span></span>
+            <span class="slider-value" id="valPeople">2 ppl</span>
+        </div>
+        <input type="range" id="slPeople" min="1" max="20" step="1" value="2" oninput="onSlide('slPeople','valPeople',v=>v+' ppl')">
+    </div>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">Fully loaded hourly cost</span><span class="cz">Plná hodinová sazba</span></span>
+        </div>
+        <div class="money-wrap">
+            <span class="money-sym" id="sym1">€</span>
+            <input type="number" id="inCost" class="money-input" value="45" min="1" oninput="recalc()">
+        </div>
+        <p class="slider-hint"><span class="en">Gross salary × 1.3–1.5 incl. employer costs. EU mid-senior: €45/h.</span><span class="cz">Hrubá mzda × 1,3–1,5 vč. odvodů. Střední úroveň CZ: 1 100 Kč/h.</span></p>
+    </div>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">Automation efficiency</span><span class="cz">Míra automatizace</span></span>
+            <span class="slider-value" id="valEff">70%</span>
+        </div>
+        <input type="range" id="slEff" min="10" max="99" step="1" value="70" oninput="onSlide('slEff','valEff',v=>v+'%')">
+        <p class="slider-hint"><span class="en">70% is conservative. Invoice coding: 90–95%. Contract review: 60–75%.</span><span class="cz">70 % je konzervativní. Faktury: 90–95 %. Smlouvy: 60–75 %.</span></p>
+    </div>
+    <div class="slider-group">
+        <div class="slider-row">
+            <span class="slider-label"><span class="en">Implementation cost</span><span class="cz">Náklady na implementaci</span></span>
+        </div>
+        <div class="money-wrap">
+            <span class="money-sym" id="symImpl">€</span>
+            <input type="number" id="inImpl" class="money-input" value="2000" min="0" oninput="recalc()">
+        </div>
+        <p class="slider-hint"><span class="en">First project baseline: €2,000–8,000 depending on complexity.</span><span class="cz">Základní projekt: 50 000–200 000 Kč podle složitosti.</span></p>
+    </div>
+    <hr class="divider">
+
+    <!-- SECTION 2: Contract Risk -->
+    <div class="section-block">
+        <label class="section-header" for="en2">
+            <input type="checkbox" id="en2" class="section-check" onchange="toggleSec(2,this.checked)">
+            <span class="section-title-text"><span class="en">Contract Risk &amp; Management</span><span class="cz">Smluvní rizika</span></span>
+            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <svg class="sec-arrow" id="secArrow2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec2">
+            <div class="field-group">
+                <label class="field-label"><span class="en">Annual contract value under review</span><span class="cz">Roční hodnota smluv</span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="contractVal" class="money-input" value="500000" oninput="recalc()"></div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Value leakage rate (manual)</span><span class="cz">Míra úniku hodnoty</span></span><span class="slider-value" id="valLeak">11%</span></div>
+                <input type="range" id="slLeak" min="1" max="30" step="0.5" value="11" oninput="onSlide('slLeak','valLeak',v=>v+'%')">
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Leakage reduction from automation</span><span class="cz">Redukce úniku automatizací</span></span><span class="slider-value" id="valLeakRed">60%</span></div>
+                <input type="range" id="slLeakRed" min="10" max="90" step="5" value="60" oninput="onSlide('slLeakRed','valLeakRed',v=>v+'%')">
+            </div>
+            <div class="two-col">
+                <div class="field-group">
+                    <label class="field-label"><span class="en">Current cycle time (days)</span><span class="cz">Aktuální doba cyklu</span></label>
+                    <input type="number" id="currentDays" class="num-input" value="21" min="1" oninput="recalc()">
+                </div>
+                <div class="field-group">
+                    <label class="field-label"><span class="en">With automation (days)</span><span class="cz">S automatizací</span></label>
+                    <input type="number" id="autoDays" class="num-input" value="7" min="1" oninput="recalc()">
+                </div>
+            </div>
+            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.worldcc.com/Resources/Content-Hub/details/Poor-Contract-Management-Continues-To-Costs-Companies-9-Of-Their-Bottom-Line" target="_blank">WorldCC — Poor Contract Management</a></p>
+        </div>
+    </div>
+
+    <!-- SECTION 3: TCO -->
+    <div class="section-block">
+        <label class="section-header" for="en3">
+            <input type="checkbox" id="en3" class="section-check" onchange="toggleSec(3,this.checked)">
+            <span class="section-title-text"><span class="en">TCO &amp; Price Accuracy</span><span class="cz">TCO a přesnost cen</span></span>
+            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <svg class="sec-arrow" id="secArrow3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec3">
+            <div class="field-group">
+                <label class="field-label"><span class="en">Annual category spend under analysis</span><span class="cz">Roční výdaje kategorie</span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="tcoSpend" class="money-input" value="1000000" oninput="recalc()"></div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Quotes with hidden/missing costs</span><span class="cz">Nabídky se skrytými náklady</span></span><span class="slider-value" id="valHidden">15%</span></div>
+                <input type="range" id="slHidden" min="1" max="50" step="1" value="15" oninput="onSlide('slHidden','valHidden',v=>v+'%')">
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Average hidden cost deviation</span><span class="cz">Průměrná odchylka skrytých nákladů</span></span><span class="slider-value" id="valDev">3.2%</span></div>
+                <input type="range" id="slDev" min="0.5" max="15" step="0.1" value="3.2" oninput="onSlide('slDev','valDev',v=>v+'%')">
+            </div>
+            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
+        </div>
+    </div>
+
+    <!-- SECTION 4: Payment Terms -->
+    <div class="section-block">
+        <label class="section-header" for="en4">
+            <input type="checkbox" id="en4" class="section-check" onchange="toggleSec(4,this.checked)">
+            <span class="section-title-text"><span class="en">Payment Terms &amp; Cash</span><span class="cz">Platební podmínky</span></span>
+            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <svg class="sec-arrow" id="secArrow4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec4">
+            <div class="field-group">
+                <label class="field-label"><span class="en">AP spend eligible for early payment</span><span class="cz">AP výdaje pro předčasnou platbu</span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="apSpend" class="money-input" value="500000" oninput="recalc()"></div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Available early payment discount</span><span class="cz">Dostupná sleva za předčasnou platbu</span></span><span class="slider-value" id="valDiscount">2%</span></div>
+                <input type="range" id="slDiscount" min="0.5" max="5" step="0.5" value="2" oninput="onSlide('slDiscount','valDiscount',v=>v+'%')">
+                <p class="slider-hint"><span class="en">Standard 2/10 net 30.</span><span class="cz">Standardní 2/10 net 30.</span></p>
+            </div>
+            <div class="two-col">
+                <div class="slider-group" style="margin-bottom:0">
+                    <div class="slider-row"><span class="slider-label"><span class="en">Current capture rate</span><span class="cz">Aktuální záchyt</span></span><span class="slider-value" id="valCC">10%</span></div>
+                    <input type="range" id="slCC" min="0" max="90" step="5" value="10" oninput="onSlide('slCC','valCC',v=>v+'%')">
+                </div>
+                <div class="slider-group" style="margin-bottom:0">
+                    <div class="slider-row"><span class="slider-label"><span class="en">Target capture rate</span><span class="cz">Cílový záchyt</span></span><span class="slider-value" id="valTC">70%</span></div>
+                    <input type="range" id="slTC" min="10" max="100" step="5" value="70" oninput="onSlide('slTC','valTC',v=>v+'%')">
+                </div>
+            </div>
+            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
+        </div>
+    </div>
+
+    <!-- SECTION 5: Maverick Spend -->
+    <div class="section-block">
+        <label class="section-header" for="en5">
+            <input type="checkbox" id="en5" class="section-check" onchange="toggleSec(5,this.checked)">
+            <span class="section-title-text"><span class="en">Maverick Spend &amp; Compliance</span><span class="cz">Maverick spend a soulad</span></span>
+            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <svg class="sec-arrow" id="secArrow5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec5">
+            <div class="field-group">
+                <label class="field-label"><span class="en">Total addressable spend</span><span class="cz">Celkové adresovatelné výdaje</span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="addrSpend" class="money-input" value="2000000" oninput="recalc()"></div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Non-compliant spend rate</span><span class="cz">Míra nesouladu výdajů</span></span><span class="slider-value" id="valNoncomp">12%</span></div>
+                <input type="range" id="slNoncomp" min="1" max="50" step="1" value="12" oninput="onSlide('slNoncomp','valNoncomp',v=>v+'%')">
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Avg price premium on maverick purchases</span><span class="cz">Průměrná prémie mimo smlouvy</span></span><span class="slider-value" id="valPremium">8%</span></div>
+                <input type="range" id="slPremium" min="1" max="30" step="1" value="8" oninput="onSlide('slPremium','valPremium',v=>v+'%')">
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Expected compliance improvement</span><span class="cz">Očekávané zlepšení souladu</span></span><span class="slider-value" id="valComp">50%</span></div>
+                <input type="range" id="slComp" min="10" max="90" step="5" value="50" oninput="onSlide('slComp','valComp',v=>v+'%')">
+            </div>
+            <p class="sec-source"><span class="en">Source: ISM industry benchmark (CAPS Research spend compliance data).</span><span class="cz">Zdroj: ISM průmyslový benchmark (CAPS Research).</span></p>
+        </div>
+    </div>
+
+    <!-- SECTION 6: EHS -->
+    <div class="section-block">
+        <label class="section-header" for="en6">
+            <input type="checkbox" id="en6" class="section-check" onchange="toggleSec(6,this.checked)">
+            <span class="section-title-text"><span class="en">EHS / Injury Risk</span><span class="cz">BOZP / riziko úrazů</span></span>
+            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span><span class="sec-badge warehouse cz" title="Platí pro automatizaci fyzických skladových procesů">Sklad</span>
+            <svg class="sec-arrow" id="secArrow6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec6">
+            <div class="two-col">
+                <div class="field-group">
+                    <label class="field-label"><span class="en">FTE in affected process</span><span class="cz">FTE v procesu</span></label>
+                    <input type="number" id="inFte" class="num-input" value="10" min="1" oninput="recalc()">
+                </div>
+                <div class="field-group">
+                    <label class="field-label"><span class="en">Incident rate /100 FTE/yr</span><span class="cz">Míra nehod /100 FTE/rok</span></label>
+                    <input type="number" id="inIncRate" class="num-input" value="3.2" min="0" step="0.1" oninput="recalc()">
+                    <p class="slider-hint"><span class="en">EU mfg avg: 3.2</span><span class="cz">EU průměr výroby: 3,2</span></p>
+                </div>
+            </div>
+            <div class="field-group">
+                <label class="field-label"><span class="en">Avg cost per incident</span><span class="cz">Průměrné náklady na nehodu</span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inIncCost" class="money-input" value="38000" oninput="recalc()"></div>
+                <p class="slider-hint"><span class="en">EU-OSHA estimate: €38,000 incl. indirect costs.</span><span class="cz">Odhad EU-OSHA: 38 000 € vč. nepřímých nákladů.</span></p>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Incident reduction from automation</span><span class="cz">Redukce nehod automatizací</span></span><span class="slider-value" id="valEhsRed">25%</span></div>
+                <input type="range" id="slEhsRed" min="5" max="80" step="5" value="25" oninput="onSlide('slEhsRed','valEhsRed',v=>v+'%')">
+            </div>
+            <p class="sec-source"><a href="https://osha.europa.eu/en/themes/good-osh-is-good-for-business" target="_blank">EU-OSHA — Good OSH is Good for Business</a></p>
+        </div>
+    </div>
+
+    <!-- SECTION 7: Space -->
+    <div class="section-block">
+        <label class="section-header" for="en7">
+            <input type="checkbox" id="en7" class="section-check" onchange="toggleSec(7,this.checked)">
+            <span class="section-title-text"><span class="en">Space &amp; Archiving</span><span class="cz">Prostor a archivace</span></span>
+            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span><span class="sec-badge warehouse cz" title="Platí pro automatizaci fyzických skladových procesů">Sklad</span>
+            <svg class="sec-arrow" id="secArrow7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec7">
+            <div class="two-col">
+                <div class="field-group">
+                    <label class="field-label"><span class="en">m² for paper/manual storage</span><span class="cz">m² pro papírové úložiště</span></label>
+                    <input type="number" id="inM2" class="num-input" value="20" min="1" oninput="recalc()">
+                </div>
+                <div class="field-group">
+                    <label class="field-label"><span class="en">Cost per m²/year</span><span class="cz">Cena za m²/rok</span></label>
+                    <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inCostM2" class="money-input" value="180" oninput="recalc()"></div>
+                </div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Expected space reduction</span><span class="cz">Očekávané uvolnění prostoru</span></span><span class="slider-value" id="valSpaceRed">40%</span></div>
+                <input type="range" id="slSpaceRed" min="10" max="100" step="5" value="40" oninput="onSlide('slSpaceRed','valSpaceRed',v=>v+'%')">
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 8: Carbon -->
+    <div class="section-block">
+        <label class="section-header" for="en8">
+            <input type="checkbox" id="en8" class="section-check" onchange="toggleSec(8,this.checked)">
+            <span class="section-title-text"><span class="en">Carbon &amp; Environment</span><span class="cz">Uhlík a životní prostředí</span></span>
+            <svg class="sec-arrow" id="secArrow8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </label>
+        <div class="section-body" id="sec8">
+            <div class="two-col">
+                <div class="field-group">
+                    <label class="field-label"><span class="en">Paper (reams/year)</span><span class="cz">Papír (balíky/rok)</span></label>
+                    <input type="number" id="inReams" class="num-input" value="50" min="0" oninput="recalc()">
+                </div>
+                <div class="field-group">
+                    <label class="field-label"><span class="en">Travel (km/year)</span><span class="cz">Cestování (km/rok)</span></label>
+                    <input type="number" id="inKm" class="num-input" value="2000" min="0" oninput="recalc()">
+                </div>
+            </div>
+            <div class="slider-group">
+                <div class="slider-row"><span class="slider-label"><span class="en">Reduction from digital processes</span><span class="cz">Redukce digitalizací</span></span><span class="slider-value" id="valCarbRed">60%</span></div>
+                <input type="range" id="slCarbRed" min="10" max="100" step="5" value="60" oninput="onSlide('slCarbRed','valCarbRed',v=>v+'%')">
+            </div>
+            <div class="field-group">
+                <label class="field-label"><span class="en">EU ETS carbon price (€/tonne)</span><span class="cz">Cena EU ETS uhlíku (€/t)</span> <span class="field-label-sub">— <span class="en">March 2026</span><span class="cz">Březen 2026</span></span></label>
+                <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inEts" class="money-input" value="81" min="1" oninput="recalc()"></div>
+            </div>
+            <p class="sec-source"><a href="https://sandbag.be/carbon-price-viewer/" target="_blank">Sandbag Carbon Price Viewer</a> · <span class="en">Emission factors: paper 0.0045 t/ream, car 0.00021 t/km.</span><span class="cz">Emisní faktory: papír 0,0045 t/balík, auto 0,00021 t/km.</span></p>
+        </div>
+    </div>
+
+</div>
+
+<!-- RIGHT: Results -->
+<div class="calc-results" id="calcResults">
+
+    <!-- Primary card -->
+    <div class="result-primary">
+        <p class="rp-label"><span class="en">Total annual value</span><span class="cz">Celková roční hodnota</span></p>
+        <div class="rp-value" id="resPrimary">—</div>
+        <p class="rp-sub"><span class="en">combined across all enabled sections</span><span class="cz">součet všech aktivních sekcí</span></p>
+        <span id="resSavings" style="display:none">—</span>
+    </div>
+
+    <!-- 4 metric cards -->
+    <div class="result-metrics">
+        <div class="result-metric">
+            <p class="rm-label"><span class="en">Payback period</span><span class="cz">Návratnost</span></p>
+            <div class="rm-value" id="resPayback">—</div>
+            <p class="rm-sub" id="resPaybackSub"></p>
+        </div>
+        <div class="result-metric">
+            <p class="rm-label"><span class="en">ROI on impl. cost</span><span class="cz">ROI na impl. náklady</span></p>
+            <div class="rm-value accent" id="resRoi">—</div>
+            <p class="rm-sub"><span class="en">return on investment</span><span class="cz">návratnost investice</span></p>
+        </div>
+        <div class="result-metric">
+            <p class="rm-label"><span class="en">Hours freed / year</span><span class="cz">Uvolněných hodin / rok</span></p>
+            <div class="rm-value positive" id="resHours">—</div>
+            <p class="rm-sub"><span class="en">process time saved</span><span class="cz">úspora procesního času</span></p>
+        </div>
+        <div class="result-metric">
+            <p class="rm-label"><span class="en">Additional value</span><span class="cz">Další přidaná hodnota</span></p>
+            <div class="rm-value purple" id="resAddl">—</div>
+            <p class="rm-sub"><span class="en">beyond time savings</span><span class="cz">nad rámec úspory času</span></p>
+        </div>
+    </div>
+
+    <!-- Inflation delay warning -->
+    <div class="inflation-warn" id="inflationWarn">
+        ⚠ <span class="en">Every month of implementation delay costs ~<strong id="inflationMonthly">—</strong> in inflation-eroded savings value (EU HICP avg 3.5%/yr).</span>
+        <span class="cz">Každý měsíc odkladu implementace stojí ~<strong id="inflationMonthlyCz">—</strong> v inflačně erodované hodnotě úspor (EU HICP průměr 3,5 %/rok).</span>
+    </div>
+
+    <!-- Additional value cards (sections 2–8) -->
+    <div class="addl-card" id="addlCard2">
+        <p class="addl-label"><span class="en">Contract risk avoided</span><span class="cz">Zamezené smluvní riziko</span></p>
+        <div class="addl-value" id="addlVal2">—</div>
+        <p class="addl-desc"><span class="en">Value leakage prevented + faster contracting value.</span><span class="cz">Zamezení úniku hodnoty + rychlejší uzavírání smluv.</span></p>
+        <p class="addl-source"><a href="https://www.worldcc.com/Resources/Content-Hub/details/Poor-Contract-Management-Continues-To-Costs-Companies-9-Of-Their-Bottom-Line" target="_blank">WorldCC: avg 9% bottom-line impact</a></p>
+    </div>
+    <div class="addl-card" id="addlCard3">
+        <p class="addl-label"><span class="en">TCO improvement</span><span class="cz">Zlepšení TCO</span></p>
+        <div class="addl-value" id="addlVal3">—</div>
+        <p class="addl-desc"><span class="en">Hidden and missing costs identified and eliminated.</span><span class="cz">Odhalení a eliminace skrytých nákladů.</span></p>
+        <p class="addl-source"><a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 CPO Survey</a></p>
+    </div>
+    <div class="addl-card" id="addlCard4">
+        <p class="addl-label"><span class="en">Early payment discount recovery</span><span class="cz">Záchyt slev za předčasnou platbu</span></p>
+        <div class="addl-value" id="addlVal4">—</div>
+        <p class="addl-desc"><span class="en">Discount capture increase from improved AP visibility.</span><span class="cz">Zvýšení záchytu slev díky lepší viditelnosti AP.</span></p>
+        <p class="addl-source"><a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 CPO Survey</a></p>
+    </div>
+    <div class="addl-card" id="addlCard5">
+        <p class="addl-label"><span class="en">Maverick spend recovery</span><span class="cz">Záchrana maverick spend</span></p>
+        <div class="addl-value" id="addlVal5">—</div>
+        <p class="addl-desc"><span class="en">Off-contract price premium eliminated through compliance.</span><span class="cz">Eliminace cenové prémie mimo smlouvy.</span></p>
+        <p class="addl-source"><span class="en">ISM industry benchmark (CAPS Research)</span><span class="cz">ISM průmyslový benchmark (CAPS Research)</span></p>
+    </div>
+    <div class="addl-card" id="addlCard6">
+        <p class="addl-label"><span class="en">EHS risk reduction</span><span class="cz">Redukce BOZP rizik</span></p>
+        <div class="addl-value" id="addlVal6">—</div>
+        <p class="addl-desc"><span class="en">Incident cost reduction from automated safety controls.</span><span class="cz">Snížení nákladů nehod automatizovanými bezpečnostními kontrolami.</span></p>
+        <p class="addl-source"><a href="https://osha.europa.eu/en/themes/good-osh-is-good-for-business" target="_blank">EU-OSHA — Good OSH is Good for Business</a></p>
+    </div>
+    <div class="addl-card" id="addlCard7">
+        <p class="addl-label"><span class="en">Space freed value</span><span class="cz">Hodnota uvolněného prostoru</span></p>
+        <div class="addl-value" id="addlVal7">—</div>
+        <p class="addl-desc"><span class="en">Physical storage space recovered through digitisation.</span><span class="cz">Fyzický prostor získaný digitalizací.</span></p>
+    </div>
+    <div class="addl-card" id="addlCard8">
+        <p class="addl-label"><span class="en">Carbon value</span><span class="cz">Hodnota uhlíku</span></p>
+        <div class="addl-value" id="addlVal8">—</div>
+        <p class="addl-desc"><span class="en">CO₂ reduction valued at EU ETS carbon price.</span><span class="cz">Redukce CO₂ oceněná cenou EU ETS.</span></p>
+        <p class="addl-source"><a href="https://sandbag.be/carbon-price-viewer/" target="_blank">EU ETS — Sandbag Carbon Price Viewer</a></p>
+    </div>
+
+    <!-- Summary bar -->
+    <div class="summary-bar">
+        <p class="summary-title"><span class="en">Summary</span><span class="cz">Souhrn</span></p>
+        <div class="summary-row"><span class="summary-key"><span class="en">Total annual value</span><span class="cz">Celková roční hodnota</span></span><span class="summary-val" id="sumTotalVal">—</span></div>
+        <div class="summary-row"><span class="summary-key">ROI</span><span class="summary-val" id="sumRoi">—</span></div>
+        <div class="summary-row"><span class="summary-key"><span class="en">Payback</span><span class="cz">Návratnost</span></span><span class="summary-val" id="sumPayback">—</span></div>
+        <div class="summary-row"><span class="summary-key">CO₂ <span class="en">saved</span><span class="cz">ušetřeno</span></span><span class="summary-val" id="sumCO2">—</span></div>
+        <div class="summary-row"><span class="summary-key"><span class="en">Incidents prevented</span><span class="cz">Zamezené nehody</span></span><span class="summary-val" id="sumInc">—</span></div>
+    </div>
+
+    <!-- Non-financial chips -->
+    <div class="chip-row">
+        <span class="chip green active" id="chipHours">
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
+            <span id="chipHoursVal">0 h</span> <span class="en">freed</span><span class="cz">uvolněno</span>
+        </span>
+        <span class="chip green" id="chipCO2">
+            🌱 <span class="chip-val">0 t</span> CO₂
+        </span>
+        <span class="chip" id="chipInc">
+            🛡 <span class="chip-val">0/yr</span> <span class="en">incidents</span><span class="cz">nehod</span>
+        </span>
+    </div>
+
+    <!-- CTA -->
+    <div class="result-cta">
+        <p><span class="en">These numbers are your business case. Book a free 20-min call to validate them with your actual process data.</span><span class="cz">Tato čísla jsou váš business case. Domluvte si bezplatný 20minutový hovor pro ověření se skutečnými daty.</span></p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+            <span class="en">Book a free 20-min call</span><span class="cz">Domluvit bezplatný 20min hovor</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="handlePrint()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span class="en">Save as PDF</span><span class="cz">Uložit jako PDF</span>
+        </button>
+        <button class="action-btn" id="copyBtn" onclick="copySummary()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span class="en">Copy summary</span><span class="cz">Kopírovat souhrn</span>
+        </button>
+    </div>
+
+</div>
+
+</div><!-- /calc-wrapper -->
+
+<!-- PRINT REPORT (hidden on screen, shown on print) -->
+<div class="print-report" id="printReport">
+    <div class="pr-header">
+        <div>
+            <svg viewBox="0 0 40 36" fill="none" style="height:28px;width:auto;display:inline-block;vertical-align:middle;margin-right:8px"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+            <strong style="font-size:1rem;vertical-align:middle;color:#0a1628">Sourcing Sense</strong>
+        </div>
+        <div class="pr-title">Total Procurement ROI Analysis</div>
+    </div>
+    <div class="pr-meta">
+        <strong id="prProjName">Project</strong> &nbsp;·&nbsp; <span id="prDate"></span>
+    </div>
+    <div class="pr-notes" id="prNotesWrap" style="display:none"><em id="prNotes"></em></div>
+    <div class="pr-exec">
+        <div class="pr-exec-title">Executive Summary</div>
+        <div class="pr-exec-grid">
+            <div class="pr-exec-item"><label>Total Annual Value</label><span id="prTotalVal">—</span></div>
+            <div class="pr-exec-item"><label>ROI on Impl. Cost</label><span id="prRoi">—</span></div>
+            <div class="pr-exec-item"><label>Payback Period</label><span id="prPayback">—</span></div>
+        </div>
+    </div>
+    <table class="pr-table">
+        <thead><tr><th>Category</th><th>Annual Value</th><th>Basis</th></tr></thead>
+        <tbody id="prTableBody"></tbody>
+        <tfoot><tr><td><strong>Total</strong></td><td><strong id="prTableTotal">—</strong></td><td></td></tr></tfoot>
+    </table>
+    <div class="pr-nonfin">
+        <strong>Non-financial:</strong>
+        Hours freed: <span id="prHours">—</span> &nbsp;·&nbsp;
+        CO₂ saved: <span id="prCO2">—</span> &nbsp;·&nbsp;
+        Incidents prevented: <span id="prInc">—</span>
+    </div>
+    <div class="pr-method">
+        Methodology: Core savings = hours × freq × people × rate × efficiency. Contract risk = contract value × leakage rate × leakage reduction. TCO = spend × hidden-cost rate × deviation. Payment = AP spend × discount × (target − current capture). Maverick = addressable spend × non-compliance × price premium × compliance improvement. EHS = (FTE ÷ 100) × incident rate × cost/incident × reduction. Space = m² × cost/m² × reduction. Carbon = (reams × 0.0045 + km × 0.00021) × reduction × ETS price.
+    </div>
+    <div class="pr-sources">
+        Sources: WorldCC (contract leakage) · Deloitte 2025 Global CPO Survey · EU-OSHA Good OSH is Good for Business · Sandbag EU ETS Carbon Price Viewer · ISM/CAPS Research (spend compliance)
+    </div>
+    <div class="pr-footer">
+        <span>sourcing-sense.com · David Račák</span>
+        <span>Generated with Total Procurement ROI Calculator</span>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+    <h2 class="faq-title"><span class="en">Common questions</span><span class="cz">Časté otázky</span></h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">How reliable are the benchmark figures?</span><span class="cz">Jak spolehlivé jsou benchmarkové hodnoty?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Each default is sourced from a named study — WorldCC, Deloitte, EU-OSHA, or ISM/CAPS Research. They represent industry averages. Your actual numbers will differ. The point of this tool is to give you a defensible starting point, not a final answer. Adjust the sliders to your situation and show your manager the assumptions, not just the output.</span><span class="cz">Každý výchozí parametr pochází z pojmenované studie — WorldCC, Deloitte, EU-OSHA nebo ISM/CAPS Research. Představují průmyslové průměry. Vaše skutečná čísla se budou lišit. Účelem nástroje je dát vám obhajitelný výchozí bod, ne konečnou odpověď.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">Which sections should I enable for my project?</span><span class="cz">Které sekce mám aktivovat?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Use the preset dropdown as a starting point. Contract Review → sections 2 + 3. AP/Invoice workflow → sections 4 + 5. Warehouse automation → sections 6 + 7 + 8. If in doubt, enable only what you can directly tie to your project scope — overstating the case in front of management backfires.</span><span class="cz">Použijte přednastavený scénář jako výchozí bod. Kontrola smluv → sekce 2 + 3. AP/fakturační workflow → sekce 4 + 5. Automatizace skladu → sekce 6 + 7 + 8. Aktivujte jen to, co přímo souvisí s rozsahem vašeho projektu.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">What does the inflation delay warning mean?</span><span class="cz">Co znamená varování o inflačním zpoždění?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">If your implementation date is more than 3 months away, the tool estimates how much of the projected savings value erodes each month due to inflation (using EU HICP 3.5% annual average). It's an honest way to quantify the cost of delay — useful when you need to justify moving faster internally.</span><span class="cz">Pokud je datum implementace více než 3 měsíce v budoucnu, nástroj odhaduje, kolik z plánovaných úspor eroduje každý měsíc kvůli inflaci (EU HICP průměr 3,5 % ročně). Je to poctivý způsob, jak kvantifikovat náklady zpoždění.</span></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+                <span><span class="en">Can I use this report in a board presentation?</span><span class="cz">Mohu report použít v prezentaci pro vedení?</span></span>
+                <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-a">
+                <p><span class="en">Yes — that's what it's built for. Click "Save as PDF" to get a branded print report with source citations. The "Copy summary" button gives you plain text you can paste into slides. If you want a version tailored to your company's specific data and risk profile, that's what the 20-min call is for.</span><span class="cz">Ano — k tomu je nástroj určen. Klikněte na "Uložit jako PDF" pro branded report se zdroji. Tlačítko "Kopírovat souhrn" dá prosté text pro prezentaci. Pokud chcete verzi přizpůsobenou vašim firemním datům, k tomu slouží 20minutový hovor.</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Related articles -->
+<div class="related-articles">
+    <h2 class="related-title"><span class="en">Related reading</span><span class="cz">Doporučené čtení</span></h2>
+    <div class="related-grid">
+        <a href="/insights/5-processes-to-automate" class="related-card">
+            <p class="related-card-label">Insights</p>
+            <h3><span class="en">5 Procurement Processes to Automate First</span><span class="cz">5 procesů v nákupu k automatizaci jako první</span></h3>
+            <p><span class="en">Where to start and why the order matters.</span><span class="cz">Kde začít a proč záleží na pořadí.</span></p>
+        </a>
+        <a href="/insights/prompt-engineering-procurement" class="related-card">
+            <p class="related-card-label">Insights</p>
+            <h3><span class="en">Prompt Engineering for Procurement</span><span class="cz">Prompt engineering pro nákup</span></h3>
+            <p><span class="en">How to get consistent, useful output from AI tools.</span><span class="cz">Jak dostat konzistentní a užitečný výstup z AI nástrojů.</span></p>
+        </a>
+        <a href="/tools/savings-calculator" class="related-card">
+            <p class="related-card-label">Tool</p>
+            <h3><span class="en">Procurement Savings Calculator</span><span class="cz">Kalkulátor úspor v nákupu</span></h3>
+            <p><span class="en">Quick single-process ROI — start here if you have one specific process in mind.</span><span class="cz">Rychlé ROI pro jeden proces.</span></p>
+        </a>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="methodology">
+    <p>
+        <span class="en">Methodology: Core savings = hours × occurrences × people × hourly rate × efficiency. Contract risk = contract value × leakage rate × leakage reduction. TCO = spend × hidden-cost rate × deviation. Payment = AP spend × discount rate × (target − current capture). Maverick = addressable spend × non-compliance rate × price premium × compliance improvement. EHS = (FTE ÷ 100) × incident rate × cost per incident × reduction. Space = m² × cost/m² × reduction. Carbon value = (reams × 0.0045 + km × 0.00021) × reduction × ETS price. Actual results vary by implementation quality and baseline data.</span>
+        <span class="cz">Metodika: Úspora = hodiny × četnost × lidé × sazba × efektivita. Smluvní riziko = hodnota smluv × míra úniku × redukce. TCO = výdaje × míra skrytých nákladů × odchylka. Platby = AP výdaje × sleva × (cílový − aktuální záchyt). Maverick = adresovatelné výdaje × míra nesouladu × prémium × zlepšení souladu. BOZP = (FTE ÷ 100) × míra nehod × náklady × redukce. Prostor = m² × cena/m² × redukce. Uhlíková hodnota = (balíky × 0,0045 + km × 0,00021) × redukce × cena ETS.</span>
+    </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span><span class="cz">← Zpět na nástroje</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ── STATE ──
+let currency = 'EUR';
+const EUR_TO_CZK = 25;
+
+// ── HELPERS ──
+function v(id){ const el=document.getElementById(id); return el?parseFloat(el.value)||0:0; }
+function vs(id){ const el=document.getElementById(id); return el?el.value:''; }
+function setEl(id,html){ const el=document.getElementById(id); if(el) el.innerHTML=html; }
+function setTxt(id,txt){ const el=document.getElementById(id); if(el) el.textContent=txt; }
+function secOn(n){ const cb=document.getElementById('en'+n); return cb&&cb.checked; }
+
+function fmt(val){
+    if(currency==='EUR'){
+        if(val>=1000000) return '€\u202f'+(val/1000000).toFixed(2)+'M';
+        if(val>=10000) return '€\u202f'+Math.round(val/1000)+'k';
+        return '€\u202f'+Math.round(val).toLocaleString('en');
+    } else {
+        if(val>=1000000) return (val/1000000).toFixed(2)+'M\u202fKč';
+        if(val>=10000) return Math.round(val/1000)+'k\u202fKč';
+        return Math.round(val).toLocaleString('cs')+'\u202fKč';
+    }
+}
+
+function fmtFull(val){
+    if(currency==='EUR') return '€\u202f'+Math.round(val).toLocaleString('en');
+    return Math.round(val).toLocaleString('cs')+'\u202fKč';
+}
+
+// ── PRESETS ──
+const PRESETS = {
+    contract_review: { sections:[2,3], s1:{hours:6,freq:30,people:2} },
+    ap_workflow:     { sections:[4,5], s1:{hours:0.5,freq:500,people:1} },
+    warehouse:       { sections:[6,7,8], s1:{hours:8,freq:52,people:5} },
+    full_transform:  { sections:[2,3,4,5,6,7,8], s1:{hours:3,freq:50,people:2} }
+};
+
+function loadPreset(){
+    const key=document.getElementById('presetSel').value;
+    if(!key) return;
+    const p=PRESETS[key]; if(!p) return;
+    [2,3,4,5,6,7,8].forEach(n=>{ const cb=document.getElementById('en'+n); if(cb){cb.checked=false;toggleSec(n,false);} });
+    p.sections.forEach(n=>{ const cb=document.getElementById('en'+n); if(cb){cb.checked=true;toggleSec(n,true);} });
+    if(p.s1.hours!==undefined){ document.getElementById('slHours').value=p.s1.hours; setEl('valHours',p.s1.hours+' h'); }
+    if(p.s1.freq!==undefined){ document.getElementById('slFreq').value=p.s1.freq; setEl('valFreq',p.s1.freq+'×'); }
+    if(p.s1.people!==undefined){ document.getElementById('slPeople').value=p.s1.people; setEl('valPeople',p.s1.people+' ppl'); }
+    recalc();
+}
+
+// ── TOGGLE SECTION ──
+function toggleSec(n,checked){
+    const body=document.getElementById('sec'+n);
+    const arrow=document.getElementById('secArrow'+n);
+    if(body){ body.style.display=checked?'block':'none'; body.classList.toggle('open',checked); }
+    if(arrow) arrow.classList.toggle('open',checked);
+    recalc();
+}
+
+// ── SLIDER HANDLER ──
+function onSlide(sid,vid,fmt){
+    const val=parseFloat(document.getElementById(sid).value);
+    setEl(vid,fmt(val));
+    recalc();
+}
+
+// ── CURRENCY ──
+function setCurrency(c){
+    const prev=currency; currency=c;
+    document.getElementById('btnEur').classList.toggle('active',c==='EUR');
+    document.getElementById('btnCzk').classList.toggle('active',c==='CZK');
+    const sym=c==='EUR'?'€':'Kč';
+    document.querySelectorAll('.money-sym').forEach(el=>el.textContent=sym);
+    if(prev!==c){
+        const factor=c==='CZK'?EUR_TO_CZK:1/EUR_TO_CZK;
+        ['inCost','inImpl','contractVal','tcoSpend','apSpend','addrSpend','inIncCost','inCostM2','inEts'].forEach(id=>{
+            const el=document.getElementById(id); if(el) el.value=Math.round(parseFloat(el.value)*factor);
+        });
+    }
+    recalc();
+}
+
+// ── MAIN CALC ──
+function recalc(){
+    // Section 1
+    const hours=v('slHours'), freq=v('slFreq'), people=v('slPeople');
+    const rate=v('inCost'), eff=v('slEff')/100, impl=v('inImpl');
+    const annual_cost=hours*freq*people*rate;
+    const savings=annual_cost*eff;
+    const hours_freed=hours*freq*people*eff;
+    const payback=savings>0?(impl/savings)*12:Infinity;
+    const roi_pct=savings>0&&impl>0?((savings-impl)/impl)*100:0;
+
+    // Section 2
+    let s2=0;
+    if(secOn(2)){
+        const cv=v('contractVal'),lr=v('slLeak')/100,lred=v('slLeakRed')/100;
+        const cd=v('currentDays'),ad=v('autoDays');
+        s2=(cv*lr*lred)+(cv*Math.max(0,cd-ad)/365*eff);
+        setEl('addlVal2',fmt(s2));
+    }
+
+    // Section 3
+    let s3=0;
+    if(secOn(3)){
+        s3=v('tcoSpend')*(v('slHidden')/100)*(v('slDev')/100);
+        setEl('addlVal3',fmt(s3));
+    }
+
+    // Section 4
+    let s4=0;
+    if(secOn(4)){
+        const cc=v('slCC')/100,tc=v('slTC')/100;
+        s4=v('apSpend')*(v('slDiscount')/100)*Math.max(0,tc-cc);
+        setEl('addlVal4',fmt(s4));
+    }
+
+    // Section 5
+    let s5=0;
+    if(secOn(5)){
+        s5=v('addrSpend')*(v('slNoncomp')/100)*(v('slPremium')/100)*(v('slComp')/100);
+        setEl('addlVal5',fmt(s5));
+    }
+
+    // Section 6
+    let s6=0,incidents=0;
+    if(secOn(6)){
+        const fte=v('inFte'),ir=v('inIncRate'),cpi=v('inIncCost'),red=v('slEhsRed')/100;
+        s6=(fte/100)*ir*cpi*red; incidents=(fte/100)*ir*red;
+        setEl('addlVal6',fmt(s6));
+    }
+
+    // Section 7
+    let s7=0;
+    if(secOn(7)){
+        s7=v('inM2')*v('inCostM2')*(v('slSpaceRed')/100);
+        setEl('addlVal7',fmt(s7));
+    }
+
+    // Section 8
+    let s8=0,co2=0;
+    if(secOn(8)){
+        const red=v('slCarbRed')/100;
+        co2=(v('inReams')*0.0045+v('inKm')*0.00021)*red;
+        s8=co2*v('inEts');
+        setEl('addlVal8',fmt(s8));
+    }
+
+    const total_addl=s2+s3+s4+s5+s6+s7+s8;
+    const total=savings+total_addl;
+
+    // Primary
+    setEl('resPrimary',total>0?fmt(total):'—');
+    setEl('resSavings',savings>0?fmt(savings):'—');
+
+    // Payback metric
+    if(payback<Infinity&&payback>0){
+        if(payback<1){ setEl('resPayback','< 1'); setEl('resPaybackSub','<span class="en">month</span><span class="cz">měsíc</span>'); }
+        else if(payback<12){ setEl('resPayback',Math.ceil(payback)+' mo'); setEl('resPaybackSub','<span class="en">payback</span><span class="cz">návratnost</span>'); }
+        else { setEl('resPayback',(payback/12).toFixed(1)+' yr'); setEl('resPaybackSub','<span class="en">payback</span><span class="cz">návratnost</span>'); }
+    } else { setEl('resPayback','—'); setEl('resPaybackSub',''); }
+
+    setEl('resRoi',roi_pct?Math.round(roi_pct)+'%':'—');
+    setEl('resHours',hours_freed>0?Math.round(hours_freed)+' h':'—');
+    setEl('resAddl',total_addl>0?fmt(total_addl):'—');
+
+    // Show/hide addl cards
+    [2,3,4,5,6,7,8].forEach(n=>{
+        const card=document.getElementById('addlCard'+n);
+        if(card) card.classList.toggle('active',secOn(n));
+    });
+
+    // Summary
+    setEl('sumTotalVal',total>0?fmt(total):'—');
+    setEl('sumRoi',roi_pct?Math.round(roi_pct)+'%':'—');
+    setEl('sumPayback',payback<Infinity?(payback<12?Math.ceil(payback)+' mo':(payback/12).toFixed(1)+' yr'):'—');
+    setEl('sumCO2',co2>0.01?co2.toFixed(2)+' t CO₂':'—');
+    setEl('sumInc',incidents>0.1?incidents.toFixed(1)+'/yr':'—');
+
+    // Chips
+    const chipH=document.getElementById('chipHours');
+    if(chipH){ chipH.classList.toggle('active',hours_freed>0); document.getElementById('chipHoursVal').textContent=Math.round(hours_freed)+' h'; }
+    const chipC=document.getElementById('chipCO2');
+    if(chipC){ chipC.classList.toggle('active',secOn(8)&&co2>0.01); chipC.querySelector('.chip-val').textContent=co2.toFixed(2)+' t'; }
+    const chipI=document.getElementById('chipInc');
+    if(chipI){ chipI.classList.toggle('active',secOn(6)&&incidents>0.1); chipI.querySelector('.chip-val').textContent=incidents.toFixed(1)+'/yr'; }
+
+    // Inflation delay
+    checkInflationDelay(savings);
+}
+
+function checkInflationDelay(savings){
+    const dateEl=document.getElementById('implDate');
+    const warn=document.getElementById('inflationWarn');
+    if(!dateEl||!warn||!dateEl.value){ warn.classList.remove('show'); return; }
+    const months=Math.max(0,(new Date(dateEl.value)-new Date())/(1000*60*60*24*30.4));
+    if(months>=3){
+        const monthly=savings*0.035/12;
+        setEl('inflationMonthly',fmt(monthly));
+        setEl('inflationMonthlyCz',fmt(monthly));
+        warn.classList.add('show');
+    } else { warn.classList.remove('show'); }
+}
+
+// ── PRINT ──
+function handlePrint(){
+    const name=vs('projName')||'Procurement Automation ROI';
+    const notes=vs('projNotes');
+    setTxt('prProjName',name);
+    setTxt('prDate',new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}));
+    const notesWrap=document.getElementById('prNotesWrap');
+    if(notesWrap){ notesWrap.style.display=notes?'block':'none'; setTxt('prNotes',notes); }
+    setEl('prTotalVal',document.getElementById('resPrimary').innerHTML);
+    setEl('prRoi',document.getElementById('resRoi').innerHTML);
+    setEl('prPayback',document.getElementById('resPayback').innerHTML+' '+document.getElementById('resPaybackSub').innerHTML);
+    setEl('prHours',document.getElementById('resHours').innerHTML);
+    setEl('prCO2',document.getElementById('sumCO2').innerHTML);
+    setEl('prInc',document.getElementById('sumInc').innerHTML);
+    // Build table
+    const rows=[
+        ['Time & Process Savings',document.getElementById('resSavings')||{innerHTML:'—'},'hours × freq × people × rate × eff'],
+        ['Contract Risk',{innerHTML:secOn(2)?document.getElementById('addlVal2').innerHTML:'—'},'WorldCC benchmark'],
+        ['TCO Improvement',{innerHTML:secOn(3)?document.getElementById('addlVal3').innerHTML:'—'},'Deloitte 2025'],
+        ['Early Payment Discounts',{innerHTML:secOn(4)?document.getElementById('addlVal4').innerHTML:'—'},'2/10 net 30 standard'],
+        ['Maverick Spend',{innerHTML:secOn(5)?document.getElementById('addlVal5').innerHTML:'—'},'ISM/CAPS Research'],
+        ['EHS Risk Reduction',{innerHTML:secOn(6)?document.getElementById('addlVal6').innerHTML:'—'},'EU-OSHA'],
+        ['Space Freed',{innerHTML:secOn(7)?document.getElementById('addlVal7').innerHTML:'—'},'m² × cost/m² × reduction'],
+        ['Carbon Value',{innerHTML:secOn(8)?document.getElementById('addlVal8').innerHTML:'—'},'EU ETS price'],
+    ];
+    const tbody=document.getElementById('prTableBody');
+    if(tbody) tbody.innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1].innerHTML}</td><td style="color:#64748b;font-size:0.75rem">${r[2]}</td></tr>`).join('');
+    setEl('prTableTotal',document.getElementById('resPrimary').innerHTML);
+    window.print();
+}
+
+// ── COPY SUMMARY ──
+function copySummary(){
+    const name=vs('projName')||'Procurement Automation ROI';
+    const lines=[
+        name+' — Total Procurement ROI Analysis',
+        'Date: '+new Date().toLocaleDateString(),
+        '',
+        'Total Annual Value: '+document.getElementById('resPrimary').textContent,
+        'ROI: '+document.getElementById('resRoi').textContent,
+        'Payback: '+document.getElementById('resPayback').textContent,
+        'Hours freed: '+document.getElementById('resHours').textContent,
+        '',
+        'CO₂ saved: '+document.getElementById('sumCO2').textContent,
+        'Incidents prevented: '+document.getElementById('sumInc').textContent,
+        '',
+        'Generated with Total Procurement ROI Calculator — sourcing-sense.com',
+    ];
+    navigator.clipboard.writeText(lines.join('\n')).then(()=>{
+        const btn=document.getElementById('copyBtn');
+        if(btn){ const orig=btn.innerHTML; btn.textContent='✓ Copied'; setTimeout(()=>btn.innerHTML=orig,2000); }
+    }).catch(()=>{ alert('Copy not supported in this browser — use PDF instead.'); });
+}
+
+// ── LANG ──
+function setLang(l){
+    document.documentElement.setAttribute('data-lang',l);
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===l||(l==='cs'&&b.textContent.trim()==='CZ')));
+    // Update preset labels
+    const sel=document.getElementById('presetSel');
+    if(l==='cs'){
+        sel.options[0].textContent='— Vlastní —';
+        sel.options[1].textContent='Automatizace kontroly smluv';
+        sel.options[2].textContent='AP a fakturační workflow';
+        sel.options[3].textContent='Automatizace skladu';
+        sel.options[4].textContent='Kompletní transformace nákupu';
+    } else {
+        sel.options[0].textContent='— Custom —';
+        sel.options[1].textContent='Contract Review Automation';
+        sel.options[2].textContent='AP & Invoice Workflow';
+        sel.options[3].textContent='Warehouse Process Automation';
+        sel.options[4].textContent='Full Procurement Transformation';
+    }
+}
+
+// ── NAV ──
+function toggleMob(){ document.getElementById('mob').classList.toggle('open'); }
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>20));
+
+// ── FAQ ──
+function toggleFaq(btn){
+    btn.classList.toggle('open');
+    const a=btn.nextElementSibling; a.classList.toggle('open');
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',()=>{
+    // Set today + 6 months as default impl date
+    const d=new Date(); d.setMonth(d.getMonth()+6);
+    const implEl=document.getElementById('implDate');
+    if(implEl) implEl.valueAsDate=d;
+    recalc();
+});
+
+</script>
+</body>
+</html>

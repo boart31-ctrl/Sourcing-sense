@@ -16,6 +16,7 @@ For the complete content of this website in a single file, see: https://sourcing
 - [Savings Calculator](https://sourcing-sense.com/tools/savings-calculator): Calculates annual savings, ROI, and payback period from automating a procurement process. Supports EUR/CZK, 5 preset process types, adjustable efficiency and implementation cost.
 - [Email Template Generator](https://sourcing-sense.com/tools/email-generator): 8 categories of professional procurement email templates — supplier qualification, RFQ, negotiation opener, quote rejection, escalation, NDA request, contract renewal, supplier follow-up. Live preview, copy to clipboard. EN/CZ.
 - [RFQ Builder](https://sourcing-sense.com/tools/rfq-builder): 4-step wizard producing a complete professional RFQ document. Covers scope, technical requirements, evaluation criteria (weighted), and submission conditions. Copy or download as .txt. EN/CZ output.
+- [Total Procurement ROI Calculator](https://sourcing-sense.com/tools/total-procurement-roi): Advanced ROI calculator for procurement automation. Covers 8 value dimensions: time/process cost, contract risk & leakage, TCO & price accuracy, payment terms & cash, maverick spend & compliance, EHS/injury risk, space & archiving, carbon & environment. Outputs total annual value, ROI%, payback period, CO2 saved, incidents prevented. Includes print-to-PDF branded report. Sources: WorldCC, EU-OSHA, Deloitte 2025 CPO Survey, EU ETS. Target: procurement managers and CPOs building business cases for AI/automation investment.
 
 ## Articles & Insights
 
