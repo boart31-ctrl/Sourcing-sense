@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Email Generator — Sourcing Sense</title>
+    <meta name="description" content="Free procurement email templates. Supplier qualification, RFQ, price negotiation, rejection, escalation, NDA — ready in under a minute. No sign-up required.">
+    <link rel="canonical" href="https://sourcing-sense.com/tools/email-generator" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:title" content="Procurement Email Generator — Sourcing Sense" />
+    <meta property="og:description" content="8 procurement email categories. Fill in the details, get a professional email in 30 seconds." />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Procurement Email Generator",
+      "description": "Free template-based email generator for procurement professionals. Covers supplier qualification, RFQ, negotiation, rejection, escalation, NDA, contract renewal, and follow-up.",
+      "url": "https://sourcing-sense.com/tools/email-generator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ TOOL HEADER ═══ */
+        .tool-header {
+            padding: 7.5rem 2rem 2.5rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 55%);
+        }
+        .tool-header-inner { max-width: 1100px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .tool-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 0.75rem; }
+        .tool-header-desc { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.7; max-width: 580px; margin-bottom: 1.25rem; }
+        .tool-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tool-badge { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 100px; }
+        .tool-badge.free { background: var(--emerald-subtle); color: var(--emerald); }
+        .tool-badge.no-signup { background: var(--accent-subtle); color: var(--accent); }
+
+        /* ═══ MAIN LAYOUT ═══ */
+        .tool-workspace {
+            max-width: 1100px; margin: 0 auto; padding: 2rem;
+            display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; align-items: start;
+        }
+
+        /* ═══ CATEGORY SIDEBAR ═══ */
+        .category-panel {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); padding: 1.25rem; position: sticky; top: 85px;
+        }
+        .category-panel h3 {
+            font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--light-text-muted); margin-bottom: 0.75rem;
+        }
+        .cat-btn {
+            display: flex; align-items: center; gap: 0.65rem; width: 100%;
+            padding: 0.65rem 0.75rem; border-radius: var(--radius-sm);
+            font-size: 0.84rem; font-weight: 500; color: var(--light-text-secondary);
+            transition: all 0.2s; text-align: left; margin-bottom: 0.2rem;
+        }
+        .cat-btn:hover { background: var(--light-bg-alt); color: var(--light-text); }
+        .cat-btn.active { background: var(--accent-subtle); color: var(--accent); font-weight: 600; }
+        .cat-icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
+
+        /* ═══ RIGHT PANEL ═══ */
+        .right-panel {
+            display: grid; grid-template-rows: auto auto; gap: 1.5rem;
+        }
+
+        /* Form card */
+        .form-card {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); padding: 1.75rem;
+        }
+        .form-card-header {
+            display: flex; align-items: flex-start; gap: 0.85rem; margin-bottom: 1.5rem;
+        }
+        .form-cat-icon { font-size: 1.6rem; }
+        .form-cat-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; line-height: 1.2; }
+        .form-cat-desc { font-size: 0.82rem; color: var(--light-text-muted); margin-top: 0.2rem; }
+
+        .tool-group { margin-bottom: 1.1rem; }
+        .tool-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--light-text); margin-bottom: 0.35rem; }
+        .tool-input, .tool-select, .tool-textarea {
+            width: 100%; padding: 0.72rem 0.9rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body);
+            font-size: 0.9rem; color: var(--light-text); outline: none; transition: all 0.2s;
+        }
+        .tool-input:focus, .tool-select:focus, .tool-textarea:focus {
+            border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .tool-textarea { min-height: 90px; resize: vertical; line-height: 1.6; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+        /* Preview card */
+        .preview-card {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); overflow: hidden;
+        }
+        .preview-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem; background: var(--light-bg-alt);
+            border-bottom: 1px solid var(--light-border);
+        }
+        .preview-header h3 { font-size: 0.88rem; font-weight: 600; }
+        .copy-btn {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.78rem; font-weight: 600; padding: 0.4rem 0.9rem;
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); color: var(--light-text-secondary);
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .copy-btn.copied { background: var(--emerald-subtle); border-color: var(--emerald); color: var(--emerald); }
+
+        .preview-subject {
+            padding: 0.85rem 1.5rem;
+            border-bottom: 1px solid var(--light-border);
+            font-size: 0.82rem;
+        }
+        .preview-subject span { font-weight: 600; color: var(--light-text-muted); margin-right: 0.5rem; }
+        .preview-subject-text { font-weight: 600; color: var(--light-text); }
+
+        .preview-body {
+            padding: 1.5rem; font-size: 0.9rem; color: var(--light-text);
+            line-height: 1.8; white-space: pre-wrap; min-height: 200px;
+            font-family: var(--font-body);
+        }
+        .placeholder-text { color: var(--light-text-muted); font-style: italic; }
+
+        /* CTA at bottom */
+        .bottom-cta {
+            max-width: 1100px; margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex; align-items: center; gap: 1.5rem;
+            background: none;
+        }
+        .bottom-cta-text {
+            flex: 1; font-size: 0.88rem; color: var(--light-text-secondary); line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+            font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.4rem;
+            background: var(--accent); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .cta-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 900px) {
+            .tool-workspace { grid-template-columns: 1fr; }
+            .category-panel { position: static; }
+            .cat-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .tool-header { padding: 7rem 1.25rem 1.75rem; }
+            .tool-workspace { padding: 1.25rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .bottom-cta { flex-direction: column; align-items: flex-start; }
+            .cat-buttons { grid-template-columns: 1fr; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ TOOL HEADER ═══ -->
+<section class="tool-header">
+    <div class="tool-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Email Generator</span><span class="cz">Generátor emailů</span></span>
+        </div>
+        <h1>
+            <span class="en">Procurement Email Generator</span>
+            <span class="cz">Generátor procurement emailů</span>
+        </h1>
+        <p class="tool-header-desc">
+            <span class="en">8 ready-to-use procurement email templates. Pick a category, fill in the details, copy the result. No vague subject lines, no "I hope this finds you well."</span>
+            <span class="cz">8 šablon procurement emailů připravených k použití. Vyber kategorii, vyplň detaily, zkopíruj výsledek. Žádné neurčité předměty, žádné "doufám, že se Vám daří."</span>
+        </p>
+        <div class="tool-badge-row">
+            <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+            <span class="tool-badge no-signup"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MAIN WORKSPACE ═══ -->
+<div class="tool-workspace">
+
+    <!-- SIDEBAR: Categories -->
+    <div class="category-panel">
+        <h3><span class="en">Email type</span><span class="cz">Typ emailu</span></h3>
+        <div class="cat-buttons" id="catButtons">
+            <button class="cat-btn active" data-cat="qualification" onclick="selectCat('qualification', this)">
+                <span class="cat-icon">🔍</span>
+                <span><span class="en">Supplier Qualification</span><span class="cz">Kvalifikace dodavatele</span></span>
+            </button>
+            <button class="cat-btn" data-cat="rfq" onclick="selectCat('rfq', this)">
+                <span class="cat-icon">📋</span>
+                <span><span class="en">RFQ / Quote Request</span><span class="cz">Poptávka / RFQ</span></span>
+            </button>
+            <button class="cat-btn" data-cat="negotiation" onclick="selectCat('negotiation', this)">
+                <span class="cat-icon">💬</span>
+                <span><span class="en">Price Negotiation</span><span class="cz">Cenové vyjednávání</span></span>
+            </button>
+            <button class="cat-btn" data-cat="rejection" onclick="selectCat('rejection', this)">
+                <span class="cat-icon">🚫</span>
+                <span><span class="en">Quote Rejection</span><span class="cz">Odmítnutí nabídky</span></span>
+            </button>
+            <button class="cat-btn" data-cat="escalation" onclick="selectCat('escalation', this)">
+                <span class="cat-icon">⚠️</span>
+                <span><span class="en">Escalation</span><span class="cz">Eskalace</span></span>
+            </button>
+            <button class="cat-btn" data-cat="nda" onclick="selectCat('nda', this)">
+                <span class="cat-icon">🔒</span>
+                <span><span class="en">NDA Request</span><span class="cz">Žádost o NDA</span></span>
+            </button>
+            <button class="cat-btn" data-cat="renewal" onclick="selectCat('renewal', this)">
+                <span class="cat-icon">🔄</span>
+                <span><span class="en">Contract Renewal</span><span class="cz">Obnova smlouvy</span></span>
+            </button>
+            <button class="cat-btn" data-cat="followup" onclick="selectCat('followup', this)">
+                <span class="cat-icon">⏰</span>
+                <span><span class="en">Follow-up</span><span class="cz">Připomínka</span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- RIGHT: Form + Preview -->
+    <div class="right-panel">
+
+        <!-- Form card -->
+        <div class="form-card" id="formCard">
+            <!-- Dynamic content injected by JS -->
+        </div>
+
+        <!-- Preview card -->
+        <div class="preview-card">
+            <div class="preview-header">
+                <h3>
+                    <span class="en">Preview</span>
+                    <span class="cz">Náhled</span>
+                </h3>
+                <button class="copy-btn" id="copyBtn" onclick="copyEmail()">
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    <span class="en">Copy email</span><span class="cz">Kopírovat email</span>
+                </button>
+            </div>
+            <div class="preview-subject">
+                <span><span class="en">Subject:</span><span class="cz">Předmět:</span></span>
+                <span class="preview-subject-text" id="previewSubject">—</span>
+            </div>
+            <div class="preview-body" id="previewBody"><span class="placeholder-text"><span class="en">Fill in the fields above to generate your email.</span><span class="cz">Vyplňte pole výše pro vygenerování emailu.</span></span></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bottom CTA -->
+<div class="bottom-cta">
+    <p class="bottom-cta-text">
+        <span class="en">These templates cover the common cases. Complex negotiations — price recovery, dual-sourcing arguments, SLA breach management — are a different conversation. That's where preparation matters most.</span>
+        <span class="cz">Tyto šablony pokrývají běžné situace. Složitá vyjednávání — cenová obnova, argumenty pro dual-sourcing, management porušení SLA — jsou jiná kategorie. Tam záleží na přípravě nejvíce.</span>
+    </p>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+        <span class="en">Book a free call</span><span class="cz">Domluvit bezplatný hovor</span>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+    </a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span><span class="cz">← Zpět na nástroje</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════
+// TEMPLATE DEFINITIONS
+// ═══════════════════════════════════════════════════
+const TEMPLATES = {
+
+    qualification: {
+        icon: '🔍',
+        title: { en: 'Supplier Qualification Request', cz: 'Žádost o kvalifikaci dodavatele' },
+        desc:  { en: 'Invite a supplier to complete your qualification process.', cz: 'Pozvěte dodavatele k absolvování kvalifikačního procesu.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier company name', cz: 'Název společnosti dodavatele' }, type: 'input', placeholder: { en: 'e.g. ACME Industrial GmbH', cz: 'např. ACME Industrial s.r.o.' } },
+            { id: 'contact', label: { en: 'Contact person (optional)', cz: 'Kontaktní osoba (volitelné)' }, type: 'input', placeholder: { en: 'e.g. Mr. Novák', cz: 'např. pane Nováku' } },
+            { id: 'category', label: { en: 'Category / commodity', cz: 'Kategorie / komodita' }, type: 'input', placeholder: { en: 'e.g. MRO supplies, packaging, IT services', cz: 'např. MRO, obaly, IT služby' } },
+            { id: 'deadline', label: { en: 'Response deadline', cz: 'Termín odpovědi' }, type: 'input', placeholder: { en: 'e.g. 28 February 2026', cz: 'např. 28. února 2026' } },
+        ],
+        generate: (v, lang) => {
+            const greeting = v.contact ? (lang === 'cs' ? `Vážený ${v.contact},` : `Dear ${v.contact},`) : (lang === 'cs' ? 'Vážení,' : 'Dear Sir or Madam,');
+            const supplier = v.supplier || (lang === 'cs' ? '[název dodavatele]' : '[supplier name]');
+            const category = v.category || (lang === 'cs' ? '[kategorie]' : '[category]');
+            const deadline = v.deadline || (lang === 'cs' ? '[termín]' : '[deadline]');
+            if (lang === 'cs') {
+                return {
+                    subject: `Žádost o kvalifikaci dodavatele — ${category}`,
+                    body: `${greeting}
+
+Provádíme přehled potenciálních dodavatelů pro kategorii ${category} a rádi bychom přizvali společnost ${supplier} k absolvování našeho kvalifikačního procesu.
+
+Zašleme vám standardní dotazník pro dodavatele. Žádáme o vrácení vyplněných dokumentů do ${deadline}.
+
+Dotazník zahrnuje:
+• Profil společnosti a finanční stabilita
+• Systém řízení kvality (certifikace, procesy)
+• Výrobní kapacita a dodací lhůty
+• Standardy BOZP a životního prostředí
+• Reference a ukázkové projekty
+
+Pokud máte dotazy k procesu, odpovězte prosím na tento email.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Oddělení nákupu`
+                };
+            } else {
+                return {
+                    subject: `Supplier Qualification Request — ${category}`,
+                    body: `${greeting}
+
+We are reviewing potential suppliers for ${category} and would like to invite ${supplier} to complete our qualification process.
+
+We will share our standard supplier questionnaire with you. Please return the completed documents by ${deadline}.
+
+The questionnaire covers:
+• Company profile and financial stability
+• Quality management system (certifications, processes)
+• Production capacity and lead times
+• Health, safety, and environmental standards
+• References and sample projects
+
+If you have questions about the process, please reply to this email.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    rfq: {
+        icon: '📋',
+        title: { en: 'RFQ / Quote Request', cz: 'Poptávka / RFQ' },
+        desc:  { en: 'Request a formal quotation from one or more suppliers.', cz: 'Vyžádejte formální nabídku od jednoho nebo více dodavatelů.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: { en: 'e.g. Schneider Components AG', cz: 'např. Schneider Components AG' } },
+            { id: 'item', label: { en: 'Item / service description', cz: 'Popis položky / služby' }, type: 'input', placeholder: { en: 'e.g. 500 pcs industrial gaskets type X12', cz: 'např. 500 ks průmyslových těsnění typ X12' } },
+            { id: 'delivery', label: { en: 'Required delivery / start date', cz: 'Požadovaný termín dodání / zahájení' }, type: 'input', placeholder: { en: 'e.g. 15 March 2026', cz: 'např. 15. března 2026' } },
+            { id: 'deadline', label: { en: 'Quote submission deadline', cz: 'Termín pro zaslání nabídky' }, type: 'input', placeholder: { en: 'e.g. 7 February 2026', cz: 'např. 7. února 2026' } },
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const item = v.item || (lang === 'cs' ? '[popis]' : '[description]');
+            const delivery = v.delivery || (lang === 'cs' ? '[termín]' : '[date]');
+            const deadline = v.deadline || (lang === 'cs' ? '[termín]' : '[deadline]');
+            if (lang === 'cs') {
+                return {
+                    subject: `Poptávka — ${item}`,
+                    body: `Vážení,
+
+žádáme o zaslání cenové nabídky na následující položku:
+
+Popis: ${item}
+Požadované dodání: ${delivery}
+Množství / rozsah: [doplňte]
+
+Do nabídky prosím uveďte:
+• Jednotkovou cenu a celkovou cenu bez DPH
+• Dodací podmínky (Incoterms) a místo dodání
+• Platební podmínky
+• Záruční podmínky
+• Dostupnost a potvrzení termínu dodání
+
+Nabídku zašlete na tuto emailovou adresu do ${deadline}.
+
+Pokud máte dotazy k technickým požadavkům, kontaktujte mě.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup
+[Telefon]`
+                };
+            } else {
+                return {
+                    subject: `Request for Quotation — ${item}`,
+                    body: `Dear ${supplier} team,
+
+We would like to request a quotation for the following:
+
+Description: ${item}
+Required delivery / start: ${delivery}
+Quantity / scope: [please specify in your response]
+
+Please include in your quote:
+• Unit price and total price (excl. VAT)
+• Delivery terms (Incoterms) and delivery location
+• Payment terms
+• Warranty conditions
+• Availability and confirmed delivery date
+
+Please submit your quote to this email address by ${deadline}.
+
+If you have any questions about the technical requirements, do not hesitate to contact me.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement
+[Phone number]`
+                };
+            }
+        }
+    },
+
+    negotiation: {
+        icon: '💬',
+        title: { en: 'Price Negotiation Opener', cz: 'Zahájení cenového vyjednávání' },
+        desc:  { en: 'Open a price discussion backed by market data or volume.', cz: 'Zahajte cenovou diskusi s oporou o tržní data nebo objem.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: { en: 'e.g. Müller Logistics GmbH', cz: 'např. Müller Logistics GmbH' } },
+            { id: 'category', label: { en: 'Category / contract', cz: 'Kategorie / smlouva' }, type: 'input', placeholder: { en: 'e.g. transport services, current contract', cz: 'např. dopravní služby, stávající smlouva' } },
+            { id: 'argument', label: { en: 'Your negotiation argument', cz: 'Váš vyjednávací argument' }, type: 'select', options: [
+                { value: 'market', en: 'Market benchmarking shows lower rates', cz: 'Tržní srovnání ukazuje nižší ceny' },
+                { value: 'volume', en: 'We are offering increased volume', cz: 'Nabízíme navýšení objemu' },
+                { value: 'multiyear', en: 'Proposing a multi-year agreement', cz: 'Navrhujeme víceletou smlouvu' },
+                { value: 'costs', en: 'Input costs have decreased', cz: 'Vstupní náklady poklesly' },
+            ]},
+            { id: 'target', label: { en: 'Target reduction (e.g. 10-12%)', cz: 'Cílová úspora (např. 10-12 %)' }, type: 'input', placeholder: { en: 'e.g. 10-12%', cz: 'např. 10-12 %' } },
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const category = v.category || (lang === 'cs' ? '[kategorie]' : '[category]');
+            const target = v.target || (lang === 'cs' ? '[procenta]' : '[%]');
+            const argMap = {
+                market: { en: 'We have completed a market benchmarking exercise and find that current market rates for comparable services are meaningfully below our existing agreement.',
+                          cz: 'Provedli jsme tržní benchmarking a zjistili, že aktuální tržní ceny za srovnatelné služby jsou výrazně pod úrovní naší stávající smlouvy.' },
+                volume: { en: 'Our planned volume for next year will be significantly higher than in the current agreement period.',
+                          cz: 'Plánovaný objem na příští rok bude výrazně vyšší než v aktuálním smluvním období.' },
+                multiyear: { en: 'We are prepared to commit to a multi-year agreement, which offers you planning security in exchange for a revised price level.',
+                             cz: 'Jsme připraveni uzavřít víceletou smlouvu, která vám poskytuje plánovací jistotu výměnou za revidovanou cenovou úroveň.' },
+                costs: { en: 'We have observed a sustained reduction in relevant input costs, including energy and raw material indices, and expect this to be reflected in pricing.',
+                         cz: 'Zaznamenali jsme trvalý pokles relevantních vstupních nákladů, včetně energií a surovin, a očekáváme, že se to odrazí v cenách.' },
+            };
+            const selectedArg = v.argument || 'market';
+            const argText = argMap[selectedArg] || argMap.market;
+
+            if (lang === 'cs') {
+                return {
+                    subject: `Přehled cen — ${category}`,
+                    body: `Vážení,
+
+navazujeme na naši probíhající spolupráci pro ${category} a rádi bychom otevřeli diskusi o cenách pro příští smluvní období.
+
+${argText.cz}
+
+Na základě výše uvedeného by pro nás bylo relevantní snížení cen v rozsahu ${target}. Věříme, že takové vyrovnání je dosažitelné a bude základem pro pokračování a rozvoj naší spolupráce.
+
+Navrhujeme schůzku nebo telefonní hovor, abychom tuto záležitost projednali konkrétněji. Dejte nám prosím vědět, kdy vám to vyhovuje.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `Pricing Review — ${category}`,
+                    body: `Dear ${supplier} team,
+
+Following our ongoing partnership for ${category}, we would like to open a discussion on pricing for the next contract period.
+
+${argText.en}
+
+On this basis, we believe a price adjustment in the range of ${target} would be appropriate. We are confident this is achievable and would form the basis for continuing and growing our relationship.
+
+We suggest a meeting or call to discuss this in more detail. Please let us know your availability.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    rejection: {
+        icon: '🚫',
+        title: { en: 'Quote Rejection', cz: 'Odmítnutí nabídky' },
+        desc:  { en: 'Decline a supplier\'s quote professionally without burning bridges.', cz: 'Odmítněte nabídku profesionálně, bez poškození vztahu.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: { en: 'e.g. Global Parts Ltd.', cz: 'např. Global Parts s.r.o.' } },
+            { id: 'category', label: { en: 'Category / tender', cz: 'Kategorie / výběrové řízení' }, type: 'input', placeholder: { en: 'e.g. MRO consumables Q1 2026', cz: 'např. MRO spotřební materiál Q1 2026' } },
+            { id: 'reason', label: { en: 'Primary reason for rejection', cz: 'Hlavní důvod odmítnutí' }, type: 'select', options: [
+                { value: 'price', en: 'Price was not competitive', cz: 'Cena nebyla konkurenceschopná' },
+                { value: 'quality', en: 'Technical / quality requirements not met', cz: 'Nesplnění technických / kvalitativních požadavků' },
+                { value: 'timing', en: 'Could not meet delivery requirements', cz: 'Nesplnění požadavků na termín dodání' },
+                { value: 'selected', en: 'Another supplier was selected', cz: 'Byl vybrán jiný dodavatel' },
+            ]},
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const category = v.category || (lang === 'cs' ? '[kategorie]' : '[category]');
+            const reasons = {
+                price:    { en: 'After careful evaluation, your pricing did not meet our target cost level for this category.',
+                            cz: 'Po pečlivém zvážení vaše cenová nabídka nesplnila naši cílovou nákladovou úroveň pro tuto kategorii.' },
+                quality:  { en: 'Your submission did not fully meet our technical and quality requirements for this category.',
+                            cz: 'Vaše nabídka nesplňovala v plném rozsahu naše technické a kvalitativní požadavky pro tuto kategorii.' },
+                timing:   { en: 'Your proposed delivery timeline was not aligned with our operational requirements.',
+                            cz: 'Vámi navržený termín dodání nebyl v souladu s našimi provozními požadavky.' },
+                selected: { en: 'Following a thorough evaluation process, we have decided to proceed with another supplier for this requirement.',
+                            cz: 'Po důkladném hodnocení jsme se rozhodli pokračovat s jiným dodavatelem pro tento požadavek.' },
+            };
+            const reason = reasons[v.reason || 'selected'];
+            if (lang === 'cs') {
+                return {
+                    subject: `Výsledek výběrového řízení — ${category}`,
+                    body: `Vážení,
+
+děkujeme za čas a úsilí, které jste věnovali přípravě vaší nabídky pro ${category}.
+
+Po pečlivém zvážení vám musíme sdělit, že vaše nabídka nebyla pro toto výběrové řízení vybrána. ${reason.cz}
+
+Vážíme si vašeho zájmu o spolupráci a rádi vás budeme informovat o budoucích příležitostech, kde by mohla být vaše nabídka vhodná.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `Tender Outcome — ${category}`,
+                    body: `Dear ${supplier} team,
+
+Thank you for the time and effort you put into preparing your submission for ${category}.
+
+After careful evaluation, we regret to inform you that your offer was not selected for this tender. ${reason.en}
+
+We appreciate your interest in working with us and will keep your profile on file for future opportunities where your offering may be a strong fit.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    escalation: {
+        icon: '⚠️',
+        title: { en: 'Escalation to Supplier Management', cz: 'Eskalace na management dodavatele' },
+        desc:  { en: 'Escalate a recurring issue past the account manager level.', cz: 'Eskalujte opakující se problém nad úroveň obchodního zástupce.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier company name', cz: 'Název společnosti dodavatele' }, type: 'input', placeholder: '' },
+            { id: 'contact', label: { en: 'Supplier contact you have been working with', cz: 'Kontakt dodavatele, se kterým jste jednali' }, type: 'input', placeholder: { en: 'e.g. Ms. Procházková', cz: 'např. paní Procházkovou' } },
+            { id: 'issue', label: { en: 'Issue description (brief)', cz: 'Popis problému (stručně)' }, type: 'textarea', placeholder: { en: 'e.g. Three consecutive late deliveries in Q4 2025, root cause not addressed', cz: 'např. Tři po sobě jdoucí zpožděné dodávky v Q4 2025, příčina není odstraněna' } },
+            { id: 'deadline', label: { en: 'Resolution deadline', cz: 'Termín pro vyřešení' }, type: 'input', placeholder: { en: 'e.g. 14 February 2026', cz: 'např. 14. února 2026' } },
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const contact = v.contact || (lang === 'cs' ? '[jméno kontaktu]' : '[contact name]');
+            const issue = v.issue || (lang === 'cs' ? '[popis problému]' : '[issue description]');
+            const deadline = v.deadline || (lang === 'cs' ? '[termín]' : '[deadline]');
+            if (lang === 'cs') {
+                return {
+                    subject: `Eskalace — Nevyřešený problém s výkonem [${supplier}]`,
+                    body: `Vážení,
+
+obracím se na vás ve věci, kterou jsme již projednávali s ${contact}, avšak dosud nedošlo k trvalému řešení.
+
+Problém:
+${issue}
+
+Tato záležitost má přímý dopad na naše provozní výsledky a v tuto chvíli vyžaduje vaši pozornost na úrovni managementu.
+
+Žádáme o:
+• Písemné potvrzení přijetí tohoto emailu do 24 hodin
+• Analýzu kořenové příčiny a akční plán do ${deadline}
+• Jmenování jednoho kontaktního bodu z vaší strany pro tuto záležitost
+
+Pokud problém nebude vyřešen v daném termínu, budeme nuceni přistoupit k přezkoumání smluvního vztahu.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `Escalation — Unresolved Performance Issue [${supplier}]`,
+                    body: `Dear ${supplier} management,
+
+I am writing to escalate a matter that has been discussed with ${contact} on our end but has not yet reached a lasting resolution.
+
+The issue:
+${issue}
+
+This matter is impacting our operational performance and now requires your attention at management level.
+
+We are requesting:
+• Written acknowledgment of this email within 24 hours
+• Root cause analysis and corrective action plan by ${deadline}
+• Nomination of a single point of contact on your side for this matter
+
+If the issue is not resolved by the stated deadline, we will need to review the commercial relationship.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    nda: {
+        icon: '🔒',
+        title: { en: 'NDA / Confidentiality Request', cz: 'Žádost o NDA / mlčenlivost' },
+        desc:  { en: 'Request a supplier to sign an NDA before sharing project details.', cz: 'Vyžádejte od dodavatele podpis NDA před sdílením detailů projektu.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: '' },
+            { id: 'project', label: { en: 'Project / context (vague is fine)', cz: 'Projekt / kontext (stačí obecně)' }, type: 'input', placeholder: { en: 'e.g. new product line development, process digitization', cz: 'např. vývoj nové produktové řady, digitalizace procesů' } },
+            { id: 'deadline', label: { en: 'Requested signature deadline', cz: 'Termín požadovaného podpisu' }, type: 'input', placeholder: { en: 'e.g. 20 January 2026', cz: 'např. 20. ledna 2026' } },
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const project = v.project || (lang === 'cs' ? '[projekt]' : '[project]');
+            const deadline = v.deadline || (lang === 'cs' ? '[termín]' : '[deadline]');
+            if (lang === 'cs') {
+                return {
+                    subject: `Žádost o podpis NDA — ${project}`,
+                    body: `Vážení,
+
+rádi bychom s vámi projednali potenciální spolupráci v oblasti ${project}. Abychom mohli sdílet podrobné informace o projektu, požadujeme jako předběžnou podmínku podpis dohody o mlčenlivosti (NDA).
+
+V příloze zasíláme naši standardní dvoustrannou NDA. Dohoda pokrývá:
+• Sdílené důvěrné informace (obchodní, technické, finanční)
+• Dobu závazku: 3 roky od podpisu
+• Standardní výjimky (veřejně dostupné informace apod.)
+
+Prosíme o vrácení podepsaného dokumentu do ${deadline}. Pokud máte připomínky k podmínkám dohody, dejte nám prosím předem vědět.
+
+Po obdržení podepsané NDA vás budeme kontaktovat ohledně naplánování úvodního jednání.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `NDA Request — ${project}`,
+                    body: `Dear ${supplier} team,
+
+We would like to explore a potential collaboration with you regarding ${project}. Before we can share project details, we require a signed non-disclosure agreement as a precondition.
+
+Please find our standard mutual NDA attached. The agreement covers:
+• Shared confidential information (commercial, technical, financial)
+• Commitment period: 3 years from signing
+• Standard exceptions (publicly available information, etc.)
+
+Please return the signed document by ${deadline}. If you have comments on the terms, please let us know in advance.
+
+Once we receive the signed NDA, we will be in touch to schedule an introductory discussion.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    renewal: {
+        icon: '🔄',
+        title: { en: 'Contract Renewal Discussion', cz: 'Jednání o obnově smlouvy' },
+        desc:  { en: 'Open renewal talks before the contract expiry date.', cz: 'Zahajte jednání o obnově před vypršením smlouvy.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: '' },
+            { id: 'scope', label: { en: 'Contract scope (brief)', cz: 'Předmět smlouvy (stručně)' }, type: 'input', placeholder: { en: 'e.g. annual framework for packaging materials', cz: 'např. roční rámec pro obalové materiály' } },
+            { id: 'expiry', label: { en: 'Current contract expiry date', cz: 'Datum vypršení stávající smlouvy' }, type: 'input', placeholder: { en: 'e.g. 31 March 2026', cz: 'např. 31. března 2026' } },
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const scope = v.scope || (lang === 'cs' ? '[předmět smlouvy]' : '[contract scope]');
+            const expiry = v.expiry || (lang === 'cs' ? '[datum]' : '[date]');
+            if (lang === 'cs') {
+                return {
+                    subject: `Obnova smlouvy — ${scope}`,
+                    body: `Vážení,
+
+naše stávající smlouva pro ${scope} vyprší dne ${expiry}. Rádi bychom zahájili diskusi o podmínkách obnovy s dostatečným předstihem.
+
+Navrhujeme přezkoumat:
+• Cenovou strukturu pro příští období
+• Rozsah a objem plnění
+• Podmínky KPI / SLA
+• Případné úpravy podmínek na základě zkušeností z uplynulého období
+
+Prosíme o potvrzení, zda máte zájem o pokračování spolupráce, a navrhněte prosím termín pro úvodní schůzku nebo telefonát.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `Contract Renewal — ${scope}`,
+                    body: `Dear ${supplier} team,
+
+Our current agreement for ${scope} is due to expire on ${expiry}. We would like to open renewal discussions with sufficient lead time on both sides.
+
+We suggest reviewing:
+• Pricing structure for the next period
+• Scope and volume commitments
+• KPI / SLA terms
+• Any adjustments based on experience from the current period
+
+Please confirm your interest in continuing the partnership and propose a time for an initial call or meeting.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    },
+
+    followup: {
+        icon: '⏰',
+        title: { en: 'Follow-up (No Response)', cz: 'Připomínka (bez odpovědi)' },
+        desc:  { en: 'A firm but professional nudge when a supplier goes quiet.', cz: 'Důrazná ale profesionální připomínka, když dodavatel nereaguje.' },
+        fields: [
+            { id: 'supplier', label: { en: 'Supplier name', cz: 'Název dodavatele' }, type: 'input', placeholder: '' },
+            { id: 'topic', label: { en: 'What you are following up on', cz: 'Co si připomínáte' }, type: 'input', placeholder: { en: 'e.g. quote request sent 12 January, delivery confirmation', cz: 'např. poptávka zaslaná 12. ledna, potvrzení dodání' } },
+            { id: 'deadline', label: { en: 'Your hard deadline', cz: 'Váš pevný termín' }, type: 'input', placeholder: { en: 'e.g. 25 January 2026', cz: 'např. 25. ledna 2026' } },
+            { id: 'urgency', label: { en: 'Urgency level', cz: 'Úroveň urgence' }, type: 'select', options: [
+                { value: 'normal', en: 'Routine follow-up', cz: 'Rutinní připomínka' },
+                { value: 'high', en: 'Time-sensitive — decision pending', cz: 'Časově kritické — rozhodnutí čeká' },
+                { value: 'final', en: 'Final notice — will move on', cz: 'Poslední upozornění — přejdeme jinam' },
+            ]},
+        ],
+        generate: (v, lang) => {
+            const supplier = v.supplier || (lang === 'cs' ? '[dodavatel]' : '[supplier]');
+            const topic = v.topic || (lang === 'cs' ? '[téma]' : '[topic]');
+            const deadline = v.deadline || (lang === 'cs' ? '[termín]' : '[deadline]');
+            const urgencyMap = {
+                normal: {
+                    en: 'Could you please provide an update at your earliest convenience?',
+                    cz: 'Mohli byste nás prosím co nejdříve informovat o stavu?'
+                },
+                high: {
+                    en: 'This is time-sensitive — we need your response by ' + deadline + ' to keep our internal process on track.',
+                    cz: 'Záležitost je časově kritická — potřebujeme vaši odpověď do ' + deadline + ', abychom dodrželi náš interní harmonogram.'
+                },
+                final: {
+                    en: 'If we do not hear back by ' + deadline + ', we will need to proceed with an alternative supplier.',
+                    cz: 'Pokud se do ' + deadline + ' neozvete, budeme nuceni přistoupit k alternativnímu dodavateli.'
+                }
+            };
+            const urgencyText = urgencyMap[v.urgency || 'normal'];
+            if (lang === 'cs') {
+                return {
+                    subject: `Připomínka — ${topic}`,
+                    body: `Vážení,
+
+navazuji na svůj předchozí email ohledně: ${topic}.
+
+Doposud jsem od vás neobdržel odpověď. ${urgencyText.cz}
+
+Pokud se na vaší straně vyskytl problém, dejte mi prosím vědět a domluvíme se na dalším postupu.
+
+S pozdravem,
+[Vaše jméno]
+[Vaše pozice] | Nákup`
+                };
+            } else {
+                return {
+                    subject: `Follow-up — ${topic}`,
+                    body: `Dear ${supplier} team,
+
+I am following up on my previous email regarding: ${topic}.
+
+I have not yet received a response from your side. ${urgencyText.en}
+
+If there is an issue on your end, please let me know and we can discuss how to proceed.
+
+Kind regards,
+[Your Name]
+[Your Title] | Procurement`
+                };
+            }
+        }
+    }
+};
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let currentCat = 'qualification';
+let currentLang = 'en';
+
+// ═══════════════════════════════════════════════════
+// CATEGORY SELECTION
+// ═══════════════════════════════════════════════════
+function selectCat(cat, btn) {
+    currentCat = cat;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderForm();
+    renderPreview();
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER FORM
+// ═══════════════════════════════════════════════════
+function renderForm() {
+    const tpl = TEMPLATES[currentCat];
+    const lang = currentLang;
+    let html = `
+        <div class="form-card-header">
+            <span class="form-cat-icon">${tpl.icon}</span>
+            <div>
+                <h2 class="form-cat-title">${tpl.title[lang]}</h2>
+                <p class="form-cat-desc">${tpl.desc[lang]}</p>
+            </div>
+        </div>`;
+
+    // Build field rows — pair fields if possible
+    let i = 0;
+    while (i < tpl.fields.length) {
+        const f = tpl.fields[i];
+        const next = tpl.fields[i+1];
+        const canPair = next && f.type === 'input' && next.type === 'input';
+
+        if (canPair) {
+            html += `<div class="form-row">
+                ${fieldHTML(f, lang)}
+                ${fieldHTML(next, lang)}
+            </div>`;
+            i += 2;
+        } else {
+            html += fieldHTML(f, lang);
+            i++;
+        }
+    }
+
+    document.getElementById('formCard').innerHTML = html;
+
+    // Attach listeners
+    tpl.fields.forEach(f => {
+        const el = document.getElementById('field_' + f.id);
+        if (el) el.addEventListener('input', renderPreview);
+        if (el) el.addEventListener('change', renderPreview);
+    });
+}
+
+function fieldHTML(f, lang) {
+    const label = typeof f.label === 'string' ? f.label : (f.label[lang] || f.label.en);
+    const placeholder = f.placeholder ? (typeof f.placeholder === 'string' ? f.placeholder : (f.placeholder[lang] || f.placeholder.en || '')) : '';
+
+    if (f.type === 'input') {
+        return `<div class="tool-group">
+            <label class="tool-label" for="field_${f.id}">${label}</label>
+            <input class="tool-input" id="field_${f.id}" type="text" placeholder="${placeholder}" autocomplete="off">
+        </div>`;
+    }
+    if (f.type === 'textarea') {
+        return `<div class="tool-group">
+            <label class="tool-label" for="field_${f.id}">${label}</label>
+            <textarea class="tool-textarea" id="field_${f.id}" placeholder="${placeholder}"></textarea>
+        </div>`;
+    }
+    if (f.type === 'select') {
+        const opts = f.options.map(o => `<option value="${o.value}">${o[lang] || o.en}</option>`).join('');
+        return `<div class="tool-group">
+            <label class="tool-label" for="field_${f.id}">${label}</label>
+            <select class="tool-select" id="field_${f.id}">${opts}</select>
+        </div>`;
+    }
+    return '';
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER PREVIEW
+// ═══════════════════════════════════════════════════
+function renderPreview() {
+    const tpl = TEMPLATES[currentCat];
+    const lang = currentLang;
+    const values = {};
+    tpl.fields.forEach(f => {
+        const el = document.getElementById('field_' + f.id);
+        values[f.id] = el ? el.value.trim() : '';
+    });
+
+    const result = tpl.generate(values, lang);
+    document.getElementById('previewSubject').textContent = result.subject;
+    document.getElementById('previewBody').textContent = result.body;
+}
+
+// ═══════════════════════════════════════════════════
+// COPY
+// ═══════════════════════════════════════════════════
+function copyEmail() {
+    const subject = document.getElementById('previewSubject').textContent;
+    const body = document.getElementById('previewBody').textContent;
+    const full = `Subject: ${subject}\n\n${body}`;
+    navigator.clipboard.writeText(full).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.classList.add('copied');
+        btn.querySelector('.en').textContent = '✅ Copied';
+        btn.querySelector('.cz').textContent = '✅ Zkopírováno';
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.querySelector('.en').textContent = 'Copy email';
+            btn.querySelector('.cz').textContent = 'Kopírovat email';
+        }, 2000);
+    });
+}
+
+// ═══════════════════════════════════════════════════
+// LANGUAGE
+// ═══════════════════════════════════════════════════
+function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+    renderForm();
+    renderPreview();
+}
+
+// ═══════════════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════════════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+(function() {
+    try {
+        const s = localStorage.getItem('ss-lang');
+        if (s) { currentLang = s; }
+    } catch {}
+    const bl = navigator.language || '';
+    if (!currentLang) currentLang = (bl.startsWith('cs') || bl.startsWith('sk')) ? 'cs' : 'en';
+    setLang(currentLang);
+    renderForm();
+    renderPreview();
+})();
+</script>
+</body>
+</html>

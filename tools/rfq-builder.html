@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Builder — Sourcing Sense</title>
+    <meta name="description" content="Build a professional RFQ document in minutes. 4-step wizard covers scope, requirements, evaluation criteria, and terms. Free, no sign-up required.">
+    <link rel="canonical" href="https://sourcing-sense.com/tools/rfq-builder" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:title" content="RFQ Builder — Sourcing Sense" />
+    <meta property="og:description" content="4-step wizard. Scope, requirements, evaluation criteria, terms. Download your RFQ in minutes." />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "RFQ Builder",
+      "description": "Free RFQ document generator for procurement professionals. Creates structured Request for Quotation documents covering scope, technical requirements, evaluation criteria, and submission terms.",
+      "url": "https://sourcing-sense.com/tools/rfq-builder",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-border: rgba(255,255,255,0.08); --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ TOOL HEADER ═══ */
+        .tool-header {
+            padding: 7.5rem 2rem 2.5rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 55%);
+        }
+        .tool-header-inner { max-width: 800px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .tool-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 0.75rem; }
+        .tool-header-desc { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.7; max-width: 560px; margin-bottom: 1.25rem; }
+        .tool-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tool-badge { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 100px; }
+        .tool-badge.free { background: var(--emerald-subtle); color: var(--emerald); }
+        .tool-badge.no-signup { background: var(--accent-subtle); color: var(--accent); }
+
+        /* ═══ PROGRESS STEPPER ═══ */
+        .stepper-wrapper { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 0; }
+        .stepper { display: flex; align-items: center; gap: 0; }
+        .step {
+            display: flex; align-items: center; gap: 0.5rem;
+            flex: 1; cursor: default;
+        }
+        .step-num {
+            width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700;
+            border: 2px solid var(--light-border);
+            color: var(--light-text-muted);
+            transition: all 0.3s;
+        }
+        .step.active .step-num { border-color: var(--accent); background: var(--accent); color: white; }
+        .step.done .step-num { border-color: var(--emerald); background: var(--emerald); color: white; }
+        .step-label {
+            font-size: 0.78rem; font-weight: 600; color: var(--light-text-muted);
+            transition: color 0.3s; white-space: nowrap;
+        }
+        .step.active .step-label { color: var(--accent); }
+        .step.done .step-label { color: var(--emerald); }
+        .step-line {
+            flex: 1; height: 2px; background: var(--light-border);
+            margin: 0 0.5rem; transition: background 0.3s;
+        }
+        .step-line.done { background: var(--emerald); }
+
+        /* ═══ WIZARD WORKSPACE ═══ */
+        .wizard-workspace { max-width: 800px; margin: 0 auto; padding: 1.5rem 2rem 3rem; }
+
+        /* Step panels */
+        .step-panel { display: none; }
+        .step-panel.active { display: block; animation: fadeSlide 0.35s var(--ease) both; }
+        @keyframes fadeSlide { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+
+        .step-card {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); padding: 2rem;
+        }
+        .step-card-title {
+            font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.4rem;
+        }
+        .step-card-desc {
+            font-size: 0.85rem; color: var(--light-text-muted); margin-bottom: 1.75rem;
+        }
+
+        /* Form elements */
+        .tool-group { margin-bottom: 1.25rem; }
+        .tool-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--light-text); margin-bottom: 0.35rem; }
+        .tool-hint { font-size: 0.73rem; color: var(--light-text-muted); margin-bottom: 0.4rem; }
+        .tool-input, .tool-select, .tool-textarea {
+            width: 100%; padding: 0.75rem 0.9rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body);
+            font-size: 0.9rem; color: var(--light-text); outline: none; transition: all 0.2s;
+        }
+        .tool-input:focus, .tool-select:focus, .tool-textarea:focus {
+            border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .tool-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* Toggle buttons (type selection) */
+        .toggle-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .toggle-btn {
+            padding: 0.55rem 1rem; font-size: 0.84rem; font-weight: 500;
+            border: 1.5px solid var(--light-border); border-radius: var(--radius-sm);
+            color: var(--light-text-secondary); transition: all 0.2s;
+        }
+        .toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .toggle-btn.active { border-color: var(--accent); background: var(--accent-subtle); color: var(--accent); font-weight: 600; }
+
+        /* Criteria weights */
+        .criteria-row {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 0.75rem 0; border-bottom: 1px solid var(--light-border);
+        }
+        .criteria-row:last-child { border-bottom: none; }
+        .criteria-name { flex: 1; font-size: 0.85rem; font-weight: 500; }
+        .criteria-slider { flex: 2; }
+        .criteria-weight {
+            min-width: 48px; text-align: right;
+            font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700;
+            color: var(--accent);
+        }
+        .weight-total {
+            margin-top: 0.75rem; padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .weight-total.ok { background: var(--emerald-subtle); color: var(--emerald); }
+        .weight-total.warn { background: var(--amber-subtle); color: var(--amber); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px; background: var(--light-border); outline: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); cursor: pointer; box-shadow: 0 1px 6px var(--accent-glow); }
+
+        /* Checkbox row */
+        .check-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer; }
+        .check-row input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--accent); }
+        .check-row span { font-size: 0.88rem; color: var(--light-text-secondary); }
+
+        /* Navigation buttons */
+        .wizard-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 1.75rem; padding-top: 1.5rem;
+            border-top: 1px solid var(--light-border);
+        }
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.25rem;
+            color: var(--light-text-secondary); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); transition: all 0.2s;
+        }
+        .btn-back:hover { border-color: var(--light-text-secondary); color: var(--light-text); }
+        .btn-back[disabled] { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+        .btn-next {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem; font-weight: 600; padding: 0.8rem 1.75rem;
+            background: var(--accent); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .btn-next:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 6px 20px var(--accent-glow); }
+        .btn-generate {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem; font-weight: 600; padding: 0.8rem 1.75rem;
+            background: var(--emerald); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .btn-generate:hover { background: #0ea572; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(16,185,129,0.25); }
+
+        /* ═══ RESULT ═══ */
+        .result-section { display: none; }
+        .result-section.active { display: block; animation: fadeSlide 0.4s var(--ease) both; }
+
+        .result-header {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%);
+            border-radius: var(--radius) var(--radius) 0 0;
+            padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;
+        }
+        .result-header h2 { font-family: var(--font-display); color: white; font-size: 1.3rem; font-weight: 400; }
+        .result-actions { display: flex; gap: 0.5rem; }
+        .btn-copy, .btn-download {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.8rem; font-weight: 600; padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm); transition: all 0.2s;
+        }
+        .btn-copy { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-copy:hover { background: rgba(255,255,255,0.2); }
+        .btn-copy.copied { background: rgba(16,185,129,0.3); border-color: rgba(16,185,129,0.5); }
+        .btn-download { background: white; color: var(--blue-900); }
+        .btn-download:hover { background: var(--light-bg-alt); transform: translateY(-1px); }
+
+        .result-doc {
+            background: white; border: 1px solid var(--light-border);
+            border-top: none; border-radius: 0 0 var(--radius) var(--radius);
+            padding: 2rem; font-family: var(--font-mono); font-size: 0.82rem;
+            line-height: 1.8; white-space: pre-wrap; color: var(--light-text);
+            max-height: 600px; overflow-y: auto;
+        }
+
+        .restart-row { margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .btn-restart {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.2rem;
+            color: var(--light-text-secondary); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); transition: all 0.2s;
+        }
+        .btn-restart:hover { border-color: var(--accent); color: var(--accent); }
+        .cta-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.25rem;
+            background: var(--accent); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s;
+        }
+        .cta-link:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; margin-top: 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .tool-header { padding: 7rem 1.25rem 1.75rem; }
+            .stepper-wrapper { padding: 1.5rem 1.25rem 0; }
+            .wizard-workspace { padding: 1.25rem; }
+            .step-label { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .criteria-row { flex-wrap: wrap; }
+            .result-header { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+            .result-doc { font-size: 0.75rem; padding: 1.25rem; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ TOOL HEADER ═══ -->
+<section class="tool-header">
+    <div class="tool-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span>RFQ Builder</span>
+        </div>
+        <h1>RFQ Builder</h1>
+        <p class="tool-header-desc">
+            <span class="en">4 steps. Under 3 minutes. A complete, structured RFQ document ready to send — or adapt to your company template.</span>
+            <span class="cz">4 kroky. Do 3 minut. Kompletní, strukturovaný RFQ dokument připravený k odeslání — nebo k přizpůsobení vaší šabloně.</span>
+        </p>
+        <div class="tool-badge-row">
+            <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+            <span class="tool-badge no-signup"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PROGRESS STEPPER ═══ -->
+<div class="stepper-wrapper">
+    <div class="stepper" id="stepper">
+        <div class="step active" id="s1">
+            <div class="step-num">1</div>
+            <span class="step-label"><span class="en">Basics</span><span class="cz">Základy</span></span>
+        </div>
+        <div class="step-line" id="l1"></div>
+        <div class="step" id="s2">
+            <div class="step-num">2</div>
+            <span class="step-label"><span class="en">Scope</span><span class="cz">Rozsah</span></span>
+        </div>
+        <div class="step-line" id="l2"></div>
+        <div class="step" id="s3">
+            <div class="step-num">3</div>
+            <span class="step-label"><span class="en">Evaluation</span><span class="cz">Hodnocení</span></span>
+        </div>
+        <div class="step-line" id="l3"></div>
+        <div class="step" id="s4">
+            <div class="step-num">4</div>
+            <span class="step-label"><span class="en">Conditions</span><span class="cz">Podmínky</span></span>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ WIZARD ═══ -->
+<div class="wizard-workspace">
+
+    <!-- STEP 1: Basics -->
+    <div class="step-panel active" id="panel1">
+        <div class="step-card">
+            <h2 class="step-card-title"><span class="en">What are you sourcing?</span><span class="cz">Co poptáváte?</span></h2>
+            <p class="step-card-desc"><span class="en">High-level context. Sets the tone and scope of the entire document.</span><span class="cz">Kontext na vyšší úrovni. Nastavuje tón a rámec celého dokumentu.</span></p>
+
+            <div class="form-row">
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Commodity / category name</span><span class="cz">Komodita / název kategorie</span></label>
+                    <input class="tool-input" id="commodity" type="text" placeholder="e.g. Industrial safety gloves, IT managed services">
+                </div>
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Your company (or dept.)</span><span class="cz">Vaše společnost (nebo oddělení)</span></label>
+                    <input class="tool-input" id="company" type="text" placeholder="e.g. Procurement Dept., ACME Corp.">
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Category type</span><span class="cz">Typ kategorie</span></label>
+                <div class="toggle-group" id="catTypeGroup">
+                    <button class="toggle-btn active" data-val="Indirect / MRO" onclick="selectToggle(this, 'catTypeGroup')"><span class="en">Indirect / MRO</span><span class="cz">Nepřímý nákup / MRO</span></button>
+                    <button class="toggle-btn" data-val="Direct materials" onclick="selectToggle(this, 'catTypeGroup')"><span class="en">Direct materials</span><span class="cz">Přímý materiál</span></button>
+                    <button class="toggle-btn" data-val="Services" onclick="selectToggle(this, 'catTypeGroup')"><span class="en">Services</span><span class="cz">Služby</span></button>
+                    <button class="toggle-btn" data-val="Capital expenditure" onclick="selectToggle(this, 'catTypeGroup')"><span class="en">CapEx</span><span class="cz">Investiční výdaje</span></button>
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Business context (optional but makes the RFQ much stronger)</span><span class="cz">Obchodní kontext (volitelné, ale výrazně posílí RFQ)</span></label>
+                <p class="tool-hint"><span class="en">Why are you running this RFQ? New need, expiring contract, cost reduction, quality issue?</span><span class="cz">Proč toto RFQ spouštíte? Nová potřeba, vypršení smlouvy, snižování nákladů, problém s kvalitou?</span></p>
+                <textarea class="tool-textarea" id="context" rows="3" placeholder="e.g. Our current framework agreement expires in Q2 2026. We are running a competitive tender to benchmark pricing and explore market options."></textarea>
+            </div>
+
+            <div class="wizard-nav">
+                <button class="btn-back" disabled>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    <span class="en">Back</span><span class="cz">Zpět</span>
+                </button>
+                <button class="btn-next" onclick="goNext(1)">
+                    <span class="en">Next: Scope</span><span class="cz">Dále: Rozsah</span>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 2: Scope & Requirements -->
+    <div class="step-panel" id="panel2">
+        <div class="step-card">
+            <h2 class="step-card-title"><span class="en">Scope & requirements</span><span class="cz">Rozsah a požadavky</span></h2>
+            <p class="step-card-desc"><span class="en">What exactly does the supplier need to deliver? Be specific — vague requirements attract vague quotes.</span><span class="cz">Co přesně musí dodavatel dodat? Buďte konkrétní — vágní požadavky přitahují vágní nabídky.</span></p>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Scope of supply / deliverables</span><span class="cz">Předmět dodávky / výstupy</span></label>
+                <p class="tool-hint"><span class="en">List what must be delivered. Bullet points work well here.</span><span class="cz">Uveďte, co musí být dodáno. Odrážky fungují dobře.</span></p>
+                <textarea class="tool-textarea" id="scope" rows="4" placeholder="e.g.&#10;- Supply of size-specific inventory (S/M/L/XL) to 3 warehouse locations&#10;- Monthly replenishment based on consumption data&#10;- Dedicated account manager&#10;- Monthly usage reporting"></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Estimated annual volume / value</span><span class="cz">Odhadovaný roční objem / hodnota</span></label>
+                    <input class="tool-input" id="volume" type="text" placeholder="e.g. ~2,000 pcs/year, ~€50,000/year">
+                </div>
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Delivery / service location(s)</span><span class="cz">Místo dodání / poskytování</span></label>
+                    <input class="tool-input" id="location" type="text" placeholder="e.g. Prague CZ, Brno CZ">
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Key technical / quality requirements</span><span class="cz">Klíčové technické / kvalitativní požadavky</span></label>
+                <p class="tool-hint"><span class="en">Certifications, standards, product specs, minimum qualifications.</span><span class="cz">Certifikace, normy, technické specifikace, minimální kvalifikace.</span></p>
+                <textarea class="tool-textarea" id="requirements" rows="4" placeholder="e.g.&#10;- EN 388 or equivalent standard&#10;- ISO 9001 quality management certification&#10;- Minimum 5 years experience in industrial PPE&#10;- Product samples required before final approval"></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Contract duration</span><span class="cz">Délka smlouvy</span></label>
+                    <input class="tool-input" id="duration" type="text" placeholder="e.g. 2 years + 1 year option">
+                </div>
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Required start / delivery date</span><span class="cz">Požadované zahájení / termín dodání</span></label>
+                    <input class="tool-input" id="startDate" type="text" placeholder="e.g. 1 June 2026">
+                </div>
+            </div>
+
+            <div class="wizard-nav">
+                <button class="btn-back" onclick="goPrev(2)">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    <span class="en">Back</span><span class="cz">Zpět</span>
+                </button>
+                <button class="btn-next" onclick="goNext(2)">
+                    <span class="en">Next: Evaluation</span><span class="cz">Dále: Hodnocení</span>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 3: Evaluation Criteria -->
+    <div class="step-panel" id="panel3">
+        <div class="step-card">
+            <h2 class="step-card-title"><span class="en">Evaluation criteria</span><span class="cz">Hodnotící kritéria</span></h2>
+            <p class="step-card-desc"><span class="en">How will you score responses? Weights must total 100%. Suppliers evaluate your seriousness by how you evaluate them.</span><span class="cz">Jak budete hodnotit odpovědi? Součet vah musí být 100 %. Dodavatelé hodnotí vaši serióznost podle toho, jak hodnotíte vy je.</span></p>
+
+            <div id="criteriaList">
+                <!-- Criteria rows rendered by JS -->
+            </div>
+            <div class="weight-total ok" id="weightTotal">
+                <span><span class="en">Total weight:</span><span class="cz">Celková váha:</span></span>
+                <span id="totalPct">100%</span>
+            </div>
+
+            <div class="wizard-nav">
+                <button class="btn-back" onclick="goPrev(3)">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    <span class="en">Back</span><span class="cz">Zpět</span>
+                </button>
+                <button class="btn-next" onclick="goNext(3)">
+                    <span class="en">Next: Conditions</span><span class="cz">Dále: Podmínky</span>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 4: Conditions -->
+    <div class="step-panel" id="panel4">
+        <div class="step-card">
+            <h2 class="step-card-title"><span class="en">Submission & conditions</span><span class="cz">Podání nabídky a podmínky</span></h2>
+            <p class="step-card-desc"><span class="en">The rules of the game. When, how, and what suppliers must include in their response.</span><span class="cz">Pravidla hry. Kdy, jak a co musí dodavatelé zahrnout do své odpovědi.</span></p>
+
+            <div class="form-row">
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Quote submission deadline</span><span class="cz">Termín pro zaslání nabídky</span></label>
+                    <input class="tool-input" id="submDeadline" type="text" placeholder="e.g. 14 March 2026, 12:00 CET">
+                </div>
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Quote validity period</span><span class="cz">Platnost nabídky</span></label>
+                    <input class="tool-input" id="validity" type="text" placeholder="e.g. 60 days from submission">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Payment terms expected</span><span class="cz">Očekávané platební podmínky</span></label>
+                    <input class="tool-input" id="payment" type="text" placeholder="e.g. Net 60 days">
+                </div>
+                <div class="tool-group">
+                    <label class="tool-label"><span class="en">Submission email / contact</span><span class="cz">Email pro zaslání nabídky / kontakt</span></label>
+                    <input class="tool-input" id="contactEmail" type="text" placeholder="e.g. procurement@yourcompany.com">
+                </div>
+            </div>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Required documents in the response</span><span class="cz">Požadované dokumenty v odpovědi</span></label>
+                <label class="check-row"><input type="checkbox" id="chkPricing" checked><span><span class="en">Detailed pricing breakdown</span><span class="cz">Podrobný rozpis cen</span></span></label>
+                <label class="check-row"><input type="checkbox" id="chkReferences" checked><span><span class="en">Company references (min. 3)</span><span class="cz">Reference společnosti (min. 3)</span></span></label>
+                <label class="check-row"><input type="checkbox" id="chkCerts"><span><span class="en">Quality certifications (ISO, etc.)</span><span class="cz">Kvalitativní certifikace (ISO apod.)</span></span></label>
+                <label class="check-row"><input type="checkbox" id="chkNDA"><span><span class="en">NDA required before document sharing</span><span class="cz">NDA požadováno před sdílením dokumentů</span></span></label>
+                <label class="check-row"><input type="checkbox" id="chkSamples"><span><span class="en">Product samples / service demo</span><span class="cz">Vzorky produktů / demo služby</span></span></label>
+            </div>
+
+            <div class="tool-group">
+                <label class="tool-label"><span class="en">Additional notes / special requirements (optional)</span><span class="cz">Doplňující poznámky / zvláštní požadavky (volitelné)</span></label>
+                <textarea class="tool-textarea" id="notes" rows="3" placeholder="e.g. Responses in English only. Site visits to be arranged separately. Award decision by 1 April 2026."></textarea>
+            </div>
+
+            <div class="wizard-nav">
+                <button class="btn-back" onclick="goPrev(4)">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    <span class="en">Back</span><span class="cz">Zpět</span>
+                </button>
+                <button class="btn-generate" onclick="generateRFQ()">
+                    <span class="en">Generate RFQ</span><span class="cz">Vygenerovat RFQ</span>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-section" id="resultSection">
+        <div class="result-header">
+            <h2><span class="en">Your RFQ Document</span><span class="cz">Váš RFQ dokument</span></h2>
+            <div class="result-actions">
+                <button class="btn-copy" id="btnCopy" onclick="copyDoc()">
+                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    <span class="en">Copy</span><span class="cz">Kopírovat</span>
+                </button>
+                <button class="btn-download" onclick="downloadDoc()">
+                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    <span class="en">Download .txt</span><span class="cz">Stáhnout .txt</span>
+                </button>
+            </div>
+        </div>
+        <div class="result-doc" id="resultDoc"></div>
+        <div class="restart-row">
+            <button class="btn-restart" onclick="restart()">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+                <span class="en">Start over</span><span class="cz">Začít znovu</span>
+            </button>
+            <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-link">
+                <span class="en">Want AI to handle the analysis? Book a call</span>
+                <span class="cz">Chcete analýzu s AI? Domluvte hovor</span>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span><span class="cz">← Zpět na nástroje</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════
+// CRITERIA CONFIG
+// ═══════════════════════════════════
+const CRITERIA = [
+    { id: 'price',    en: 'Price / total cost',      cz: 'Cena / celkové náklady',      default: 40 },
+    { id: 'quality',  en: 'Quality / certifications', cz: 'Kvalita / certifikace',        default: 25 },
+    { id: 'delivery', en: 'Delivery reliability',     cz: 'Spolehlivost dodávek',         default: 20 },
+    { id: 'exp',      en: 'Experience / references',  cz: 'Zkušenosti / reference',       default: 10 },
+    { id: 'sustain',  en: 'Sustainability / ESG',     cz: 'Udržitelnost / ESG',           default: 5  },
+];
+
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
+let currentStep = 1;
+let generatedDoc = '';
+
+// ═══════════════════════════════════
+// INIT CRITERIA SLIDERS
+// ═══════════════════════════════════
+function initCriteria() {
+    const list = document.getElementById('criteriaList');
+    list.innerHTML = CRITERIA.map(c => `
+        <div class="criteria-row">
+            <span class="criteria-name en">${c.en}</span>
+            <span class="criteria-name cz">${c.cz}</span>
+            <div class="criteria-slider">
+                <input type="range" id="crit_${c.id}" min="0" max="80" step="5" value="${c.default}"
+                    oninput="updateCritWeight('${c.id}')">
+            </div>
+            <span class="criteria-weight" id="cw_${c.id}">${c.default}%</span>
+        </div>
+    `).join('');
+    updateTotalWeight();
+}
+
+function updateCritWeight(id) {
+    const val = parseInt(document.getElementById('crit_' + id).value);
+    document.getElementById('cw_' + id).textContent = val + '%';
+    updateTotalWeight();
+}
+
+function updateTotalWeight() {
+    const total = CRITERIA.reduce((sum, c) => {
+        return sum + parseInt(document.getElementById('crit_' + c.id)?.value || 0);
+    }, 0);
+    const el = document.getElementById('totalPct');
+    const container = document.getElementById('weightTotal');
+    el.textContent = total + '%';
+    container.className = 'weight-total ' + (total === 100 ? 'ok' : 'warn');
+}
+
+function getCriteriaWeights() {
+    return CRITERIA.map(c => ({
+        name: currentLang === 'cs' ? c.cz : c.en,
+        weight: parseInt(document.getElementById('crit_' + c.id)?.value || 0)
+    }));
+}
+
+// ═══════════════════════════════════
+// TOGGLE BUTTONS
+// ═══════════════════════════════════
+function selectToggle(btn, groupId) {
+    document.querySelectorAll(`#${groupId} .toggle-btn`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+function getToggleValue(groupId) {
+    const active = document.querySelector(`#${groupId} .toggle-btn.active`);
+    return active ? active.getAttribute('data-val') : '';
+}
+
+// ═══════════════════════════════════
+// WIZARD NAVIGATION
+// ═══════════════════════════════════
+function goNext(from) {
+    if (from === currentStep && currentStep < 4) {
+        setStep(currentStep + 1);
+    }
+}
+
+function goPrev(from) {
+    if (from === currentStep && currentStep > 1) {
+        setStep(currentStep - 1);
+    }
+}
+
+function setStep(n) {
+    document.getElementById('panel' + currentStep).classList.remove('active');
+    currentStep = n;
+    document.getElementById('panel' + currentStep).classList.add('active');
+    updateStepper();
+    window.scrollTo({ top: document.querySelector('.stepper-wrapper').offsetTop - 100, behavior: 'smooth' });
+}
+
+function updateStepper() {
+    for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById('s' + i);
+        el.className = 'step';
+        if (i < currentStep) el.classList.add('done');
+        if (i === currentStep) el.classList.add('active');
+    }
+    for (let i = 1; i <= 3; i++) {
+        const line = document.getElementById('l' + i);
+        line.className = 'step-line' + (i < currentStep ? ' done' : '');
+    }
+}
+
+// ═══════════════════════════════════
+// GENERATE RFQ DOCUMENT
+// ═══════════════════════════════════
+function generateRFQ() {
+    const lang = currentLang;
+    const g = v => document.getElementById(v)?.value?.trim() || '';
+
+    const commodity   = g('commodity')     || (lang === 'cs' ? '[komodita]' : '[commodity]');
+    const company     = g('company')       || (lang === 'cs' ? '[vaše společnost]' : '[your company]');
+    const catType     = getToggleValue('catTypeGroup') || 'Goods';
+    const context     = g('context');
+    const scope       = g('scope');
+    const volume      = g('volume')        || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const location    = g('location')      || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const requirements= g('requirements');
+    const duration    = g('duration')      || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const startDate   = g('startDate')     || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const submDeadline= g('submDeadline')  || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const validity    = g('validity')      || (lang === 'cs' ? '60 ' + (lang === 'cs' ? 'dní' : 'days') : '60 days');
+    const payment     = g('payment')       || (lang === 'cs' ? '[neuvedeno]' : '[not specified]');
+    const contactEmail= g('contactEmail')  || '[procurement@yourcompany.com]';
+    const notes       = g('notes');
+    const weights     = getCriteriaWeights();
+
+    const today = new Date().toLocaleDateString(lang === 'cs' ? 'cs-CZ' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const rfqNum = 'RFQ-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 900) + 100);
+
+    const requiredDocs = [];
+    if (document.getElementById('chkPricing')?.checked)    requiredDocs.push(lang === 'cs' ? 'Podrobný rozpis cen' : 'Detailed pricing breakdown');
+    if (document.getElementById('chkReferences')?.checked) requiredDocs.push(lang === 'cs' ? 'Reference společnosti (min. 3)' : 'Company references (minimum 3)');
+    if (document.getElementById('chkCerts')?.checked)      requiredDocs.push(lang === 'cs' ? 'Kvalitativní certifikace (ISO apod.)' : 'Quality certifications (ISO, etc.)');
+    if (document.getElementById('chkNDA')?.checked)        requiredDocs.push(lang === 'cs' ? 'Podepsaná NDA (zašleme před sdílením dokumentů)' : 'Signed NDA (to be shared before document release)');
+    if (document.getElementById('chkSamples')?.checked)    requiredDocs.push(lang === 'cs' ? 'Vzorky produktů nebo demo služby' : 'Product samples or service demo');
+
+    if (lang === 'cs') {
+        generatedDoc = `═══════════════════════════════════════════════════════════════
+ŽÁDOST O NABÍDKU (RFQ)
+═══════════════════════════════════════════════════════════════
+Číslo RFQ:    ${rfqNum}
+Datum:        ${today}
+Vydal:        ${company}
+Kategorie:    ${commodity} (${catType})
+═══════════════════════════════════════════════════════════════
+
+1. ÚVOD
+───────────────────────────────────────────────────────────────
+${company} zahajuje výběrové řízení pro kategorii ${commodity}.
+${context ? '\n' + context + '\n' : ''}
+Tímto dokumentem vás vyzýváme k předložení nabídky v souladu s požadavky uvedenými níže.
+
+2. PŘEDMĚT DODÁVKY
+───────────────────────────────────────────────────────────────
+${scope || 'Viz technická specifikace v příloze.'}
+
+Odhadovaný objem / hodnota:  ${volume}
+Místo dodání / plnění:        ${location}
+Požadovaný termín zahájení:  ${startDate}
+Délka smlouvy:               ${duration}
+
+3. TECHNICKÉ A KVALITATIVNÍ POŽADAVKY
+───────────────────────────────────────────────────────────────
+${requirements || 'Podrobné technické požadavky budou sdíleny po podpisu NDA.'}
+
+4. HODNOTÍCÍ KRITÉRIA
+───────────────────────────────────────────────────────────────
+Nabídky budou hodnoceny na základě následujících kritérií:
+
+${weights.map(w => `  ${w.name.padEnd(35)} ${String(w.weight + '%').padStart(4)}`).join('\n')}
+  ─────────────────────────────────────────
+  Celkem                                 100%
+
+Bodování: Každé kritérium bude hodnoceno na škále 1–10.
+Výsledné skóre = součet (body × váha).
+
+5. POŽADAVKY NA NABÍDKU
+───────────────────────────────────────────────────────────────
+Vaše nabídka musí obsahovat:
+
+${requiredDocs.map(d => '  • ' + d).join('\n') || '  • Viz pokyny výše'}
+
+Termín pro zaslání nabídky: ${submDeadline}
+Platnost nabídky:           ${validity}
+
+Nabídku zašlete na: ${contactEmail}
+
+6. PLATEBNÍ A OBCHODNÍ PODMÍNKY
+───────────────────────────────────────────────────────────────
+Očekávané platební podmínky: ${payment}
+Ceny: Uveďte ceny bez DPH v EUR nebo CZK.
+Incoterms: Uveďte navrhované dodací podmínky.
+
+7. PODMÍNKY A UPOZORNĚNÍ
+───────────────────────────────────────────────────────────────
+• Toto RFQ nepředstavuje příslib uzavření smlouvy.
+• ${company} si vyhrazuje právo odmítnout jakoukoli nebo všechny nabídky.
+• Veškeré informace obsažené v tomto dokumentu jsou důvěrné.
+• Nabídky podané po termínu nebudou brány v úvahu.
+${notes ? '• ' + notes : ''}
+
+8. KONTAKT
+───────────────────────────────────────────────────────────────
+V případě dotazů kontaktujte: ${contactEmail}
+
+Dotazy přijímáme do 5 pracovních dní před termínem podání nabídky.
+
+═══════════════════════════════════════════════════════════════
+Děkujeme za váš zájem. Těšíme se na vaši nabídku.
+${company} | Oddělení nákupu
+═══════════════════════════════════════════════════════════════`;
+    } else {
+        generatedDoc = `═══════════════════════════════════════════════════════════════
+REQUEST FOR QUOTATION (RFQ)
+═══════════════════════════════════════════════════════════════
+RFQ Number:   ${rfqNum}
+Date Issued:  ${today}
+Issued by:    ${company}
+Category:     ${commodity} (${catType})
+═══════════════════════════════════════════════════════════════
+
+1. INTRODUCTION
+───────────────────────────────────────────────────────────────
+${company} is initiating a competitive sourcing process for ${commodity}.
+${context ? '\n' + context + '\n' : ''}
+This document invites you to submit a quotation in accordance with the requirements set out below.
+
+2. SCOPE OF SUPPLY
+───────────────────────────────────────────────────────────────
+${scope || 'See technical specification attached.'}
+
+Estimated annual volume / value:  ${volume}
+Delivery / service location(s):    ${location}
+Required start / delivery date:    ${startDate}
+Contract duration:                 ${duration}
+
+3. TECHNICAL & QUALITY REQUIREMENTS
+───────────────────────────────────────────────────────────────
+${requirements || 'Detailed technical requirements will be shared following NDA execution.'}
+
+4. EVALUATION CRITERIA
+───────────────────────────────────────────────────────────────
+Responses will be evaluated against the following criteria:
+
+${weights.map(w => `  ${w.name.padEnd(35)} ${String(w.weight + '%').padStart(4)}`).join('\n')}
+  ─────────────────────────────────────────
+  Total                                  100%
+
+Scoring: Each criterion will be rated 1–10. Final score = sum(score × weight).
+
+5. RESPONSE REQUIREMENTS
+───────────────────────────────────────────────────────────────
+Your submission must include:
+
+${requiredDocs.map(d => '  • ' + d).join('\n') || '  • See instructions above'}
+
+Submission deadline: ${submDeadline}
+Quote validity:      ${validity}
+
+Submit responses to: ${contactEmail}
+
+6. COMMERCIAL & PAYMENT TERMS
+───────────────────────────────────────────────────────────────
+Expected payment terms: ${payment}
+Pricing: Please quote prices excluding VAT, in EUR.
+Incoterms: Please state your proposed delivery terms.
+
+7. TERMS & NOTICES
+───────────────────────────────────────────────────────────────
+• This RFQ does not constitute a commitment to purchase.
+• ${company} reserves the right to reject any or all submissions.
+• All information contained in this document is confidential.
+• Late submissions will not be considered.
+${notes ? '• ' + notes : ''}
+
+8. CONTACT
+───────────────────────────────────────────────────────────────
+For any questions, please contact: ${contactEmail}
+
+Questions accepted up to 5 business days before the submission deadline.
+
+═══════════════════════════════════════════════════════════════
+Thank you for your interest. We look forward to receiving your proposal.
+${company} | Procurement Department
+═══════════════════════════════════════════════════════════════`;
+    }
+
+    // Show result
+    document.getElementById('panel4').classList.remove('active');
+    document.getElementById('resultSection').classList.add('active');
+    document.getElementById('resultDoc').textContent = generatedDoc;
+    updateStepper();
+    window.scrollTo({ top: document.querySelector('.result-section').offsetTop - 100, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════
+// COPY / DOWNLOAD
+// ═══════════════════════════════════
+function copyDoc() {
+    navigator.clipboard.writeText(generatedDoc).then(() => {
+        const btn = document.getElementById('btnCopy');
+        btn.classList.add('copied');
+        btn.querySelector('.en').textContent = '✅ Copied';
+        btn.querySelector('.cz').textContent = '✅ Zkopírováno';
+        setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.querySelector('.en').textContent = 'Copy';
+            btn.querySelector('.cz').textContent = 'Kopírovat';
+        }, 2500);
+    });
+}
+
+function downloadDoc() {
+    const blob = new Blob([generatedDoc], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'RFQ-' + new Date().getFullYear() + '.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function restart() {
+    document.getElementById('resultSection').classList.remove('active');
+    currentStep = 1;
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById('panel' + i).classList.remove('active');
+    }
+    document.getElementById('panel1').classList.add('active');
+    updateStepper();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════
+// LANGUAGE
+// ═══════════════════════════════════
+let currentLang = 'en';
+
+function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+    // Re-init criteria labels
+    initCriteria();
+}
+
+// ═══════════════════════════════════
+// NAV
+// ═══════════════════════════════════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
+(function() {
+    try {
+        const s = localStorage.getItem('ss-lang');
+        if (s) { currentLang = s; }
+    } catch {}
+    const bl = navigator.language || '';
+    if (!currentLang) currentLang = (bl.startsWith('cs') || bl.startsWith('sk')) ? 'cs' : 'en';
+    setLang(currentLang);
+    initCriteria();
+})();
+</script>
+</body>
+</html>

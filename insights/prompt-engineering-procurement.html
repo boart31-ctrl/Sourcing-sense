@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering for Procurement Professionals — Sourcing Sense</title>
+    <meta name="description" content="How to write AI prompts that actually work in procurement. Contract analysis, spend review, quote comparison, negotiation prep — with real before/after examples.">
+    <meta property="og:title" content="Prompt Engineering for Procurement Professionals — Sourcing Sense">
+    <meta property="og:description" content="AI is a work tool. Here is how to use it properly for procurement tasks — with specific prompts that get results.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/prompt-engineering-procurement">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/prompt-engineering-procurement" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Prompt Engineering for Procurement Professionals",
+      "description": "Practical guide to writing AI prompts for procurement use cases: contract risk review, spend analysis, supplier quote comparison, and negotiation preparation. Includes specific before/after prompt examples.",
+      "author": { "@type": "Person", "name": "David Račák", "url": "https://sourcing-sense.com" },
+      "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
+      "datePublished": "2026-03-13",
+      "dateModified": "2026-03-13",
+      "mainEntityOfPage": "https://sourcing-sense.com/insights/prompt-engineering-procurement",
+      "keywords": ["prompt engineering procurement", "AI prompts for procurement", "ChatGPT procurement", "Claude procurement", "AI contract review", "AI spend analysis"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use AI for contract review in procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paste the contract text into Claude or ChatGPT and ask it to identify specific risk categories: automatic renewal clauses, liability caps, exclusivity terms, termination conditions, and payment penalty triggers. Give it a role ('act as a procurement lawyer reviewing this supplier contract') and ask for a structured list with severity ratings. Vague prompts produce vague results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best way to write AI prompts for procurement tasks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three principles: assign a role ('you are a category manager reviewing EMEA indirect spend'), give specific context (industry, category, company size), and ask for a structured output (numbered list, table, or specific format). The more specific your input, the more useful the output. Generic prompts produce generic results."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.06);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.04) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; }
+        .prose ul { list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+
+        /* Prompt comparison */
+        .prompt-compare { margin: 1.75rem 0; }
+        .prompt-box { border-radius: var(--radius-sm); padding: 1.1rem 1.25rem; margin-bottom: 0.5rem; }
+        .prompt-box.bad { background: var(--red-subtle); border: 1px solid rgba(239,68,68,0.12); }
+        .prompt-box.good { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .prompt-box-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.5rem; }
+        .prompt-box.bad .prompt-box-label { color: var(--red); }
+        .prompt-box.good .prompt-box-label { color: var(--emerald); }
+        .prompt-text { font-family: var(--font-mono); font-size: 0.83rem; color: var(--light-text); line-height: 1.6; white-space: pre-wrap; }
+        .prompt-why { font-size: 0.85rem; color: var(--light-text-muted); margin-top: 0.5rem; line-height: 1.6; font-style: italic; }
+
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.info .callout-title { color: var(--accent); }
+
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+        .article-tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 100px; background: var(--light-bg-alt); border: 1px solid var(--light-border); color: var(--light-text-muted); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--light-border); }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        .article-cta { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+        .cta-card { background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%); border-radius: var(--radius); padding: 2.5rem; color: white; }
+        .cta-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-card p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; max-width: 500px; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; padding: 0.85rem 1.75rem; background: var(--emerald); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-btn:hover { background: #0ea572; transform: translateY(-1px); }
+
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip, .article-cta { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .prompt-text { font-size: 0.76rem; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<section class="article-header">
+    <div class="article-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Prompt Engineering</span><span class="cz">Prompt engineering</span></span>
+        </div>
+        <span class="article-badge tutorial">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="en">Tutorial</span><span class="cz">Návod</span>
+        </span>
+        <h1>
+            <span class="en">Prompt Engineering for Procurement Professionals</span>
+            <span class="cz">Prompt engineering pro nákupčí</span>
+        </h1>
+        <p class="article-excerpt">
+            <span class="en">AI is a work tool. You learned Excel, you learned SAP. You can learn this too — and it takes less time than you think. Four procurement use cases with specific before/after prompts.</span>
+            <span class="cz">AI je pracovní nástroj. Naučili jste se Excel, naučili jste se SAP. Tohle také zvládnete — a zabere vám to méně času, než si myslíte. Čtyři procurement use cases s konkrétními příklady promptů.</span>
+        </p>
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="en">March 2026</span><span class="cz">Březen 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="en">8 min read</span><span class="cz">8 min čtení</span>
+            </span>
+            <span>David Račák</span>
+        </div>
+    </div>
+</section>
+
+<div class="article-body">
+    <div class="prose">
+
+        <div class="en">
+            <p>Most procurement people use AI the same way they used Google in 2004: type a question, read the first result, move on. The output is fine. It is not impressive. It does not save significant time.</p>
+
+            <p>The difference between a mediocre AI interaction and a genuinely useful one is not which model you use. It is how you frame the question.</p>
+
+            <p>Three principles, then four procurement-specific examples you can use today.</p>
+
+            <h2>Three principles before the examples</h2>
+
+            <p><strong>Assign a role.</strong> AI models calibrate their response to whoever they think they are talking to. "Review this contract" gets a generic response. "You are a procurement lawyer reviewing a supplier contract for a mid-size industrial manufacturer. Identify risks that are unusual or missing protections that you would expect to see in a standard manufacturing supply agreement" gets something useful.</p>
+
+            <p><strong>Give context, not just a task.</strong> The more specific the context, the more precise the output. Industry, category, company size, your position in the negotiation — all of this shapes what a useful answer looks like. Generic context produces generic answers.</p>
+
+            <p><strong>Specify the output format.</strong> If you want a table, say you want a table. If you want a numbered list with severity ratings, say that. AI will fill the space you give it. If you leave the format open, it will write paragraphs when you wanted a checklist.</p>
+
+            <h2>Use case 1: Contract risk review</h2>
+
+            <p>You have a supplier contract. You want to know what to pay attention to before signing or before the renewal negotiation.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Weak prompt</div>
+                    <div class="prompt-text">Review this contract and tell me if there are any risks.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Strong prompt</div>
+                    <div class="prompt-text">You are a procurement lawyer reviewing a supply agreement for a manufacturing company. The contract is with an external logistics provider for EMEA distribution.
+
+Review the following contract text and identify:
+1. Automatic renewal clauses — exact wording and notice period required to cancel
+2. Liability caps — are they capped, and at what level relative to contract value
+3. Price escalation provisions — what triggers them, any caps
+4. Exclusivity terms — any restrictions on using alternative suppliers
+5. SLA definitions and penalty triggers — what specifically constitutes a breach
+6. Termination for convenience — which party has it and under what conditions
+
+For each, rate the risk as Low / Medium / High and give one sentence on what to negotiate.
+
+[PASTE CONTRACT TEXT HERE]</div>
+                </div>
+                <p class="prompt-why">The second prompt defines a role, specifies the six exact items to check, asks for a severity rating, and requests a one-sentence action. The first prompt asks the AI to decide what matters — and it will guess conservatively.</p>
+            </div>
+
+            <h2>Use case 2: Spend data summary</h2>
+
+            <p>You have exported spend data. You need to present it to your manager or use it in a negotiation. Manually writing the commentary takes an hour. AI can do it in 30 seconds if you prompt correctly.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Weak prompt</div>
+                    <div class="prompt-text">Analyse this spend data and tell me what you see.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Strong prompt</div>
+                    <div class="prompt-text">You are a procurement category manager preparing a quarterly spend review for indirect materials at a European manufacturing company.
+
+Analyse the following spend data (CSV format) and produce:
+1. Total spend by top 10 suppliers — table format, sorted descending
+2. Spend concentration: what % of total spend goes to the top 3 suppliers
+3. Any supplier that appears multiple times under different names (likely duplicates)
+4. Month-on-month trend: is spend increasing, decreasing, or flat
+5. Two observations that would be worth raising in a negotiation with the top supplier
+
+Keep the summary under 300 words. Use plain language — this is for a manager who does not work in procurement.
+
+[PASTE SPEND DATA HERE]</div>
+                </div>
+                <p class="prompt-why">The second prompt specifies the exact outputs (5 items), the format for each, the audience, and the word limit. You will get a usable first draft in one attempt instead of three rounds of refinement.</p>
+            </div>
+
+            <h2>Use case 3: Supplier quote comparison</h2>
+
+            <p>You have received three quotes for the same requirement. The formats are different, the payment terms are different, and one quote bundled in items the others quoted separately. Comparing them manually is slow and error-prone.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Weak prompt</div>
+                    <div class="prompt-text">Compare these three supplier quotes and tell me which is best.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Strong prompt</div>
+                    <div class="prompt-text">You are a procurement analyst comparing three supplier quotes for [CATEGORY].
+
+The quotes are pasted below. They use different formats and may include different line items.
+
+Your task:
+1. Normalise the quotes into a single comparison table. Columns: Supplier / Item / Unit price / Total / Payment terms / Delivery time / Warranty
+2. Where a supplier has not quoted a specific item, mark it as "not quoted"
+3. Calculate the total landed cost for each supplier assuming Net 30 payment terms and delivery to [LOCATION]
+4. Identify any non-price differences that are worth flagging (lead time gaps, warranty differences, bundled items)
+5. Recommend which supplier offers the best value — with one sentence justification
+
+Do not make assumptions about pricing. If something is unclear, flag it as a clarification needed.
+
+QUOTE 1:
+[PASTE]
+
+QUOTE 2:
+[PASTE]
+
+QUOTE 3:
+[PASTE]</div>
+                </div>
+                <p class="prompt-why">The instruction "do not make assumptions — flag clarification needed" is important. Without it, AI will invent plausible numbers when something is ambiguous. That will look fine in the table and be wrong in the negotiation.</p>
+            </div>
+
+            <div class="callout tip">
+                <div class="callout-title">Practical note on confidentiality</div>
+                Do not paste supplier contracts, pricing, or commercially sensitive data into consumer AI tools (ChatGPT.com, Claude.ai) without understanding your company's data policy. Use an enterprise-licensed tool with data privacy guarantees, or anonymise sensitive values before pasting.
+            </div>
+
+            <h2>Use case 4: Negotiation preparation brief</h2>
+
+            <p>You have a negotiation coming up with a major supplier. You want to prepare arguments, anticipate their responses, and identify your walk-away point. This takes two hours to do well manually. With a good prompt, you get a draft in ten minutes.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Weak prompt</div>
+                    <div class="prompt-text">Help me prepare for a negotiation with my supplier.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Strong prompt</div>
+                    <div class="prompt-text">You are a senior procurement manager preparing for a price negotiation.
+
+Context:
+- Supplier: [NAME], provides [CATEGORY] under a framework agreement expiring [DATE]
+- Current annual spend: [VALUE]
+- Our leverage: we represent approximately [X%] of their revenue in this region / we have identified two qualified alternatives / our volume will increase by [X%] next year
+- Their likely position: they will argue input cost increases (materials, energy) justify a price rise of [X%]
+- Market context: [e.g. raw material index for steel is down 12% YTD / logistics rates have normalised since 2023 peak]
+
+Produce:
+1. Our opening position and the rationale (2-3 sentences)
+2. Three concessions we can offer that cost us little but matter to the supplier (e.g. longer contract, faster payment, volume commitment)
+3. Three counter-arguments to their expected "input costs have risen" argument, with supporting logic
+4. Our walk-away threshold and what we do if we reach it
+5. One non-obvious question to ask early in the meeting to understand their actual cost pressure</div>
+                </div>
+                <p class="prompt-why">The context section — especially "their likely position" and "market context" — is what makes this useful. Without it, you get generic negotiation advice. With it, you get something that resembles actual preparation.</p>
+            </div>
+
+            <h2>The pattern across all four</h2>
+
+            <p>In each case, the strong prompt does the same four things: assigns a role, provides specific context, defines the exact outputs, and specifies any constraints (word limit, format, what to do with ambiguity).</p>
+
+            <p>This is not a special skill. It is just structured thinking applied to a new tool. The procurement people who are doing this well are not AI enthusiasts. They are people who are organised enough to write a clear brief — and applied that same habit to their prompts.</p>
+
+            <p>Start with one of the four cases above. Copy the strong prompt, fill in your context, paste your document. See what comes back.</p>
+        </div>
+
+        <div class="cz">
+            <p>Většina nákupčích používá AI stejně jako Google v roce 2004: napíší otázku, přečtou první výsledek a jdou dál. Výstup je průměrný. Není to nic převratného. Nezachráni výrazný čas.</p>
+
+            <p>Rozdíl mezi průměrnou interakcí s AI a skutečně užitečnou interakcí není v tom, který model použijete. Je v tom, jak otázku zarámujete.</p>
+
+            <p>Tři principy a pak čtyři procurement-specifické příklady, které můžete použít dnes.</p>
+
+            <h2>Tři principy před příklady</h2>
+
+            <p><strong>Přiřaďte roli.</strong> AI modely kalibrují odpověď podle toho, s kým si myslí, že mluví. "Zreviduj tuto smlouvu" dostane obecnou odpověď. "Jsi procurement právník revidující smlouvu s dodavatelem pro středně velkého průmyslového výrobce. Identifikuj rizika, která jsou neobvyklá nebo chybějící ochrany, které byste očekával ve standardní smlouvě o dodávkách pro výrobu" dostane něco užitečného.</p>
+
+            <p><strong>Poskytněte kontext, nejen úkol.</strong> Čím konkrétnější kontext, tím přesnější výstup. Odvětví, kategorie, velikost firmy, vaše pozice ve vyjednávání — to vše formuje to, jak vypadá užitečná odpověď.</p>
+
+            <p><strong>Specifikujte formát výstupu.</strong> Pokud chcete tabulku, řekněte, že chcete tabulku. Pokud chcete číslovaný seznam s hodnocením závažnosti, řekněte to. AI vyplní prostor, který mu dáte.</p>
+
+            <h2>Use case 1: Přehled rizik smlouvy</h2>
+
+            <p>Máte smlouvu s dodavatelem. Chcete vědět, na co si dát pozor před podpisem nebo před vyjednáváním o obnově.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Slabý prompt</div>
+                    <div class="prompt-text">Zreviduj tuto smlouvu a řekni mi, jestli jsou tam nějaká rizika.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Silný prompt</div>
+                    <div class="prompt-text">Jsi procurement právník revidující smlouvu o dodávkách pro výrobní firmu. Smlouva je s externím poskytovatelem logistiky pro distribuci v regionu EMEA.
+
+Zreviduj následující text smlouvy a identifikuj:
+1. Klauzule o automatickém prodloužení — přesné znění a lhůta pro výpověď
+2. Limity odpovědnosti — jsou omezeny, a na jaké úrovni oproti hodnotě smlouvy
+3. Ustanovení o eskalaci cen — co je spouští, existují stropy
+4. Podmínky exkluzivity — jakákoli omezení používání alternativních dodavatelů
+5. Definice SLA a spouštěče sankcí — co přesně představuje porušení
+6. Výpověď ze strany kupujícího — která strana ji má a za jakých podmínek
+
+Pro každý bod ohodnoťte riziko jako Nízké / Střední / Vysoké a uveďte jednu větu o tom, co vyjednávat.
+
+[SEM VLOŽTE TEXT SMLOUVY]</div>
+                </div>
+                <p class="prompt-why">Druhý prompt definuje roli, specifikuje šest přesných věcí ke kontrole, žádá o hodnocení závažnosti a požaduje akci v jedné větě. První prompt nechává AI rozhodnout, co je důležité — a odhadne to konzervativně.</p>
+            </div>
+
+            <h2>Use case 2: Shrnutí výdajových dat</h2>
+
+            <p>Exportovali jste data o výdajích. Potřebujete je prezentovat svému manažerovi nebo použít v jednání. Ruční psaní komentáře trvá hodinu. AI to zvládne za 30 sekund, pokud prompt napíšete správně.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Slabý prompt</div>
+                    <div class="prompt-text">Analyzuj tato výdajová data a řekni mi, co vidíš.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Silný prompt</div>
+                    <div class="prompt-text">Jsi category manager v nákupu připravující čtvrtletní přehled výdajů pro nepřímé materiály v evropské výrobní firmě.
+
+Analyzuj následující výdajová data (CSV formát) a vytvoř:
+1. Celkové výdaje podle 10 největších dodavatelů — formát tabulky, seřazeno sestupně
+2. Koncentrace výdajů: kolik % celkových výdajů připadá na top 3 dodavatele
+3. Jakýkoli dodavatel, který se objevuje vícekrát pod různými názvy (pravděpodobně duplikáty)
+4. Trend měsíc po měsíci: výdaje rostou, klesají, nebo jsou stabilní
+5. Dvě pozorování, která by stálo za to zmínit v jednání s největším dodavatelem
+
+Shrnutí max 300 slov. Používejte srozumitelný jazyk — toto je pro manažera, který nepracuje v nákupu.
+
+[SEM VLOŽTE DATA]</div>
+                </div>
+            </div>
+
+            <h2>Use case 3: Porovnání nabídek dodavatelů</h2>
+
+            <p>Obdrželi jste tři nabídky pro stejný požadavek. Formáty jsou různé, platební podmínky jsou různé a jedna nabídka zahrnula položky, které ostatní nabídli zvlášť. Ruční porovnání je pomalé a náchylné k chybám.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Slabý prompt</div>
+                    <div class="prompt-text">Porovnej tyto tři nabídky dodavatelů a řekni mi, která je nejlepší.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Silný prompt</div>
+                    <div class="prompt-text">Jsi procurement analytik porovnávající tři nabídky dodavatelů pro [KATEGORIE].
+
+Nabídky jsou vloženy níže. Používají různé formáty a mohou obsahovat různé položky.
+
+Váš úkol:
+1. Normalizujte nabídky do jedné srovnávací tabulky. Sloupce: Dodavatel / Položka / Jednotková cena / Celkem / Platební podmínky / Dodací lhůta / Záruka
+2. Kde dodavatel nenabídl konkrétní položku, označte ji jako "nenabídnuto"
+3. Vypočítejte celkové náklady pro každého dodavatele za předpokladu platebních podmínek Net 30 a dodání do [MÍSTO]
+4. Identifikujte cenové rozdíly, které stojí za zmínku (rozdíly v dodacích lhůtách, záruky, sdružené položky)
+5. Doporučte, který dodavatel nabízí nejlepší hodnotu — s jednovětovým odůvodněním
+
+Nepředpokládejte nic ohledně cen. Pokud je něco nejasné, označte to jako "nutno upřesnit".
+
+NABÍDKA 1: [VLOŽTE]
+NABÍDKA 2: [VLOŽTE]
+NABÍDKA 3: [VLOŽTE]</div>
+                </div>
+            </div>
+
+            <h2>Use case 4: Přípravný brief pro vyjednávání</h2>
+
+            <p>Blíží se vám jednání s klíčovým dodavatelem. Chcete připravit argumenty, předvídat jejich odpovědi a identifikovat hranici ústupu. Ručně to zvládnete za dvě hodiny. S dobrým promptem dostanete draft za deset minut.</p>
+
+            <div class="prompt-compare">
+                <div class="prompt-box bad">
+                    <div class="prompt-box-label">Slabý prompt</div>
+                    <div class="prompt-text">Pomoz mi připravit se na jednání s dodavatelem.</div>
+                </div>
+                <div class="prompt-box good">
+                    <div class="prompt-box-label">Silný prompt</div>
+                    <div class="prompt-text">Jsi zkušený nákupní manažer připravující se na cenové vyjednávání.
+
+Kontext:
+- Dodavatel: [NÁZEV], dodává [KATEGORIE] v rámci rámcové smlouvy expirující [DATUM]
+- Aktuální roční výdaje: [HODNOTA]
+- Naše páky: reprezentujeme přibližně [X%] jejich obratu v tomto regionu / identifikovali jsme dva kvalifikované alternativní dodavatele / náš objem vzroste příští rok o [X%]
+- Jejich pravděpodobná pozice: budou argumentovat, že nárůst vstupních nákladů (materiály, energie) odůvodňuje zdražení o [X%]
+- Tržní kontext: [např. index surového materiálu pro ocel je meziročně -12% / přepravní sazby se normalizovaly]
+
+Vytvořte:
+1. Naši úvodní pozici a odůvodnění (2-3 věty)
+2. Tři ústupky, které pro nás mají malé náklady, ale pro dodavatele jsou důležité
+3. Tři protiargumenty k jejich očekávanému "vstupní náklady vzrostly"
+4. Naši hranici ústupu a co děláme, pokud ji dosáhneme
+5. Jednu neobvyklou otázku k položení na začátku schůzky pro pochopení jejich skutečného tlaku na náklady</div>
+                </div>
+            </div>
+
+            <h2>Vzorec za všemi čtyřmi</h2>
+
+            <p>Ve všech případech silný prompt dělá totéž: přiřazuje roli, poskytuje konkrétní kontext, definuje přesné výstupy a specifikuje omezení (limit slov, formát, co dělat s nejasnostmi).</p>
+
+            <p>To není speciální dovednost. Je to jen strukturované myšlení aplikované na nový nástroj. Nákupčí, kteří to dělají dobře, nejsou AI nadšenci. Jsou to lidé, kteří jsou dostatečně organizovaní, aby napsali jasný brief — a tento zvyk aplikují na své prompty.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Prompt Engineering</span>
+        <span class="article-tag">Procurement AI</span>
+        <span class="article-tag">Contract Review</span>
+        <span class="article-tag">Spend Analysis</span>
+        <span class="article-tag">Negotiation</span>
+        <span class="article-tag">Tutorial</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/prompt-engineering-procurement" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<div class="article-cta">
+    <div class="cta-card">
+        <h3><span class="en">Want to build these workflows into your team's tools?</span><span class="cz">Chcete tyto postupy zabudovat do nástrojů vašeho týmu?</span></h3>
+        <p>
+            <span class="en">Moving from "paste into ChatGPT" to structured, consistent AI workflows requires a bit of design. A 20-minute call to map the right approach for your team.</span>
+            <span class="cz">Přechod od "vložit do ChatGPT" ke strukturovaným, konzistentním AI pracovním postupům vyžaduje trochu designu. 20minutový hovor pro zmapování správného přístupu pro váš tým.</span>
+        </p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+            <span class="en">Book a free call</span><span class="cz">Domluvit bezplatný hovor</span>
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/insights" class="footer-link"><span class="en">← Back to Insights</span><span class="cz">← Zpět na Insights</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

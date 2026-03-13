@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement Savings Calculator — Sourcing Sense</title>
+    <meta name="description" content="Calculate how much time and money AI automation can save your procurement team. Free ROI calculator — see annual savings, payback period, and hours freed up.">
+    <link rel="canonical" href="https://sourcing-sense.com/tools/savings-calculator" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:title" content="Procurement Savings Calculator — Sourcing Sense" />
+    <meta property="og:description" content="See exactly how much your manual procurement processes cost — and what automation would save." />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Procurement Savings Calculator",
+      "description": "Free ROI calculator for procurement teams evaluating AI automation. Calculate annual savings, payback period, and time freed up from manual processes.",
+      "url": "https://sourcing-sense.com/tools/savings-calculator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": {
+        "@type": "Person",
+        "name": "David Račák",
+        "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Sourcing Sense",
+      "url": "https://sourcing-sense.com",
+      "founder": { "@type": "Person", "name": "David Račák" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-light: #34d399; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ TOOL HEADER ═══ */
+        .tool-header {
+            padding: 7.5rem 2rem 2.5rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 55%);
+            position: relative; overflow: hidden;
+        }
+        .tool-header::before {
+            content: ''; position: absolute; top: -10%; right: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .tool-header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; flex-shrink: 0; }
+        .tool-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 0.75rem; }
+        .tool-header-desc { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.7; max-width: 580px; margin-bottom: 1.25rem; }
+
+        .tool-badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tool-badge { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.3rem 0.75rem; border-radius: 100px; }
+        .tool-badge.free { background: var(--emerald-subtle); color: var(--emerald); }
+        .tool-badge.no-signup { background: var(--accent-subtle); color: var(--accent); }
+
+        /* ═══ MAIN LAYOUT ═══ */
+        .calc-wrapper {
+            max-width: 860px; margin: 0 auto; padding: 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start;
+        }
+
+        /* ═══ INPUT PANEL ═══ */
+        .calc-inputs {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius); padding: 1.75rem;
+        }
+        .calc-inputs-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .calc-inputs-header h2 { font-size: 1rem; font-weight: 700; }
+
+        /* Currency toggle */
+        .currency-toggle {
+            display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: 100px; padding: 3px; gap: 2px;
+        }
+        .currency-btn {
+            font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.65rem;
+            border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s;
+            font-family: var(--font-mono); letter-spacing: 0.02em;
+        }
+        .currency-btn.active { background: white; color: var(--emerald); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+        /* Process preset */
+        .preset-label { font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 0.4rem; display: block; }
+        .preset-select {
+            width: 100%; padding: 0.6rem 0.85rem; font-size: 0.82rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); color: var(--light-text);
+            font-family: var(--font-body); outline: none; cursor: pointer;
+            margin-bottom: 1.25rem; transition: border-color 0.2s;
+        }
+        .preset-select:focus { border-color: var(--accent); }
+
+        /* Slider groups */
+        .slider-group { margin-bottom: 1.25rem; }
+        .slider-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem; }
+        .slider-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text); }
+        .slider-value {
+            font-size: 0.88rem; font-weight: 700; color: var(--accent);
+            font-family: var(--font-mono); min-width: 80px; text-align: right;
+        }
+        input[type="range"] {
+            -webkit-appearance: none; appearance: none;
+            width: 100%; height: 4px; border-radius: 2px;
+            background: var(--light-border); outline: none; cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--accent); cursor: pointer;
+            box-shadow: 0 2px 8px var(--accent-glow); transition: transform 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px; height: 18px; border-radius: 50%;
+            background: var(--accent); cursor: pointer; border: none;
+            box-shadow: 0 2px 8px var(--accent-glow);
+        }
+        .slider-hint { font-size: 0.73rem; color: var(--light-text-muted); margin-top: 0.3rem; }
+
+        .divider { border: none; border-top: 1px solid var(--light-border); margin: 1.25rem 0; }
+
+        /* Hourly cost: manual input */
+        .cost-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.35rem; }
+        .cost-input-wrap { position: relative; flex: 1; }
+        .cost-symbol {
+            position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%);
+            font-size: 0.88rem; font-weight: 700; color: var(--light-text-secondary);
+            font-family: var(--font-mono);
+        }
+        .cost-input {
+            width: 100%; padding: 0.65rem 0.75rem 0.65rem 2rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); font-family: var(--font-mono);
+            font-size: 0.95rem; font-weight: 700; color: var(--light-text);
+            outline: none; transition: border-color 0.2s;
+        }
+        .cost-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+
+        /* ═══ RESULTS PANEL ═══ */
+        .calc-results {
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+
+        .result-primary {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%);
+            border-radius: var(--radius); padding: 2rem;
+            color: white; text-align: center; position: relative; overflow: hidden;
+        }
+        .result-primary::before {
+            content: ''; position: absolute; top: -30%; right: -10%;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .result-primary-label {
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem;
+        }
+        .result-primary-value {
+            font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3rem);
+            line-height: 1.1; color: var(--emerald-light); margin-bottom: 0.25rem;
+        }
+        .result-primary-sub {
+            font-size: 0.82rem; color: rgba(255,255,255,0.45);
+        }
+
+        .result-metrics {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+        }
+        .result-metric {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); padding: 1.1rem 1.25rem;
+        }
+        .result-metric-label {
+            font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--light-text-muted); margin-bottom: 0.3rem;
+        }
+        .result-metric-value {
+            font-size: 1.4rem; font-weight: 700; color: var(--light-text);
+            font-family: var(--font-mono); line-height: 1.1;
+        }
+        .result-metric-value.positive { color: var(--emerald); }
+        .result-metric-value.highlight { color: var(--accent); }
+        .result-metric-sub { font-size: 0.72rem; color: var(--light-text-muted); margin-top: 0.15rem; }
+
+        /* Before/after bar */
+        .result-bar-card {
+            background: white; border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); padding: 1.25rem;
+        }
+        .result-bar-title { font-size: 0.78rem; font-weight: 600; color: var(--light-text-secondary); margin-bottom: 0.85rem; }
+        .bar-item { margin-bottom: 0.75rem; }
+        .bar-item:last-child { margin-bottom: 0; }
+        .bar-row { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--light-text-muted); margin-bottom: 0.35rem; }
+        .bar-row strong { color: var(--light-text); font-weight: 600; }
+        .bar-track { height: 8px; background: var(--light-bg-alt); border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s var(--ease); }
+        .bar-fill.before { background: var(--light-text-muted); }
+        .bar-fill.after { background: var(--emerald); }
+
+        /* CTA card */
+        .result-cta {
+            background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.2);
+            border-radius: var(--radius-sm); padding: 1.25rem;
+            display: flex; flex-direction: column; gap: 0.75rem;
+        }
+        .result-cta p {
+            font-size: 0.85rem; color: var(--light-text-secondary); line-height: 1.5;
+        }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.4rem;
+            background: var(--emerald); color: white; border-radius: var(--radius-sm);
+            transition: all 0.25s; width: fit-content;
+        }
+        .cta-btn:hover { background: #0ea572; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(16,185,129,0.25); }
+        .cta-btn svg { width: 16px; height: 16px; }
+
+        /* Methodology note */
+        .methodology {
+            max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem;
+        }
+        .methodology p {
+            font-size: 0.78rem; color: var(--light-text-muted); line-height: 1.6;
+            border-left: 3px solid var(--light-border); padding-left: 0.85rem;
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: var(--blue-300); }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center { display: none; }
+            .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .tool-header { padding: 7rem 1.25rem 1.75rem; }
+            .calc-wrapper { grid-template-columns: 1fr; padding: 1.25rem; }
+            .result-metrics { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .result-metrics { grid-template-columns: 1fr; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+
+        /* Fade in animation */
+        .fade-in { animation: fadeUp 0.5s var(--ease) both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ TOOL HEADER ═══ -->
+<section class="tool-header">
+    <div class="tool-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Savings Calculator</span><span class="cz">Kalkulátor úspor</span></span>
+        </div>
+        <h1>
+            <span class="en">Procurement Savings Calculator</span>
+            <span class="cz">Kalkulátor úspor v nákupu</span>
+        </h1>
+        <p class="tool-header-desc">
+            <span class="en">Enter the details of any manual procurement process. See the annual cost, how much automation saves, and when it pays off.</span>
+            <span class="cz">Zadejte parametry libovolného manuálního procesu v nákupu. Uvidíte roční náklady, co automatizace ušetří a kdy se to vrátí.</span>
+        </p>
+        <div class="tool-badge-row">
+            <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+            <span class="tool-badge no-signup"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CALCULATOR ═══ -->
+<div class="calc-wrapper">
+
+    <!-- LEFT: Inputs -->
+    <div class="calc-inputs">
+        <div class="calc-inputs-header">
+            <h2><span class="en">Process details</span><span class="cz">Parametry procesu</span></h2>
+            <div class="currency-toggle">
+                <button class="currency-btn active" id="btnEur" onclick="setCurrency('EUR')">EUR</button>
+                <button class="currency-btn" id="btnCzk" onclick="setCurrency('CZK')">CZK</button>
+            </div>
+        </div>
+
+        <!-- Preset processes -->
+        <label class="preset-label">
+            <span class="en">Load an example process (optional)</span>
+            <span class="cz">Načíst příklad procesu (volitelné)</span>
+        </label>
+        <select class="preset-select" id="presetSelect" onchange="loadPreset()">
+            <option value=""><span class="en">— Custom —</span><span class="cz">— Vlastní —</span></option>
+            <option value="supplier_qual"><span class="en">Supplier qualification (manual)</span><span class="cz">Kvalifikace dodavatele (manuálně)</span></option>
+            <option value="quote_compare"><span class="en">Quote comparison & analysis</span><span class="cz">Porovnání nabídek</span></option>
+            <option value="invoice"><span class="en">Invoice processing & coding</span><span class="cz">Zpracování faktur</span></option>
+            <option value="contract_review"><span class="en">Contract review</span><span class="cz">Kontrola smlouvy</span></option>
+            <option value="spend_report"><span class="en">Spend reporting (monthly)</span><span class="cz">Výkaz spotřeby (měsíční)</span></option>
+        </select>
+
+        <hr class="divider">
+
+        <!-- Time per occurrence -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">Hours per occurrence</span>
+                    <span class="cz">Hodin na jedno provedení</span>
+                </span>
+                <span class="slider-value" id="valHours">4 h</span>
+            </div>
+            <input type="range" id="slHours" min="0.5" max="40" step="0.5" value="4" oninput="onSlide('slHours','valHours', v => v + ' h')">
+            <p class="slider-hint"><span class="en">Total time from start to finish, including waiting and handoffs</span><span class="cz">Celkový čas od zahájení po dokončení, včetně čekání a předávání</span></p>
+        </div>
+
+        <!-- Times per year -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">Occurrences per year</span>
+                    <span class="cz">Počet provedení ročně</span>
+                </span>
+                <span class="slider-value" id="valFreq">52</span>
+            </div>
+            <input type="range" id="slFreq" min="1" max="500" step="1" value="52" oninput="onSlide('slFreq','valFreq', v => v + 'x')">
+            <p class="slider-hint"><span class="en">52 = weekly · 12 = monthly · 250 = every working day</span><span class="cz">52 = týdně · 12 = měsíčně · 250 = každý pracovní den</span></p>
+        </div>
+
+        <!-- People -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">People involved</span>
+                    <span class="cz">Zapojení lidé</span>
+                </span>
+                <span class="slider-value" id="valPeople">2</span>
+            </div>
+            <input type="range" id="slPeople" min="1" max="20" step="1" value="2" oninput="onSlide('slPeople','valPeople', v => v + ' ppl')">
+        </div>
+
+        <hr class="divider">
+
+        <!-- Hourly cost -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">Hourly labour cost (fully loaded)</span>
+                    <span class="cz">Hodinové náklady na pracovníka (plné)</span>
+                </span>
+            </div>
+            <div class="cost-row">
+                <div class="cost-input-wrap">
+                    <span class="cost-symbol" id="currencySymbol">€</span>
+                    <input type="number" class="cost-input" id="inCost" value="45" min="5" max="5000" oninput="recalc()">
+                </div>
+            </div>
+            <p class="slider-hint"><span class="en">Include salary, benefits, overhead. €45 = mid-level procurement professional.</span><span class="cz">Zahrnuje mzdu, benefity, overhead. 1 100 Kč = střední úroveň nákupčího.</span></p>
+        </div>
+
+        <!-- Automation efficiency -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">Automation efficiency</span>
+                    <span class="cz">Míra automatizace</span>
+                </span>
+                <span class="slider-value" id="valEff">70%</span>
+            </div>
+            <input type="range" id="slEff" min="30" max="95" step="5" value="70" oninput="onSlide('slEff','valEff', v => v + '%')">
+            <p class="slider-hint"><span class="en">70% is conservative for most routine procurement tasks. Supplier classification and invoice coding often reach 90–95%.</span><span class="cz">70% je konzervativní odhad pro většinu rutinních nákupních úkolů. Klasifikace dodavatelů a kódování faktur dosahují 90–95%.</span></p>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Implementation cost -->
+        <div class="slider-group">
+            <div class="slider-row">
+                <span class="slider-label">
+                    <span class="en">Estimated implementation cost</span>
+                    <span class="cz">Odhadované náklady na implementaci</span>
+                </span>
+                <span class="slider-value" id="valImpl">€ 2,000</span>
+            </div>
+            <input type="range" id="slImpl" min="500" max="20000" step="500" value="2000" oninput="onSlide('slImpl','valImpl', v => formatCurrencyShort(v))">
+            <p class="slider-hint"><span class="en">Used to calculate payback period and first-year ROI.</span><span class="cz">Používá se pro výpočet doby návratnosti a ROI v prvním roce.</span></p>
+        </div>
+
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="calc-results" id="calcResults">
+
+        <!-- Primary: Annual savings -->
+        <div class="result-primary">
+            <p class="result-primary-label">
+                <span class="en">Annual savings</span><span class="cz">Roční úspora</span>
+            </p>
+            <div class="result-primary-value" id="resSavings">—</div>
+            <p class="result-primary-sub">
+                <span class="en">per year, after automation</span><span class="cz">ročně, po automatizaci</span>
+            </p>
+        </div>
+
+        <!-- 4 metrics -->
+        <div class="result-metrics">
+            <div class="result-metric">
+                <p class="result-metric-label"><span class="en">Current annual cost</span><span class="cz">Aktuální roční náklady</span></p>
+                <div class="result-metric-value" id="resCurrent">—</div>
+                <p class="result-metric-sub"><span class="en">before automation</span><span class="cz">před automatizací</span></p>
+            </div>
+            <div class="result-metric">
+                <p class="result-metric-label"><span class="en">Hours freed / year</span><span class="cz">Hodin ušetřeno / rok</span></p>
+                <div class="result-metric-value positive" id="resHours">—</div>
+                <p class="result-metric-sub"><span class="en">across all people</span><span class="cz">pro celý tým</span></p>
+            </div>
+            <div class="result-metric">
+                <p class="result-metric-label"><span class="en">Payback period</span><span class="cz">Doba návratnosti</span></p>
+                <div class="result-metric-value highlight" id="resPayback">—</div>
+                <p class="result-metric-sub" id="resPaybackSub"></p>
+            </div>
+            <div class="result-metric">
+                <p class="result-metric-label"><span class="en">First-year ROI</span><span class="cz">ROI v prvním roce</span></p>
+                <div class="result-metric-value positive" id="resRoi">—</div>
+                <p class="result-metric-sub"><span class="en">net of impl. cost</span><span class="cz">po odečtení impl. nákladů</span></p>
+            </div>
+        </div>
+
+        <!-- Before / After bar -->
+        <div class="result-bar-card">
+            <p class="result-bar-title"><span class="en">Cost before vs. after automation</span><span class="cz">Náklady před a po automatizaci</span></p>
+            <div class="bar-item">
+                <div class="bar-row">
+                    <strong><span class="en">Before</span><span class="cz">Před</span></strong>
+                    <span id="barBeforeLabel">—</span>
+                </div>
+                <div class="bar-track"><div class="bar-fill before" id="barBefore" style="width:100%"></div></div>
+            </div>
+            <div class="bar-item">
+                <div class="bar-row">
+                    <strong><span class="en">After</span><span class="cz">Po</span></strong>
+                    <span id="barAfterLabel">—</span>
+                </div>
+                <div class="bar-track"><div class="bar-fill after" id="barAfter" style="width:30%"></div></div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="result-cta">
+            <p>
+                <span class="en">These numbers are a starting point. The real conversation is about which process to automate first and how — that's where the ROI actually comes from.</span>
+                <span class="cz">Tato čísla jsou výchozí bod. Skutečná diskuse je o tom, který proces automatizovat jako první a jak — to je místo, kde ROI skutečně vzniká.</span>
+            </p>
+            <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+                <span class="en">Book a free 20-min call</span>
+                <span class="cz">Domluvit bezplatný 20min hovor</span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Methodology note -->
+<div class="methodology">
+    <p>
+        <span class="en">Methodology: Annual process cost = hours × occurrences × people × hourly rate. Savings = current cost × automation efficiency. Payback = implementation cost ÷ annual savings × 12 months. ROI = (savings − implementation cost) ÷ implementation cost. Actual results vary by process complexity, data quality, and implementation approach.</span>
+        <span class="cz">Metodika: Roční náklady procesu = hodiny × četnost × lidé × hodinová sazba. Úspora = aktuální náklady × míra automatizace. Návratnost = náklady na implementaci ÷ roční úspora × 12 měsíců. ROI = (úspora − náklady na implementaci) ÷ náklady na implementaci. Skutečné výsledky se liší v závislosti na složitosti procesu, kvalitě dat a způsobu implementace.</span>
+    </p>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span><span class="cz">← Zpět na nástroje</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ═══════════════════════════
+// STATE
+// ═══════════════════════════
+let currency = 'EUR'; // 'EUR' or 'CZK'
+const EUR_TO_CZK = 25;
+
+const PRESETS = {
+    supplier_qual:  { hours: 8,   freq: 24,  people: 3 },
+    quote_compare:  { hours: 3,   freq: 100, people: 2 },
+    invoice:        { hours: 0.5, freq: 500, people: 1 },
+    contract_review:{ hours: 6,   freq: 30,  people: 2 },
+    spend_report:   { hours: 8,   freq: 12,  people: 1 }
+};
+
+// ═══════════════════════════
+// CURRENCY
+// ═══════════════════════════
+function setCurrency(c) {
+    const wasCost = parseFloat(document.getElementById('inCost').value) || 0;
+    currency = c;
+
+    document.getElementById('btnEur').classList.toggle('active', c === 'EUR');
+    document.getElementById('btnCzk').classList.toggle('active', c === 'CZK');
+    document.getElementById('currencySymbol').textContent = c === 'EUR' ? '€' : 'Kč';
+
+    // Convert cost input
+    if (c === 'CZK' && wasCost < 500) {
+        document.getElementById('inCost').value = Math.round(wasCost * EUR_TO_CZK);
+    } else if (c === 'EUR' && wasCost > 500) {
+        document.getElementById('inCost').value = Math.round(wasCost / EUR_TO_CZK);
+    } else if (c === 'CZK' && document.getElementById('inCost').value == 45) {
+        document.getElementById('inCost').value = 1100;
+    } else if (c === 'EUR' && document.getElementById('inCost').value == 1100) {
+        document.getElementById('inCost').value = 45;
+    }
+
+    // Update impl slider label
+    const implVal = parseFloat(document.getElementById('slImpl').value);
+    document.getElementById('valImpl').textContent = formatCurrencyShort(implVal);
+
+    recalc();
+}
+
+function formatCurrency(val) {
+    if (currency === 'EUR') {
+        return '€\u202f' + Math.round(val).toLocaleString('en');
+    } else {
+        return Math.round(val).toLocaleString('cs') + '\u202fKč';
+    }
+}
+
+function formatCurrencyShort(val) {
+    const sym = currency === 'EUR' ? '€ ' : '';
+    const suf = currency === 'CZK' ? ' Kč' : '';
+    if (val >= 1000) return sym + (val/1000).toFixed(val % 1000 === 0 ? 0 : 1) + 'k' + suf;
+    return sym + val + suf;
+}
+
+// ═══════════════════════════
+// PRESETS
+// ═══════════════════════════
+function loadPreset() {
+    const key = document.getElementById('presetSelect').value;
+    if (!key || !PRESETS[key]) return;
+    const p = PRESETS[key];
+    setSlider('slHours', 'valHours', p.hours, v => v + ' h');
+    setSlider('slFreq',  'valFreq',  p.freq,  v => v + 'x');
+    setSlider('slPeople','valPeople',p.people, v => v + ' ppl');
+    recalc();
+}
+
+function setSlider(sliderId, labelId, val, fmt) {
+    document.getElementById(sliderId).value = val;
+    document.getElementById(labelId).textContent = fmt(val);
+}
+
+// ═══════════════════════════
+// SLIDER HANDLER
+// ═══════════════════════════
+function onSlide(sliderId, labelId, fmt) {
+    const val = parseFloat(document.getElementById(sliderId).value);
+    document.getElementById(labelId).textContent = fmt(val);
+    document.getElementById('presetSelect').value = '';
+    recalc();
+}
+
+// ═══════════════════════════
+// CORE CALCULATION
+// ═══════════════════════════
+function recalc() {
+    const hours  = parseFloat(document.getElementById('slHours').value)  || 0;
+    const freq   = parseFloat(document.getElementById('slFreq').value)   || 0;
+    const people = parseFloat(document.getElementById('slPeople').value) || 1;
+    const cost   = parseFloat(document.getElementById('inCost').value)   || 0;
+    const eff    = parseFloat(document.getElementById('slEff').value)    / 100;
+    const impl   = parseFloat(document.getElementById('slImpl').value)   || 0;
+
+    // Impl slider label needs currency symbol
+    document.getElementById('valImpl').textContent = formatCurrencyShort(impl);
+
+    const currentCost = hours * freq * people * cost;
+    const savings = currentCost * eff;
+    const remainingCost = currentCost - savings;
+    const hoursSaved = hours * freq * people * eff;
+
+    let paybackMonths = savings > 0 ? (impl / savings) * 12 : Infinity;
+    const roi = savings > 0 ? ((savings - impl) / impl) * 100 : 0;
+
+    // Update primary
+    document.getElementById('resSavings').textContent = savings > 0 ? formatCurrency(savings) : '—';
+    document.getElementById('resCurrent').textContent = currentCost > 0 ? formatCurrency(currentCost) : '—';
+    document.getElementById('resHours').textContent   = hoursSaved > 0 ? Math.round(hoursSaved) + ' h' : '—';
+
+    // Payback
+    const lang = document.documentElement.getAttribute('data-lang');
+    if (paybackMonths < Infinity && paybackMonths > 0) {
+        if (paybackMonths < 1) {
+            document.getElementById('resPayback').textContent = '< 1';
+            document.getElementById('resPaybackSub').innerHTML = `<span class="en">month</span><span class="cz">měsíc</span>`;
+        } else if (paybackMonths < 12) {
+            document.getElementById('resPayback').textContent = Math.ceil(paybackMonths) + ' mo';
+            document.getElementById('resPaybackSub').innerHTML = `<span class="en">months to break even</span><span class="cz">měsíců do splacení</span>`;
+        } else {
+            document.getElementById('resPayback').textContent = (paybackMonths / 12).toFixed(1) + ' yr';
+            document.getElementById('resPaybackSub').innerHTML = `<span class="en">years to break even</span><span class="cz">let do splacení</span>`;
+        }
+    } else {
+        document.getElementById('resPayback').textContent = '—';
+        document.getElementById('resPaybackSub').textContent = '';
+    }
+
+    // ROI
+    document.getElementById('resRoi').textContent = roi > 0 ? '+' + Math.round(roi) + '%' : '—';
+
+    // Bar chart
+    if (currentCost > 0) {
+        const afterPct = Math.max(5, Math.round((1 - eff) * 100));
+        document.getElementById('barBefore').style.width = '100%';
+        document.getElementById('barAfter').style.width  = afterPct + '%';
+        document.getElementById('barBeforeLabel').textContent = formatCurrency(currentCost);
+        document.getElementById('barAfterLabel').textContent  = formatCurrency(remainingCost);
+    }
+
+    // Refresh bilingual display
+    const langVal = document.documentElement.getAttribute('data-lang');
+    const subEl = document.getElementById('resPaybackSub');
+    if (subEl) {
+        subEl.querySelectorAll('.en').forEach(el => el.style.display = langVal === 'en' ? '' : 'none');
+        subEl.querySelectorAll('.cz').forEach(el => el.style.display = langVal === 'cs' ? '' : 'none');
+    }
+}
+
+// ═══════════════════════════
+// LANGUAGE
+// ═══════════════════════════
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+    recalc();
+}
+
+// ═══════════════════════════
+// NAV
+// ═══════════════════════════
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+// ═══════════════════════════
+// INIT
+// ═══════════════════════════
+(function() {
+    try {
+        const s = localStorage.getItem('ss-lang');
+        if (s) { setLang(s); return; }
+    } catch {}
+    const bl = navigator.language || '';
+    const lang = (bl.startsWith('cs') || bl.startsWith('sk')) ? 'cs' : 'en';
+    setLang(lang);
+
+    // Set CZK defaults if Czech lang
+    if (lang === 'cs') {
+        setCurrency('CZK');
+        document.getElementById('inCost').value = 1100;
+        document.getElementById('slImpl').value = 50000;
+    }
+
+    recalc();
+})();
+</script>
+</body>
+</html>

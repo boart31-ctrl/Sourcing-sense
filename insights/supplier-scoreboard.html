@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a Supplier Scoreboard Without a Consultant — Sourcing Sense</title>
+    <meta name="description" content="Most supplier scoreboards end up unused. Here is a practical framework to build one that actually works — no consultant, no expensive software, just a clear process.">
+    <meta property="og:title" content="How to Build a Supplier Scoreboard Without a Consultant — Sourcing Sense">
+    <meta property="og:description" content="Most supplier scoreboards end up unused. Here is a practical framework to build one that actually works — no consultant, no expensive software.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/supplier-scoreboard">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/supplier-scoreboard" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How to Build a Supplier Scoreboard Without a Consultant",
+      "description": "A practical guide to building a supplier scorecard that does not end up in a drawer. Covers KPI selection, Excel/Sheets implementation logic, how to run review meetings as partnership conversations, and how to connect to AI for automated scoring.",
+      "author": {
+        "@type": "Person",
+        "name": "David Račák",
+        "jobTitle": "AI Procurement Consultant & Lean Six Sigma Green Belt",
+        "url": "https://sourcing-sense.com"
+      },
+      "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
+      "datePublished": "2026-03-13",
+      "dateModified": "2026-03-13",
+      "mainEntityOfPage": "https://sourcing-sense.com/insights/supplier-scoreboard",
+      "keywords": ["supplier scorecard", "supplier performance management", "KPI procurement", "vendor management", "supplier evaluation", "procurement tools"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do supplier scorecards fail?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The main reason: organisations measure what is easy to collect, not what is important to the relationship. On-time delivery and invoice accuracy are good data points but they tell you nothing about the supplier's reliability during a disruption, their willingness to absorb cost pressure, or their responsiveness when something goes wrong. If your scorecard only has metrics your ERP exports automatically, it is not a management tool — it is a reporting exercise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many KPIs should a supplier scorecard have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Between 8 and 12 active KPIs per supplier is the practical range. More than that and nobody reviews the scores seriously. Fewer than 5 and you miss dimensions that matter. The key is having one KPI per category that is the primary signal — quality, delivery, commercial, relationship, compliance — and 1-2 supporting metrics per category."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you build a supplier scorecard in Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A well-built Excel/Google Sheets scorecard outperforms many commercial supplier management tools for mid-size procurement teams. The logic is straightforward: a scoring tab where raw data gets converted to 1-5 ratings per KPI, a weight tab where you assign category importance, and a dashboard tab that multiplies scores by weights and shows composite results. The challenge is not the tool — it is the process of collecting the inputs consistently."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.06);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ARTICLE HEADER */
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        /* ARTICLE BODY */
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: var(--amber-subtle); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: var(--amber); }
+        .callout.info .callout-title { color: var(--accent); }
+
+        /* KPI table */
+        .kpi-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.92rem; }
+        .kpi-table th { text-align: left; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--light-text-muted); padding: 0.6rem 1rem; background: var(--light-bg-alt); border-bottom: 2px solid var(--light-border); }
+        .kpi-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--light-border); color: var(--light-text-secondary); vertical-align: top; }
+        .kpi-table tr:last-child td { border-bottom: none; }
+        .kpi-table .cat-label { font-weight: 600; color: var(--light-text); font-size: 0.82rem; }
+        .kpi-table .weight-badge { display: inline-flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 100px; background: var(--accent-subtle); color: var(--accent); font-family: var(--font-mono); }
+
+        /* Score scale */
+        .score-scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1.5rem 0; }
+        .score-cell { padding: 0.75rem 0.5rem; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--light-border); }
+        .score-cell .score-num { font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 0.25rem; }
+        .score-cell .score-label { font-size: 0.72rem; color: var(--light-text-muted); }
+        .score-cell:nth-child(1) { background: rgba(239,68,68,0.06); border-color: rgba(239,68,68,0.15); }
+        .score-cell:nth-child(1) .score-num { color: #ef4444; }
+        .score-cell:nth-child(2) { background: rgba(245,158,11,0.06); border-color: rgba(245,158,11,0.15); }
+        .score-cell:nth-child(2) .score-num { color: #f59e0b; }
+        .score-cell:nth-child(3) { background: rgba(100,116,139,0.06); border-color: rgba(100,116,139,0.12); }
+        .score-cell:nth-child(3) .score-num { color: #64748b; }
+        .score-cell:nth-child(4) { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.12); }
+        .score-cell:nth-child(4) .score-num { color: var(--accent); }
+        .score-cell:nth-child(5) { background: rgba(16,185,129,0.06); border-color: rgba(16,185,129,0.15); }
+        .score-cell:nth-child(5) .score-num { color: var(--emerald); }
+
+        /* Formula block */
+        .formula-block { background: #0a1628; border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-family: var(--font-mono); font-size: 0.88rem; color: #93c5fd; line-height: 1.9; overflow-x: auto; }
+        .formula-comment { color: #475569; }
+
+        /* Article tags and share */
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+        .article-tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 100px; background: var(--light-bg-alt); border: 1px solid var(--light-border); color: var(--light-text-muted); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--light-border); }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        /* Related / CTA */
+        .article-cta { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+        .cta-card { background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%); border-radius: var(--radius); padding: 2.5rem; color: white; }
+        .cta-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-card p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; max-width: 500px; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; padding: 0.85rem 1.75rem; background: var(--emerald); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-btn:hover { background: #0ea572; transform: translateY(-1px); }
+
+        /* FOOTER */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip, .article-cta { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .score-scale { grid-template-columns: repeat(3, 1fr); }
+            .kpi-table { font-size: 0.85rem; }
+            .kpi-table th, .kpi-table td { padding: 0.5rem 0.6rem; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">&#10005;</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+    <div class="article-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Supplier Scoreboard</span><span class="cz">Supplier scoreboard</span></span>
+        </div>
+        <span class="article-badge article">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="en">Article</span><span class="cz">Článek</span>
+        </span>
+        <h1>
+            <span class="en">How to Build a Supplier Scoreboard Without a Consultant</span>
+            <span class="cz">Jak postavit supplier scoreboard bez konzultanta</span>
+        </h1>
+        <p class="article-excerpt">
+            <span class="en">Most supplier scorecards end up unused. The reason is always the same: they measure what is easy to collect, not what is important to manage. Here is a practical framework that works.</span>
+            <span class="cz">Většina supplier scoreboardů skončí v šuplíku. Důvod je vždy stejný: měří se to, co je snadné sbírat, ne to, co je důležité řídit. Tady je praktický framework, který funguje.</span>
+        </p>
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="en">March 2026</span><span class="cz">Březen 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="en">9 min read</span><span class="cz">9 min čtení</span>
+            </span>
+            <span>David Račák</span>
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+    <div class="prose">
+
+        <!-- EN VERSION -->
+        <div class="en">
+
+            <p>Here is a situation you have probably seen. The company decides it needs better supplier performance visibility. Someone builds a scorecard. It tracks on-time delivery, invoice accuracy, maybe quality rejects. It runs for two quarters. Then the reviews stop happening because nobody has time, the data is always late, and the scores do not match what people actually experience with those suppliers.</p>
+
+            <p>The scorecard gets shelved. Or it keeps running as a reporting ritual that everyone ignores except during audits.</p>
+
+            <p>The scorecard was not the problem. The approach was. This guide covers how to build one that does not end up that way — without hiring a consultant, without expensive software, and without spending six months on a framework that never gets used.</p>
+
+            <h2>Why 95% of supplier scorecards end up unused</h2>
+
+            <p>The most common mistake is building a scorecard around data that is easy to get, not data that is useful to act on. ERP systems export on-time delivery percentages and invoice error rates automatically. So those become the KPIs. The scorecard fills with numbers that are statistically clean but strategically empty.</p>
+
+            <p>On-time delivery at 96% sounds good. But it says nothing about whether the supplier communicated proactively when they had a production issue last month, whether they absorbed a 3% material cost increase without pushing it straight to you, or whether they are investing in capacity that matters for your category over the next two years.</p>
+
+            <p>The second mistake is too many KPIs. A scorecard with 25 metrics per supplier is not a management tool — it is a spreadsheet that takes two hours to update every quarter and produces a composite score that nobody trusts because the inputs are inconsistent.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">The signal problem</div>
+                If your scorecards are consistently telling you that suppliers are performing at 85-90% when you know operationally that three of them are causing you real pain, your metrics are wrong. Good KPIs produce scores that match what your team already knows — and occasionally reveal things that were invisible.
+            </div>
+
+            <p>The third mistake is treating the scorecard as a procurement tool rather than a relationship tool. When suppliers find out they are being scored, they react in one of two ways: they either start gaming the metrics, or they disengage from the process entirely. The review meeting becomes a one-sided presentation of numbers instead of a conversation about what is actually working.</p>
+
+            <h2>The framework: 5 categories, 8–12 active KPIs</h2>
+
+            <p>The right number of KPIs depends on the strategic importance of the supplier. For a tier-1 strategic supplier, you want the full set. For a transactional supplier, two or three KPIs are enough.</p>
+
+            <p>The categories and what belongs in each:</p>
+
+            <table class="kpi-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Default weight</th>
+                        <th>Primary KPI</th>
+                        <th>Supporting KPIs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="cat-label">Delivery</span></td>
+                        <td><span class="weight-badge">25%</span></td>
+                        <td>On-time delivery rate</td>
+                        <td>Lead time vs. quoted; advance notice of delays</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Quality</span></td>
+                        <td><span class="weight-badge">25%</span></td>
+                        <td>Defect / non-conformance rate</td>
+                        <td>Corrective action response time; repeat issues</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Commercial</span></td>
+                        <td><span class="weight-badge">20%</span></td>
+                        <td>Price competitiveness vs. market</td>
+                        <td>Cost transparency; invoice accuracy; payment compliance</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Relationship</span></td>
+                        <td><span class="weight-badge">20%</span></td>
+                        <td>Responsiveness (measured)</td>
+                        <td>Proactive communication; willingness to collaborate</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Compliance</span></td>
+                        <td><span class="weight-badge">10%</span></td>
+                        <td>Documentation up to date</td>
+                        <td>ESG/sustainability reporting; audit readiness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Adjust the weights for your context. In a category where you are buying regulated components for production, quality might be 40% and commercial might drop to 15%. For indirect services suppliers, relationship and responsiveness might carry more weight than delivery.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">On the relationship category</div>
+                This is the one most procurement teams skip because it feels subjective. But "responsiveness" is completely measurable: average email response time in hours, percentage of issues acknowledged within 24 hours, number of escalations that required a second contact. You do not need to be vague about it. You need to track it.
+            </div>
+
+            <h2>The scoring scale that actually works</h2>
+
+            <p>Use a 1–5 scale with pre-defined anchors per KPI. The anchors are what make the difference between a score that means something and a score that reflects whoever entered the data that day.</p>
+
+            <div class="score-scale">
+                <div class="score-cell">
+                    <span class="score-num">1</span>
+                    <span class="score-label">Unacceptable</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">2</span>
+                    <span class="score-label">Below expectations</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">3</span>
+                    <span class="score-label">Meets requirements</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">4</span>
+                    <span class="score-label">Exceeds</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">5</span>
+                    <span class="score-label">Benchmark</span>
+                </div>
+            </div>
+
+            <p>For on-time delivery, the anchors might be: 1 = below 70%, 2 = 70–84%, 3 = 85–94%, 4 = 95–98%, 5 = 99%+. For responsiveness: 1 = consistently unresponsive or requires multiple follow-ups, 3 = responds within 24-48h, 5 = same-day response with substantive answer.</p>
+
+            <p>Write the anchors before you start scoring. If you define them after, you will unconsciously write them to match the scores you already gave.</p>
+
+            <h2>Building it in Excel or Google Sheets</h2>
+
+            <p>Three tabs. That is all you need.</p>
+
+            <h3>Tab 1: Scoring</h3>
+            <p>One row per KPI. Columns: KPI name, Category, Weight %, Raw input, Score (1-5), Weighted score. Raw input is the actual number or text observation. Score is either calculated automatically (for quantitative KPIs) or entered manually (for qualitative ones). Weighted score = Score × Weight.</p>
+
+            <div class="formula-block"><span class="formula-comment">// On-time delivery score formula (auto-calculated from raw %)</span>
+=IF(D4&lt;0.70, 1,
+  IF(D4&lt;0.85, 2,
+    IF(D4&lt;0.95, 3,
+      IF(D4&lt;0.99, 4, 5))))</div>
+
+            <h3>Tab 2: Weights configuration</h3>
+            <p>Category name, Total weight %, list of KPIs in this category. This tab should sum to 100%. Keeping it separate means you can adjust category weights without touching the scoring logic. When your category strategy shifts — for instance, sustainability becomes a bigger factor — you change this tab only.</p>
+
+            <h3>Tab 3: Dashboard</h3>
+            <p>One row per supplier. Columns: Supplier name, composite score (sum of all weighted scores), score per category, trend vs. previous quarter, RAG status. The RAG thresholds: below 2.5 = Red, 2.5–3.4 = Amber, 3.5+ = Green. These are starting points — calibrate to your portfolio after the first two quarters.</p>
+
+            <div class="formula-block"><span class="formula-comment">// Composite score: sum all weighted KPI scores for this supplier</span>
+=SUMPRODUCT(Scoring!F4:F15)  <span class="formula-comment">// F column = weighted scores</span>
+
+<span class="formula-comment">// RAG status</span>
+=IF(B4&lt;2.5, "Red", IF(B4&lt;3.5, "Amber", "Green"))</div>
+
+            <div class="callout info">
+                <div class="callout-title">One file per supplier, or one file for all?</div>
+                One master file with a tab per supplier gets unmanageable fast. Better structure: one master dashboard file that pulls from individual supplier files via IMPORTRANGE (Sheets) or Power Query (Excel). Each supplier file can be shared with the supplier directly — they see their own scores and can add context. You keep the dashboard.
+            </div>
+
+            <h2>The review meeting: partnership, not audit</h2>
+
+            <p>This is where most supplier performance management actually fails, regardless of how good the scorecard is. The meeting format sets the tone for the entire relationship.</p>
+
+            <p>A bad review meeting looks like this: procurement presents the scores, the supplier spends the meeting explaining why the numbers are unfair or wrong, both sides leave with a vague action plan that nobody follows up on. The next review starts the same way.</p>
+
+            <p>A good review meeting structure:</p>
+
+            <ol>
+                <li><strong>Share the scorecard 48 hours before the meeting.</strong> The supplier should not be seeing their scores for the first time in the room. Give them time to prepare context.</li>
+                <li><strong>Open with what went well.</strong> Not as a formality — genuinely cover one or two things that worked. If nothing went well, the problem is bigger than a review meeting can fix.</li>
+                <li><strong>On low scores, ask before you explain.</strong> "We scored you a 2 on responsiveness this quarter. Before I share our data, I'd like to understand what you saw from your side." Suppliers often have context that changes the picture. Sometimes they do not, and that is also useful information.</li>
+                <li><strong>One action item per problem, with an owner and a date.</strong> Not a list of six things the supplier promises to improve. One thing, owned by a named person, with a specific deadline.</li>
+                <li><strong>Tell them what is at stake.</strong> If the score is dropping toward a threshold that triggers a sourcing review, say so. Vague consequences produce vague responses.</li>
+            </ol>
+
+            <p>The best outcome of a review meeting is that the supplier leaves knowing exactly what they need to do and why it matters to your business — not that they feel judged.</p>
+
+            <h2>Connecting it to AI: automated scoring from emails and documents</h2>
+
+            <p>Once the framework is stable and you have two or three quarters of data, you can start reducing the manual input burden. This is where AI adds real value — not in building the scorecard, but in populating it.</p>
+
+            <p>The two highest-ROI automation targets:</p>
+
+            <h3>Responsiveness scoring from email</h3>
+            <p>You already have the data — it is in your inbox. A simple script (Power Automate, Google Apps Script, or direct API call) can scan emails from a given supplier domain, calculate average response times per month, flag threads where the supplier required a second follow-up, and write the results directly into the scoring tab. No manual input. The data is more accurate than memory-based ratings.</p>
+
+            <h3>Invoice accuracy from AP data</h3>
+            <p>If you have access to AP data export (even just a CSV from your ERP), a prompt like the following turns it into a score in seconds:</p>
+
+            <div class="formula-block"><span class="formula-comment">// Prompt for invoice accuracy scoring from AP export</span>
+You are a procurement analyst. I will give you invoice data for supplier [X]
+for Q[N] [YEAR]. Calculate:
+- Total invoices processed
+- Number with pricing discrepancies vs. PO
+- Number with missing or incorrect references
+- Number requiring manual intervention before payment
+
+Return a brief summary and a score from 1-5 using these thresholds:
+5 = 0% error rate, 4 = under 2%, 3 = 2-5%, 2 = 5-10%, 1 = above 10%.
+
+Invoice data:
+[paste CSV rows]</div>
+
+            <p>For larger supplier bases, the same logic works as a batch process — one API call per supplier per quarter, outputs written back to the scorecard. The scoring criteria are defined by you, the anchor thresholds are yours, and the AI is doing arithmetic and pattern recognition — not making judgment calls.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Start with the manual version first</div>
+                Do not try to automate the scoring before you have done two quarters manually. Manual scoring teaches you where the data is unreliable, which KPIs are actually informative, and where the human judgment is irreplaceable. Then you automate the parts that are mechanical. Automating a broken process just produces wrong answers faster.
+            </div>
+
+            <h2>What to do in the first 30 days</h2>
+
+            <p>Pick three suppliers. Not your top 20 — three. One strategic, one that has been causing pain, one that has been performing well. Build the scorecard for those three manually, run one review meeting each, and see what you learn.</p>
+
+            <p>If the scores match your operational reality and the meetings produce at least one useful conversation, the framework is working. Then you scale. If the scores feel wrong or the meetings feel like a waste of time, fix the framework before adding more suppliers to it.</p>
+
+            <p>A scoreboard that runs for three years on 10 suppliers is worth more than one that launches across 50 suppliers and collapses after two quarters because nobody has bandwidth to maintain it.</p>
+
+        </div><!-- /en -->
+
+        <!-- CZ VERSION -->
+        <div class="cz">
+
+            <p>Znáte tu situaci. Firma se rozhodne, že potřebuje lepší přehled o výkonnosti dodavatelů. Někdo postaví scorecard. Sleduje se on-time delivery, přesnost faktur, možná reklamace kvality. Dva kvartály to funguje. Pak review přestávají být — nikdo nemá čas, data jsou vždy se zpožděním, a skóre neodpovídá tomu, co lidé se svými dodavateli skutečně zažívají.</p>
+
+            <p>Scorecard skončí v šuplíku. Nebo pokračuje jako reportingový rituál, který všichni ignorují kromě auditů.</p>
+
+            <p>Problémem nebyl scorecard. Byl přístup. Tenhle průvodce popisuje, jak ho postavit tak, aby to nedopadlo stejně — bez konzultanta, bez drahého softwaru, a bez šesti měsíců práce na frameworku, který se nikdy nepoužije.</p>
+
+            <h2>Proč 95 % supplier scoreboardů skončí nevyužitých</h2>
+
+            <p>Nejčastější chyba: scorecard je postavený kolem dat, která jsou snadno dostupná — ne kolem dat, která jsou užitečná pro řízení. ERP systémy exportují on-time delivery a chybovost faktur automaticky. Takže se z toho stávají KPI. Scorecard se naplní čísly, která jsou statisticky čistá, ale strategicky prázdná.</p>
+
+            <p>On-time delivery 96 % zní dobře. Ale neříká nic o tom, jestli dodavatel proaktivně komunikoval, když měl minulý měsíc výrobní problém, jestli absorboval 3% zdražení materiálu bez toho, aby ho okamžitě přenesl na vás, nebo jestli investuje do kapacit, které pro vaši kategorii budou relevantní v příštích dvou letech.</p>
+
+            <p>Druhá chyba je příliš mnoho KPI. Scorecard s 25 metrikami na dodavatele není manažerský nástroj — je to tabulka, která zabere dvě hodiny aktualizace každý kvartál a produkuje kompozitní skóre, kterému nikdo nevěří, protože vstupy jsou nekonzistentní.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">Problém signálu</div>
+                Pokud vám scoreboardy konzistentně říkají, že dodavatelé jsou na 85–90 %, a vy zároveň víte, že tři z nich vám operativně způsobují skutečné problémy — vaše metriky jsou špatné. Dobré KPI produkují skóre, která odpovídají tomu, co váš tým už ví, a občas odhalí věci, které byly neviditelné.
+            </div>
+
+            <p>Třetí chyba: scorecard je tratován jako procurement nástroj, ne jako relationship nástroj. Když dodavatelé zjistí, že jsou hodnoceni, reagují jedním ze dvou způsobů: začnou optimalizovat metriky, nebo se z procesu odtáhnou. Review meeting se stane jednostrannou prezentací čísel místo rozhovoru o tom, co skutečně funguje.</p>
+
+            <h2>Framework: 5 kategorií, 8–12 aktivních KPI</h2>
+
+            <p>Správný počet KPI závisí na strategické důležitosti dodavatele. Pro tier-1 strategického dodavatele chcete plný set. Pro transakčního dodavatele stačí dvě nebo tři KPI.</p>
+
+            <table class="kpi-table">
+                <thead>
+                    <tr>
+                        <th>Kategorie</th>
+                        <th>Výchozí váha</th>
+                        <th>Primární KPI</th>
+                        <th>Doplňkové KPI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="cat-label">Dodávky</span></td>
+                        <td><span class="weight-badge">25%</span></td>
+                        <td>Podíl včasných dodávek</td>
+                        <td>Lead time vs. nabídka; předběžné oznámení zpoždění</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Kvalita</span></td>
+                        <td><span class="weight-badge">25%</span></td>
+                        <td>Míra neshod / reklamací</td>
+                        <td>Čas odpovědi na corrective action; opakované problémy</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Komerční</span></td>
+                        <td><span class="weight-badge">20%</span></td>
+                        <td>Cenová konkurenceschopnost vs. trh</td>
+                        <td>Transparentnost nákladů; přesnost faktur; dodržení platebních podmínek</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Vztah</span></td>
+                        <td><span class="weight-badge">20%</span></td>
+                        <td>Rychlost odezvy (měřená)</td>
+                        <td>Proaktivní komunikace; ochota ke spolupráci</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cat-label">Compliance</span></td>
+                        <td><span class="weight-badge">10%</span></td>
+                        <td>Aktuálnost dokumentace</td>
+                        <td>ESG/sustainability reporting; audit readiness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Váhy upravte pro svůj kontext. V kategorii, kde nakupujete regulované komponenty pro výrobu, může mít kvalita 40 % a komerční 15 %. U nepřímých dodavatelů služeb může vztah a rychlost odezvy nést větší váhu než dodávky.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">K "relationship" kategorii</div>
+                Tohle je ta kategorie, kterou většina procurement týmů vynechává, protože se to zdá subjektivní. Ale "rychlost odezvy" je naprosto měřitelná: průměrná doba odpovědi na email v hodinách, procento problémů potvrzených do 24 hodin, počet eskalací, které vyžadovaly druhý kontakt. Nemusí být vágní. Musí se sledovat.
+            </div>
+
+            <h2>Hodnotící stupnice, která funguje</h2>
+
+            <p>Stupnice 1–5 s předem definovanými kotevními body pro každé KPI. Kotevní body jsou to, co rozděluje skóre, které něco znamená, od skóre, které odráží náladu toho, kdo v daný den data zadával.</p>
+
+            <div class="score-scale">
+                <div class="score-cell">
+                    <span class="score-num">1</span>
+                    <span class="score-label">Nepřijatelné</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">2</span>
+                    <span class="score-label">Pod očekáváním</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">3</span>
+                    <span class="score-label">Splňuje požadavky</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">4</span>
+                    <span class="score-label">Překračuje</span>
+                </div>
+                <div class="score-cell">
+                    <span class="score-num">5</span>
+                    <span class="score-label">Benchmark</span>
+                </div>
+            </div>
+
+            <p>Pro on-time delivery: 1 = pod 70 %, 2 = 70–84 %, 3 = 85–94 %, 4 = 95–98 %, 5 = 99 %+. Pro rychlost odezvy: 1 = konzistentně pomalá nebo potřebuje multiple follow-upy, 3 = odpověď do 24–48 h, 5 = odpověď tentýž den s věcnou reakcí.</p>
+
+            <p>Kotevní body napiš před začátkem hodnocení. Pokud je definujete až po zadání skóre, nevědomky je napíšete tak, aby odpovídaly číslům, která jste si vymysleli.</p>
+
+            <h2>Implementace v Excelu nebo Google Sheets</h2>
+
+            <p>Tři záložky. To je vše, co potřebujete.</p>
+
+            <h3>Záložka 1: Scoring</h3>
+            <p>Jeden řádek na KPI. Sloupce: název KPI, kategorie, váha %, vstupní data, skóre (1–5), vážené skóre. Vstupní data jsou skutečné číslo nebo textová poznámka. Skóre je buď vypočítané automaticky (pro kvantitativní KPI) nebo zadané ručně (pro kvalitativní). Vážené skóre = Skóre × Váha.</p>
+
+            <div class="formula-block"><span class="formula-comment">// Výpočet skóre on-time delivery ze surového procenta</span>
+=IF(D4&lt;0.70, 1,
+  IF(D4&lt;0.85, 2,
+    IF(D4&lt;0.95, 3,
+      IF(D4&lt;0.99, 4, 5))))</div>
+
+            <h3>Záložka 2: Konfigurace vah</h3>
+            <p>Název kategorie, celková váha %, seznam KPI v kategorii. Tato záložka musí dávat součet 100 %. Oddělení vah od scoringu znamená, že při změně category strategie upravíte jen tuto záložku.</p>
+
+            <h3>Záložka 3: Dashboard</h3>
+            <p>Jeden řádek na dodavatele. Sloupce: název, kompozitní skóre, skóre po kategoriích, trend vs. předchozí kvartál, RAG status. Prahové hodnoty pro RAG: pod 2,5 = červená, 2,5–3,4 = žlutá, 3,5+ = zelená.</p>
+
+            <h2>Review meeting: partnerství, ne audit</h2>
+
+            <p>Tady skutečně selhává většina supplier performance managementu, bez ohledu na to, jak dobrý je scorecard. Formát schůzky nastavuje tón celého vztahu.</p>
+
+            <p>Špatná review schůzka vypadá takto: nákup prezentuje skóre, dodavatel tráví schůzku vysvětlováním, proč čísla nejsou spravedlivá, obě strany odcházejí s vágním akčním plánem, který nikdo nenásleduje. Příští review začne stejně.</p>
+
+            <p>Dobrá struktura review schůzky:</p>
+
+            <ol>
+                <li><strong>Pošlete scorecard 48 hodin předem.</strong> Dodavatel by neměl vidět svá skóre poprvé v místnosti. Dejte jim čas připravit kontext.</li>
+                <li><strong>Začněte tím, co fungovalo.</strong> Ne jako formalita — opravdu projděte jednu nebo dvě věci, které šly dobře. Pokud nic nešlo dobře, problém je větší, než co review schůzka zvládne vyřešit.</li>
+                <li><strong>U nízkých skóre nejdříve ptejte se, pak vysvětlujte.</strong> "Dali jsme vám 2 za rychlost odezvy v tomto kvartálu. Než sdělím naše data, rád bych slyšel, co jste viděli z vaší strany." Dodavatelé mají často kontext, který změní obraz.</li>
+                <li><strong>Jeden akční bod na problém, s vlastníkem a datem.</strong> Ne seznam šesti věcí, které dodavatel slíbí zlepšit. Jedna věc, vlastněná konkrétní osobou, s konkrétním termínem.</li>
+                <li><strong>Řekněte jim, co je v sázce.</strong> Pokud skóre klesá k prahu, který spustí sourcing review, řekněte to. Vágní následky produkují vágní reakce.</li>
+            </ol>
+
+            <h2>Napojení na AI: automatické hodnocení z emailů a dokumentů</h2>
+
+            <p>Jakmile je framework stabilní a máte dva nebo tři kvartály dat, můžete začít snižovat manuální zátěž. Zde AI přináší skutečnou hodnotu — ne při budování scoreboardu, ale při jeho naplňování.</p>
+
+            <h3>Hodnocení rychlosti odezvy z emailu</h3>
+            <p>Data už máte — jsou ve vaší schránce. Jednoduchý skript (Power Automate, Google Apps Script nebo přímé API volání) dokáže skenovat emaily od domény daného dodavatele, vypočítat průměrné doby odezvy za měsíc, označit vlákna, kde dodavatel vyžadoval druhý follow-up, a výsledky zapsat přímo do scoring záložky. Žádný manuální vstup. Data jsou přesnější než hodnocení z paměti.</p>
+
+            <h3>Přesnost faktur z AP dat</h3>
+            <p>Pokud máte přístup k exportu AP dat, prompt jako níže z nich udělá skóre během sekund:</p>
+
+            <div class="formula-block"><span class="formula-comment">// Prompt pro hodnocení přesnosti faktur z AP exportu</span>
+Jsi procurement analytik. Dám ti data faktur dodavatele [X]
+za Q[N] [ROK]. Vypočítej:
+- Celkový počet zpracovaných faktur
+- Počet s cenovými neshodami vs. objednávka
+- Počet s chybějícími nebo špatnými referencemi
+- Počet vyžadujících manuální zásah před platbou
+
+Vrať stručné shrnutí a skóre 1–5 podle těchto prahů:
+5 = 0 % chybovost, 4 = pod 2 %, 3 = 2–5 %, 2 = 5–10 %, 1 = nad 10 %.
+
+Data faktur:
+[vložit CSV řádky]</div>
+
+            <div class="callout tip">
+                <div class="callout-title">Nejdřív ruční verze</div>
+                Nepokoušejte se automatizovat scoring před dvěma manuálně provedenými kvartály. Manuální hodnocení vás naučí, kde jsou data nespolehlivá, která KPI jsou skutečně informativní, a kde je lidský úsudek nenahraditelný. Pak automatizujte mechanické části. Automatizace chybného procesu jen rychleji produkuje špatné odpovědi.
+            </div>
+
+            <h2>Co udělat v prvních 30 dnech</h2>
+
+            <p>Vyberte tři dodavatele. Ne top 20 — tři. Jednoho strategického, jednoho, který způsobuje problémy, jednoho, který funguje dobře. Postavte pro ně scorecard manuálně, proveďte jeden review meeting s každým, a zjistěte, co se dozvíte.</p>
+
+            <p>Pokud skóre odpovídá vaší operativní realitě a schůzky přinesou alespoň jeden užitečný rozhovor, framework funguje. Pak škálujte. Pokud skóre sedí špatně nebo schůzky připadají jako ztráta času, opravte framework předtím, než do něj přidáte více dodavatelů.</p>
+
+            <p>Scoreboard, který funguje tři roky na 10 dodavatelích, má větší hodnotu než ten, který se spustí na 50 dodavatelích a zhroutí se po dvou kvartálech, protože nikdo nemá kapacitu ho udržovat.</p>
+
+        </div><!-- /cz -->
+
+    </div><!-- /prose -->
+</div><!-- /article-body -->
+
+<!-- TAGS + SHARE -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Supplier Management</span>
+        <span class="article-tag">KPI</span>
+        <span class="article-tag">Performance Management</span>
+        <span class="article-tag">Excel</span>
+        <span class="article-tag">Procurement Tools</span>
+        <span class="article-tag">AI Automation</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/supplier-scoreboard" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://sourcing-sense.com/insights/supplier-scoreboard&text=How+to+Build+a+Supplier+Scoreboard+Without+a+Consultant" target="_blank" class="share-btn" aria-label="Share on X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="article-cta">
+    <div class="cta-card">
+        <h3>
+            <span class="en">Ready to build this properly?</span>
+            <span class="cz">Chcete to postavit správně?</span>
+        </h3>
+        <p>
+            <span class="en">I help procurement teams design and implement supplier performance management that actually gets used. One call is usually enough to identify what is blocking you.</span>
+            <span class="cz">Pomáhám procurement týmům navrhnout a implementovat supplier performance management, který se skutečně používá. Jeden hovor obvykle stačí k identifikaci toho, co vás blokuje.</span>
+        </p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+            <span class="en">Book a free call</span><span class="cz">Domluvit bezplatný hovor</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sourcing Sense. <span class="en">All rights reserved.</span><span class="cz">Všechna práva vyhrazena.</span></p>
+            <div style="display:flex;gap:1.5rem;">
+                <a href="/privacy" class="footer-link"><span class="en">Privacy</span><span class="cz">Soukromí</span></a>
+                <a href="/contact" class="footer-link"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Language toggle
+    function setLang(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        localStorage.setItem('ss-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.setLang === lang);
+        });
+    }
+    (function() {
+        const saved = localStorage.getItem('ss-lang');
+        const preferred = saved || (navigator.language && navigator.language.startsWith('cs') ? 'cs' : 'en');
+        setLang(preferred);
+    })();
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+        document.getElementById('nav').classList.toggle('scrolled', scrollY > 50);
+    });
+
+    // Mobile overlay
+    function toggleMob() {
+        document.getElementById('mob').classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>

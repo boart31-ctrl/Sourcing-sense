@@ -67,46 +67,49 @@ Custom-built tools and hands-on training tailored to your needs. Supplier catego
 
 ## Free AI Tools
 
-All tools available at https://sourcing-sense.com/tools — no sales pitch, just practical AI automation you can try right now.
-
-### 📧 Email Template Generator
-Professional procurement and business communication templates. Supplier negotiations, RFQ responses, escalations. Free — no sign-up required.
-URL: https://sourcing-sense.com/tools
+All tools available at https://sourcing-sense.com/tools — no sign-up required.
 
 ### 💰 Savings Calculator
-Estimate potential savings from automating your procurement processes. Input your current metrics, get projected ROI. Free — no sign-up required.
-URL: https://sourcing-sense.com/tools
+Calculates annual cost savings, ROI percentage, and payback period for automating a procurement process. Inputs: hours per occurrence, frequency per year, team size, hourly cost, automation efficiency (slider), implementation cost. Supports EUR and CZK. Five preset process types: supplier qualification, quote comparison, invoice processing, contract review, spend reporting.
+URL: https://sourcing-sense.com/tools/savings-calculator
+
+### 📧 Email Template Generator
+8 categories of professional procurement email templates: supplier qualification request, RFQ/quote request, price negotiation opener, quote rejection, escalation to supplier management, NDA/confidentiality request, contract renewal discussion, supplier follow-up (no response). Form inputs per template, live preview, copy to clipboard. Full EN and CZ versions.
+URL: https://sourcing-sense.com/tools/email-generator
+
+### 📋 RFQ Builder
+Four-step wizard producing a complete professional RFQ document. Step 1: commodity, category (direct/indirect), urgency, output language. Step 2: technical specifications, volume, requirements. Step 3: evaluation criteria with weighted sliders (price/quality/delivery/experience/sustainability, must total 100%). Step 4: submission deadline, payment terms, NDA requirement. Output: formatted RFQ document with all standard sections. Copy to clipboard or download as .txt.
+URL: https://sourcing-sense.com/tools/rfq-builder
 
 ### 🔬 Supplier Classifier Demo
 Upload a CSV of suppliers and see AI categorization in action. First use free, then register for full access.
-URL: https://sourcing-sense.com/tools
-
-### 📋 Procurement Email Generator (AI-Powered)
-Select scenario, set tone, input details — get a ready-to-send professional procurement email in seconds. Powered by Claude AI.
 URL: https://sourcing-sense.com/tools
 
 ### 📊 Quick Spend Analyzer
 Paste or upload spend data and get instant AI-powered category breakdown, supplier concentration analysis, and savings opportunities.
 URL: https://sourcing-sense.com/tools
 
-### 📄 RFQ Builder
-Step-by-step guided RFQ creation with AI suggestions for evaluation criteria, timelines, and terms.
-URL: https://sourcing-sense.com/tools
-
 ---
 
 ## Insights & Articles
 
-Published at https://sourcing-sense.com/insights — practical AI insights for business from real implementations.
+Published at https://sourcing-sense.com/insights — practical AI insights from real procurement implementations.
 
-### Featured: How I Classified 2,000+ Suppliers Using AI (Use Case)
-Real case study of supplier categorization using AI pattern matching, GL accounts, and commodity hierarchies. From weeks of manual work to automated classification in minutes. Includes methodology, tools used, and results.
+### 5 Procurement Processes You Should Automate First (Article)
+Ranked by ROI vs effort. Supplier qualification, invoice coding, spend classification, contract review, management reporting. Real tool stacks (Power Automate, AI Builder, Claude). EMEA indirect procurement context.
+URL: https://sourcing-sense.com/insights/5-processes-to-automate
 
-### Upcoming Articles:
-- **5 Procurement Processes You Should Automate First** — Priority matrix based on ROI vs effort for procurement automation
-- **AI Tools Comparison: What Actually Works for Procurement** — Claude vs ChatGPT vs Perplexity tested on real procurement tasks
-- **Prompt Engineering for Business Professionals** — How to write prompts that get useful results with procurement and finance examples
-- **Contract Risk Analysis with AI** — How to use AI to review contracts faster and catch risks human reviewers miss
+### Why 90% of Procurement AI Projects Fail (Article)
+Five reasons: (1) starting with tools instead of processes; (2) procurement excluded from design; (3) dirty data; (4) no baseline measurement; (5) picking the hardest problem first. Written from the perspective of an internal procurement practitioner.
+URL: https://sourcing-sense.com/insights/ai-projects-fail
+
+### Prompt Engineering for Procurement Professionals (Tutorial)
+Four use cases with bad → improved prompt examples: contract risk review, spend data summary, supplier quote comparison, negotiation prep brief. EMEA indirect procurement context.
+URL: https://sourcing-sense.com/insights/prompt-engineering-procurement
+
+### How to Build a Supplier Scoreboard Without a Consultant (Article)
+Framework: 5 categories (Delivery 25%, Quality 25%, Commercial 20%, Relationship 20%, Compliance 10%), 8–12 active KPIs, 1–5 scoring scale with predefined anchors. Excel/Sheets: 3-tab structure with formulas. Review meeting structure. AI automation via email and AP data.
+URL: https://sourcing-sense.com/insights/supplier-scoreboard
 
 ---
 

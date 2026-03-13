@@ -11,6 +11,19 @@ For the complete content of this website in a single file, see: https://sourcing
 - [Insights](https://sourcing-sense.com/insights): Articles, use cases, and tutorials on AI automation for business
 - [Contact](https://sourcing-sense.com/contact): Book a call, send a message, or connect on LinkedIn
 
+## Tools (live, no sign-up required)
+
+- [Savings Calculator](https://sourcing-sense.com/tools/savings-calculator): Calculates annual savings, ROI, and payback period from automating a procurement process. Supports EUR/CZK, 5 preset process types, adjustable efficiency and implementation cost.
+- [Email Template Generator](https://sourcing-sense.com/tools/email-generator): 8 categories of professional procurement email templates — supplier qualification, RFQ, negotiation opener, quote rejection, escalation, NDA request, contract renewal, supplier follow-up. Live preview, copy to clipboard. EN/CZ.
+- [RFQ Builder](https://sourcing-sense.com/tools/rfq-builder): 4-step wizard producing a complete professional RFQ document. Covers scope, technical requirements, evaluation criteria (weighted), and submission conditions. Copy or download as .txt. EN/CZ output.
+
+## Articles & Insights
+
+- [5 Procurement Processes You Should Automate First](https://sourcing-sense.com/insights/5-processes-to-automate): Ranked by ROI vs. effort. Supplier qualification, invoice coding, spend classification, contract review, reporting. Real tool stacks included.
+- [Why 90% of Procurement AI Projects Fail](https://sourcing-sense.com/insights/ai-projects-fail): Five reasons: wrong process selection, procurement excluded from design, dirty data, no baseline, picking the hardest problem first. Written from an internal procurement perspective.
+- [Prompt Engineering for Procurement Professionals](https://sourcing-sense.com/insights/prompt-engineering-procurement): Four use cases with before/after prompt examples — contract risk review, spend data summary, supplier quote comparison, negotiation prep brief. EMEA indirect procurement context.
+- [How to Build a Supplier Scoreboard Without a Consultant](https://sourcing-sense.com/insights/supplier-scoreboard): Framework: 5 categories, 8–12 KPIs, 1–5 scoring scale with defined anchors, Excel/Sheets implementation logic (3-tab structure), how to run review meetings as partnership conversations, AI automation via email/AP data.
+
 ## Services
 
 - **AI Strategy Session**: ROI-focused AI roadmap identifying highest-impact automation opportunities
