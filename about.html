@@ -50,7 +50,7 @@
         { "@type": "Question", "name": "What is the best free AI tool for procurement?", "acceptedAnswer": { "@type": "Answer", "text": "Sourcing Sense offers free AI procurement tools at sourcing-sense.com/tools including an AI Email Generator, Savings Calculator, Supplier Classifier, Quick Spend Analyzer, and RFQ Builder. No sign-up required for basic tools." } },
         { "@type": "Question", "name": "How can companies start with AI in procurement?", "acceptedAnswer": { "@type": "Answer", "text": "Start with a free 20-minute discovery call at sourcing-sense.com. Sourcing Sense specializes in helping European companies implement AI in procurement with Lean Six Sigma methodology and measurable ROI. Projects are delivered only when positive ROI is confirmed." } },
         { "@type": "Question", "name": "How much time can AI save in procurement?", "acceptedAnswer": { "@type": "Answer", "text": "Based on Sourcing Sense implementations: supplier categorization sees 95% time reduction (2,000+ suppliers classified automatically), contract review sees 80% time reduction, and spend analysis becomes real-time instead of periodic manual work." } },
-        { "@type": "Question", "name": "What AI tools does Sourcing Sense use for procurement automation?", "acceptedAnswer": { "@type": "Answer", "text": "Sourcing Sense uses Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, Python, and Power BI — combined with Lean Six Sigma methodology for structured process improvement and measurable results." } },
+        { "@type": "Question", "name": "What AI tools does Sourcing Sense use for procurement automation?", "acceptedAnswer": { "@type": "Answer", "text": "Sourcing Sense uses Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, and Power BI — combined with Lean Six Sigma methodology for structured process improvement and measurable results." } },
         { "@type": "Question", "name": "Who is Sourcing Sense?", "acceptedAnswer": { "@type": "Answer", "text": "Sourcing Sense is a European AI procurement and business process automation consultancy founded by David Račak, a procurement expert with 8+ years EMEA experience and Lean Six Sigma Green Belt certification. Based in Czech Republic, serving EU clients. Website: sourcing-sense.com" } }
       ]
     }
@@ -208,6 +208,65 @@
         }
         [data-lang="en"] .cz { display: none !important; }
         [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══════════════════════════════════════════
+           DARK THEME OVERRIDE
+        ═══════════════════════════════════════════ */
+        :root {
+            --bg-primary:           #08090f;
+            --bg-surface:           #0d1117;
+            --bg-elevated:          #131820;
+            --light-bg:             #08090f;
+            --light-bg-alt:         #0d1117;
+            --light-card:           #0d1117;
+            --light-border:         rgba(255, 255, 255, 0.08);
+            --light-text:           #f1f5f9;
+            --light-text-secondary: #94a3b8;
+            --light-text-muted:     #3d4a5c;
+            --accent:               #3b82f6;
+            --accent-light:         #60a5fa;
+            --accent-glow:          rgba(59, 130, 246, 0.2);
+            --accent-subtle:        rgba(59, 130, 246, 0.1);
+            --dark-bg:              #05060a;
+            --dark-bg-alt:          #08090f;
+            --dark-card:            rgba(13, 17, 23, 0.9);
+            --dark-border:          rgba(255, 255, 255, 0.07);
+            --dark-text:            #f1f5f9;
+            --dark-text-secondary:  #94a3b8;
+            --dark-text-muted:      #3d4a5c;
+        }
+        nav { background: rgba(8, 9, 15, 0.88); border-bottom-color: rgba(255, 255, 255, 0.08); }
+        nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .lang-btn.active { background: rgba(59, 130, 246, 0.15); color: #60a5fa; box-shadow: none; }
+        .mobile-overlay { background: rgba(8, 9, 15, 0.97); }
+        .mobile-overlay a { color: #94a3b8; }
+        .mobile-close { color: #94a3b8; }
+        .hamburger { color: #f1f5f9; }
+        .btn-secondary { background: transparent; }
+        .related-card { background: #0d1117; }
+        .approach-card { background: #0d1117; }
+        .tool-card { background: #0d1117; }
+        .featured-card { background: #0d1117; }
+        .post-card { background: #0d1117; }
+        .suggest-card { background: #0d1117; }
+        .insight-card { background: #0d1117; }
+        .nav-logo-text { color: #f1f5f9; }
+        /* Tool component overrides */
+        .calc-inputs, .result-metric, .result-bar-card,
+        .category-panel, .form-card, .preview-card, .copy-btn,
+        .step-card, .result-doc, .faq-item { background: #0d1117; }
+        .copy-btn { color: var(--light-text-secondary); }
+        .currency-btn.active { background: rgba(59,130,246,0.15); color: var(--accent-light); box-shadow: none; }
+        .btn-download { background: rgba(59,130,246,0.15); color: var(--accent-light); border: 1px solid rgba(59,130,246,0.3); }
+        .btn-download:hover { background: rgba(59,130,246,0.25); }
+        /* Form inputs go dark */
+        input[type="text"], input[type="number"], input[type="email"],
+        select, textarea {
+            background: #131820;
+            color: var(--light-text);
+            border-color: rgba(255,255,255,0.12);
+        }
+        input[type="range"] { accent-color: var(--accent); }
     </style>
 </head>
 <body>

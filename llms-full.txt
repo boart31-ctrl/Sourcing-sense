@@ -16,7 +16,7 @@
 
 ### Technologies Used
 
-Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, Python, Power BI, Lean Six Sigma methodology.
+Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, Power BI, Lean Six Sigma methodology.
 
 ---
 
@@ -152,7 +152,7 @@ A: Based on Sourcing Sense implementations, companies achieve 80-95% time reduct
 A: Sourcing Sense is developing a Contract Risk Scanner that uses AI to flag compliance gaps and unfavorable terms. Check sourcing-sense.com/tools for availability.
 
 **Q: What AI tools does Sourcing Sense use?**
-A: Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, Python, and Power BI — combined with Lean Six Sigma methodology for structured process improvement.
+A: Claude AI (Anthropic), OpenAI/ChatGPT, Perplexity AI, SAP, and Power BI — combined with Lean Six Sigma methodology for structured process improvement.
 
 ---
 

@@ -41,32 +41,37 @@
             --blue-100: #dbeafe;
             --blue-50: #eff6ff;
 
-            /* Accents */
-            --accent: #2563eb;
-            --accent-light: #3b82f6;
-            --accent-glow: rgba(37, 99, 235, 0.15);
-            --accent-subtle: rgba(37, 99, 235, 0.06);
+            /* Accents — brighter on dark backgrounds */
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.2);
+            --accent-subtle: rgba(59, 130, 246, 0.1);
             --gold: #f59e0b;
             --gold-light: #fbbf24;
             --emerald: #10b981;
 
-            /* Light sections */
-            --light-bg: #ffffff;
-            --light-bg-alt: #f8fafc;
-            --light-card: #ffffff;
-            --light-border: #e2e8f0;
-            --light-text: #0f172a;
-            --light-text-secondary: #475569;
-            --light-text-muted: #94a3b8;
+            /* Global dark palette */
+            --bg-primary:  #08090f;
+            --bg-surface:  #0d1117;
+            --bg-elevated: #131820;
 
-            /* Dark sections */
-            --dark-bg: #0a1628;
-            --dark-bg-alt: #0f2140;
-            --dark-card: rgba(15, 33, 64, 0.8);
-            --dark-border: rgba(255, 255, 255, 0.08);
-            --dark-text: #f1f5f9;
+            /* Remap --light-* to dark so all existing references cascade to dark theme */
+            --light-bg:             #08090f;
+            --light-bg-alt:         #0d1117;
+            --light-card:           #0d1117;
+            --light-border:         rgba(255, 255, 255, 0.08);
+            --light-text:           #f1f5f9;
+            --light-text-secondary: #94a3b8;
+            --light-text-muted:     #3d4a5c;
+
+            /* Dark sections — slightly deeper for visual separation */
+            --dark-bg:             #05060a;
+            --dark-bg-alt:         #08090f;
+            --dark-card:           rgba(13, 17, 23, 0.9);
+            --dark-border:         rgba(255, 255, 255, 0.07);
+            --dark-text:           #f1f5f9;
             --dark-text-secondary: #94a3b8;
-            --dark-text-muted: #475569;
+            --dark-text-muted:     #3d4a5c;
 
             /* Typography */
             --font-display: 'DM Serif Display', Georgia, serif;
@@ -109,7 +114,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(8, 9, 15, 0.88);
             backdrop-filter: blur(20px) saturate(1.4);
             -webkit-backdrop-filter: blur(20px) saturate(1.4);
             border-bottom: 1px solid var(--light-border);
@@ -118,7 +123,7 @@
 
         nav.scrolled {
             padding: 0.6rem 2rem;
-            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.4);
         }
 
         .nav-logo {
@@ -131,7 +136,7 @@
             font-family: var(--font-body);
             font-weight: 700;
             font-size: 1.05rem;
-            color: var(--blue-900);
+            color: #f1f5f9;
             letter-spacing: -0.02em;
         }
 
@@ -172,9 +177,9 @@
         }
 
         .lang-btn.active {
-            background: white;
-            color: var(--accent);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+            box-shadow: none;
         }
 
         .nav-cta {
@@ -195,7 +200,7 @@
 
         .hamburger {
             display: none;
-            color: var(--light-text);
+            color: #f1f5f9;
             font-size: 1.4rem;
             padding: 0.25rem;
         }
@@ -203,7 +208,7 @@
         /* Mobile overlay */
         .mobile-overlay {
             position: fixed; inset: 0; z-index: 999;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(8, 9, 15, 0.97);
             backdrop-filter: blur(20px);
             display: flex;
             flex-direction: column;
@@ -219,146 +224,145 @@
         .mobile-overlay a {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            color: var(--light-text-secondary);
+            color: var(--dark-text-secondary);
             transition: color 0.2s;
         }
 
-        .mobile-overlay a:hover { color: var(--accent); }
+        .mobile-overlay a:hover { color: var(--accent-light); }
 
         .mobile-close {
             position: absolute; top: 1rem; right: 1.5rem;
-            color: var(--light-text); font-size: 1.6rem;
+            color: var(--dark-text-secondary); font-size: 1.6rem;
         }
 
         /* ═══════════════════════════════════════════
-           HERO — LIGHT SECTION WITH BLUE GRADIENT
+           HERO — DARK, COMPACT, ABOVE-FOLD
         ═══════════════════════════════════════════ */
         .hero {
             min-height: auto;
             display: flex;
             align-items: center;
-            padding: 7.5rem 2rem 4rem;
+            padding: 5.5rem 2rem 3rem;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(175deg, var(--blue-50) 0%, #ffffff 40%, #ffffff 100%);
+            /* Dot grid texture + blue glow */
+            background-color: var(--bg-primary);
+            background-image:
+                radial-gradient(ellipse 60% 50% at 70% 0%, rgba(59,130,246,0.1) 0%, transparent 70%),
+                radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 100%, 28px 28px;
         }
 
-        /* Decorative mesh gradient */
         .hero::before {
             content: '';
             position: absolute;
-            top: -20%; right: -10%;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.25), transparent);
             pointer-events: none;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -10%; left: -5%;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
-            pointer-events: none;
-        }
+        .hero::after { display: none; }
 
         .hero-inner {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             width: 100%;
             position: relative;
             z-index: 1;
         }
 
-        .hero-top {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .hero-content { max-width: 580px; flex: 1; }
+        .hero-content { max-width: 760px; }
 
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.9rem;
             background: var(--accent-subtle);
-            border: 1px solid rgba(37, 99, 235, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.18);
             border-radius: 100px;
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--accent-light);
             width: fit-content;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.04em;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             animation: fadeUp 0.6s var(--ease) both;
         }
 
         .hero-badge .pulse {
-            width: 7px; height: 7px;
-            background: var(--accent);
+            width: 6px; height: 6px;
+            background: var(--accent-light);
             border-radius: 50%;
             animation: pulse 2.5s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(37,99,235,0); }
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(59,130,246,0.5); }
+            50% { opacity: 0.6; box-shadow: 0 0 0 5px rgba(59,130,246,0); }
         }
 
         .hero h1 {
             font-family: var(--font-display);
             font-weight: 400;
-            font-size: clamp(2.6rem, 5.5vw, 3.8rem);
-            line-height: 1.12;
-            letter-spacing: -0.02em;
-            color: var(--blue-900);
-            margin-bottom: 1.25rem;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: #f1f5f9;
+            margin-bottom: 1rem;
             animation: fadeUp 0.6s var(--ease) 0.08s both;
         }
 
         .hero h1 .accent-word {
-            color: var(--accent);
+            color: var(--accent-light);
             font-style: italic;
         }
 
         .hero-sub {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--light-text-secondary);
-            line-height: 1.75;
+            line-height: 1.65;
             font-weight: 400;
-            margin-bottom: 2rem;
-            max-width: 480px;
+            margin-bottom: 1.5rem;
+            max-width: 560px;
             animation: fadeUp 0.6s var(--ease) 0.16s both;
         }
 
         .hero-actions {
-            display: flex; gap: 0.75rem;
+            display: flex; gap: 0.65rem;
             align-items: center; flex-wrap: wrap;
             animation: fadeUp 0.6s var(--ease) 0.24s both;
         }
 
-        /* Hero stats */
+        /* Hero stats — compact row */
         .hero-stats {
-            display: flex; gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--light-border);
+            display: flex; gap: 2.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.07);
             animation: fadeUp 0.6s var(--ease) 0.32s both;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
         }
 
         .hero-stat-num {
             font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--accent);
+            font-size: 1.75rem;
+            color: var(--accent-light);
             line-height: 1;
-            margin-bottom: 0.25rem;
         }
 
         .hero-stat-label {
-            font-size: 0.78rem;
-            color: var(--light-text-muted);
-            font-weight: 500;
+            font-size: 0.75rem;
+            color: var(--dark-text-muted);
+            font-weight: 400;
+            max-width: 140px;
+            line-height: 1.3;
         }
 
         /* Hero visual — slim horizontal flow */
@@ -427,6 +431,62 @@
             flex-shrink: 0;
         }
 
+        /* ═══ SOCIAL PROOF STRIP (hero) ═══ */
+        .hero-proof {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.6s var(--ease) 0s both;
+        }
+
+        .proof-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--dark-text-muted);
+        }
+
+        .proof-divider {
+            color: var(--dark-text-muted);
+            opacity: 0.4;
+        }
+
+        .proof-tech {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .proof-tech-item {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--dark-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .proof-tech-item:hover { opacity: 1; }
+
+        .proof-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.75rem;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--emerald);
+            letter-spacing: 0.03em;
+        }
+
         /* ═══════════════════════════════════════════
            BUTTONS
         ═══════════════════════════════════════════ */
@@ -453,16 +513,16 @@
             display: inline-flex; align-items: center; gap: 0.5rem;
             font-size: 0.9rem; font-weight: 500;
             padding: 0.85rem 1.5rem;
-            color: var(--light-text-secondary);
-            border: 1px solid var(--light-border);
+            color: var(--dark-text-secondary);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: var(--radius-sm);
             transition: all 0.25s ease;
-            background: white;
+            background: transparent;
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
-            color: var(--accent);
+            color: var(--accent-light);
             background: var(--accent-subtle);
         }
 
@@ -563,7 +623,7 @@
 
         .service-card {
             padding: 2rem;
-            background: white;
+            background: var(--bg-surface);
             border: 1px solid var(--light-border);
             border-radius: var(--radius);
             transition: all 0.35s var(--ease);
@@ -575,7 +635,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 3px;
+            height: 2px;
             background: linear-gradient(90deg, var(--accent), var(--blue-300));
             opacity: 0;
             transition: opacity 0.3s;
@@ -583,8 +643,8 @@
 
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            border-color: transparent;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            border-color: rgba(59,130,246,0.2);
         }
 
         .service-card:hover::before { opacity: 1; }
@@ -635,8 +695,8 @@
            TECH STRIP
         ═══════════════════════════════════════════ */
         .tech-strip {
-            padding: 3rem 2rem;
-            background: var(--light-bg-alt);
+            padding: 2.5rem 2rem;
+            background: var(--bg-elevated, #131820);
             border-top: 1px solid var(--light-border);
             border-bottom: 1px solid var(--light-border);
         }
@@ -749,7 +809,7 @@
 
         .case-card {
             padding: 2rem;
-            background: white;
+            background: var(--bg-surface);
             border: 1px solid var(--light-border);
             border-radius: var(--radius);
             transition: all 0.35s var(--ease);
@@ -759,7 +819,8 @@
 
         .case-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            border-color: rgba(59,130,246,0.2);
         }
 
         .case-badge {
@@ -938,6 +999,94 @@
         .footer-social a svg { width: 14px; height: 14px; }
 
         /* ═══════════════════════════════════════════
+           SECTION VISUAL SEPARATORS & AMBIENT GLOW
+        ═══════════════════════════════════════════ */
+        .section-light,
+        .section-light-alt,
+        .dark-section,
+        .cta-section { position: relative; }
+
+        .section-light::before,
+        .section-light-alt::before,
+        .dark-section:not(.cta-section)::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 8%; right: 8%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(59,130,246,0.35) 40%,
+                rgba(96,165,250,0.45) 50%,
+                rgba(59,130,246,0.35) 60%,
+                transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Ambient corner glow — alternating sections */
+        .section-light::after,
+        .dark-section:not(.cta-section)::after {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(ellipse at center,
+                rgba(59,130,246,0.07) 0%,
+                transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .section-light-alt::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(ellipse at center,
+                rgba(59,130,246,0.06) 0%,
+                transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* Ensure content inside sections stays above ambient glow */
+        .section-light > .container,
+        .section-light-alt > .container,
+        .dark-section > .container { position: relative; z-index: 1; }
+
+        /* ═══ CARD VISUAL TREATMENT ═══ */
+        /* Subtle diagonal tint visible at rest — gets stronger on hover */
+        .service-card {
+            background: linear-gradient(135deg,
+                var(--bg-surface) 0%,
+                rgba(59,130,246,0.05) 100%);
+        }
+        .service-card:hover {
+            background: linear-gradient(135deg,
+                var(--bg-surface) 0%,
+                rgba(59,130,246,0.1) 100%);
+        }
+
+        .case-card {
+            background: linear-gradient(135deg,
+                var(--bg-surface) 0%,
+                rgba(59,130,246,0.04) 100%);
+        }
+        .case-card:hover {
+            background: linear-gradient(135deg,
+                var(--bg-surface) 0%,
+                rgba(59,130,246,0.09) 100%);
+        }
+
+        /* Highlighted service card (featured tier) */
+        .service-card.featured {
+            border-color: rgba(59,130,246,0.4);
+            background: linear-gradient(135deg,
+                rgba(59,130,246,0.08) 0%,
+                var(--bg-surface) 100%);
+        }
+        .service-card.featured::before { opacity: 1; }
+
+        /* ═══════════════════════════════════════════
            ANIMATIONS
         ═══════════════════════════════════════════ */
         @keyframes fadeUp {
@@ -959,10 +1108,6 @@
            RESPONSIVE
         ═══════════════════════════════════════════ */
         @media (max-width: 900px) {
-            .hero-top { flex-direction: column; gap: 2rem; }
-            .hero-flow { width: 100%; }
-            .flow-strip { flex-wrap: wrap; justify-content: center; }
-            .flow-node { min-width: 75px; padding: 0.7rem 0.9rem; }
             .hero-stats { gap: 1.5rem; }
             .process-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .process-grid::before { display: none; }
@@ -1050,75 +1195,79 @@
     ═══════════════════════════════════════════ -->
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-top">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="pulse"></span>
-                        <span class="en">Business Process Automation</span>
-                        <span class="cz">Automatizace firemních procesů</span>
-                    </div>
-                    <h1>
-                        <span class="en">Your processes.<br>Automated. Measurable.<br><span class="accent-word">Done.</span></span>
-                        <span class="cz">Vaše procesy.<br>Automatizované. Měřitelné.<br><span class="accent-word">Hotovo.</span></span>
-                    </h1>
-                    <p class="hero-sub">
-                        <span class="en">AI-powered automation for procurement, finance, and operations. Projects are delivered only when positive ROI is confirmed.</span>
-                        <span class="cz">AI automatizace pro nákup, finance a provoz. Projekty jsou realizovány pouze na základě potvrzené pozitivní návratnosti.</span>
-                    </p>
-                    <div class="hero-actions">
-                        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
-                            <span class="en">Book Free Discovery Call</span>
-                            <span class="cz">Domluvit hovor zdarma</span>
-                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                        </a>
-                        <a href="#cases" class="btn-secondary">
-                            <span class="en">See Use Cases</span>
-                            <span class="cz">Zobrazit případy</span>
-                        </a>
-                    </div>
+
+            <!-- 2. SOCIAL PROOF — tools strip -->
+            <div class="hero-proof">
+                <span class="proof-label"><span class="en">Works with</span><span class="cz">Pracuje s</span></span>
+                <span class="proof-divider">·</span>
+                <div class="proof-tech">
+                    <span class="proof-tech-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#0078d4"><path d="M11.4 24H0V12.6L11.4 24zM12.6 24L24 12.6V24H12.6zM24 11.4L12.6 0H24v11.4zM11.4 0L0 11.4V0h11.4z"/></svg>
+                        M365
+                    </span>
+                    <span class="proof-tech-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#0066ff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        Power Automate
+                    </span>
+                    <span class="proof-tech-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#c77dff"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        Claude AI
+                    </span>
+                    <span class="proof-tech-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#217346"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        Power BI
+                    </span>
                 </div>
-                <div class="hero-flow">
-                    <div class="hero-motto">
-                        <span class="en">Sourcing Sense — We Make It Done</span>
-                        <span class="cz">Sourcing Sense — Dotáhneme to do konce</span>
-                    </div>
-                    <div class="flow-strip">
-                        <div class="flow-node">
-                            <span class="flow-node-icon">🔍</span>
-                            <span class="flow-node-label"><span class="en">Analyze</span><span class="cz">Analýza</span></span>
-                        </div>
-                        <span class="flow-arrow">→</span>
-                        <div class="flow-node">
-                            <span class="flow-node-icon">⚙️</span>
-                            <span class="flow-node-label"><span class="en">Automate</span><span class="cz">Automatizace</span></span>
-                        </div>
-                        <span class="flow-arrow">→</span>
-                        <div class="flow-node">
-                            <span class="flow-node-icon">📊</span>
-                            <span class="flow-node-label"><span class="en">Measure</span><span class="cz">Měření</span></span>
-                        </div>
-                        <span class="flow-arrow">→</span>
-                        <div class="flow-node" style="border-color:var(--accent);background:var(--accent-subtle);">
-                            <span class="flow-node-icon">✅</span>
-                            <span class="flow-node-label" style="color:var(--accent);"><span class="en">Done</span><span class="cz">Hotovo</span></span>
-                        </div>
-                    </div>
+                <span class="proof-divider">·</span>
+                <span class="proof-badge">
+                    <span class="en">EMEA production-tested</span>
+                    <span class="cz">Ověřeno v praxi EMEA</span>
+                </span>
+            </div>
+
+            <div class="hero-content">
+                <!-- 3. HEADING -->
+                <h1>
+                    <span class="en">Stop doing manually<br>what AI can do<br><span class="accent-word">in minutes.</span></span>
+                    <span class="cz">Přestaňte dělat ručně<br>to, co AI zvládne<br><span class="accent-word">za minuty.</span></span>
+                </h1>
+
+                <!-- 4. SUBHEADING -->
+                <p class="hero-sub">
+                    <span class="en">I help companies and individuals find where they lose the most time and money — then eliminate it using AI, lean methodology, and tools they already have.</span>
+                    <span class="cz">Pomáhám firmám i jednotlivcům najít kde ztrácejí nejvíce času a peněz — a pak to eliminovat pomocí AI, lean metodiky a nástrojů, které již vlastní.</span>
+                </p>
+
+                <!-- 5. CTA -->
+                <div class="hero-actions">
+                    <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+                        <span class="en">Book Free Discovery Call</span>
+                        <span class="cz">Domluvit hovor zdarma</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                    <a href="#cases" class="btn-secondary">
+                        <span class="en">See what I've built</span>
+                        <span class="cz">Co jsem postavil</span>
+                    </a>
                 </div>
             </div>
+
+            <!-- 6. METRICS -->
             <div class="hero-stats">
-                <div>
-                    <div class="hero-stat-num">8+</div>
-                    <div class="hero-stat-label"><span class="en">Years Procurement</span><span class="cz">Let v nákupu</span></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num"><span class="en">4 wk</span><span class="cz">4 týd.</span></div>
+                    <div class="hero-stat-label"><span class="en">from kickoff to working prototype</span><span class="cz">od zahájení po funkční prototyp</span></div>
                 </div>
-                <div>
-                    <div class="hero-stat-num">6σ</div>
-                    <div class="hero-stat-label"><span class="en">Lean Six Sigma</span><span class="cz">Lean Six Sigma</span></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">60%</div>
+                    <div class="hero-stat-label"><span class="en">less time on manual tasks</span><span class="cz">méně času na ruční úkoly</span></div>
                 </div>
-                <div>
-                    <div class="hero-stat-num">AI</div>
-                    <div class="hero-stat-label"><span class="en">Automation Expert</span><span class="cz">Expert na automatizaci</span></div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">€0</div>
+                    <div class="hero-stat-label"><span class="en">new software licenses required</span><span class="cz">nové softwarové licence nejsou potřeba</span></div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -1139,10 +1288,6 @@
                 <span class="tech-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                     SAP
-                </span>
-                <span class="tech-item">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Python
                 </span>
                 <span class="tech-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
@@ -1171,54 +1316,69 @@
         <div class="container">
             <div class="reveal">
                 <span class="section-eyebrow">
-                    <span class="en">What I do</span>
-                    <span class="cz">Co dělám</span>
+                    <span class="en">Services</span>
+                    <span class="cz">Služby</span>
                 </span>
                 <h2 class="section-heading">
-                    <span class="en">AI implementation & training that make sense</span>
-                    <span class="cz">AI implementace & školení, které dávají smysl</span>
+                    <span class="en">Three ways to work together</span>
+                    <span class="cz">Tři způsoby spolupráce</span>
                 </h2>
                 <p class="section-desc">
-                    <span class="en">No fluffy presentations. No buzzword bingo. Projects are delivered only when positive ROI is confirmed. Training is provided only after initial knowledge assessment and mutual expectations.</span>
-                    <span class="cz">Žádné prázdné prezentace. Žádné buzzwordy. Projekty jsou realizovány pouze na základě pozitivní návratnosti. Školení probíhá až po úvodním testu znalostí a vzájemném nastavení očekávání.</span>
+                    <span class="en">No vague "AI consulting." Concrete deliverables, fixed scope, honest assessment up front. If I don't see a clear ROI, I'll tell you.</span>
+                    <span class="cz">Žádné vágní "AI poradenství." Konkrétní výstupy, pevný rozsah, upřímné zhodnocení předem. Pokud nevidím jasnou návratnost, řeknu vám to.</span>
                 </p>
             </div>
-            <div class="services-grid">
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <div class="service-card reveal d1">
-                    <div class="service-icon-wrap">🎯</div>
-                    <h3><span class="en">AI Strategy Session</span><span class="cz">AI Strategie</span></h3>
+                    <div class="service-icon-wrap">
+                        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <h3>
+                        <span class="en">Procurement AI Audit</span>
+                        <span class="cz">Procurement AI Audit</span>
+                    </h3>
                     <p>
-                        <span class="en">ROI-focused AI roadmap for your business. We pinpoint where automation delivers real impact and build a clear action plan with measurable outcomes.</span>
-                        <span class="cz">AI roadmapa zaměřená na návratnost. Najdeme kde automatizace přinese reálný dopad a vytvoříme jasný akční plán s měřitelnými výsledky.</span>
+                        <span class="en">Map your processes. Find what's worth automating. Get a clear report with prioritized recommendations and an ROI estimate for each opportunity.</span>
+                        <span class="cz">Zmapujeme vaše procesy. Najdeme co stojí za automatizaci. Získáte přehledný report s prioritizovanými doporučeními a odhadem návratnosti pro každou příležitost.</span>
                     </p>
-                    <span class="service-tag"><span class="en">Strategic Consulting</span><span class="cz">Strategické poradenství</span></span>
+                    <span class="service-tag">
+                        <span class="en">Output: report + roadmap</span>
+                        <span class="cz">Výstup: report + roadmapa</span>
+                    </span>
                 </div>
-                <div class="service-card reveal d2">
-                    <div class="service-icon-wrap">⚡</div>
-                    <h3><span class="en">AI Implementation</span><span class="cz">AI Implementace</span></h3>
+                <div class="service-card featured reveal d2">
+                    <div class="service-icon-wrap" style="background:rgba(59,130,246,0.15);">
+                        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color:var(--accent-light)"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3>
+                        <span class="en">Proof of Concept Sprint</span>
+                        <span class="cz">Proof of Concept Sprint</span>
+                    </h3>
                     <p>
-                        <span class="en">From assessment to execution. Quick wins first, then systematic improvement. Lean Six Sigma methodology applied to AI integration in your processes.</span>
-                        <span class="cz">Od analýzy po realizaci. Nejdřív rychlé výhry, pak systematické zlepšování. Lean Six Sigma metodologie aplikovaná na AI integraci ve vašich procesech.</span>
+                        <span class="en">Take one process from the audit and build a working automation in 2–4 weeks. Functional prototype in Power Platform or M365, with documentation and handoff specs.</span>
+                        <span class="cz">Vezmeme jeden proces z auditu a postavíme funkční automatizaci za 2–4 týdny. Funkční prototyp v Power Platform nebo M365, s dokumentací a specifikacemi pro předání.</span>
                     </p>
-                    <span class="service-tag"><span class="en">End-to-End Delivery</span><span class="cz">Kompletní realizace</span></span>
+                    <span class="service-tag" style="background:rgba(59,130,246,0.1);color:var(--accent-light);">
+                        <span class="en">Output: working prototype + docs</span>
+                        <span class="cz">Výstup: funkční prototyp + dokumentace</span>
+                    </span>
                 </div>
                 <div class="service-card reveal d3">
-                    <div class="service-icon-wrap">🔍</div>
-                    <h3><span class="en">Process Audit</span><span class="cz">Audit procesů</span></h3>
+                    <div class="service-icon-wrap">
+                        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <h3>
+                        <span class="en">Advisory Retainer</span>
+                        <span class="cz">Advisory Retainer</span>
+                    </h3>
                     <p>
-                        <span class="en">Deep dive into your workflows. Identify bottlenecks, manual waste, and automation opportunities. Get a clear report with prioritized recommendations.</span>
-                        <span class="cz">Hloubková analýza vašich workflow. Identifikace úzkých míst, manuální práce a příležitostí k automatizaci. Jasná zpráva s prioritizovanými doporučeními.</span>
+                        <span class="en">Monthly support for teams already running on AI. Adoption guidance, expansion planning, troubleshooting. Low time commitment, predictable cost.</span>
+                        <span class="cz">Měsíční podpora pro týmy, které už AI používají. Vedení při zavádění, plánování rozšíření, řešení problémů. Nízká časová náročnost, předvídatelné náklady.</span>
                     </p>
-                    <span class="service-tag"><span class="en">Analysis & Recommendations</span><span class="cz">Analýza & doporučení</span></span>
-                </div>
-                <div class="service-card reveal d4">
-                    <div class="service-icon-wrap">🛠️</div>
-                    <h3><span class="en">AI Tools & Trainings</span><span class="cz">AI Nástroje & Školení</span></h3>
-                    <p>
-                        <span class="en">Custom-built tools and hands-on training tailored to your needs. Supplier categorization, spend analysis, contract scanning — practical solutions and the skills to use them from day one.</span>
-                        <span class="cz">Nástroje a praktická školení na míru vašim potřebám. Kategorizace dodavatelů, analýza nákladů, skenování smluv — praktická řešení a dovednosti k jejich použití od prvního dne.</span>
-                    </p>
-                    <span class="service-tag"><span class="en">Custom Development</span><span class="cz">Vývoj na míru</span></span>
+                    <span class="service-tag">
+                        <span class="en">Output: monthly guidance + support</span>
+                        <span class="cz">Výstup: měsíční vedení + podpora</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -1235,12 +1395,12 @@
                     <span class="cz">Jak to funguje</span>
                 </span>
                 <h2 class="section-heading">
-                    <span class="en">From conversation to results</span>
-                    <span class="cz">Od rozhovoru k výsledkům</span>
+                    <span class="en">Three steps. Weeks, not months.</span>
+                    <span class="cz">Tři kroky. Týdny, ne měsíce.</span>
                 </h2>
                 <p class="section-desc" style="margin:0 auto 3rem;text-align:center;">
-                    <span class="en">Strong foundations, zero waste, measurable results. Three steps — that's all it takes.</span>
-                    <span class="cz">Pevné základy, nulový odpad, měřitelné výsledky. Tři kroky — víc nepotřebujete.</span>
+                    <span class="en">No 6-month discovery phases. No "strategic alignment workshops." We identify the problem, validate it's worth solving, and build.</span>
+                    <span class="cz">Žádné půlroční discovery fáze. Žádné "workshopy strategického sladění." Identifikujeme problém, ověříme, že stojí za řešení, a postavíme ho.</span>
                 </p>
             </div>
             <div class="process-grid reveal">
@@ -1248,24 +1408,24 @@
                     <div class="step-number">01</div>
                     <h3><span class="en">Free Discovery Call</span><span class="cz">Bezplatný úvodní hovor</span></h3>
                     <p>
-                        <span class="en">20 minutes. We talk about your biggest process challenge. No sales pitch — just an honest assessment of whether AI can help.</span>
-                        <span class="cz">20 minut. Probereme váš největší procesní problém. Žádný prodej — jen upřímné zhodnocení, zda může AI pomoci.</span>
+                        <span class="en">20 minutes. You describe your biggest manual bottleneck. I tell you honestly whether automation will help — and roughly how fast.</span>
+                        <span class="cz">20 minut. Popíšete svůj největší ruční problém. Řeknu vám upřímně, zda automatizace pomůže — a zhruba jak rychle.</span>
                     </p>
                 </div>
                 <div class="process-step d2">
                     <div class="step-number">02</div>
-                    <h3><span class="en">Structured Assessment</span><span class="cz">Strukturovaná analýza</span></h3>
+                    <h3><span class="en">Audit &amp; Prioritize</span><span class="cz">Audit &amp; prioritizace</span></h3>
                     <p>
-                        <span class="en">Detailed questionnaire covering your workflows, approval chains, and data landscape. Built on Lean methodology.</span>
-                        <span class="cz">Detailní dotazník pokrývající vaše workflow, schvalovací řetězce a datový landscape. Postaveno na Lean metodologii.</span>
+                        <span class="en">I map your current processes, identify automation opportunities, and rank them by ROI and effort. You get a clear picture of where to start.</span>
+                        <span class="cz">Zmapuji vaše procesy, identifikuji příležitosti k automatizaci a seřadím je podle návratnosti a náročnosti. Dostanete jasný přehled, kde začít.</span>
                     </p>
                 </div>
                 <div class="process-step d3">
                     <div class="step-number">03</div>
-                    <h3><span class="en">Strategy or Build</span><span class="cz">Strategie nebo realizace</span></h3>
+                    <h3><span class="en">Build or Advise</span><span class="cz">Postavit nebo poradit</span></h3>
                     <p>
-                        <span class="en">Get a focused strategy with a concrete action plan, or go all-in with full implementation. Clear deliverables, measurable outcomes.</span>
-                        <span class="cz">Získejte strategii s konkrétním akčním plánem, nebo rovnou plnou implementaci. Jasné výstupy, měřitelné výsledky.</span>
+                        <span class="en">Sprint to a working prototype in Power Platform or M365 — or structured guidance if you prefer to build internally. Your choice, clear deliverables either way.</span>
+                        <span class="cz">Prototyp v Power Platform nebo M365 za 2–4 týdny — nebo strukturované vedení pokud stavíte interně. Vaše volba, jasné výstupy v obou případech.</span>
                     </p>
                 </div>
             </div>
@@ -1279,16 +1439,16 @@
         <div class="container">
             <div class="reveal">
                 <span class="section-eyebrow">
-                    <span class="en">Use Cases</span>
-                    <span class="cz">Případové studie</span>
+                    <span class="en">Built &amp; tested</span>
+                    <span class="cz">Postaveno &amp; otestováno</span>
                 </span>
                 <h2 class="section-heading">
-                    <span class="en">Real problems, real solutions</span>
-                    <span class="cz">Reálné problémy, reálná řešení</span>
+                    <span class="en">What this looks like in practice</span>
+                    <span class="cz">Jak to vypadá v praxi</span>
                 </h2>
                 <p class="section-desc">
-                    <span class="en">Here's what AI automation looks like in practice. Each case shows a specific problem and how it was solved.</span>
-                    <span class="cz">Takhle vypadá AI automatizace v praxi. Každý případ ukazuje konkrétní problém a jeho řešení.</span>
+                    <span class="en">These aren't demos. Each one was built in a real business environment, validated against actual data, using tools the team already had.</span>
+                    <span class="cz">Tohle nejsou dema. Každé bylo postaveno v reálném firemním prostředí, ověřeno na skutečných datech, pomocí nástrojů, které tým již měl.</span>
                 </p>
             </div>
             <div class="cases-grid">
@@ -1296,8 +1456,8 @@
                     <div class="case-badge"><span class="en">Procurement</span><span class="cz">Nákup</span></div>
                     <h3><span class="en">Supplier Categorization at Scale</span><span class="cz">Kategorizace dodavatelů ve velkém</span></h3>
                     <p>
-                        <span class="en">2,000+ suppliers classified automatically using AI pattern matching against GL accounts and commodity hierarchies. From weeks of manual work to minutes.</span>
-                        <span class="cz">2 000+ dodavatelů klasifikováno automaticky pomocí AI pattern matching proti GL účtům a komoditním hierarchiím. Z týdnů manuální práce na minuty.</span>
+                        <span class="en">2,000+ suppliers classified automatically via AI pattern matching against GL accounts and commodity codes. Before: weeks of analyst time every quarter. After: minutes.</span>
+                        <span class="cz">2 000+ dodavatelů klasifikováno automaticky přes AI pattern matching proti GL účtům a komoditním kódům. Před: týdny analytické práce každý kvartál. Po: minuty.</span>
                     </p>
                     <span class="case-result">
                         <span class="en">↓ 95% time reduction</span>
@@ -1306,10 +1466,10 @@
                 </div>
                 <div class="case-card reveal d2">
                     <div class="case-badge"><span class="en">Finance</span><span class="cz">Finance</span></div>
-                    <h3><span class="en">Automated Spend Analysis</span><span class="cz">Automatická analýza nákladů</span></h3>
+                    <h3><span class="en">Spend Analysis from Raw ERP Data</span><span class="cz">Analýza nákladů ze surových ERP dat</span></h3>
                     <p>
-                        <span class="en">AI-powered spend visibility from raw SAP data. Category breakdowns, supplier concentration analysis, and savings opportunity identification — all automated.</span>
-                        <span class="cz">AI viditelnost nákladů ze surových SAP dat. Rozpad do kategorií, analýza koncentrace dodavatelů a identifikace úspor — vše automatizovaně.</span>
+                        <span class="en">AI-powered spend visibility directly from SAP exports. Category breakdowns, supplier concentration, savings opportunities — all updated automatically. No manual pivoting.</span>
+                        <span class="cz">AI viditelnost nákladů přímo ze SAP exportů. Rozpad do kategorií, koncentrace dodavatelů, příležitosti k úsporám — vše aktualizováno automaticky. Žádné ruční pivot tabulky.</span>
                     </p>
                     <span class="case-result">
                         <span class="en">↑ Real-time visibility</span>
@@ -1320,8 +1480,8 @@
                     <div class="case-badge"><span class="en">Operations</span><span class="cz">Provoz</span></div>
                     <h3><span class="en">Contract Risk Scanner</span><span class="cz">Skener rizik ve smlouvách</span></h3>
                     <p>
-                        <span class="en">Upload a contract, get instant AI analysis of key terms, risks, expiry dates, and compliance gaps. No more manual reviews.</span>
-                        <span class="cz">Nahrajte smlouvu, získejte okamžitou AI analýzu klíčových podmínek, rizik, dat expirace a mezer v compliance. Konec manuálních kontrol.</span>
+                        <span class="en">Upload a contract in Power Automate. Get instant AI extraction of key terms, expiry dates, liability clauses, and compliance gaps — structured and ready for action.</span>
+                        <span class="cz">Nahrajte smlouvu do Power Automate. Získejte okamžitou AI extrakci klíčových podmínek, dat expirace, doložek o odpovědnosti a mezer v compliance — strukturovaně a připraveno k akci.</span>
                     </p>
                     <span class="case-result">
                         <span class="en">↓ 80% review time</span>
@@ -1409,16 +1569,16 @@
     <section class="cta-section dark-section" id="booking">
         <div class="cta-inner">
             <span class="section-eyebrow" style="justify-content:center;">
-                <span class="en">Let's Talk</span>
+                <span class="en">Let's talk</span>
                 <span class="cz">Pojďme si promluvit</span>
             </span>
-            <h2 class="section-heading" style="max-width:500px;margin:0 auto 1rem;">
-                <span class="en">Ready to automate what matters?</span>
-                <span class="cz">Připraveni automatizovat to podstatné?</span>
+            <h2 class="section-heading" style="max-width:560px;margin:0 auto 1rem;">
+                <span class="en">One process. Four weeks. Working automation.</span>
+                <span class="cz">Jeden proces. Čtyři týdny. Funkční automatizace.</span>
             </h2>
             <p class="section-desc" style="text-align:center;margin:0 auto 2.5rem;">
-                <span class="en">20-minute discovery call. No sales pitch — just an honest look at whether AI can move the needle for your business.</span>
-                <span class="cz">20minutový úvodní hovor. Žádný prodej — jen upřímný pohled na to, zda může AI posunout váš business.</span>
+                <span class="en">20-minute call. Tell me what your team does manually every week. I'll tell you honestly if it's worth automating — and how fast we can get there.</span>
+                <span class="cz">20minutový hovor. Řekněte mi, co váš tým každý týden dělá ručně. Řeknu vám upřímně, zda to stojí za automatizaci — a jak rychle se tam dostaneme.</span>
             </p>
             <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary" style="font-size:1rem;padding:0.95rem 2rem;">
                 <span class="en">Book Your Free Call</span>
