@@ -936,22 +936,52 @@ function toggleTag(el) {
     el.classList.toggle('selected');
 }
 
+// ─── GAS BACKEND ───
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';
+
+function postToGAS(payload) {
+    const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
+    return fetch(url, { mode: 'no-cors' });
+}
+
 // Contact form submit
-function submitContact(e) {
+async function submitContact(e) {
     e.preventDefault();
-    // TODO: Connect to Formspree or backend
     const form = document.getElementById('contactForm');
     const success = document.getElementById('contactSuccess');
-    form.style.display = 'none';
-    success.style.display = 'block';
+    const btn = form.querySelector('.form-submit');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+
+    try {
+        await postToGAS({
+            type: 'contact',
+            name: document.getElementById('cName').value.trim(),
+            email: document.getElementById('cEmail').value.trim(),
+            topic: document.getElementById('cTopic').value,
+            message: document.getElementById('cMessage').value.trim(),
+            lang: lang
+        });
+        form.style.display = 'none';
+        success.style.display = 'block';
+    } catch (err) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        alert(lang === 'cs'
+            ? 'Odeslání se nezdařilo. Zkuste to znovu nebo napište na info@sourcing-sense.com'
+            : 'Failed to send. Please try again or email info@sourcing-sense.com');
+    }
 }
 
 // Suggestion submit
-function submitSuggestion(type) {
+async function submitSuggestion(type) {
     const textarea = document.getElementById(type === 'tool' ? 'toolIdea' : 'articleIdea');
     const tagsEl = document.getElementById(type === 'tool' ? 'toolTags' : 'articleTags');
     const selected = [...tagsEl.querySelectorAll('.selected')].map(t => t.textContent.trim());
     const text = textarea.value.trim();
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
 
     if (!text && selected.length === 0) {
         textarea.style.borderColor = '#ef4444';
@@ -959,11 +989,11 @@ function submitSuggestion(type) {
         return;
     }
 
-    // TODO: Send to backend
-    console.log(`Suggestion (${type}):`, { tags: selected, idea: text });
+    try {
+        await postToGAS({ type: 'suggestion', suggestionType: type, tags: selected, idea: text, lang: lang });
+    } catch (err) { /* silent fail */ }
 
-    const successEl = document.getElementById(type === 'tool' ? 'toolSuccess' : 'articleSuccess');
-    successEl.style.display = 'block';
+    document.getElementById(type === 'tool' ? 'toolSuccess' : 'articleSuccess').style.display = 'block';
     textarea.value = '';
     tagsEl.querySelectorAll('.selected').forEach(t => t.classList.remove('selected'));
 }

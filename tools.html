@@ -865,18 +865,29 @@ function filterTools(type) {
 // Tag toggle
 function toggleTag(el) { el.classList.toggle('selected'); }
 
+// ─── GAS BACKEND ───
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';
+
+function postToGAS(payload) {
+    const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
+    return fetch(url, { mode: 'no-cors' });
+}
+
 // Suggestion submit
-function submitSuggestion(type) {
+async function submitSuggestion(type) {
     const textarea = document.getElementById(type === 'tool' ? 'toolIdea' : 'articleIdea');
     const tagsEl = document.getElementById(type === 'tool' ? 'toolTags' : 'articleTags');
     const selected = [...tagsEl.querySelectorAll('.selected')].map(t => t.textContent.trim());
     const text = textarea.value.trim();
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
     if (!text && selected.length === 0) {
         textarea.style.borderColor = '#ef4444';
         setTimeout(() => textarea.style.borderColor = '', 1500);
         return;
     }
-    console.log(`Suggestion (${type}):`, { tags: selected, idea: text });
+    try {
+        await postToGAS({ type: 'suggestion', suggestionType: type, tags: selected, idea: text, lang: lang });
+    } catch (err) { /* silent fail */ }
     document.getElementById(type === 'tool' ? 'toolSuccess' : 'articleSuccess').style.display = 'block';
     textarea.value = '';
     tagsEl.querySelectorAll('.selected').forEach(t => t.classList.remove('selected'));

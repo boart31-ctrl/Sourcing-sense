@@ -1700,6 +1700,12 @@
                     <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
                     <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a>
                     <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank">LinkedIn</a>
+                    <p style="margin-top:1rem;font-size:0.78rem;color:var(--dark-text-muted);"><span class="en">AI procurement tips, new tools, no spam.</span><span class="cz">AI tipy pro nákup, nové nástroje, žádný spam.</span></p>
+                    <form class="newsletter-form" onsubmit="submitNewsletter(event)" style="display:flex;gap:0.4rem;margin-top:0.5rem;">
+                        <input type="email" id="nlEmail" required placeholder="your@email.com" style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:0.82rem;color:var(--dark-text);outline:none;">
+                        <button type="submit" id="nlBtn" style="padding:0.5rem 0.9rem;background:var(--accent);color:white;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;"><span class="en">Subscribe</span><span class="cz">Odebírat</span></button>
+                    </form>
+                    <div id="nlMsg" style="font-size:0.78rem;margin-top:0.4rem;"></div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1742,6 +1748,34 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         if (t) window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - nav.offsetHeight - 16, behavior: 'smooth' });
     });
 });
+
+// ─── GAS BACKEND ───
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';
+
+function postToGAS(payload) {
+    const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
+    return fetch(url, { mode: 'no-cors' });
+}
+
+async function submitNewsletter(e) {
+    e.preventDefault();
+    const email = document.getElementById('nlEmail').value.trim();
+    const btn = document.getElementById('nlBtn');
+    const msg = document.getElementById('nlMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    msg.textContent = '';
+    try {
+        await postToGAS({ type: 'newsletter', email: email, source: 'footer', lang: lang });
+        msg.style.color = '#10b981';
+        msg.textContent = lang === 'cs' ? 'Přihlášeno! Díky.' : 'Subscribed! Thanks.';
+        document.getElementById('nlEmail').value = '';
+    } catch (err) {
+        msg.style.color = '#ef4444';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo.' : 'Something went wrong.';
+    }
+    btn.disabled = false;
+}
 
 // ─── LANGUAGE SYSTEM ───
 function setLang(lang) {
