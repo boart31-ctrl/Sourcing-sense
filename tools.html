@@ -488,7 +488,8 @@
     <ul class="nav-center">
         <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
         <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
+            <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
         <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
         <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
     </ul>
@@ -505,7 +506,8 @@
     <button class="mobile-close" onclick="toggleMob()">✕</button>
     <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
     <a href="/tools" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+        <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
     <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
     <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
 </div>
@@ -613,7 +615,39 @@
                 </div>
             </div>
 
-            <div class="tool-card reveal d3" data-type="free">
+            <div class="tool-card reveal d3" data-type="free" style="border-top:2px solid var(--accent);position:relative;overflow:hidden;">
+                <div style="position:absolute;top:12px;right:12px;">
+                    <span style="background:rgba(245,158,11,0.12);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;">
+                        <span class="en">Coming soon</span><span class="cz">Již brzy</span>
+                    </span>
+                </div>
+                <div class="tool-card-top">
+                    <div class="tool-card-header">
+                        <div class="tool-icon free">📊</div>
+                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                    </div>
+                    <h3><span class="en">Business AI Readiness Score</span><span class="cz">Business AI Readiness Score</span></h3>
+                    <p><span class="en">10 questions. 3 minutes. Find out where your company is on AI governance, data risk, and tool adoption — and what to fix first. Score 0–100 with personalised recommendations.</span><span class="cz">10 otázek. 3 minuty. Zjistěte, kde je vaše firma v oblasti AI governance, datového rizika a zavádění nástrojů — a co řešit jako první. Skóre 0–100 s personalizovanými doporučeními.</span></p>
+                    <div class="tool-features">
+                        <span class="tool-feature"><span class="en">AI governance</span><span class="cz">AI governance</span></span>
+                        <span class="tool-feature"><span class="en">Data risk</span><span class="cz">Datové riziko</span></span>
+                        <span class="tool-feature"><span class="en">Instant score</span><span class="cz">Okamžité skóre</span></span>
+                    </div>
+                </div>
+                <div class="tool-card-bottom">
+                    <form onsubmit="submitScoreWaitlist(event)" style="display:flex;gap:0.4rem;width:100%;">
+                        <input type="email" required placeholder="your@email.com"
+                            style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid var(--light-border);border-radius:6px;font-size:0.8rem;color:var(--light-text);font-family:var(--font-body);outline:none;"
+                            id="scoreWaitlistEmail">
+                        <button type="submit" style="padding:0.5rem 0.9rem;background:var(--accent);color:white;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;border:none;white-space:nowrap;">
+                            <span class="en">Notify me</span><span class="cz">Upozornit</span>
+                        </button>
+                    </form>
+                    <div id="scoreWaitlistMsg" style="font-size:0.75rem;margin-top:0.4rem;"></div>
+                </div>
+            </div>
+
+            <div class="tool-card reveal d4-orig" data-type="free">
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">📋</div>
@@ -864,6 +898,25 @@ function filterTools(type) {
 
 // Tag toggle
 function toggleTag(el) { el.classList.toggle('selected'); }
+
+// ─── AI READINESS SCORE WAITLIST ───
+async function submitScoreWaitlist(e) {
+    e.preventDefault();
+    const email = document.getElementById('scoreWaitlistEmail').value.trim();
+    const msg = document.getElementById('scoreWaitlistMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+            type: 'newsletter', email: email, source: 'score-waitlist', lang: lang
+        })), { mode: 'no-cors' });
+        msg.style.color = '#10b981';
+        msg.textContent = lang === 'cs' ? 'Díky! Dáme vám vědět.' : "You're on the list!";
+        document.getElementById('scoreWaitlistEmail').value = '';
+    } catch (err) {
+        msg.style.color = '#ef4444';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo.' : 'Something went wrong.';
+    }
+}
 
 // ─── GAS BACKEND ───
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';

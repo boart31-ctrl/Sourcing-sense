@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business AI Readiness Score — Free Assessment | Sourcing Sense</title>
+    <meta name="description" content="10 questions. 3 minutes. Find out where your company stands on AI governance, data risk, and tool adoption. Get a score 0–100 with personalised recommendations.">
+    <meta name="author" content="David Račak">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sourcing-sense.com/tools/ai-readiness-score">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/tools/ai-readiness-score">
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/tools/ai-readiness-score">
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/tools/ai-readiness-score">
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml">
+
+    <meta property="og:title" content="Business AI Readiness Score — Free Assessment | Sourcing Sense">
+    <meta property="og:description" content="10 questions. 3 minutes. Score your company's AI readiness and get personalised recommendations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sourcing-sense.com/tools/ai-readiness-score">
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="cs_CZ">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Business AI Readiness Score",
+      "description": "Free self-assessment tool for business AI readiness. 10 questions covering AI governance, data risk, tool adoption and supplier exposure. Score 0–100 with recommendations.",
+      "url": "https://sourcing-sense.com/tools/ai-readiness-score",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": { "@type": "Person", "name": "David Račák" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #3b82f6; --accent-light: #60a5fa;
+            --accent-glow: rgba(59,130,246,0.2); --accent-subtle: rgba(59,130,246,0.1);
+            --gold: #f59e0b; --gold-light: #fbbf24; --emerald: #10b981; --red: #ef4444;
+            --bg-primary: #08090f; --bg-surface: #0d1117;
+            --light-bg: #08090f; --light-bg-alt: #0d1117; --light-card: #0d1117;
+            --light-border: rgba(255,255,255,0.08);
+            --light-text: #f1f5f9; --light-text-secondary: #94a3b8; --light-text-muted: #3d4a5c;
+            --dark-bg: #05060a; --dark-border: rgba(255,255,255,0.07);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8; --dark-text-muted: #3d4a5c;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --radius-lg: 20px;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,9,15,0.88); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: #f1f5f9; letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; align-items: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: rgba(59,130,246,0.15); color: var(--accent-light); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: #f1f5f9; font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(8,9,15,0.97); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .mobile-overlay a:hover { color: var(--accent-light); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--dark-text-secondary); font-size: 1.6rem; }
+        @media (max-width: 768px) { .nav-center { display: none; } .hamburger { display: block; } .nav-cta { display: none; } }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes scoreCount { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+
+        /* HERO */
+        .hero {
+            padding: 6.5rem 2rem 3rem;
+            background-color: var(--bg-primary);
+            background-image: radial-gradient(ellipse 60% 50% at 70% 0%, rgba(59,130,246,0.08) 0%, transparent 70%), radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 100%, 28px 28px;
+            text-align: center;
+        }
+        .hero-inner { max-width: 680px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.9rem; background: var(--accent-subtle); border: 1px solid rgba(59,130,246,0.18); border-radius: 100px; font-size: 0.68rem; font-weight: 600; color: var(--accent-light); margin-bottom: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase; animation: fadeUp 0.5s var(--ease) both; }
+        .hero-badge .pulse { width: 6px; height: 6px; background: var(--accent-light); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+        .hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.025em; color: #f1f5f9; margin-bottom: 1rem; animation: fadeUp 0.5s var(--ease) 0.08s both; }
+        .hero h1 .accent-word { color: var(--accent-light); font-style: italic; }
+        .hero-sub { font-size: 1rem; color: var(--light-text-secondary); line-height: 1.65; margin-bottom: 2rem; animation: fadeUp 0.5s var(--ease) 0.16s both; }
+        .hero-meta { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--light-text-muted); animation: fadeUp 0.5s var(--ease) 0.24s both; }
+        .hero-meta span { display: flex; align-items: center; gap: 0.35rem; }
+        .hero-meta svg { width: 14px; height: 14px; color: var(--emerald); }
+
+        /* QUIZ CONTAINER */
+        .quiz-wrap { max-width: 680px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+        /* PROGRESS */
+        .progress-bar-wrap { margin-bottom: 2rem; animation: fadeUp 0.5s var(--ease) 0.3s both; }
+        .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
+        .progress-label { font-size: 0.75rem; font-weight: 600; color: var(--light-text-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+        .progress-step { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-light); }
+        .progress-track { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); border-radius: 2px; transition: width 0.4s var(--ease); }
+
+        /* QUESTION CARD */
+        .question-card { background: var(--light-card); border: 1px solid var(--light-border); border-radius: var(--radius-lg); padding: 2rem; animation: fadeUp 0.4s var(--ease) both; }
+        .q-category { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
+        .q-category::before { content: ''; display: block; width: 14px; height: 2px; background: var(--accent); border-radius: 1px; }
+        .q-text { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; line-height: 1.35; color: #f1f5f9; margin-bottom: 1.5rem; }
+
+        /* OPTIONS */
+        .options-list { display: flex; flex-direction: column; gap: 0.6rem; }
+        .option-btn {
+            width: 100%; text-align: left; padding: 0.9rem 1.1rem;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--light-border);
+            border-radius: var(--radius-sm); color: var(--light-text-secondary);
+            font-size: 0.88rem; line-height: 1.4; cursor: pointer;
+            transition: all 0.2s ease; display: flex; align-items: center; gap: 0.75rem;
+        }
+        .option-btn:hover { border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.06); color: var(--light-text); }
+        .option-btn.selected { border-color: var(--accent); background: rgba(59,130,246,0.1); color: #f1f5f9; }
+        .option-btn.selected .opt-dot { background: var(--accent); border-color: var(--accent); }
+        .option-btn.correct { border-color: var(--emerald); background: rgba(16,185,129,0.08); }
+        .option-btn.correct .opt-dot { background: var(--emerald); border-color: var(--emerald); }
+        .opt-dot { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--light-border); transition: all 0.2s; }
+        .opt-score { flex-shrink: 0; margin-left: auto; font-family: var(--font-mono); font-size: 0.7rem; color: var(--light-text-muted); opacity: 0; transition: opacity 0.3s; }
+
+        /* NAV BUTTONS */
+        .q-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+        .btn-prev { padding: 0.6rem 1.2rem; background: transparent; border: 1px solid var(--light-border); border-radius: var(--radius-sm); color: var(--light-text-secondary); font-size: 0.85rem; font-weight: 500; transition: all 0.2s; }
+        .btn-prev:hover { border-color: rgba(255,255,255,0.2); color: var(--light-text); }
+        .btn-prev:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-next { padding: 0.65rem 1.5rem; background: var(--accent); color: white; border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 600; transition: all 0.25s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .btn-next:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-next svg { width: 16px; height: 16px; }
+
+        /* RESULTS */
+        #resultsPanel { display: none; animation: fadeUp 0.5s var(--ease) both; }
+
+        .score-circle-wrap { text-align: center; margin-bottom: 2.5rem; }
+        .score-circle {
+            width: 140px; height: 140px; margin: 0 auto 1rem;
+            border-radius: 50%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: conic-gradient(var(--score-color) calc(var(--score-pct) * 1%), rgba(255,255,255,0.05) 0%);
+            position: relative; animation: scoreCount 0.6s var(--ease) both;
+        }
+        .score-circle::before {
+            content: ''; position: absolute; inset: 8px; border-radius: 50%; background: var(--light-card);
+        }
+        .score-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--score-color); line-height: 1; position: relative; z-index: 1; }
+        .score-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--light-text-muted); position: relative; z-index: 1; }
+        .score-tier { font-family: var(--font-display); font-size: 1.5rem; color: var(--score-color); text-align: center; margin-bottom: 0.4rem; }
+        .score-desc { font-size: 0.9rem; color: var(--light-text-secondary); text-align: center; max-width: 480px; margin: 0 auto; line-height: 1.6; }
+
+        /* DIMENSION BARS */
+        .dimensions { margin: 2rem 0; }
+        .dim-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1rem; }
+        .dim-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .dim-label { font-size: 0.8rem; color: var(--light-text-secondary); min-width: 160px; }
+        .dim-bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+        .dim-bar-fill { height: 100%; border-radius: 3px; transition: width 0.8s var(--ease); }
+        .dim-score { font-family: var(--font-mono); font-size: 0.72rem; color: var(--light-text-muted); min-width: 30px; text-align: right; }
+
+        /* RECOMMENDATIONS */
+        .recs { margin: 2rem 0; }
+        .rec-card { background: rgba(255,255,255,0.02); border: 1px solid var(--light-border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 0.75rem; display: flex; gap: 1rem; }
+        .rec-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .rec-icon.critical { background: rgba(239,68,68,0.1); }
+        .rec-icon.warning { background: rgba(245,158,11,0.1); }
+        .rec-icon.good { background: rgba(16,185,129,0.1); }
+        .rec-body h4 { font-size: 0.88rem; font-weight: 600; color: #f1f5f9; margin-bottom: 0.25rem; }
+        .rec-body p { font-size: 0.8rem; color: var(--light-text-secondary); line-height: 1.5; }
+
+        /* RESULTS CTA */
+        .results-cta { background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(59,130,246,0.04)); border: 1px solid rgba(59,130,246,0.2); border-radius: var(--radius); padding: 1.75rem; text-align: center; margin-top: 2rem; }
+        .results-cta h3 { font-family: var(--font-display); font-size: 1.3rem; color: #f1f5f9; margin-bottom: 0.5rem; }
+        .results-cta p { font-size: 0.85rem; color: var(--light-text-secondary); margin-bottom: 1.25rem; line-height: 1.6; }
+        .cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: var(--accent); color: white; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; transition: all 0.25s ease; border: none; cursor: pointer; }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 6px 20px var(--accent-glow); }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: transparent; color: var(--accent-light); border: 1px solid rgba(59,130,246,0.3); border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; transition: all 0.2s; }
+        .btn-secondary:hover { border-color: var(--accent); background: var(--accent-subtle); }
+        .btn-secondary svg, .btn-primary svg { width: 16px; height: 16px; }
+
+        /* EMAIL GATE */
+        .email-gate { background: var(--light-card); border: 1px solid rgba(59,130,246,0.25); border-radius: var(--radius); padding: 1.75rem; margin-top: 1.5rem; box-shadow: 0 0 40px rgba(59,130,246,0.06); }
+        .email-gate h4 { font-family: var(--font-display); font-size: 1.15rem; color: #f1f5f9; margin-bottom: 0.35rem; }
+        .email-gate p { font-size: 0.83rem; color: var(--light-text-secondary); margin-bottom: 1.1rem; line-height: 1.5; }
+        .email-gate-form { display: flex; gap: 0.5rem; }
+        .email-gate-form input { flex: 1; padding: 0.65rem 0.9rem; background: rgba(255,255,255,0.05); border: 1px solid var(--light-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.88rem; color: var(--light-text); outline: none; transition: border-color 0.2s; }
+        .email-gate-form input:focus { border-color: rgba(59,130,246,0.5); }
+        .email-gate-form input::placeholder { color: var(--light-text-muted); }
+        .email-gate-form button { padding: 0.65rem 1.2rem; background: var(--accent); color: white; border: none; border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .email-gate-form button:hover { background: var(--accent-light); }
+        #gateMsg { font-size: 0.75rem; margin-top: 0.5rem; }
+        .gate-note { font-size: 0.72rem; color: var(--light-text-muted); margin-top: 0.6rem; }
+
+        /* SHARE */
+        .share-row { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1.25rem; }
+        .share-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border: 1px solid var(--light-border); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--light-text-secondary); transition: all 0.2s; }
+        .share-btn:hover { border-color: rgba(59,130,246,0.4); color: var(--accent-light); }
+        .share-btn svg { width: 14px; height: 14px; }
+
+        /* RESTART */
+        .restart-row { text-align: center; margin-top: 1rem; }
+        .btn-restart { font-size: 0.78rem; color: var(--light-text-muted); border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+        .btn-restart:hover { color: var(--accent-light); }
+
+        /* FOOTER */
+        footer { background: var(--dark-bg); border-top: 1px solid var(--dark-border); padding: 2.5rem 2rem 1.5rem; }
+        .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+        .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--dark-text-muted); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { font-size: 0.78rem; color: var(--dark-text-muted); }
+
+        /* LANGUAGE */
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" style="height:30px">
+            <path d="M2 2 H38 L34.5 10.5 H5.5 Z" fill="#4570d8"/>
+            <path d="M6.5 12.5 H33.5 L30 21 H10 Z" fill="#75a1e8"/>
+            <path d="M11 23 H29 L25.5 31 H14.5 Z" fill="#a4c7ef"/>
+            <path d="M15.5 33 H24.5 L20 39 Z" fill="#cfe1f5"/>
+        </svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <div class="nav-center">
+        <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+        <a href="/tools" style="color:var(--accent-light);"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+        <a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+        <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+        <a href="/about"><span class="en">About</span><span class="cz">O mně</span></a>
+        <a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+    </div>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+        <button class="hamburger" onclick="toggleMob()">☰</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge"><span class="pulse"></span><span class="en">Free Assessment — No sign-up required</span><span class="cz">Zdarma — bez registrace</span></div>
+        <h1><span class="en">Is your business <span class="accent-word">AI ready?</span></span><span class="cz">Je vaše firma <span class="accent-word">připravena na AI?</span></span></h1>
+        <p class="hero-sub">
+            <span class="en">10 questions covering AI governance, data risk, tool adoption, and supplier exposure. Get a score 0–100 with personalised recommendations in under 3 minutes.</span>
+            <span class="cz">10 otázek o AI governance, datovém riziku, zavádění nástrojů a riziku u dodavatelů. Skóre 0–100 s personalizovanými doporučeními za méně než 3 minuty.</span>
+        </p>
+        <div class="hero-meta">
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg><span class="en">3 minutes</span><span class="cz">3 minuty</span></span>
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="en">10 questions</span><span class="cz">10 otázek</span></span>
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="en">Instant score + recommendations</span><span class="cz">Okamžité skóre + doporučení</span></span>
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+        </div>
+    </div>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-wrap">
+
+    <!-- PROGRESS -->
+    <div class="progress-bar-wrap" id="progressWrap">
+        <div class="progress-top">
+            <span class="progress-label"><span class="en">Progress</span><span class="cz">Průběh</span></span>
+            <span class="progress-step" id="progressStep">1 / 10</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
+    </div>
+
+    <!-- QUESTION -->
+    <div id="questionPanel">
+        <div class="question-card" id="questionCard">
+            <div class="q-category" id="qCategory"></div>
+            <div class="q-text" id="qText"></div>
+            <div class="options-list" id="optionsList"></div>
+            <div class="q-nav">
+                <button class="btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>
+                    <span class="en">← Back</span><span class="cz">← Zpět</span>
+                </button>
+                <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>
+                    <span class="en" id="btnNextLabelEn">Next</span>
+                    <span class="cz" id="btnNextLabelCz">Další</span>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="resultsPanel">
+        <!-- Score circle -->
+        <div class="score-circle-wrap">
+            <div class="score-circle" id="scoreCircle">
+                <span class="score-num" id="scoreNum">0</span>
+                <span class="score-label">/ 100</span>
+            </div>
+            <div class="score-tier" id="scoreTier"></div>
+            <div class="score-desc" id="scoreDesc"></div>
+        </div>
+
+        <!-- Dimension breakdown -->
+        <div class="dimensions">
+            <div class="dim-title"><span class="en">Score by dimension</span><span class="cz">Skóre podle dimenze</span></div>
+            <div id="dimBars"></div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recs">
+            <div class="dim-title"><span class="en">Top recommendations</span><span class="cz">Hlavní doporučení</span></div>
+            <div id="recCards"></div>
+        </div>
+
+        <!-- Email gate — full report -->
+        <div class="email-gate">
+            <h4><span class="en">Get the full report + AI Policy template</span><span class="cz">Získat plný report + AI Policy šablonu</span></h4>
+            <p><span class="en">Enter your work email and I'll send a PDF summary of your score with a prioritised action plan — plus the free AI Usage Policy template.</span><span class="cz">Zadejte pracovní email a pošlu vám PDF souhrn vašeho skóre s prioritizovaným akčním plánem — plus bezplatnou šablonu AI Usage Policy.</span></p>
+            <form class="email-gate-form" onsubmit="submitGate(event)">
+                <input type="email" id="gateEmail" required placeholder="your@company.com">
+                <button type="submit" id="gateBtn"><span class="en">Send report</span><span class="cz">Odeslat report</span></button>
+            </form>
+            <div id="gateMsg"></div>
+            <p class="gate-note"><span class="en">No spam. You'll also receive occasional AI procurement tips from Sourcing Sense.</span><span class="cz">Žádný spam. Budete také dostávat občasné tipy o AI v nákupu od Sourcing Sense.</span></p>
+        </div>
+
+        <!-- CTA -->
+        <div class="results-cta">
+            <h3><span class="en">Want help improving your score?</span><span class="cz">Chcete pomoci se zlepšením skóre?</span></h3>
+            <p><span class="en">I run focused 20-minute diagnostics for companies that want to close the gap fast. No obligation — I'll tell you honestly if it's worth a follow-up conversation.</span><span class="cz">Dělám cílené 20minutové diagnostiky pro firmy, které chtějí mezery rychle uzavřít. Bez závazku — řeknu vám upřímně, zda má smysl pokračovat v rozhovoru.</span></p>
+            <div class="cta-row">
+                <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span class="en">Book free call</span><span class="cz">Domluvit hovor zdarma</span>
+                </a>
+                <a href="/resources/ai-policy-template" class="btn-secondary">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span class="en">Get free AI Policy template</span><span class="cz">Získat šablonu AI Policy</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Share -->
+        <div class="share-row">
+            <button class="share-btn" onclick="shareLinkedIn()">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                <span class="en">Share on LinkedIn</span><span class="cz">Sdílet na LinkedIn</span>
+            </button>
+            <button class="share-btn" onclick="restartQuiz()">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <span class="en">Retake quiz</span><span class="cz">Zkusit znovu</span>
+            </button>
+        </div>
+    </div>
+
+</div><!-- /quiz-wrap -->
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-row">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 40 40" fill="none" style="height:22px">
+                    <path d="M2 2 H38 L34.5 10.5 H5.5 Z" fill="#4570d8"/>
+                    <path d="M6.5 12.5 H33.5 L30 21 H10 Z" fill="#75a1e8"/>
+                    <path d="M11 23 H29 L25.5 31 H14.5 Z" fill="#a4c7ef"/>
+                    <path d="M15.5 33 H24.5 L20 39 Z" fill="#cfe1f5"/>
+                </svg>
+                <span class="nav-logo-text" style="font-size:0.9rem;color:white;">Sourcing Sense</span>
+            </a>
+            <div class="footer-links">
+                <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+                <a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+                <a href="/about"><span class="en">About</span><span class="cz">O mně</span></a>
+            </div>
+        </div>
+        <p class="footer-copy">© 2026 Sourcing Sense · David Račak</p>
+    </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// QUIZ DATA
+// ═══════════════════════════════════════════════════════════════
+
+const QUESTIONS = [
+    {
+        dim: 'governance',
+        dimLabel: { en: 'AI Governance', cz: 'AI Governance' },
+        en: 'Does your company have a written AI usage policy?',
+        cz: 'Má vaše firma písemnou politiku používání AI?',
+        options: [
+            { en: 'Yes — documented, distributed to employees, and reviewed regularly', cz: 'Ano — zdokumentovaná, distribuovaná zaměstnancům, pravidelně revidovaná', score: 10 },
+            { en: 'Partially — we have something written but it\'s outdated or incomplete', cz: 'Částečně — něco máme, ale je to zastaralé nebo neúplné', score: 5 },
+            { en: 'No — we\'re planning to create one', cz: 'Ne — plánujeme ji vytvořit', score: 2 },
+            { en: 'No — we haven\'t thought about it yet', cz: 'Ne — ještě jsme o tom nepřemýšleli', score: 0 }
+        ]
+    },
+    {
+        dim: 'governance',
+        dimLabel: { en: 'AI Governance', cz: 'AI Governance' },
+        en: 'Do employees know which AI tools are approved for work use?',
+        cz: 'Vědí zaměstnanci, které AI nástroje jsou schváleny pro pracovní použití?',
+        options: [
+            { en: 'Yes — there\'s a clear approved tools list with conditions', cz: 'Ano — existuje jasný seznam schválených nástrojů s podmínkami', score: 10 },
+            { en: 'Informally — most people know but it\'s not written down', cz: 'Neformálně — většina lidí to ví, ale není to zdokumentováno', score: 5 },
+            { en: 'No — employees use whatever tools they prefer', cz: 'Ne — zaměstnanci používají nástroje podle vlastního uvážení', score: 0 }
+        ]
+    },
+    {
+        dim: 'data',
+        dimLabel: { en: 'Data Risk', cz: 'Datové riziko' },
+        en: 'Can your employees tell which company data should NOT go into a public AI tool (like ChatGPT)?',
+        cz: 'Dokáží vaši zaměstnanci určit, která firemní data by NEMĚLA vstupovat do veřejného AI nástroje (jako ChatGPT)?',
+        options: [
+            { en: 'Yes — we have a data classification system (e.g. green / yellow / red)', cz: 'Ano — máme systém klasifikace dat (např. zelená / žlutá / červená)', score: 10 },
+            { en: 'Probably — most people use common sense but there\'s no formal rule', cz: 'Pravděpodobně — většina lidí se řídí zdravým rozumem, ale neexistuje formální pravidlo', score: 4 },
+            { en: 'No — there\'s no guidance on this', cz: 'Ne — neexistují žádné pokyny k tomuto tématu', score: 0 }
+        ]
+    },
+    {
+        dim: 'data',
+        dimLabel: { en: 'Data Risk', cz: 'Datové riziko' },
+        en: 'Has your company signed a Data Processing Agreement (DPA) with your main AI tool providers?',
+        cz: 'Uzavřela vaše firma Smlouvu o zpracování osobních údajů (DPA) s hlavními poskytovateli AI nástrojů?',
+        options: [
+            { en: 'Yes — we have DPAs in place for all major AI tools', cz: 'Ano — máme DPA uzavřeny pro všechny hlavní AI nástroje', score: 10 },
+            { en: 'For some tools (e.g. Microsoft Copilot) but not all', cz: 'Pro některé nástroje (např. Microsoft Copilot), ale ne pro všechny', score: 5 },
+            { en: 'I\'m not sure — nobody has checked', cz: 'Nejsem si jist — nikdo to nezkontroloval', score: 2 },
+            { en: 'No DPAs — we haven\'t addressed this', cz: 'Žádné DPA — toto jsme neřešili', score: 0 }
+        ]
+    },
+    {
+        dim: 'adoption',
+        dimLabel: { en: 'Tool Adoption', cz: 'Zavádění nástrojů' },
+        en: 'How widely are AI tools being used in your company day-to-day?',
+        cz: 'Jak rozšířené je každodenní používání AI nástrojů ve vaší firmě?',
+        options: [
+            { en: 'Systematically — AI tools are part of standard workflows across multiple teams', cz: 'Systematicky — AI nástroje jsou součástí standardních pracovních postupů v několika týmech', score: 10 },
+            { en: 'Selectively — a few people or teams use AI regularly, others not at all', cz: 'Selektivně — několik lidí nebo týmů AI používá pravidelně, ostatní vůbec', score: 6 },
+            { en: 'Experimentally — people try things but there\'s no consistent adoption', cz: 'Experimentálně — lidé věci zkouší, ale neexistuje konzistentní zavádění', score: 3 },
+            { en: 'Barely — very little AI tool usage across the company', cz: 'Minimálně — AI nástroje se ve firmě téměř nepoužívají', score: 1 }
+        ]
+    },
+    {
+        dim: 'adoption',
+        dimLabel: { en: 'Tool Adoption', cz: 'Zavádění nástrojů' },
+        en: 'Does your company have someone responsible for AI governance and oversight?',
+        cz: 'Má vaše firma někoho zodpovědného za AI governance a dohled?',
+        options: [
+            { en: 'Yes — a named role or team owns AI governance', cz: 'Ano — konkrétní role nebo tým vlastní AI governance', score: 10 },
+            { en: 'Informally — IT or Legal handles it when issues arise', cz: 'Neformálně — IT nebo Legal to řeší, když vzniknou problémy', score: 4 },
+            { en: 'No — nobody has explicit ownership', cz: 'Ne — nikdo nemá explicitní vlastnictví', score: 0 }
+        ]
+    },
+    {
+        dim: 'supplier',
+        dimLabel: { en: 'Supplier Exposure', cz: 'Riziko u dodavatelů' },
+        en: 'Do you know whether your key suppliers use AI tools when handling your company\'s data?',
+        cz: 'Víte, zda vaši klíčoví dodavatelé používají AI nástroje při zpracování dat vaší firmy?',
+        options: [
+            { en: 'Yes — we ask suppliers about AI use in our qualification process', cz: 'Ano — ptáme se dodavatelů na používání AI v rámci kvalifikačního procesu', score: 10 },
+            { en: 'For some critical suppliers but not systematically', cz: 'U některých klíčových dodavatelů, ale ne systematicky', score: 5 },
+            { en: 'No — we have no visibility into supplier AI usage', cz: 'Ne — nemáme žádný přehled o používání AI u dodavatelů', score: 0 }
+        ]
+    },
+    {
+        dim: 'supplier',
+        dimLabel: { en: 'Supplier Exposure', cz: 'Riziko u dodavatelů' },
+        en: 'Does your company\'s procurement process consider AI-related risks when evaluating new suppliers?',
+        cz: 'Zohledňuje váš nákupní proces rizika spojená s AI při hodnocení nových dodavatelů?',
+        options: [
+            { en: 'Yes — AI risk is part of our supplier evaluation criteria', cz: 'Ano — AI riziko je součástí našich hodnotících kritérií pro dodavatele', score: 10 },
+            { en: 'Partially — we ask about data security but not specifically AI', cz: 'Částečně — ptáme se na bezpečnost dat, ale ne specificky na AI', score: 5 },
+            { en: 'No — AI isn\'t part of supplier evaluation yet', cz: 'Ne — AI zatím není součástí hodnocení dodavatelů', score: 0 }
+        ]
+    },
+    {
+        dim: 'compliance',
+        dimLabel: { en: 'Regulatory Compliance', cz: 'Regulatorní soulad' },
+        en: 'Is your company prepared for EU AI Act enforcement (starting August 2026)?',
+        cz: 'Je vaše firma připravena na vymáhání EU AI Actu (od srpna 2026)?',
+        options: [
+            { en: 'Yes — we\'ve assessed our exposure and have an action plan', cz: 'Ano — posoudili jsme naše riziko a máme akční plán', score: 10 },
+            { en: 'We\'re aware of it and have started preparing', cz: 'Jsme si toho vědomi a začali jsme se připravovat', score: 6 },
+            { en: 'We know about it but haven\'t started', cz: 'Víme o tom, ale ještě jsme nezačali', score: 2 },
+            { en: 'This is the first I\'m hearing about EU AI Act enforcement', cz: 'Tohle je poprvé, kdy o vymáhání EU AI Actu slyším', score: 0 }
+        ]
+    },
+    {
+        dim: 'compliance',
+        dimLabel: { en: 'Regulatory Compliance', cz: 'Regulatorní soulad' },
+        en: 'If an AI-related data breach occurred tomorrow, do you have an incident response process?',
+        cz: 'Pokud by zítra došlo k bezpečnostnímu incidentu spojenému s AI, máte připravený postup pro reakci na incidenty?',
+        options: [
+            { en: 'Yes — we have a documented AI incident response procedure', cz: 'Ano — máme zdokumentovaný postup pro řešení AI incidentů', score: 10 },
+            { en: 'We have a general data breach process that would cover AI incidents', cz: 'Máme obecný proces pro datové breaches, který by pokryl AI incidenty', score: 6 },
+            { en: 'No — we would figure it out if it happened', cz: 'Ne — řešili bychom to, kdyby to nastalo', score: 0 }
+        ]
+    }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// QUIZ STATE
+// ═══════════════════════════════════════════════════════════════
+
+let currentQ = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+
+function getLang() { return document.documentElement.getAttribute('data-lang') || 'en'; }
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════
+
+function renderQuestion(idx) {
+    const q = QUESTIONS[idx];
+    const lang = getLang();
+
+    // Progress
+    document.getElementById('progressStep').textContent = (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('progressFill').style.width = (((idx + 1) / QUESTIONS.length) * 100) + '%';
+
+    // Category
+    document.getElementById('qCategory').textContent = q.dimLabel[lang];
+
+    // Question text
+    document.getElementById('qText').textContent = q[lang];
+
+    // Options
+    const list = document.getElementById('optionsList');
+    list.innerHTML = '';
+    q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn' + (answers[idx] === i ? ' selected' : '');
+        btn.innerHTML = `<span class="opt-dot"></span><span>${opt[lang]}</span><span class="opt-score">+${opt.score}</span>`;
+        btn.onclick = () => selectOption(idx, i);
+        list.appendChild(btn);
+    });
+
+    // Nav buttons
+    document.getElementById('btnPrev').disabled = idx === 0;
+    const isLast = idx === QUESTIONS.length - 1;
+    document.getElementById('btnNextLabelEn').textContent = isLast ? 'See my score' : 'Next';
+    document.getElementById('btnNextLabelCz').textContent = isLast ? 'Zobrazit skóre' : 'Další';
+    document.getElementById('btnNext').disabled = answers[idx] === null;
+
+    // Animate card
+    const card = document.getElementById('questionCard');
+    card.style.animation = 'none';
+    card.offsetHeight; // reflow
+    card.style.animation = 'fadeUp 0.35s cubic-bezier(0.16,1,0.3,1) both';
+}
+
+function selectOption(qIdx, optIdx) {
+    answers[qIdx] = optIdx;
+    renderQuestion(qIdx);
+}
+
+function nextQuestion() {
+    if (answers[currentQ] === null) return;
+    if (currentQ < QUESTIONS.length - 1) {
+        currentQ++;
+        renderQuestion(currentQ);
+    } else {
+        showResults();
+    }
+}
+
+function prevQuestion() {
+    if (currentQ > 0) {
+        currentQ--;
+        renderQuestion(currentQ);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RESULTS
+// ═══════════════════════════════════════════════════════════════
+
+function showResults() {
+    const lang = getLang();
+
+    // Calculate total
+    let total = 0;
+    answers.forEach((a, i) => { if (a !== null) total += QUESTIONS[i].options[a].score; });
+
+    // Dimension scores
+    const dims = {};
+    const dimMax = {};
+    QUESTIONS.forEach((q, i) => {
+        const d = q.dim;
+        if (!dims[d]) { dims[d] = 0; dimMax[d] = 0; }
+        if (answers[i] !== null) dims[d] += q.options[answers[i]].score;
+        dimMax[d] += Math.max(...q.options.map(o => o.score));
+    });
+
+    // Tier
+    let tier, tierColor, desc;
+    if (total >= 80) {
+        tier = lang === 'cs' ? '🟢 Zralý' : '🟢 Mature';
+        tierColor = '#10b981';
+        desc = lang === 'cs'
+            ? 'Vaše firma má solidní AI governance. Zaměřte se na optimalizaci a stavbu na tom, co funguje.'
+            : 'Your company has solid AI governance in place. Focus on optimisation and building on what works.';
+    } else if (total >= 50) {
+        tier = lang === 'cs' ? '🟡 Rozvíjející se' : '🟡 Developing';
+        tierColor = '#f59e0b';
+        desc = lang === 'cs'
+            ? 'Dobrý základ — ale existují mezery, které se mohou proměnit v rizika. Řešte je prioritizovaně.'
+            : 'Good foundation — but there are gaps that could turn into risks. Address them in priority order.';
+    } else {
+        tier = lang === 'cs' ? '🔴 Kritické' : '🔴 Critical';
+        tierColor = '#ef4444';
+        desc = lang === 'cs'
+            ? 'Vaše firma je vystavena zbytečnému riziku v oblasti AI. Implementace základní governance by měla být urgentní prioritou.'
+            : 'Your company is exposed to avoidable AI risk. Implementing basic governance should be an urgent priority.';
+    }
+
+    // Score circle
+    const circle = document.getElementById('scoreCircle');
+    circle.style.setProperty('--score-color', tierColor);
+    circle.style.setProperty('--score-pct', total);
+    document.getElementById('scoreNum').textContent = total;
+    document.getElementById('scoreNum').style.color = tierColor;
+    document.getElementById('scoreTier').textContent = tier;
+    document.getElementById('scoreTier').style.color = tierColor;
+    document.getElementById('scoreDesc').textContent = desc;
+
+    // Dimension bars
+    const dimLabels = {
+        governance: { en: 'AI Governance', cz: 'AI Governance' },
+        data: { en: 'Data Risk', cz: 'Datové riziko' },
+        adoption: { en: 'Tool Adoption', cz: 'Zavádění nástrojů' },
+        supplier: { en: 'Supplier Exposure', cz: 'Riziko u dodavatelů' },
+        compliance: { en: 'Regulatory Compliance', cz: 'Regulatorní soulad' }
+    };
+    const dimBars = document.getElementById('dimBars');
+    dimBars.innerHTML = '';
+    Object.keys(dims).forEach(d => {
+        const pct = dimMax[d] > 0 ? Math.round((dims[d] / dimMax[d]) * 100) : 0;
+        const color = pct >= 70 ? '#10b981' : pct >= 40 ? '#f59e0b' : '#ef4444';
+        dimBars.innerHTML += `
+            <div class="dim-row">
+                <span class="dim-label">${dimLabels[d][lang]}</span>
+                <div class="dim-bar-track"><div class="dim-bar-fill" style="width:${pct}%;background:${color};"></div></div>
+                <span class="dim-score">${pct}%</span>
+            </div>`;
+    });
+
+    // Recommendations
+    const recs = buildRecs(dims, dimMax, lang);
+    const recCards = document.getElementById('recCards');
+    recCards.innerHTML = '';
+    recs.forEach(r => {
+        recCards.innerHTML += `
+            <div class="rec-card">
+                <div class="rec-icon ${r.level}"><span>${r.icon}</span></div>
+                <div class="rec-body"><h4>${r.title}</h4><p>${r.body}</p></div>
+            </div>`;
+    });
+
+    // Show/hide panels
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('questionPanel').style.display = 'none';
+    document.getElementById('resultsPanel').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Store score for gate submission
+    window._quizScore = total;
+    window._quizDims = dims;
+    window._quizDimMax = dimMax;
+}
+
+function buildRecs(dims, dimMax, lang) {
+    const recs = [];
+    const pct = d => dimMax[d] > 0 ? Math.round((dims[d] / dimMax[d]) * 100) : 0;
+
+    if (pct('governance') < 50) {
+        recs.push({
+            level: 'critical', icon: '⚠️',
+            title: lang === 'cs' ? 'Vytvořte AI Usage Policy — urgentně' : 'Create an AI Usage Policy — urgently',
+            body: lang === 'cs'
+                ? 'Bez písemné politiky nemají zaměstnanci jasné hranice. To je váš největší bodový skok. Stáhněte si naši šablonu zdarma a upravte ji za 20 minut.'
+                : 'Without a written policy, employees have no clear boundaries. This is your biggest score jump. Download our free template and customise it in 20 minutes.'
+        });
+    }
+    if (pct('data') < 50) {
+        recs.push({
+            level: 'critical', icon: '🔴',
+            title: lang === 'cs' ? 'Zaveďte klasifikaci dat před vstupem do AI' : 'Implement data classification before AI input',
+            body: lang === 'cs'
+                ? 'Zaměstnanci potřebují jednoduchou referenční tabulku — zelená / žlutá / červená data — aby věděli, co mohou a nemohou vkládat do AI nástrojů. Toto je zahrnuto v naší šabloně politiky.'
+                : 'Employees need a simple reference table — green / yellow / red data — to know what can and cannot go into AI tools. This is included in our policy template.'
+        });
+    }
+    if (pct('compliance') < 50) {
+        recs.push({
+            level: 'warning', icon: '📋',
+            title: lang === 'cs' ? 'Připravte se na EU AI Act do srpna 2026' : 'Prepare for EU AI Act enforcement by August 2026',
+            body: lang === 'cs'
+                ? 'Vymáhání začíná v srpnu 2026. Posoudit vaši expozici a vytvořit základní dokumentaci nyní je levnější než reagovat na kontrolu.'
+                : 'Enforcement begins August 2026. Assessing your exposure and creating basic documentation now is cheaper than reacting to an inspection.'
+        });
+    }
+    if (pct('supplier') < 50) {
+        recs.push({
+            level: 'warning', icon: '🔗',
+            title: lang === 'cs' ? 'Přidejte AI disclosure do procesu kvalifikace dodavatelů' : 'Add AI disclosure to supplier qualification',
+            body: lang === 'cs'
+                ? 'Vaše dodavatelská data procházejí jejich systémy. Zeptejte se klíčových dodavatelů, jaké AI nástroje používají při zpracování vašich informací. Jednoduchá otázka, velká viditelnost.'
+                : 'Your supplier data flows through their systems. Ask key suppliers what AI tools they use when handling your information. Simple question, big visibility gain.'
+        });
+    }
+    if (pct('adoption') >= 70 && pct('governance') >= 70) {
+        recs.push({
+            level: 'good', icon: '✅',
+            title: lang === 'cs' ? 'Silné zavádění + governance — budujte dál' : 'Strong adoption + governance — build on it',
+            body: lang === 'cs'
+                ? 'Máte základ, který většina firem nemá. Teď rozšiřte na nové use cases, měřte úspory a zviditelněte výsledky pro vedení.'
+                : 'You have a foundation most companies lack. Now expand to new use cases, measure savings, and make results visible to leadership.'
+        });
+    }
+    if (recs.length === 0) {
+        recs.push({
+            level: 'good', icon: '🏆',
+            title: lang === 'cs' ? 'Výborné — udržujte a dokumentujte' : 'Excellent — maintain and document',
+            body: lang === 'cs'
+                ? 'Vaše skóre je v horní části. Soustřeďte se na udržování dokumentace aktuální a budování kultury AI odpovědnosti.'
+                : 'Your score is in the top tier. Focus on keeping documentation current and building a culture of AI accountability.'
+        });
+    }
+    return recs.slice(0, 3);
+}
+
+function restartQuiz() {
+    currentQ = 0;
+    answers = new Array(QUESTIONS.length).fill(null);
+    document.getElementById('progressWrap').style.display = '';
+    document.getElementById('questionPanel').style.display = '';
+    document.getElementById('resultsPanel').style.display = 'none';
+    renderQuestion(0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// EMAIL GATE
+// ═══════════════════════════════════════════════════════════════
+
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';
+
+async function submitGate(e) {
+    e.preventDefault();
+    const email = document.getElementById('gateEmail').value.trim();
+    const btn = document.getElementById('gateBtn');
+    const msg = document.getElementById('gateMsg');
+    const lang = getLang();
+    btn.disabled = true;
+    btn.textContent = lang === 'cs' ? 'Odesílám...' : 'Sending...';
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+            type: 'resource_download',
+            name: '',
+            email: email,
+            resource: 'ai-readiness-score-report',
+            source: 'score-tool',
+            score: window._quizScore || 0,
+            lang: lang
+        })), { mode: 'no-cors' });
+        msg.style.color = '#10b981';
+        msg.textContent = lang === 'cs' ? 'Odesláno! Zkontrolujte svůj email.' : 'Sent! Check your inbox.';
+        document.getElementById('gateEmail').value = '';
+    } catch (err) {
+        msg.style.color = '#ef4444';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Please try again.';
+    }
+    btn.disabled = false;
+    btn.innerHTML = lang === 'cs' ? 'Odeslat report' : 'Send report';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SHARE
+// ═══════════════════════════════════════════════════════════════
+
+function shareLinkedIn() {
+    const score = window._quizScore || 0;
+    const lang = getLang();
+    const text = lang === 'cs'
+        ? `Právě jsem otestoval AI připravenost naší firmy na Sourcing Sense — skóre ${score}/100. Zkuste to také: https://sourcing-sense.com/tools/ai-readiness-score`
+        : `I just scored my company's AI readiness on Sourcing Sense — ${score}/100. Try it yourself: https://sourcing-sense.com/tools/ai-readiness-score`;
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://sourcing-sense.com/tools/ai-readiness-score') + '&summary=' + encodeURIComponent(text), '_blank');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NAV + LANGUAGE
+// ═══════════════════════════════════════════════════════════════
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+    renderQuestion(currentQ);
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+
+// Init
+renderQuestion(0);
+</script>
+
+</body>
+</html>

@@ -80,6 +80,10 @@
     }
     </script>
 
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -165,10 +169,127 @@
         ul { list-style: none; }
 
         /* ═══════════════════════════════════════════
+           PROMO BANNER
+        ═══════════════════════════════════════════ */
+        .promo-banner {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
+            background: linear-gradient(90deg, #1a3a6a 0%, #1e4080 50%, #1a3a6a 100%);
+            border-bottom: 1px solid rgba(59,130,246,0.3);
+            padding: 0.45rem 1.5rem;
+            display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+            font-size: 0.8rem; color: #cbd5e1;
+            flex-wrap: wrap;
+        }
+        .promo-banner .promo-badge {
+            background: var(--accent); color: white;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em;
+            padding: 0.2rem 0.55rem; border-radius: 100px; text-transform: uppercase; white-space: nowrap;
+        }
+        .promo-banner .promo-text { font-weight: 500; }
+        .promo-banner .promo-countdown {
+            font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-light); white-space: nowrap;
+        }
+        .promo-banner .promo-cta {
+            background: white; color: var(--blue-700);
+            font-size: 0.75rem; font-weight: 700;
+            padding: 0.28rem 0.8rem; border-radius: 100px;
+            transition: all 0.2s; white-space: nowrap; text-decoration: none;
+        }
+        .promo-banner .promo-cta:hover { background: var(--accent-light); color: white; }
+        .promo-banner .promo-close {
+            position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+            color: #94a3b8; font-size: 1rem; cursor: pointer; line-height: 1;
+            background: none; border: none; padding: 0.2rem;
+        }
+        .promo-banner .promo-close:hover { color: white; }
+
+        /* ═══════════════════════════════════════════
+           EARLY ACCESS SECTION
+        ═══════════════════════════════════════════ */
+        .early-access {
+            padding: 5rem 2rem;
+            background: var(--bg-surface);
+            position: relative; overflow: hidden;
+        }
+        .early-access::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59,130,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .early-access-inner {
+            max-width: 860px; margin: 0 auto;
+            text-align: center;
+        }
+        .early-access-inner .ea-eyebrow {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.75rem;
+        }
+        .early-access-inner h2 {
+            font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
+            line-height: 1.2; color: white; margin-bottom: 0.75rem;
+        }
+        .early-access-inner p {
+            font-size: 1rem; color: var(--dark-text-secondary); max-width: 580px;
+            margin: 0 auto 2.5rem;
+        }
+        .ea-offers {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (max-width: 600px) { .ea-offers { grid-template-columns: 1fr; } }
+        .ea-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius);
+            padding: 1.5rem; text-align: left;
+            position: relative; overflow: hidden;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+        .ea-card:hover { border-color: rgba(59,130,246,0.35); transform: translateY(-2px); }
+        .ea-card .ea-card-badge {
+            display: inline-block;
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
+            text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px;
+            margin-bottom: 0.85rem;
+        }
+        .ea-card .ea-card-badge.live { background: rgba(16,185,129,0.15); color: var(--emerald); }
+        .ea-card .ea-card-badge.soon { background: rgba(245,158,11,0.15); color: var(--gold-light); }
+        .ea-card h3 { font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+        .ea-card p { font-size: 0.83rem; color: var(--dark-text-secondary); line-height: 1.5; margin-bottom: 0; }
+        .ea-card .ea-countdown {
+            font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-light);
+            margin-top: 0.75rem;
+        }
+        .ea-form-wrap { max-width: 440px; margin: 0 auto; }
+        .ea-form {
+            display: flex; gap: 0.5rem;
+        }
+        .ea-input {
+            flex: 1; padding: 0.7rem 1rem;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--dark-border);
+            border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.88rem;
+            color: var(--dark-text); outline: none; transition: all 0.2s; min-width: 0;
+        }
+        .ea-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .ea-input::placeholder { color: var(--dark-text-muted); }
+        .ea-btn {
+            padding: 0.7rem 1.25rem; background: var(--accent); color: white;
+            border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600;
+            transition: all 0.25s; white-space: nowrap; cursor: pointer; border: none;
+        }
+        .ea-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .ea-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .ea-note { font-size: 0.72rem; color: var(--dark-text-muted); margin-top: 0.6rem; }
+        .ea-msg { font-size: 0.78rem; margin-top: 0.5rem; min-height: 1.2em; }
+        .ea-msg.success { color: var(--emerald); }
+        .ea-msg.error { color: #ef4444; }
+
+        /* ═══════════════════════════════════════════
            NAV
         ═══════════════════════════════════════════ */
         nav {
-            position: fixed; top: 0; left: 0; right: 0;
+            position: fixed; top: 32px; left: 0; right: 0;
             z-index: 1000;
             padding: 0.85rem 2rem;
             display: flex;
@@ -302,7 +423,7 @@
             min-height: auto;
             display: flex;
             align-items: center;
-            padding: 5.5rem 2rem 3rem;
+            padding: 7.5rem 2rem 3rem;
             position: relative;
             overflow: hidden;
             /* Dot grid texture + blue glow */
@@ -1179,7 +1300,7 @@
             .nav-center { display: none; }
             .nav-cta { display: none; }
             .hamburger { display: block; }
-            .hero { padding: 7rem 1.25rem 4rem; min-height: auto; }
+            .hero { padding: 9rem 1.25rem 4rem; min-height: auto; }
             .hero h1 { font-size: 2.2rem; }
             .hero-sub { font-size: 1rem; }
             .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
@@ -1194,6 +1315,247 @@
         ═══════════════════════════════════════════ */
         [data-lang="en"] .cz { display: none !important; }
         [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══════════════════════════════════════════
+           WOW EFEKTY — SPOTLIGHT + MARQUEE + COUNTER
+        ═══════════════════════════════════════════ */
+
+        /* ── SPOTLIGHT hover na kartách ── */
+        .service-card,
+        .case-card {
+            isolation: isolate;
+            overflow: visible; /* pseudo-elementy nesmí být clipped */
+        }
+
+        /* Spotlight — musí být nad background ale pod textem */
+        .service-card::after,
+        .case-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(
+                260px circle at var(--card-x, 50%) var(--card-y, 50%),
+                rgba(59, 130, 246, 0.18) 0%,
+                transparent 65%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .service-card:hover::after,
+        .case-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Zajistíme že content karet je nad spotlight */
+        .service-card > *,
+        .case-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Shimmer border při hoveru */
+        .service-card::before {
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                var(--accent) 40%,
+                var(--blue-300) 60%,
+                transparent 100%
+            ) !important;
+            background-size: 200% 100% !important;
+            height: 2px !important;
+            transition: opacity 0.3s ease !important;
+        }
+
+        .service-card:hover::before {
+            opacity: 1 !important;
+            animation: shimmerBorder 1.8s linear infinite;
+        }
+
+        @keyframes shimmerBorder {
+            from { background-position: 200% center; }
+            to   { background-position: -200% center; }
+        }
+
+        /* ── TECH STRIP MARQUEE ── */
+        .tech-strip {
+            overflow: hidden;
+            padding-left: 0;
+            padding-right: 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        /* Přepíšeme .tech-inner layout pro marquee */
+        .tech-inner {
+            flex-direction: column !important;
+            gap: 1rem !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            flex-wrap: nowrap !important;
+            max-width: 100% !important;
+            padding: 0 2rem;
+        }
+
+        .tech-logos {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            align-items: center;
+            gap: 3.5rem;
+            width: max-content;
+            animation: marqueeLoop 22s linear infinite;
+            will-change: transform;
+            justify-content: flex-start !important;
+        }
+
+        .tech-strip:hover .tech-logos {
+            animation-play-state: paused;
+        }
+
+        @keyframes marqueeLoop {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ── CSS @property PRO STATS COUNTER ── */
+        @property --stat-val {
+            syntax: '<integer>';
+            initial-value: 0;
+            inherits: false;
+        }
+
+        .hero-stat-num {
+            counter-reset: stat var(--stat-val);
+            --stat-val: 0;
+            transition: --stat-val 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-stat-num.counting {
+            --stat-val: var(--stat-target, 0);
+        }
+
+        /* ── PROCESS STEPS — sequential glow ── */
+        @property --line-progress {
+            syntax: '<percentage>';
+            initial-value: 0%;
+            inherits: false;
+        }
+
+        .process-grid::before {
+            background: linear-gradient(
+                90deg,
+                var(--accent) var(--line-progress, 0%),
+                rgba(255,255,255,0.08) var(--line-progress, 0%)
+            ) !important;
+            transition: --line-progress 1.2s var(--ease);
+        }
+
+        .process-grid.line-drawn::before {
+            --line-progress: 100%;
+        }
+
+        .process-step:nth-child(1) .step-number { animation: stepGlow 3s 0.1s ease-in-out infinite; }
+        .process-step:nth-child(2) .step-number { animation: stepGlow 3s 0.9s ease-in-out infinite; }
+        .process-step:nth-child(3) .step-number { animation: stepGlow 3s 1.7s ease-in-out infinite; }
+
+        @keyframes stepGlow {
+            0%, 100% {
+                box-shadow: none;
+                border-color: rgba(37, 99, 235, 0.2);
+            }
+            40% {
+                box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.08), 0 0 20px rgba(59, 130, 246, 0.18);
+                border-color: rgba(59, 130, 246, 0.65);
+            }
+        }
+
+        /* ═══ NEWSLETTER SIGNUP ═══ */
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .newsletter-input {
+            flex: 1;
+            padding: 0.6rem 0.85rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            color: var(--dark-text);
+            outline: none;
+            transition: all 0.2s;
+            min-width: 0;
+        }
+        .newsletter-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .newsletter-input::placeholder { color: var(--dark-text-muted); }
+        .newsletter-btn {
+            padding: 0.6rem 1rem;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: all 0.25s;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+        }
+        .newsletter-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+        .newsletter-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .newsletter-msg {
+            font-size: 0.75rem;
+            margin-top: 0.4rem;
+            min-height: 1.2em;
+        }
+        .newsletter-msg.success { color: var(--emerald); }
+        .newsletter-msg.error { color: #ef4444; }
+
+        /* ── SCROLL HINT ── */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            pointer-events: none;
+        }
+
+        .scroll-hint-line {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            transform-origin: top center;
+            opacity: 0;
+        }
+
+        .scroll-hint-label {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(59, 130, 246, 0.45);
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -1201,6 +1563,21 @@
 <!-- ═══ BACKGROUND ═══ -->
 
 <div class="content-wrap">
+
+    <!-- ═══ PROMO BANNER ═══ -->
+    <div class="promo-banner" id="promoBanner">
+        <span class="promo-badge"><span class="en">Free · Limited</span><span class="cz">Zdarma · Limitovaně</span></span>
+        <span class="promo-text">
+            <span class="en">AI Policy Template for procurement teams — launching in</span>
+            <span class="cz">AI Policy šablona pro nákupní týmy — spouštíme za</span>
+        </span>
+        <span class="promo-countdown" id="promoCd">7d 00h 00m</span>
+        <a href="#early-access" class="promo-cta">
+            <span class="en">Get early access →</span>
+            <span class="cz">Chci přednostní přístup →</span>
+        </a>
+        <button class="promo-close" onclick="closeBanner()" aria-label="Close">✕</button>
+    </div>
 
     <!-- ═══ NAV ═══ -->
     <nav id="nav">
@@ -1315,32 +1692,40 @@
             <!-- 6. METRICS -->
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <div class="hero-stat-num"><span class="en">4 wk</span><span class="cz">4 týd.</span></div>
+                    <div class="hero-stat-num" data-static="true"><span class="en">4 wk</span><span class="cz">4 týd.</span></div>
                     <div class="hero-stat-label"><span class="en">from kickoff to working prototype</span><span class="cz">od zahájení po funkční prototyp</span></div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-num">60%</div>
+                    <div class="hero-stat-num" data-count="60" data-suffix="%">60%</div>
                     <div class="hero-stat-label"><span class="en">less time on manual tasks</span><span class="cz">méně času na ruční úkoly</span></div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-num">€0</div>
+                    <div class="hero-stat-num" data-static="true">€0</div>
                     <div class="hero-stat-label"><span class="en">new software licenses required</span><span class="cz">nové softwarové licence nejsou potřeba</span></div>
                 </div>
             </div>
 
         </div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-hint">
+            <div class="scroll-hint-line"></div>
+            <span class="scroll-hint-label">scroll</span>
+        </div>
+
     </section>
 
     <!-- ═══════════════════════════════════════════
          TECH STRIP
     ═══════════════════════════════════════════ -->
     <div class="tech-strip">
-        <div class="tech-inner">
-            <span class="tech-label">
+        <div class="tech-inner" style="flex-direction:column;gap:0.75rem;align-items:flex-start;">
+            <span class="tech-label" style="padding-left:1rem;">
                 <span class="en">Technologies I work with</span>
                 <span class="cz">Technologie se kterými pracuji</span>
             </span>
-            <div class="tech-logos">
+            <!-- Marquee: duplikovaný obsah pro plynulý -50% loop -->
+            <div class="tech-logos" aria-hidden="false">
                 <span class="tech-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     Claude AI
@@ -1362,6 +1747,31 @@
                     Perplexity
                 </span>
                 <span class="tech-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+                    Lean Six Sigma
+                </span>
+                <!-- Duplikát pro plynulý loop -->
+                <span class="tech-item" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    Claude AI
+                </span>
+                <span class="tech-item" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    SAP
+                </span>
+                <span class="tech-item" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
+                    Power BI
+                </span>
+                <span class="tech-item" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v20M2 12h20M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
+                    OpenAI
+                </span>
+                <span class="tech-item" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4zm0 2.18l6 3v5.32c0 4.52-3.13 8.77-6 9.82-2.87-1.05-6-5.3-6-9.82V7.18l6-3z"/><path d="M11 7h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    Perplexity
+                </span>
+                <span class="tech-item" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87a.48.48 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
                     Lean Six Sigma
                 </span>
@@ -1663,6 +2073,60 @@
     </section>
 
     <!-- ═══════════════════════════════════════════
+         EARLY ACCESS
+    ═══════════════════════════════════════════ -->
+    <section class="early-access" id="early-access">
+        <div class="early-access-inner">
+            <p class="ea-eyebrow"><span class="en">Exclusive early access</span><span class="cz">Přednostní přístup</span></p>
+            <h2>
+                <span class="en">Two things coming — grab your spot</span>
+                <span class="cz">Dvě novinky — zajistěte si místo</span>
+            </h2>
+            <p>
+                <span class="en">Drop your email once, get both. No spam, unsubscribe anytime.</span>
+                <span class="cz">Jeden email, obojí. Žádný spam, kdykoliv se odhlásíte.</span>
+            </p>
+            <div class="ea-offers">
+                <div class="ea-card">
+                    <span class="ea-card-badge live"><span class="en">Free · Limited spots</span><span class="cz">Zdarma · Limitovaně</span></span>
+                    <h3><span class="en">AI Policy Template</span><span class="cz">AI Policy šablona</span></h3>
+                    <p>
+                        <span class="en">A ready-to-use AI usage policy for procurement and sourcing teams. Built from real EMEA experience. Launching soon — first come, first served.</span>
+                        <span class="cz">Hotová šablona AI policy pro nákupní týmy. Vychází z reálné EMEA praxe. Brzy spouštíme — první přijdou, první dostanou.</span>
+                    </p>
+                    <div class="ea-countdown">
+                        <span class="en">Launching in: </span><span class="cz">Spouštíme za: </span><span id="eaCd">7d 00h 00m 00s</span>
+                    </div>
+                </div>
+                <div class="ea-card">
+                    <span class="ea-card-badge soon"><span class="en">Coming soon</span><span class="cz">Brzy</span></span>
+                    <h3>
+                        <span class="en">5-Day AI Business Crash Course</span>
+                        <span class="cz">5denní AI Business Crash Course</span>
+                    </h3>
+                    <p>
+                        <span class="en">Five emails. Five real use cases. How to actually use AI to cut costs, save time, and impress your boss. No hype, no theory.</span>
+                        <span class="cz">Pět emailů. Pět reálných použití AI. Jak ušetřit čas, snížit náklady a zapůsobit. Žádný hype, čistá praxe.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="ea-form-wrap">
+                <form class="ea-form" onsubmit="submitEarlyAccess(event)">
+                    <input type="email" class="ea-input" id="eaEmail" required placeholder="your@email.com">
+                    <button type="submit" class="ea-btn" id="eaBtn">
+                        <span class="en">Notify me</span><span class="cz">Chci vědět</span>
+                    </button>
+                </form>
+                <p class="ea-note">
+                    <span class="en">Free. No credit card. Unsubscribe anytime.</span>
+                    <span class="cz">Zdarma. Bez platební karty. Kdykoli se odhlásíte.</span>
+                </p>
+                <div class="ea-msg" id="eaMsg"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
          FOOTER
     ═══════════════════════════════════════════ -->
     <footer>
@@ -1700,12 +2164,20 @@
                     <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
                     <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a>
                     <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank">LinkedIn</a>
-                    <p style="margin-top:1rem;font-size:0.78rem;color:var(--dark-text-muted);"><span class="en">AI procurement tips, new tools, no spam.</span><span class="cz">AI tipy pro nákup, nové nástroje, žádný spam.</span></p>
-                    <form class="newsletter-form" onsubmit="submitNewsletter(event)" style="display:flex;gap:0.4rem;margin-top:0.5rem;">
-                        <input type="email" id="nlEmail" required placeholder="your@email.com" style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:0.82rem;color:var(--dark-text);outline:none;">
-                        <button type="submit" id="nlBtn" style="padding:0.5rem 0.9rem;background:var(--accent);color:white;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;"><span class="en">Subscribe</span><span class="cz">Odebírat</span></button>
-                    </form>
-                    <div id="nlMsg" style="font-size:0.78rem;margin-top:0.4rem;"></div>
+                    <div style="margin-top:1rem;">
+                        <h4 style="margin-bottom:0.5rem;"><span class="en">Stay in the loop</span><span class="cz">Zůstaňte v obraze</span></h4>
+                        <p style="font-size:0.78rem;color:var(--dark-text-muted);line-height:1.5;margin-bottom:0.5rem;">
+                            <span class="en">AI procurement tips, new tools, no spam.</span>
+                            <span class="cz">AI tipy pro nákup, nové nástroje, žádný spam.</span>
+                        </p>
+                        <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                            <input type="email" class="newsletter-input" id="nlEmail" required placeholder="your@email.com">
+                            <button type="submit" class="newsletter-btn" id="nlBtn">
+                                <span class="en">Subscribe</span><span class="cz">Odebírat</span>
+                            </button>
+                        </form>
+                        <div class="newsletter-msg" id="nlMsg"></div>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1757,24 +2229,84 @@ function postToGAS(payload) {
     return fetch(url, { mode: 'no-cors' });
 }
 
+// ─── PROMO BANNER ───
+function closeBanner() {
+    const b = document.getElementById('promoBanner');
+    if (b) { b.style.display = 'none'; document.getElementById('nav').style.top = '0'; }
+}
+
+// ─── COUNTDOWN ───
+(function initCountdown() {
+    const LAUNCH = new Date('2026-04-08T12:00:00+02:00').getTime();
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+        const diff = LAUNCH - Date.now();
+        if (diff <= 0) {
+            ['promoCd','eaCd'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = 'Live now!'; });
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        const short = `${d}d ${pad(h)}h ${pad(m)}m`;
+        const full  = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+        const c1 = document.getElementById('promoCd'); if (c1) c1.textContent = short;
+        const c2 = document.getElementById('eaCd');   if (c2) c2.textContent = full;
+    }
+    tick();
+    setInterval(tick, 1000);
+})();
+
+// ─── EARLY ACCESS FORM ───
+async function submitEarlyAccess(e) {
+    e.preventDefault();
+    const email = document.getElementById('eaEmail').value.trim();
+    const btn = document.getElementById('eaBtn');
+    const msg = document.getElementById('eaMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    btn.textContent = '...';
+    msg.textContent = '';
+    msg.className = 'ea-msg';
+    try {
+        await postToGAS({ type: 'early_access', email: email, source: 'early-access-section', lang: lang });
+        msg.className = 'ea-msg success';
+        msg.textContent = lang === 'cs' ? 'Přihlášeno! Dáme vědět.' : 'Done! We\'ll notify you.';
+        document.getElementById('eaEmail').value = '';
+    } catch (err) {
+        msg.className = 'ea-msg error';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Try again.';
+    }
+    btn.disabled = false;
+    btn.innerHTML = '<span class="en">Notify me</span><span class="cz">Chci vědět</span>';
+}
+
+// ─── NEWSLETTER ───
 async function submitNewsletter(e) {
     e.preventDefault();
     const email = document.getElementById('nlEmail').value.trim();
     const btn = document.getElementById('nlBtn');
     const msg = document.getElementById('nlMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
+
     btn.disabled = true;
+    btn.textContent = '...';
     msg.textContent = '';
+    msg.className = 'newsletter-msg';
+
     try {
         await postToGAS({ type: 'newsletter', email: email, source: 'footer', lang: lang });
-        msg.style.color = '#10b981';
+        msg.className = 'newsletter-msg success';
         msg.textContent = lang === 'cs' ? 'Přihlášeno! Díky.' : 'Subscribed! Thanks.';
         document.getElementById('nlEmail').value = '';
     } catch (err) {
-        msg.style.color = '#ef4444';
-        msg.textContent = lang === 'cs' ? 'Něco se pokazilo.' : 'Something went wrong.';
+        msg.className = 'newsletter-msg error';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Try again.';
     }
+
     btn.disabled = false;
+    btn.innerHTML = '<span class="en">Subscribe</span><span class="cz">Odebírat</span>';
 }
 
 // ─── LANGUAGE SYSTEM ───
@@ -1798,6 +2330,159 @@ function setLang(lang) {
     } else {
         setLang('en');
     }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════
+     WOW EFEKTY — GSAP + VANILLA JS
+═══════════════════════════════════════════ -->
+<script>
+(function() {
+    // ── 1. GSAP HERO ANIMATIONS ──────────────────────────────────────────
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Word-by-word reveal na H1
+        const heroH1 = document.querySelector('.hero h1');
+        if (heroH1) {
+            // Projdi přes všechny textové nody a wrap-ni slova
+            const wrapWords = (el) => {
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === 3) { // text node
+                        const words = node.textContent.split(/(\s+)/);
+                        const frag = document.createDocumentFragment();
+                        words.forEach(w => {
+                            if (w.trim()) {
+                                const outer = document.createElement('span');
+                                outer.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:bottom;';
+                                const inner = document.createElement('span');
+                                inner.className = 'word-inner';
+                                inner.style.display = 'inline-block';
+                                inner.textContent = w;
+                                outer.appendChild(inner);
+                                frag.appendChild(outer);
+                            } else if (w) {
+                                frag.appendChild(document.createTextNode(w));
+                            }
+                        });
+                        node.replaceWith(frag);
+                    } else if (node.nodeType === 1 && node.tagName !== 'SPAN') {
+                        wrapWords(node);
+                    }
+                });
+            };
+            wrapWords(heroH1);
+
+            gsap.from(heroH1.querySelectorAll('.word-inner'), {
+                yPercent: 120,
+                opacity: 0,
+                duration: 0.9,
+                stagger: 0.09,
+                ease: 'power3.out',
+                delay: 0.2
+            });
+        }
+
+        // Hero proof strip — fade
+        gsap.from('.hero-proof', { y: 12, opacity: 0, duration: 0.5, ease: 'power2.out', delay: 0.1 });
+
+        // Hero sub + actions + stats — viditelná kaskáda
+        const tl = gsap.timeline({ delay: 0.8 });
+        tl.from('.hero-sub',     { y: 28, opacity: 0, duration: 0.65, ease: 'power2.out' });
+        tl.from('.hero-actions', { y: 22, opacity: 0, duration: 0.55, ease: 'power2.out' }, '-=0.3');
+        tl.from('.hero-stats',   { y: 18, opacity: 0, duration: 0.5,  ease: 'power2.out' }, '-=0.25');
+
+        // Scroll hint — pulse loop
+        const hintLine = document.querySelector('.scroll-hint-line');
+        const hintLabel = document.querySelector('.scroll-hint-label');
+        if (hintLine && hintLabel) {
+            gsap.timeline({ delay: 1.4, repeat: -1, repeatDelay: 1.2 })
+                .fromTo(hintLine,
+                    { scaleY: 0, opacity: 0 },
+                    { scaleY: 1, opacity: 0.6, duration: 0.7, ease: 'power2.out' }
+                )
+                .to(hintLine, { opacity: 0, duration: 0.4, ease: 'power1.in' })
+                .fromTo(hintLabel,
+                    { opacity: 0 },
+                    { opacity: 1, duration: 0.3 },
+                    '-=0.8'
+                )
+                .to(hintLabel, { opacity: 0, duration: 0.3 });
+        }
+
+        // Service cards stagger reveal (přidá se nad existující .reveal IntersectionObserver)
+        gsap.from('.service-card', {
+            y: 50,
+            opacity: 0,
+            duration: 0.65,
+            stagger: 0.13,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '#services',
+                start: 'top 78%',
+                toggleActions: 'play none none none'
+            }
+        });
+    }
+
+    // ── 2. SPOTLIGHT HOVER NA KARTÁCH ────────────────────────────────────
+    document.querySelectorAll('.service-card, .case-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%';
+            const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%';
+            card.style.setProperty('--card-x', x);
+            card.style.setProperty('--card-y', y);
+        });
+    });
+
+    // ── 3. STATS COUNTER (CSS @property trigger) ─────────────────────────
+    const counterEls = document.querySelectorAll('[data-count]');
+    if (counterEls.length) {
+        const counterObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                const suffix = el.dataset.suffix || '';
+                // CSS @property animace — nastavíme --stat-target a přidáme .counting
+                el.style.setProperty('--stat-target', target);
+                // Dočasně skryjeme původní text, nahradíme counter() přes ::before
+                el.setAttribute('data-counting', '');
+                // Fallback: GSAP textContent counter pro browsery bez @property
+                if (typeof gsap !== 'undefined') {
+                    const obj = { val: 0 };
+                    gsap.to(obj, {
+                        val: target,
+                        duration: 1.8,
+                        ease: 'power1.out',
+                        snap: { val: 1 },
+                        onUpdate() {
+                            el.textContent = Math.round(obj.val) + suffix;
+                        }
+                    });
+                }
+                counterObs.unobserve(el);
+            });
+        }, { threshold: 0.6 });
+        counterEls.forEach(el => counterObs.observe(el));
+    }
+
+    // ── 4. PROCESS LINE DRAW ─────────────────────────────────────────────
+    const processGrid = document.querySelector('.process-grid');
+    if (processGrid) {
+        const lineObs = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Malý delay aby CSS transition proběhla po render
+                    setTimeout(() => processGrid.classList.add('line-drawn'), 80);
+                    lineObs.unobserve(processGrid);
+                }
+            });
+        }, { threshold: 0.4 });
+        lineObs.observe(processGrid);
+    }
+
 })();
 </script>
 
