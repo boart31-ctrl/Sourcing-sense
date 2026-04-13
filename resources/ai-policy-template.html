@@ -831,8 +831,6 @@ async function submitDownload(e) {
         document.getElementById('downloadForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
 
-        // Update direct download link
-        document.getElementById('directLink').href = downloadUrl;
     } catch (err) {
         errEl.style.display = 'block';
         errEl.textContent = lang === 'cs'
