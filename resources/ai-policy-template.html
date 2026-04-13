@@ -805,8 +805,9 @@ function setLang(lang) {
 // GAS BACKEND
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
 
-// TEMPLATE DOWNLOAD LINK — update this when you have a shareable Google Drive / OneDrive link
-const TEMPLATE_DOWNLOAD_URL = 'https://sourcing-sense.com/resources/ai-policy-cz-a7f3k9x2.html';
+// TEMPLATE DOWNLOAD LINKS
+const TEMPLATE_DOWNLOAD_URL_CZ = 'https://sourcing-sense.com/resources/ai-policy-cz-a7f3k9x2.html';
+const TEMPLATE_DOWNLOAD_URL_EN = 'https://sourcing-sense.com/resources/ai-policy-en-m4p8q1w6.html';
 
 async function submitDownload(e) {
     e.preventDefault();
@@ -815,9 +816,12 @@ async function submitDownload(e) {
     const name = document.getElementById('firstName').value.trim();
     const email = document.getElementById('workEmail').value.trim();
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    const isCz = lang === 'cs';
+    const resource = isCz ? 'ai-policy-template-cz' : 'ai-policy-template-en';
+    const downloadUrl = isCz ? TEMPLATE_DOWNLOAD_URL_CZ : TEMPLATE_DOWNLOAD_URL_EN;
 
     btn.disabled = true;
-    btn.innerHTML = '<span style="opacity:0.7">' + (lang === 'cs' ? 'Odesílám...' : 'Sending...') + '</span>';
+    btn.innerHTML = '<span style="opacity:0.7">' + (isCz ? 'Odesílám...' : 'Sending...') + '</span>';
     errEl.style.display = 'none';
 
     try {
@@ -825,7 +829,7 @@ async function submitDownload(e) {
             type: 'resource_download',
             name: name,
             email: email,
-            resource: 'ai-policy-template-cz',
+            resource: resource,
             source: 'landing-page',
             lang: lang
         })), { mode: 'no-cors' });
@@ -835,11 +839,7 @@ async function submitDownload(e) {
         document.getElementById('formSuccess').style.display = 'block';
 
         // Update direct download link
-        if (TEMPLATE_DOWNLOAD_URL !== 'REPLACE_WITH_ACTUAL_TEMPLATE_LINK') {
-            document.getElementById('directLink').href = TEMPLATE_DOWNLOAD_URL;
-        } else {
-            document.getElementById('directLink').style.display = 'none';
-        }
+        document.getElementById('directLink').href = downloadUrl;
     } catch (err) {
         errEl.style.display = 'block';
         errEl.textContent = lang === 'cs'
