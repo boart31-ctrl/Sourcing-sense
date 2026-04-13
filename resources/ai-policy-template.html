@@ -235,12 +235,6 @@
         #formSuccess .success-icon svg { width: 24px; height: 24px; color: var(--emerald); }
         #formSuccess h3 { font-family: var(--font-display); font-size: 1.2rem; color: #f1f5f9; margin-bottom: 0.5rem; }
         #formSuccess p { font-size: 0.85rem; color: var(--light-text-secondary); line-height: 1.5; }
-        #formSuccess .download-link {
-            display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;
-            padding: 0.7rem 1.4rem; background: var(--emerald); color: white;
-            border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; transition: all 0.2s;
-        }
-        #formSuccess .download-link:hover { opacity: 0.9; transform: translateY(-1px); }
 
         /* PROOF STRIP */
         .proof-strip {
@@ -798,10 +792,6 @@ function setLang(lang) {
 // GAS BACKEND
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
 
-// TEMPLATE DOWNLOAD LINKS
-const TEMPLATE_DOWNLOAD_URL_CZ = 'https://sourcing-sense.com/resources/ai-policy-cz-a7f3k9x2.html';
-const TEMPLATE_DOWNLOAD_URL_EN = 'https://sourcing-sense.com/resources/ai-policy-en-m4p8q1w6.html';
-
 async function submitDownload(e) {
     e.preventDefault();
     const btn = document.getElementById('downloadBtn');
@@ -811,7 +801,6 @@ async function submitDownload(e) {
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     const isCz = lang === 'cs';
     const resource = isCz ? 'ai-policy-template-cz' : 'ai-policy-template-en';
-    const downloadUrl = isCz ? TEMPLATE_DOWNLOAD_URL_CZ : TEMPLATE_DOWNLOAD_URL_EN;
 
     btn.disabled = true;
     btn.innerHTML = '<span style="opacity:0.7">' + (isCz ? 'Odesílám...' : 'Sending...') + '</span>';
