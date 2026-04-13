@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Most AI Projects in Procurement Fail | Sourcing Sense</title>
+    <meta name="description" content="Most AI projects in procurement don't fail because the technology is wrong. They fail because of four predictable management decisions made before anyone touched a tool.">
+    <meta name="keywords" content="why AI projects fail in procurement, AI implementation mistakes, AI in procurement pitfalls, AI pilot failure, procurement change management, AI adoption mistakes">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Why Most AI Projects in Procurement Fail | Sourcing Sense">
+    <meta property="og:description" content="Four predictable management decisions that kill AI projects — before anyone touches a tool.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/why-ai-projects-fail.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/why-ai-projects-fail.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/why-ai-projects-fail.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/why-ai-projects-fail.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/why-ai-projects-fail.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Why Most AI Projects in Procurement Fail | Sourcing Sense" />
+    <meta name="twitter:description" content="Four predictable management decisions that kill AI projects — before anyone touches a tool." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why Most AI Projects in Procurement Fail (And It's Not the Technology)",
+      "description": "Most AI projects in procurement don't fail because the technology is wrong. They fail because of four predictable management decisions made before anyone touched a tool.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sourcing Sense",
+        "url": "https://sourcing-sense.com"
+      },
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-04-11",
+      "url": "https://sourcing-sense.com/insights/why-ai-projects-fail.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/why-ai-projects-fail.html" },
+      "keywords": ["AI project failure", "procurement AI implementation", "AI pilot failure", "change management", "AI adoption mistakes"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do AI implementation projects fail in procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most AI projects in procurement fail not because of technology problems but because of four management mistakes: starting with a tool before defining the task, relying on a single person to run the pilot, skipping the AI usage policy, and measuring adoption (who uses the tool) instead of outcomes (whether the original problem got better). These are process failures, not technology failures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the most common AI implementation mistakes procurement teams make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The four most common mistakes are: 1) Buying software after seeing a demo and then looking for a problem to solve — instead of starting with a specific task. 2) Running a pilot with one person who then goes on holiday or leaves. 3) Saying 'we'll write the AI policy later' while employees start using uncontrolled consumer tools on sensitive data. 4) Counting tool usage as a success metric instead of measuring whether the original task got faster, cheaper, or better."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb; --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd; --blue-100: #dbeafe; --blue-50: #eff6ff; --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06); --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08); --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08); --light-bg: #ffffff; --light-bg-alt: #f8fafc; --light-border: #e2e8f0; --light-text: #0f172a; --light-text-secondary: #475569; --light-text-muted: #94a3b8; --font-display: 'DM Serif Display', Georgia, serif; --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-mono: 'JetBrains Mono', monospace; --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1); } *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; font-size: 16px; } body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; } ::selection { background: var(--accent); color: white; } a { text-decoration: none; color: inherit; } button { font-family: var(--font-body); border: none; cursor: pointer; background: none; } ul { list-style: none; } nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; } nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); } .nav-logo { display: flex; align-items: center; gap: 0.6rem; } .nav-logo svg { height: 30px; width: auto; } .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; } .nav-center { display: flex; align-items: center; gap: 2rem; } .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; } .nav-center a:hover { color: var(--accent); } .nav-center a.active { color: var(--accent); font-weight: 600; } .nav-right { display: flex; align-items: center; gap: 1rem; } .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; } .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; } .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); } .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; } .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); } .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; } .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; } .mobile-overlay.open { opacity: 1; pointer-events: auto; } .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); } .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; } .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; } .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; } .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; } .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; } .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; } .breadcrumb a:hover { color: var(--accent); } .breadcrumb svg { width: 12px; height: 12px; } .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; } .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); } .article-badge.article { background: var(--accent-subtle); color: var(--accent); } .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); } .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; } .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; } .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); } .article-meta span { display: flex; align-items: center; gap: 0.3rem; } .article-meta svg { width: 14px; height: 14px; } .article-result-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--emerald); padding: 0.25rem 0.7rem; background: var(--emerald-subtle); border-radius: 100px; } .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; } .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; } .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; } .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; } .prose strong { color: var(--light-text); font-weight: 600; } .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; } .prose a:hover { border-color: var(--accent); } .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; } .prose ol { list-style: decimal; } .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; } .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; } .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; } .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); } .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); } .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); } .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; } .callout.tip .callout-title { color: var(--emerald); } .callout.warning .callout-title { color: #d97706; } .callout.info .callout-title { color: var(--accent); } .results-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1.5rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); margin: 2rem 0; } .results-box-item { text-align: center; } .results-box-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; } .results-box-label { font-size: 0.8rem; color: var(--light-text-muted); font-weight: 500; } .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px solid var(--light-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; } .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; } .article-tag { font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.65rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; color: var(--light-text-secondary); } .article-share { display: flex; align-items: center; gap: 0.75rem; } .article-share-label { font-size: 0.8rem; color: var(--light-text-muted); } .share-btn { width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--light-bg-alt); border: 1px solid var(--light-border); display: flex; align-items: center; justify-content: center; color: var(--light-text-secondary); transition: all 0.2s; } .share-btn:hover { background: var(--accent); color: white; border-color: var(--accent); } .share-btn svg { width: 16px; height: 16px; } .related-section { background: var(--light-bg-alt); padding: 3rem 2rem; } .related-inner { max-width: 760px; margin: 0 auto; } .related-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; } .related-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; } .related-back { font-size: 0.83rem; color: var(--accent); font-weight: 500; } .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; } .related-card { padding: 1.25rem; background: white; border: 1px solid var(--light-border); border-radius: var(--radius); transition: all 0.2s; display: block; } .related-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); transform: translateY(-2px); } .related-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.5rem; border-radius: 100px; margin-bottom: 0.75rem; } .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); } .related-badge.article { background: var(--accent-subtle); color: var(--accent); } .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); } .related-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.35; color: var(--light-text); } .related-card p { font-size: 0.83rem; color: var(--light-text-muted); line-height: 1.5; } .cta-strip { padding: 4rem 2rem; background: linear-gradient(135deg, var(--blue-900) 0%, #1e3a6e 100%); color: white; text-align: center; } .cta-strip-inner { max-width: 560px; margin: 0 auto; } .cta-strip h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.75rem; } .cta-strip p { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.7; } .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--accent); font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: var(--radius-sm); transition: all 0.25s ease; } .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); } footer { background: var(--light-bg); border-top: 1px solid var(--light-border); padding: 2rem; } .footer-inner { max-width: 1200px; margin: 0 auto; } .footer-bottom { display: flex; align-items: center; justify-content: space-between; } .footer-bottom p { font-size: 0.82rem; color: var(--light-text-muted); } .footer-social a { color: var(--light-text-muted); transition: color 0.2s; } .footer-social a:hover { color: var(--accent); } [data-lang="en"] .cz { display: none; } [data-lang="cs"] .en { display: none; } @media (max-width: 768px) { .nav-center, .nav-right { display: none; } .hamburger { display: block; } .article-meta { gap: 0.75rem; } .related-grid { grid-template-columns: 1fr; } .article-footer-strip { flex-direction: column; align-items: flex-start; } }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Why AI Projects Fail</span><span class="cz">Proč AI projekty selhávají</span></span>
+        </div>
+
+        <span class="article-badge article">
+            <span class="en">Article</span><span class="cz">Článek</span>
+        </span>
+
+        <h1>
+            <span class="en">Why Most AI Projects in Procurement Fail (And It's Not the Technology)</span>
+            <span class="cz">Proč AI projekty v nákupu selhávají — a není to technologií</span>
+        </h1>
+
+        <p class="article-excerpt">
+            <span class="en">Most procurement AI projects that fail don't fail because the AI was wrong. They fail because of four predictable management decisions made before anyone touched a tool. Here's what they are and how to avoid them.</span>
+            <span class="cz">Většina AI projektů v nákupu, které selžou, neselhávají proto, že AI byla špatná. Selhávají kvůli čtyřem předvídatelným rozhodnutím managementu, která padla ještě předtím, než někdo otevřel jakýkoli nástroj. Tady jsou — a jak se jim vyhnout.</span>
+        </p>
+
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0121 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                David Račák
+            </span>
+        </div>
+
+    </div>
+</section>
+
+<article class="article-body">
+    <div class="prose">
+
+        <p>
+            <span class="en">I've watched a handful of AI pilots in procurement organizations go quiet. Not with a bang — with a shrug. Someone stops sending updates, the Slack channel goes dark, and three months later the tool is still technically active but nobody uses it. When you ask what happened, the answer is usually some version of "it just didn't really work out."</span>
+            <span class="cz">Viděl jsem, jak v nákupních organizacích potichu doznívá celá řada AI pilotů. Bez velkého třesku — jen s pokrčením ramen. Někdo přestane posílat updaty, Slack kanál utichne, a za tři měsíce je nástroj sice technicky aktivní, ale nikdo ho nepoužívá. Když se zeptáte, co se stalo, odpověď je zpravidla nějaká varianta "prostě to nevyšlo."</span>
+        </p>
+
+        <p>
+            <span class="en">It's rarely the AI's fault. I can count on one hand the cases where the technology itself was the problem. What actually kills these projects is a short list of management decisions — most of them made in the first two weeks, some of them made before the first meeting about the tool even happened.</span>
+            <span class="cz">Skoro nikdy to není vina AI. Na prstech jedné ruky spočítám případy, kdy byl problémem samotný nástroj. Co tyto projekty skutečně zabíjí, je krátký seznam rozhodnutí — většina z nich padne v prvních dvou týdnech, některá ještě dřív, než proběhne první schůzka k danému nástroji.</span>
+        </p>
+
+        <div class="callout info">
+            <div class="callout-title"><span class="en">Lean Six Sigma framing</span><span class="cz">Pohled Lean Six Sigma</span></div>
+            <span class="en">The patterns below are process failures, not technology failures. If you've done root cause analysis before, you'll recognize most of them — they show up in non-AI projects too. AI just makes them more visible and more expensive when they land.</span>
+            <span class="cz">Níže popsané vzorce jsou procesní selhání, nikoli technologická. Pokud jste někdy dělali analýzu kořenových příčin, většinu z nich poznáte — objevují se i v projektech bez AI. AI je jen zviditelnuje a zdraží, když dopadnou špatně.</span>
+        </div>
+
+        <h2>
+            <span class="en">Failure Pattern 1: Starting With a Tool, Not a Task</span>
+            <span class="cz">Vzorec selhání 1: Začínáme nástrojem, ne úkolem</span>
+        </h2>
+
+        <p>
+            <span class="en">Someone went to a conference. Or saw a vendor demo. Or a LinkedIn post caught their eye. The tool looked genuinely impressive — and it probably was. So they bought licenses. Then they looked around for a problem to solve with it.</span>
+            <span class="cz">Někdo byl na konferenci. Nebo viděl demo od dodavatele. Nebo ho zaujal příspěvek na LinkedIn. Nástroj vypadal opravdu působivě — a možná byl. Tak koupili licence. A pak začali hledat problém, který by s ním vyřešili.</span>
+        </p>
+
+        <p>
+            <span class="en">This is backwards and it almost always ends the same way. The tool gets piloted on a task it wasn't really designed for, results are mediocre, and the team concludes that "AI doesn't work for us." The tool isn't wrong. The sequence is wrong.</span>
+            <span class="cz">To je pozadu a téměř vždy to skončí stejně. Nástroj se pilotuje na úkolu, pro který nebyl navržen, výsledky jsou průměrné a tým dojde k závěru, že "AI u nás nefunguje." Nástroj není špatný. Postup je špatný.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>The fix is simple, not easy:</strong> write the task in one sentence before you look at any tool. "We want to automatically extract payment terms and renewal dates from new supplier contracts." That sentence tells you what you need the tool to do. Then you find the tool that does it. If you can't write that sentence, you're not ready to buy anything.</span>
+            <span class="cz"><strong>Řešení je jednoduché, ale ne snadné:</strong> napište úkol do jedné věty, ještě než se podíváte na jakýkoli nástroj. "Chceme automaticky extrahovat platební podmínky a data obnovení z nových dodavatelských smluv." Tato věta říká, co od nástroje potřebujete. Pak najdete nástroj, který to umí. Pokud tu větu napsat neumíte, nejste připraveni nic kupovat.</span>
+        </p>
+
+        <h2>
+            <span class="en">Failure Pattern 2: One Ambassador Syndrome</span>
+            <span class="cz">Vzorec selhání 2: Syndrom jediného ambasadora</span>
+        </h2>
+
+        <p>
+            <span class="en">The pilot runs through one person. They're enthusiastic, capable, and they genuinely get it. They build the prompts, run the tests, train their colleagues, write the internal guide. The pilot looks promising.</span>
+            <span class="cz">Pilot probíhá přes jednu osobu. Je nadšená, schopná, skutečně tomu rozumí. Staví prompty, spouští testy, školí kolegy, píše interní příručku. Pilot vypadá slibně.</span>
+        </p>
+
+        <p>
+            <span class="en">Then that person goes on holiday for two weeks. Or changes jobs. Or gets pulled onto a bigger project. The pilot stops. Nobody else knows how the tool actually works — not at the level needed to keep it running. By the time the ambassador comes back, momentum is gone and everyone has moved on.</span>
+            <span class="cz">Pak ta osoba odjede na dva týdny na dovolenou. Nebo změní práci. Nebo ji přesunou na větší projekt. Pilot se zastaví. Nikdo jiný neví, jak nástroj skutečně funguje — ne na úrovni potřebné k jeho provozu. Než se ambasador vrátí, momentum je pryč a všichni se posunuli dál.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Minimum viable redundancy: two people.</strong> Two people who both understand the tool, both know the prompts, both can explain it to a new colleague. This isn't about documentation — documentation gets outdated. It's about having two brains that hold the context. If your pilot doesn't have two active owners, it's one resignation away from disappearing.</span>
+            <span class="cz"><strong>Minimální životaschopná záloha: dva lidé.</strong> Dva lidé, kteří oba rozumí nástroji, oba znají prompty, oba ho dokážou vysvětlit novému kolegovi. Nejde o dokumentaci — dokumentace zastarává. Jde o to mít dva lidi, kteří nesou kontext. Pokud váš pilot nemá dva aktivní vlastníky, jedna výpověď ho může smazat.</span>
+        </p>
+
+        <h2>
+            <span class="en">Failure Pattern 3: Skipping the Policy</span>
+            <span class="cz">Vzorec selhání 3: Přeskočení politiky</span>
+        </h2>
+
+        <p>
+            <span class="en">This one sounds like bureaucratic nagging until you watch it go wrong. The team starts the pilot. Nobody writes a policy — "we'll do that later, once we know if it works." But while the pilot is running, other people in the team see it and start using whatever AI tools they have in their browser. ChatGPT, Gemini, Copilot. Pasting supplier prices into free-tier tools. Uploading contract drafts to systems with no data processing agreement in place.</span>
+            <span class="cz">Tohle zní jako byrokratické mrzoutství — dokud se to nevymkne kontrole. Tým spustí pilot. Nikdo nepíše politiku — "to uděláme později, až budeme vědět, jestli to funguje." Ale zatímco pilot běží, ostatní v týmu to vidí a začínají používat AI nástroje, které mají v prohlížeči. ChatGPT, Gemini, Copilot. Vkládají ceny dodavatelů do nástrojů s free tier. Nahrávají návrhy smluv do systémů bez uzavřené smlouvy o zpracování dat.</span>
+        </p>
+
+        <p>
+            <span class="en">By the time someone writes the policy — if they ever do — the habits are already set. Rolling them back is much harder than setting them correctly from the start.</span>
+            <span class="cz">Když někdo konečně napíše politiku — pokud vůbec — zvyky jsou už zažité. Vrátit je zpět je podstatně těžší než správně nastavit od začátku.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>One page. One afternoon. Before you start.</strong> The policy doesn't need to be a legal document. It needs to answer three questions: what data can go into which tools, which tools are approved, and who do you ask when you're not sure. That's it. Write it on the day you decide to run the pilot — not six weeks later when the damage is already done.</span>
+            <span class="cz"><strong>Jedna strana. Jedno odpoledne. Před spuštěním.</strong> Politika nemusí být právní dokument. Potřebuje odpovědět na tři otázky: jaká data mohou jít do jakých nástrojů, které nástroje jsou schváleny, a koho se ptáte, když si nejste jisti. To je vše. Napište ji v den, kdy se rozhodnete pilota spustit — ne šest týdnů poté, co je škoda napáchaná.</span>
+        </p>
+
+        <p>
+            <span class="en">If you want a template, <a href="/tools">Sourcing Sense has one</a> — one page, ready to adapt in under an hour.</span>
+            <span class="cz">Pokud chcete šablonu, <a href="/tools">Sourcing Sense ji má</a> — jedna stránka, připravená k úpravě za méně než hodinu.</span>
+        </p>
+
+        <h2>
+            <span class="en">Failure Pattern 4: Measuring Adoption Instead of Outcome</span>
+            <span class="cz">Vzorec selhání 4: Měříme adopci místo výsledku</span>
+        </h2>
+
+        <p>
+            <span class="en">Three months into the pilot, someone asks how it's going. The answer is: "Eight out of twelve people in the team are using it." That sounds like progress. It isn't a measure of success.</span>
+            <span class="cz">Tři měsíce po spuštění pilota se někdo zeptá, jak to jde. Odpověď zní: "Osm ze dvanácti lidí v týmu to používá." To zní jako pokrok. Není to ukazatel úspěchu.</span>
+        </p>
+
+        <p>
+            <span class="en">The question you actually need to answer is: did the original task get faster, cheaper, or better? If you wanted to reduce the time spent reviewing supplier responses, is that time going down? If you wanted to catch more contract risks before signing, are you catching more? Adoption without outcome measurement is just a usage report dressed up as a result.</span>
+            <span class="cz">Otázka, na kterou skutečně potřebujete odpověď, je: stal se původní úkol rychlejším, levnějším nebo lepším? Pokud jste chtěli snížit čas strávený kontrolou odpovědí dodavatelů, klesá tento čas? Pokud jste chtěli zachytit více smluvních rizik před podpisem, zachycujete jich více? Adopce bez měření výsledku je jen report o používání přestrojený za výsledek.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Pick one number before you start.</strong> One metric that reflects the original task. Time saved per week. Error rate. Number of contracts reviewed without escalation. Whatever is relevant to your task. That number is your success criterion. If you don't define it before you start, you'll have no way of knowing whether the pilot actually worked.</span>
+            <span class="cz"><strong>Vyberte jedno číslo před spuštěním.</strong> Jednu metriku, která odráží původní úkol. Ušetřený čas za týden. Míra chyb. Počet smluv zkontrolovaných bez eskalace. Cokoli, co je relevantní pro váš úkol. Toto číslo je vaše kritérium úspěchu. Pokud ho nedefinujete před spuštěním, nebudete mít jak zjistit, jestli pilot skutečně fungoval.</span>
+        </p>
+
+        <div class="callout warning">
+            <div class="callout-title"><span class="en">The expensive version</span><span class="cz">Drahá verze</span></div>
+            <span class="en">The most costly outcome isn't a failed pilot — it's a publicly failed pilot. When a team goes through a visible, messy AI project failure, they get burned. The next time someone proposes an AI initiative, the response is "we tried that, it doesn't work." That organizational skepticism can set a team back years. It's worth treating the four patterns above as actual risk items, not just process suggestions.</span>
+            <span class="cz">Nejnákladnější výsledek není neúspěšný pilot — je to veřejně neúspěšný pilot. Když tým projde viditelným, chaotickým selháním AI projektu, spálí se. Příště, když někdo navrhne AI iniciativu, odpověď zní: "To jsme zkoušeli, nefunguje to." Tento organizační skepticismus může tým vrátit o roky zpět. Čtyři výše popsané vzorce stojí za to brát jako skutečné položky rizika, ne jen jako procesní doporučení.</span>
+        </div>
+
+        <h2>
+            <span class="en">A Quick Summary</span>
+            <span class="cz">Stručné shrnutí</span>
+        </h2>
+
+        <div class="results-box">
+            <div class="results-box-item">
+                <div class="results-box-num">4</div>
+                <div class="results-box-label"><span class="en">Failure patterns</span><span class="cz">Vzorce selhání</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">0</div>
+                <div class="results-box-label"><span class="en">Technology problems</span><span class="cz">Technologických problémů</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">1</div>
+                <div class="results-box-label"><span class="en">Sentence needed before buying</span><span class="cz">Věta před nákupem</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">2</div>
+                <div class="results-box-label"><span class="en">Minimum pilot owners</span><span class="cz">Minimální počet vlastníků</span></div>
+            </div>
+        </div>
+
+        <p>
+            <span class="en">The pattern across all four failures is the same: the decisions that matter most happen before the tool is ever opened. Task definition, team structure, data policy, success metrics — all of that is organizational groundwork. The AI itself is almost the last thing that determines whether a procurement AI project succeeds.</span>
+            <span class="cz">Vzorec ve všech čtyřech selháních je stejný: nejdůležitější rozhodnutí padají ještě předtím, než je nástroj vůbec otevřen. Definice úkolu, struktura týmu, politika dat, metriky úspěchu — to vše jsou organizační základy. Samotná AI je téměř poslední věcí, která určuje, zda projekt v nákupu uspěje.</span>
+        </p>
+
+        <p>
+            <span class="en">If you're about to start an AI pilot and you haven't done those four things, that's where to start. Not with the tool.</span>
+            <span class="cz">Pokud se chystáte spustit AI pilot a tyto čtyři věci jste ještě neudělali, začněte tam. Nikoliv nástrojem.</span>
+        </p>
+
+        <blockquote>
+            <span class="en">AI doesn't fail procurement teams. Procurement teams fail their AI pilots — by skipping the boring work that should have happened first. The good news: it's entirely preventable.</span>
+            <span class="cz">AI neselhává nákupní týmy. Nákupní týmy selhávají své AI piloty — tím, že přeskočí nudnou práci, která měla proběhnout jako první. Dobrá zpráva: je to zcela předvídatelné a lze tomu předejít.</span>
+        </blockquote>
+
+    </div>
+</article>
+
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag"><span class="en">AI project failure</span><span class="cz">Selhání AI projektů</span></span>
+        <span class="article-tag"><span class="en">Procurement implementation</span><span class="cz">Implementace v nákupu</span></span>
+        <span class="article-tag"><span class="en">Change management</span><span class="cz">Change management</span></span>
+        <span class="article-tag"><span class="en">AI policy</span><span class="cz">AI politika</span></span>
+        <span class="article-tag"><span class="en">Pilot project</span><span class="cz">Pilotní projekt</span></span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/why-ai-projects-fail.html" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3><span class="en">Related articles</span><span class="cz">Související články</span></h3>
+            <a href="/insights" class="related-back"><span class="en">← All insights</span><span class="cz">← Všechny články</span></a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/ai-myths-procurement.html" class="related-card">
+                <span class="related-badge article">Article</span>
+                <h4><span class="en">AI Adoption Checklist for Procurement Teams</span><span class="cz">Checklist adopce AI pro nákupní týmy</span></h4>
+                <p><span class="en">Before you run any pilot, run through this list.</span><span class="cz">Než spustíte jakýkoli pilot, projděte si tento seznam.</span></p>
+            </a>
+            <a href="/insights/ai-myths-procurement.html" class="related-card">
+                <span class="related-badge article">Article</span>
+                <h4><span class="en">Five AI Myths Procurement Managers Actually Believe</span><span class="cz">Pět AI mýtů, kterým nákupní manažeři skutečně věří</span></h4>
+                <p><span class="en">Some of them are holding your team back right now.</span><span class="cz">Některé z nich váš tým brzdí právě teď.</span></p>
+            </a>
+            <a href="/insights/contract-nemesis.html" class="related-card">
+                <span class="related-badge use-case">Use Case</span>
+                <h4><span class="en">Contract Nemesis: AI Contract Monitoring</span><span class="cz">Contract Nemesis: AI monitoring smluv</span></h4>
+                <p><span class="en">An example of an AI project that started with the task, not the tool.</span><span class="cz">Příklad AI projektu, který začal úkolem, ne nástrojem.</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3><span class="en">Running an AI pilot soon?</span><span class="cz">Chystáte AI pilot?</span></h3>
+        <p>
+            <span class="en">Book a 30-minute call. We'll check whether you have the four basics covered before you spend time and budget on a tool.</span>
+            <span class="cz">Zarezervujte si 30minutový hovor. Ověříme, zda máte čtyři základy pokryté, ještě než utratíte čas a rozpočet za nástroj.</span>
+        </p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            <span class="en">Book a free call</span><span class="cz">Zarezervovat hovor zdarma</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sourcing Sense. David Račák.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/davidracak/" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    function setLang(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+        localStorage.setItem('ss-lang', lang);
+    }
+
+    function toggleMob() {
+        document.getElementById('mob').classList.toggle('open');
+    }
+
+    (function() {
+        const saved = localStorage.getItem('ss-lang');
+        if (saved && (saved === 'en' || saved === 'cs')) {
+            setLang(saved);
+        }
+    })();
+</script>
+
+</body>
+</html>

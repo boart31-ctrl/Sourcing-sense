@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Claude Safely: The Differences That Actually Matter for Business | Sourcing Sense</title>
+    <meta name="description" content="Claude Code, Claude.ai, Claude for Work, VS Code extension — different risk profiles, different setup. Real incidents 2025-26. Setup checklist for business teams.">
+    <meta name="keywords" content="Claude AI safety guide, Claude Code risks, how to use Claude safely business, Claude AI data privacy, Claude Code local security, Claude vs ChatGPT security, MCP server security, Claude for Work GDPR">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="How to Use Claude Safely: The Differences That Actually Matter | Sourcing Sense">
+    <meta property="og:description" content="Four ways to use Claude, four different risk profiles. Real incidents, setup checklist, April 2026.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/claude-safety-guide.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/claude-safety-guide.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/claude-safety-guide.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/claude-safety-guide.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/claude-safety-guide.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Use Claude Safely: Business Guide April 2026 | Sourcing Sense" />
+    <meta name="twitter:description" content="Claude Code vs Claude.ai vs Claude for Work vs VS Code extension. Different risk profiles. Real incidents. Setup checklist." />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Use Claude Safely: The Differences That Actually Matter for Business",
+      "description": "Claude Code, Claude.ai, Claude for Work, VS Code extension — different risk profiles, different setup. Real incidents 2025-26. Setup checklist for business teams.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "url": "https://sourcing-sense.com/insights/claude-safety-guide.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/claude-safety-guide.html" },
+      "keywords": ["Claude AI safety", "Claude Code security", "Claude business", "AI tool safety", "MCP server risk", "Claude data privacy"]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.06);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ARTICLE HEADER */
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--purple-subtle) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        /* RESULTS BOX */
+        .results-box { background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 2.5rem; }
+        .results-box-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple); margin-bottom: 1rem; }
+        .results-box-result-tag { font-size: 0.88rem; color: var(--emerald); font-weight: 600; margin-bottom: 1rem; }
+        .results-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+        .results-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--light-text-secondary); }
+        .results-item svg { width: 16px; height: 16px; color: var(--purple); flex-shrink: 0; }
+        @media (max-width: 500px) { .results-items { grid-template-columns: 1fr; } }
+
+        /* ARTICLE BODY */
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.65rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: var(--amber-subtle); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.danger { background: var(--red-subtle); border: 1px solid rgba(239,68,68,0.12); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: var(--amber); }
+        .callout.danger .callout-title { color: var(--red); }
+        .callout.info .callout-title { color: var(--accent); }
+
+        /* Comparison table */
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .comparison-table th { background: var(--blue-900); color: white; padding: 0.75rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.02em; }
+        .comparison-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light-border); color: var(--light-text-secondary); vertical-align: top; line-height: 1.6; }
+        .comparison-table tr:hover td { background: var(--light-bg-alt); }
+        .comparison-table td:first-child { font-weight: 600; color: var(--light-text); white-space: nowrap; }
+        .risk-low { color: var(--emerald); font-weight: 600; }
+        .risk-medium { color: #f59e0b; font-weight: 600; }
+        .risk-high { color: #ef4444; font-weight: 600; }
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; border-radius: var(--radius-sm); border: 1px solid var(--light-border); }
+
+        /* Section number boxes */
+        .section-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--purple-subtle); color: var(--purple); font-weight: 700; font-size: 1rem; border-radius: 8px; margin-bottom: 0.75rem; font-family: var(--font-mono); border: 1px solid rgba(139,92,246,0.15); }
+
+        /* Incident cards */
+        .incident-card { border: 1px solid rgba(239,68,68,0.2); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin: 1rem 0; background: var(--red-subtle); }
+        .incident-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; }
+        .incident-date { font-size: 0.75rem; font-weight: 700; font-family: var(--font-mono); color: var(--red); background: rgba(239,68,68,0.1); padding: 0.2rem 0.55rem; border-radius: 4px; }
+        .incident-title { font-size: 0.95rem; font-weight: 600; color: var(--light-text); }
+        .incident-body { font-size: 0.9rem; color: var(--light-text-secondary); line-height: 1.7; }
+
+        /* Checklist */
+        .checklist-box-wrap { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.18); border-radius: var(--radius); padding: 1.75rem; margin: 2rem 0; }
+        .checklist-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--emerald); margin-bottom: 1.25rem; }
+        .checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem; font-size: 0.95rem; color: var(--light-text-secondary); line-height: 1.6; }
+        .checklist-item:last-child { margin-bottom: 0; }
+        .checklist-checkbox { width: 18px; height: 18px; border: 2px solid var(--emerald); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+
+        /* Decision guide */
+        .decision-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--light-border); padding: 0.9rem 0; }
+        .decision-row:last-child { border-bottom: none; }
+        .decision-if { font-size: 0.9rem; color: var(--light-text-secondary); line-height: 1.6; padding-right: 1rem; }
+        .decision-then { font-size: 0.9rem; font-weight: 600; color: var(--light-text); line-height: 1.6; padding-left: 1rem; border-left: 2px solid var(--accent); }
+
+        /* Article tags and share */
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+        .article-tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 100px; background: var(--light-bg-alt); border: 1px solid var(--light-border); color: var(--light-text-muted); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--light-border); }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        /* Related / CTA */
+        .article-cta { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; }
+        .cta-card { background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%); border-radius: var(--radius); padding: 2.5rem; color: white; }
+        .cta-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .cta-card p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; max-width: 500px; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; padding: 0.85rem 1.75rem; background: var(--emerald); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-btn:hover { background: #0ea572; transform: translateY(-1px); }
+
+        /* FOOTER */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        /* Related articles */
+        .related-section { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .related-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light-text-muted); margin-bottom: 1.25rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { padding: 1.25rem; border: 1px solid var(--light-border); border-radius: var(--radius-sm); background: white; transition: all 0.25s var(--ease); display: block; }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .related-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.55rem; border-radius: 100px; display: inline-block; margin-bottom: 0.6rem; }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: rgba(139,92,246,0.06); color: #8b5cf6; }
+        .related-card h4 { font-size: 0.88rem; font-weight: 600; line-height: 1.45; color: var(--light-text); margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.8rem; color: var(--light-text-muted); line-height: 1.5; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip, .article-cta, .related-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .decision-row { grid-template-columns: 1fr; }
+            .decision-then { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.5rem; margin-top: 0.25rem; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══════════════════════════════════════════
+           DARK THEME OVERRIDE
+        ═══════════════════════════════════════════ */
+        :root {
+            --bg-primary:           #08090f;
+            --bg-surface:           #0d1117;
+            --bg-elevated:          #131820;
+            --light-bg:             #08090f;
+            --light-bg-alt:         #0d1117;
+            --light-card:           #0d1117;
+            --light-border:         rgba(255, 255, 255, 0.08);
+            --light-text:           #f1f5f9;
+            --light-text-secondary: #94a3b8;
+            --light-text-muted:     #3d4a5c;
+            --accent:               #3b82f6;
+            --accent-light:         #60a5fa;
+            --accent-glow:          rgba(59, 130, 246, 0.2);
+            --accent-subtle:        rgba(59, 130, 246, 0.1);
+            --dark-bg:              #05060a;
+            --dark-bg-alt:          #08090f;
+            --dark-card:            rgba(13, 17, 23, 0.9);
+            --dark-border:          rgba(255, 255, 255, 0.07);
+            --dark-text:            #f1f5f9;
+            --dark-text-secondary:  #94a3b8;
+            --dark-text-muted:      #3d4a5c;
+        }
+        nav { background: rgba(8, 9, 15, 0.88); border-bottom-color: rgba(255, 255, 255, 0.08); }
+        nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .lang-btn.active { background: rgba(59, 130, 246, 0.15); color: #60a5fa; box-shadow: none; }
+        .mobile-overlay { background: rgba(8, 9, 15, 0.97); }
+        .mobile-overlay a { color: #94a3b8; }
+        .mobile-close { color: #94a3b8; }
+        .hamburger { color: #f1f5f9; }
+        .nav-logo-text { color: #f1f5f9; }
+        .article-header { background: linear-gradient(175deg, rgba(139,92,246,0.07) 0%, var(--light-bg) 50%); }
+        .related-card { background: #0d1117; }
+        .results-box { background: #0d1117; }
+        .comparison-table th { background: #131820; }
+        .checklist-box-wrap { background: rgba(16,185,129,0.05); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+    <div class="article-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Claude Safety Guide</span><span class="cz">Průvodce bezpečností Claude</span></span>
+        </div>
+        <span class="article-badge tutorial">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/></svg>
+            <span class="en">Tutorial</span><span class="cz">Tutoriál</span>
+        </span>
+        <h1>
+            <span class="en">How to Use Claude Safely: The Differences That Actually Matter for Business</span>
+            <span class="cz">Jak bezpečně používat Claude: rozdíly, na kterých skutečně záleží pro byznys</span>
+        </h1>
+        <p class="article-excerpt">
+            <span class="en">Claude.ai, Claude for Work, Claude Code, VS Code extension — four different ways to use the same AI. Four different risk profiles. Most teams use the riskiest option by accident.</span>
+            <span class="cz">Claude.ai, Claude for Work, Claude Code, rozšíření do VS Code — čtyři různé způsoby, jak používat stejnou AI. Čtyři různé rizikové profily. Většina týmů omylem volí tu nejrizikovější variantu.</span>
+        </p>
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="en">10 min read</span><span class="cz">10 min čtení</span>
+            </span>
+            <span>David Račák</span>
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+    <div class="prose">
+
+        <!-- RESULTS BOX -->
+        <div class="results-box">
+            <div class="results-box-label"><span class="en">What this covers</span><span class="cz">Co se dozvíte</span></div>
+            <div class="results-box-result-tag">→ <span class="en">Right setup, right risk profile</span><span class="cz">Správné nastavení, správný rizikový profil</span></div>
+            <div class="results-items">
+                <div class="results-item">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span><span class="en">4 ways to use Claude</span><span class="cz">4 způsoby použití Claude</span></span>
+                </div>
+                <div class="results-item">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span><span class="en">Different risk profiles</span><span class="cz">Různé rizikové profily</span></span>
+                </div>
+                <div class="results-item">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span><span class="en">Real incidents 2025–26</span><span class="cz">Skutečné incidenty 2025–26</span></span>
+                </div>
+                <div class="results-item">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span><span class="en">Setup checklist</span><span class="cz">Checklist nastavení</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EN VERSION -->
+        <div class="en">
+
+            <p>A colleague of mine at a manufacturing company was using Claude daily. She thought it was fine — she had a Pro subscription, so she figured the data was safe. She was putting supplier pricing, negotiation strategies, and internal cost breakdowns into it every week.</p>
+
+            <p>The problem: she was on a personal Pro plan, not a business account. As of September 28, 2025, Anthropic changed its consumer terms. Free, Pro, and Max plans now default to opt-in for training on conversation data. She had clicked through the update notice without reading it. Her supplier negotiations were likely in the training dataset.</p>
+
+            <p>This is not a horror story about Claude specifically. It is a story about how the same product can be configured in very different ways, and how not understanding those differences creates real business risk.</p>
+
+            <h2>The four ways to access Claude</h2>
+
+            <p>Anthropic offers Claude through four distinct access points. They use the same underlying model, but the data handling, permissions, and risk profiles are completely different.</p>
+
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Access method</th>
+                            <th>Data used for training?</th>
+                            <th>Runs where?</th>
+                            <th>Business risk level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Claude.ai free / Pro / Max</td>
+                            <td>Yes by default (opt-out available)</td>
+                            <td>Anthropic cloud</td>
+                            <td><span class="risk-high">High</span> for company data</td>
+                        </tr>
+                        <tr>
+                            <td>Claude for Work (Teams)</td>
+                            <td>No</td>
+                            <td>Anthropic cloud</td>
+                            <td><span class="risk-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>Claude Code (CLI)</td>
+                            <td>No — but can read local files</td>
+                            <td>Local + Anthropic API</td>
+                            <td><span class="risk-high">High</span> if misconfigured</td>
+                        </tr>
+                        <tr>
+                            <td>VS Code / IDE extension</td>
+                            <td>No — but sends codebase context</td>
+                            <td>Local + Anthropic API</td>
+                            <td><span class="risk-medium">Medium</span> with setup</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>1. Claude.ai — the consumer web app</h2>
+
+            <div class="section-num">1</div>
+
+            <p>This is what most people use when they first try Claude. You open claude.ai in a browser, start a chat, and go. It looks and works like ChatGPT. That similarity is also where the confusion comes from.</p>
+
+            <p><strong>What happens to your data:</strong> On Free, Pro, and Max plans, since September 28, 2025, Anthropic defaults to using conversation data for model training. There is an opt-out — in Settings → Privacy, you can turn off "Help improve Claude" — but it is easy to miss. The update notice had a large "Accept" button and a small toggle. Most users clicked Accept.</p>
+
+            <p><strong>What this means in practice:</strong> If any employee is using a personal Claude.ai account and typing in supplier pricing, contract terms, cost structures, or client information, that data may be going into Anthropic's training pipeline. This is not theoretical. Anthropic explicitly confirmed the September 2025 change applies to Pro plans too, not just free accounts.</p>
+
+            <div class="callout danger">
+                <div class="callout-title">The main risk for business</div>
+                Employees using personal Claude.ai accounts for work tasks. The Pro subscription costs money, so people assume it comes with better data protection. It does not — data handling for Pro and Free is identical unless you have a Business/Teams account.
+            </div>
+
+            <p><strong>Setup for safety:</strong> Either prohibit use of personal Claude.ai accounts for work data entirely, or instruct employees to opt out of training in Settings → Privacy. Neither is a perfect solution. The clean answer is a Claude for Work account.</p>
+
+            <h2>2. Claude for Work (Teams plan)</h2>
+
+            <div class="section-num">2</div>
+
+            <p>Claude for Work is the business subscription at claude.ai. The Team plan runs €25/user/month on annual billing, or €30 month-to-month. A premium seat including Claude Code access costs €150/month.</p>
+
+            <p><strong>What is different from the consumer version:</strong></p>
+            <ul>
+                <li>Conversation data is not used for model training — this applies to all commercial plans</li>
+                <li>SOC 2 Type II certified, ISO 27001:2022 and ISO/IEC 42001:2023 compliant</li>
+                <li>SAML 2.0 / OIDC SSO support — connects to Okta, Azure AD, Ping Identity</li>
+                <li>Admin controls and audit logging on Enterprise tier</li>
+                <li>A new Data Processing Agreement (effective January 2026) covers GDPR Standard Contractual Clauses</li>
+            </ul>
+
+            <p><strong>What it does not solve:</strong> Your data still goes to Anthropic's infrastructure. There is currently no dedicated EU-only data region for the direct API. If your industry requires EU data residency, you need to route through AWS Bedrock or Google Cloud Vertex AI EU endpoints, not the consumer or Teams interface directly.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">GDPR note for EU businesses</div>
+                Claude for Work covers most GDPR requirements through the January 2026 DPA and SCCs. But if you need guaranteed EU data residency — as some regulated sectors require — use Claude through AWS Bedrock EU profiles or Vertex AI EU regional endpoints instead. Bring Your Own Key (BYOK) encryption is arriving in H1 2026.
+            </div>
+
+            <p><strong>Setup for safety:</strong> Enable SSO through your identity provider, define what categories of data employees can use with Claude, and make sure you have a team-level account — not a collection of personal Pro accounts on the company card.</p>
+
+            <h2>3. Claude Code — the command-line tool</h2>
+
+            <div class="section-num">3</div>
+
+            <p>Claude Code is a different beast. It is not a chat interface. It is a CLI agent that runs in your terminal, reads files on your system, writes code, executes shell commands, and makes network calls. I use it daily on Windows with WSL2 (Ubuntu), aliased as <code>cc</code>.</p>
+
+            <p>The risk profile here is significantly different from the web app — not because Anthropic does anything unusual with the data, but because of what Claude Code can actually do on your machine.</p>
+
+            <p><strong>What Claude Code can do that Claude.ai cannot:</strong></p>
+            <ul>
+                <li>Read files anywhere on your local filesystem (within the session context)</li>
+                <li>Execute arbitrary shell commands</li>
+                <li>Install packages via npm, pip, etc.</li>
+                <li>Make outbound network requests</li>
+                <li>Read and potentially expose environment variables (including API keys and credentials)</li>
+            </ul>
+
+            <p>This is not a flaw — it is literally the point of the tool. But it means that if something goes wrong, the blast radius is much larger than a misplaced chat message.</p>
+
+            <p><strong>The sandbox mode question:</strong> Claude Code has a permissions system and a sandbox mode. When sandbox mode is on, it asks for confirmation before executing commands. When it is off, it runs more autonomously. The setting lives in <code>~/.claude/settings.json</code>. Check it.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">MCP servers — the hidden risk</div>
+                Claude Code supports MCP (Model Context Protocol) — a way to connect Claude to external tools and data sources. MCP servers extend what Claude can access: your email, your calendar, your database, your Jira board. The problem is that every MCP server you install is a third-party piece of software with its own security posture. This became a serious problem in 2025–26. See the incidents section below.
+            </div>
+
+            <p><strong>Setup for safety:</strong></p>
+            <ul>
+                <li>Keep sandbox mode on when working with unfamiliar files or repositories</li>
+                <li>Never run Claude Code as root</li>
+                <li>Review the MCP servers you have installed — only keep ones from trusted, well-maintained sources</li>
+                <li>Check <code>~/.claude/settings.json</code> for your current permissions configuration</li>
+                <li>Be aware of what files are in your working directory when starting a session — sensitive files in the project folder become part of the context</li>
+            </ul>
+
+            <h2>4. VS Code extension and IDE plugins</h2>
+
+            <div class="section-num">4</div>
+
+            <p>The VS Code extension puts Claude directly into your editor. You can highlight code, ask questions, get completions, have Claude read your entire codebase. It is genuinely useful for developers. It also has a specific data risk that most users do not think about.</p>
+
+            <p><strong>What gets sent to Anthropic with each query:</strong> When you ask Claude a question in the IDE, the extension sends context — your open files, relevant code, the project structure. If your codebase contains API keys hardcoded in config files, database credentials, internal business logic, or client data, that context goes with the query.</p>
+
+            <p>The Chrome extension (over 3 million users as of early 2026) had a separate issue: a zero-click vulnerability called ShadowPrompt, discovered by Koi Security in March 2026, allowed any website to silently inject instructions into Claude as if the user had typed them. Anthropic deployed a fix on January 15, 2026. If you have not updated the extension since late 2025, update it.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Quick fix</div>
+                Create a <code>.claudeignore</code> file in your project root (same syntax as .gitignore) to exclude files you do not want in the context. At minimum: <code>.env</code> files, any file with credentials, private key files, and directories containing client or financial data.
+            </div>
+
+            <p><strong>Setup for safety:</strong></p>
+            <ul>
+                <li>Add a <code>.claudeignore</code> or expand your <code>.gitignore</code> to cover sensitive files</li>
+                <li>Review which files Claude is actually including before asking complex questions</li>
+                <li>Keep the extension updated — the ShadowPrompt fix required an update, not just a backend patch</li>
+                <li>Never store credentials directly in project files (this is general hygiene, but IDE AI tools make the exposure surface larger)</li>
+            </ul>
+
+            <h2>Real incidents: what actually happened in 2025–26</h2>
+
+            <p>This section covers documented incidents involving Claude directly or the ecosystem around it. The security community moved fast on these. Most were patched — but the underlying patterns are still worth understanding.</p>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">OCT 2025</span>
+                    <span class="incident-title">Indirect prompt injection via Claude's Code Interpreter</span>
+                </div>
+                <div class="incident-body">Security researcher Johann Rehberger demonstrated that Claude's Code Interpreter, with its then-new network access features, could be manipulated through indirect prompt injection to extract chat history and upload it to an attacker-controlled account. The attacker embeds instructions in content that Claude processes — a document, a webpage — which then redirect Claude's actions. No user clicks required.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">JAN 2026</span>
+                    <span class="incident-title">ShadowPrompt — Chrome Extension zero-click hijack</span>
+                </div>
+                <div class="incident-body">Researchers at Koi Security found a flaw in Claude's Chrome extension (3M+ users) that allowed any website you visited to silently inject instructions into Claude without your knowledge. The attack chained an overly permissive origin allowlist with a DOM-based XSS in an embedded CAPTCHA component. Anthropic fixed it on January 15, 2026, with a stricter origin check. Users who had not updated were vulnerable during this window.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">MAR 2026</span>
+                    <span class="incident-title">"Claudy Day" — three vulnerabilities in Claude.ai (Oasis Security)</span>
+                </div>
+                <div class="incident-body">Oasis Security researchers discovered a chain of three flaws: an invisible prompt injection via URL parameters on claude.ai, a data exfiltration channel through the Anthropic Files API, and an open redirect. Combined, they allowed an attacker to steal conversation history and memory from any Claude.ai user by getting them to click a crafted URL embedded in a Google search result. Anthropic patched the injection flaw; the other two were being addressed as of April 2026.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">MAR 31, 2026</span>
+                    <span class="incident-title">Claude Code source code leak — and the vulnerabilities it exposed</span>
+                </div>
+                <div class="incident-body">Anthropic accidentally included a 59.8 MB JavaScript source map in the public npm package <code>@anthropic-ai/claude-code</code> v2.1.88. Over 512,000 lines of TypeScript were exposed within hours, forked tens of thousands of times. Within 24 hours, security firm Adversa found a deny-rule bypass: Claude Code hard-caps subcommand lists at 50 entries — exceed that, and it defaults to asking for permission rather than blocking. A proof-of-concept demonstrated exfiltration of SSH keys, AWS credentials, and GitHub tokens. The vulnerability was patched in v2.1.90. A separate malware campaign immediately created fake "leaked Claude Code" GitHub repositories distributing credential-stealing malware (Vidar stealer + GhostSocks). Do not download anything claiming to be the "leaked source."</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">APR 5, 2026</span>
+                    <span class="incident-title">Trojanized PyPI package stealing Claude conversations</span>
+                </div>
+                <div class="incident-body">JFrog Security discovered <code>hermes-px</code> on PyPI — a package that presented itself as a privacy-focused Claude proxy but silently sent every conversation to an attacker-controlled Supabase database. The package used triple-layer obfuscation (XOR encryption, zlib compression, base64 encoding). Relevant if your team uses any third-party Claude wrappers or integrations installed via pip.</div>
+            </div>
+
+            <div class="callout info">
+                <div class="callout-title">On MCP server security</div>
+                The Model Context Protocol ecosystem had a rough year. In September 2025, the Postmark MCP server registry published a functional but backdoored server — a classic supply chain attack adapted for AI tooling. In June 2025, an Asana MCP feature caused customer data to bleed across instances for two weeks. The popular <code>mcp-remote</code> npm package (558,000+ downloads) had a critical vulnerability (CVE-2025-6514). The broader finding from security researchers: 82% of MCP implementations surveyed have file operations vulnerable to path traversal. If you install MCP servers for Claude Code, treat them like any other third-party dependency — check the maintainer, check the repo age, check for recent commits.
+            </div>
+
+            <h2>Which version should you use?</h2>
+
+            <p>Straightforward decision guide:</p>
+
+            <div style="margin: 1.5rem 0; border: 1px solid var(--light-border); border-radius: var(--radius-sm); overflow: hidden; padding: 0.25rem 1.25rem;">
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Personal tasks, nothing work-related</strong></div>
+                    <div class="decision-then">Claude.ai free or Pro — but opt out of training in Settings → Privacy</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Team using Claude for work tasks</strong></div>
+                    <div class="decision-then">Claude for Work (Teams plan) — €25/user/month, no training on your data</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Building automations, working with local files or code</strong></div>
+                    <div class="decision-then">Claude Code with sandbox mode on, MCP servers reviewed</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>IDE integration for development work</strong></div>
+                    <div class="decision-then">VS Code extension with .claudeignore covering credentials and sensitive files</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Regulated industry — healthcare, finance, defence</strong></div>
+                    <div class="decision-then">Claude via AWS Bedrock EU or Google Vertex AI EU endpoints for data residency, or on-premise LLM</div>
+                </div>
+            </div>
+
+            <h2>The thing most businesses actually get wrong</h2>
+
+            <p>It is not a technical configuration problem. It is a policy gap.</p>
+
+            <p>Employees start using free AI tools because they are fast, useful, and nobody told them not to. By the time IT or procurement notices, there are fifteen people using Claude.ai personal accounts with company data every day. The company card may even be paying for Pro subscriptions — which, as covered above, offer no additional data protection over the free plan.</p>
+
+            <p>The fix is two things at once: give people a safe option (a Teams account), and write a one-paragraph policy saying what not to put in any AI tool. Confidential supplier pricing. Client names. Contract terms under NDA. Internal cost structures. That list takes ten minutes to write and covers 80% of the actual exposure.</p>
+
+            <blockquote>The employees using unsafe tools are not doing it to be careless. They are doing it because nobody gave them a safe one.</blockquote>
+
+            <p>A Teams licence solves both problems simultaneously: it gives people a better tool and handles the data compliance question. The per-user cost is lower than one hour of external legal advice on a data incident.</p>
+
+            <h2>Setup checklist</h2>
+
+            <div class="checklist-box-wrap">
+                <div class="checklist-title">Quick setup — Claude for business teams</div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Check what plan your employees are using.</strong> Ask your IT or finance team for any Claude.ai subscriptions charged to the company card. Personal Pro = not covered for business data.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Move to Claude for Work (Teams plan)</strong> if you have more than two people using Claude for work tasks. The data handling is completely different from consumer plans.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Enable SSO</strong> on the Teams plan through your identity provider (Okta, Azure AD, Ping). This lets you control access centrally and remove users when they leave.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Write a one-paragraph AI data policy.</strong> What not to put in: supplier pricing and negotiation positions, client names under NDA, contract terms, internal cost structures, personal employee data. Send it to the team once. Pin it somewhere visible.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>If using Claude Code: verify sandbox mode is on.</strong> Check <code>~/.claude/settings.json</code>. Review any installed MCP servers — remove ones you do not actively use or cannot verify the source of.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>If using the VS Code extension: set up .claudeignore.</strong> At minimum, exclude <code>.env</code> files and any directory containing credentials or client data.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Designate one person to review AI tool usage quarterly.</strong> Which tools is the team using? Are there new consumer accounts nobody reported? Have any tools changed their terms? This does not need to be a full audit — 30 minutes every three months is enough.</span>
+                </div>
+            </div>
+
+            <h2>A note on trust</h2>
+
+            <p>Anthropic has generally been more transparent about data practices than some competitors — they published their September 2025 policy change openly and maintained clear opt-out mechanisms. The incidents documented above were mostly found by security researchers doing responsible disclosure, and most were patched within days or weeks.</p>
+
+            <p>That does not mean the risk is zero. It means the risk is manageable with the right setup. The teams that get burned are not the ones who understood the risk and accepted it — they are the ones who assumed the default configuration was safe and never checked.</p>
+
+        </div><!-- /en -->
+
+        <!-- CZ VERSION -->
+        <div class="cz">
+
+            <p>Kolegyně z výrobní firmy používala Claude každý den. Myslela si, že je to v pořádku — měla Pro předplatné, takže data jsou v bezpečí. Každý týden do něj zadávala ceny dodavatelů, vyjednávací strategie a interní kalkulace nákladů.</p>
+
+            <p>Problém byl v tom, že měla osobní Pro účet, ne firemní. Od 28. září 2025 Anthropic změnil podmínky pro spotřebitele. Plány Free, Pro a Max teď defaultně souhlasí s využitím konverzací pro trénování modelu. Přeskočila přes oznámení o aktualizaci bez čtení. Její dodavatelská vyjednávání pravděpodobně skončila v trénovacím datasetu.</p>
+
+            <p>To není hororový příběh o Claude jako takovém. Je to příběh o tom, jak stejný produkt může být nakonfigurován velmi různými způsoby — a jak nepochopení těchto rozdílů vytváří reálné byznysové riziko.</p>
+
+            <h2>Čtyři způsoby přístupu ke Claude</h2>
+
+            <p>Anthropic nabízí Claude čtyřmi různými způsoby. Všechny používají stejný model, ale zacházení s daty, oprávnění a rizikový profil jsou zcela odlišné.</p>
+
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Způsob přístupu</th>
+                            <th>Data pro trénování?</th>
+                            <th>Kde běží?</th>
+                            <th>Byznys riziko</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Claude.ai free / Pro / Max</td>
+                            <td>Ano defaultně (opt-out k dispozici)</td>
+                            <td>Anthropic cloud</td>
+                            <td><span class="risk-high">Vysoké</span> pro firemní data</td>
+                        </tr>
+                        <tr>
+                            <td>Claude for Work (Teams)</td>
+                            <td>Ne</td>
+                            <td>Anthropic cloud</td>
+                            <td><span class="risk-medium">Střední</span></td>
+                        </tr>
+                        <tr>
+                            <td>Claude Code (CLI)</td>
+                            <td>Ne — ale čte lokální soubory</td>
+                            <td>Lokálně + Anthropic API</td>
+                            <td><span class="risk-high">Vysoké</span> při špatné konfiguraci</td>
+                        </tr>
+                        <tr>
+                            <td>Rozšíření pro VS Code / IDE</td>
+                            <td>Ne — ale posílá kontext kódu</td>
+                            <td>Lokálně + Anthropic API</td>
+                            <td><span class="risk-medium">Střední</span> se správným nastavením</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>1. Claude.ai — webová spotřebitelská aplikace</h2>
+
+            <div class="section-num">1</div>
+
+            <p>Takhle většina lidí Claude poprvé zkusí. Otevřete claude.ai v prohlížeči, začnete chat a jedete. Vypadá a funguje jako ChatGPT. Tato podobnost je také zdrojem záměny.</p>
+
+            <p><strong>Co se děje s vašimi daty:</strong> Na plánech Free, Pro a Max od 28. září 2025 Anthropic defaultně používá konverzační data pro trénování modelu. Opt-out existuje — v Nastavení → Soukromí můžete vypnout "Pomoci vylepšit Claude" — ale je snadné ho přehlédnout. Oznámení o aktualizaci mělo velké tlačítko "Přijmout" a malý přepínač. Většina uživatelů klikla na Přijmout.</p>
+
+            <p><strong>Co to v praxi znamená:</strong> Pokud jakýkoliv zaměstnanec používá osobní účet Claude.ai a zadává do něj ceny dodavatelů, smluvní podmínky, kalkulace nákladů nebo informace o klientech, tato data mohou jít do trénovacího procesu Anthropicu. Anthropic výslovně potvrdil, že změna ze září 2025 se vztahuje i na Pro plány, nejen na bezplatné účty.</p>
+
+            <div class="callout danger">
+                <div class="callout-title">Hlavní riziko pro byznys</div>
+                Zaměstnanci používající osobní účty Claude.ai pro pracovní úkoly. Pro předplatné stojí peníze, takže lidé předpokládají lepší ochranu dat. To není pravda — zacházení s daty u Pro a Free plánu je identické, pokud nemáte firemní (Teams) účet.
+            </div>
+
+            <p><strong>Jak nastavit bezpečně:</strong> Buď zakažte používání osobních Claude.ai účtů pro pracovní data, nebo instruujte zaměstnance, aby vypnuli trénování v Nastavení → Soukromí. Ani jedno není ideální řešení. Čistá odpověď je Claude for Work účet.</p>
+
+            <h2>2. Claude for Work (Teams plán)</h2>
+
+            <div class="section-num">2</div>
+
+            <p>Claude for Work je firemní předplatné na claude.ai. Teams plán stojí přibližně 25 EUR/uživatel/měsíc při ročním předplatném, nebo 30 EUR měsíčně. Prémiový seat včetně přístupu k Claude Code vychází na 150 EUR měsíčně.</p>
+
+            <p><strong>Co je jinak oproti spotřebitelské verzi:</strong></p>
+            <ul>
+                <li>Konverzační data se nepoužívají pro trénování modelu — platí pro všechny komerční plány</li>
+                <li>Certifikace SOC 2 Type II, ISO 27001:2022 a ISO/IEC 42001:2023</li>
+                <li>Podpora SSO přes SAML 2.0 / OIDC — napojení na Okta, Azure AD, Ping Identity</li>
+                <li>Admin ovládací prvky a audit logy na Enterprise úrovni</li>
+                <li>Nová smlouva o zpracování dat (DPA účinná od ledna 2026) pokrývá standardní smluvní doložky GDPR</li>
+            </ul>
+
+            <p><strong>Co to neřeší:</strong> Vaše data stále jdou na infrastrukturu Anthropicu. V tuto chvíli neexistuje dedikovaná EU datová oblast pro přímé API. Pokud váš sektor vyžaduje datovou rezidenci v EU, musíte routovat přes AWS Bedrock nebo Google Cloud Vertex AI EU endpointy.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Poznámka k GDPR pro EU firmy</div>
+                Claude for Work pokrývá většinu požadavků GDPR přes DPA z ledna 2026 a standardní smluvní doložky. Pokud ale potřebujete garantovanou datovou rezidenci v EU — jak požadují některá regulovaná odvětví — používejte Claude přes AWS Bedrock EU profily nebo Vertex AI EU regionální endpointy. Šifrování s vlastním klíčem (BYOK) přichází v H1 2026.
+            </div>
+
+            <p><strong>Jak nastavit bezpečně:</strong> Povolte SSO přes váš identity provider, definujte jaké kategorie dat smějí zaměstnanci do Claude zadávat, a zajistěte, že máte firemní účet — ne sbírku osobních Pro účtů placených z firemní karty.</p>
+
+            <h2>3. Claude Code — nástroj příkazového řádku</h2>
+
+            <div class="section-num">3</div>
+
+            <p>Claude Code je jiný svět. Není to chatovací rozhraní. Je to CLI agent, který běží v terminálu, čte soubory na vašem systému, píše kód, spouští příkazy shellu a dělá síťové volání. Sám ho používám denně na Windows s WSL2 (Ubuntu), aliasován jako <code>cc</code>.</p>
+
+            <p>Rizikový profil je tady výrazně jiný než u webové aplikace — ne proto, že by Anthropic dělal něco neobvyklého s daty, ale kvůli tomu, co Claude Code skutečně může udělat na vašem počítači.</p>
+
+            <p><strong>Co Claude Code dokáže, co Claude.ai nemůže:</strong></p>
+            <ul>
+                <li>Číst soubory kdekoli na lokálním souborovém systému (v kontextu sezení)</li>
+                <li>Spouštět libovolné příkazy shellu</li>
+                <li>Instalovat balíčky přes npm, pip atd.</li>
+                <li>Vytvářet odchozí síťová spojení</li>
+                <li>Číst proměnné prostředí — včetně API klíčů a přihlašovacích údajů</li>
+            </ul>
+
+            <p>To není chyba — to je doslova smysl nástroje. Ale znamená to, že pokud se něco pokazí, rozsah škod je mnohem větší než zbloudilá zpráva v chatu.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">MCP servery — skryté riziko</div>
+                Claude Code podporuje MCP (Model Context Protocol) — způsob, jak připojit Claude k externím nástrojům a zdrojům dat. MCP servery rozšiřují, k čemu má Claude přístup: váš email, kalendář, databáze, Jira. Problém je, že každý MCP server, který nainstalujete, je software třetí strany s vlastním bezpečnostním profilem. V roce 2025–26 se z toho stalo vážné téma. Viz sekce incidentů níže.
+            </div>
+
+            <p><strong>Jak nastavit bezpečně:</strong></p>
+            <ul>
+                <li>Nechte sandbox mode zapnutý při práci s neznámými soubory nebo repozitáři</li>
+                <li>Nikdy nespouštějte Claude Code jako root</li>
+                <li>Zkontrolujte nainstalované MCP servery — ponechte jen ty z důvěryhodných, dobře udržovaných zdrojů</li>
+                <li>Zkontrolujte <code>~/.claude/settings.json</code> pro aktuální konfiguraci oprávnění</li>
+                <li>Mějte přehled o tom, jaké soubory jsou v pracovním adresáři na začátku sezení</li>
+            </ul>
+
+            <h2>4. Rozšíření pro VS Code a IDE pluginy</h2>
+
+            <div class="section-num">4</div>
+
+            <p>Rozšíření pro VS Code dává Claude přímo do editoru. Můžete označit kód, ptát se na otázky, dostat doplnění kódu, nechat Claude přečíst celý váš projekt. Je to genuinně užitečné pro vývojáře. Má ale specifické riziko, na které většina uživatelů nemyslí.</p>
+
+            <p><strong>Co se posílá Anthropicu s každým dotazem:</strong> Když se Claude v IDE zeptáte na otázku, rozšíření posílá kontext — otevřené soubory, relevantní kód, strukturu projektu. Pokud vaše kódová základna obsahuje API klíče v konfiguračních souborech, přihlašovací údaje k databázi, interní obchodní logiku nebo data klientů, tento kontext jde s dotazem.</p>
+
+            <p>Chrome rozšíření (přes 3 miliony uživatelů na začátku roku 2026) mělo samostatný problém: zero-click zranitelnost zvaná ShadowPrompt, kterou v březnu 2026 odhalili výzkumníci z Koi Security, umožňovala jakékoli navštívené stránce tiše injektovat instrukce do Claude bez vašeho vědomí. Anthropic vydal opravu 15. ledna 2026. Pokud jste rozšíření neaktualizovali od konce roku 2025, aktualizujte ho.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Rychlé řešení</div>
+                Vytvořte soubor <code>.claudeignore</code> v kořenovém adresáři projektu (stejná syntaxe jako .gitignore) pro vyloučení souborů, které nechcete v kontextu. Minimálně: soubory <code>.env</code>, jakýkoliv soubor s přihlašovacími údaji, soubory soukromých klíčů a adresáře s daty klientů nebo finančními daty.
+            </div>
+
+            <h2>Skutečné incidenty: co se stalo v 2025–26</h2>
+
+            <p>Tato sekce pokrývá zdokumentované incidenty přímo spojené s Claude nebo jeho ekosystémem. Bezpečnostní komunita reagovala rychle. Většina byla opravena — ale vzorce, které za nimi stojí, jsou stále relevantní.</p>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">ŘÍJ 2025</span>
+                    <span class="incident-title">Nepřímá prompt injekce přes Claude Code Interpreter</span>
+                </div>
+                <div class="incident-body">Bezpečnostní výzkumník Johann Rehberger demonstroval, že Code Interpreter Claude s tehdy novými síťovými funkcemi lze manipulovat přes nepřímou prompt injekci k extrakci historie chatů a jejich nahrání na útočníkův účet. Útočník vloží instrukce do obsahu, který Claude zpracovává — dokument, webová stránka — které pak přesměrují akce Claude. Bez nutnosti kliknutí uživatele.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">LED 2026</span>
+                    <span class="incident-title">ShadowPrompt — zero-click únos Chrome rozšíření</span>
+                </div>
+                <div class="incident-body">Výzkumníci z Koi Security našli zranitelnost v Chrome rozšíření Claude (3M+ uživatelů), která umožňovala jakékoli navštívené stránce tiše injektovat instrukce do Claude bez vědomí uživatele. Útok spojil příliš permisivní whitelist origins s DOM-based XSS v embedded CAPTCHA komponentě. Anthropic vydal opravu 15. ledna 2026 se striktní kontrolou originu.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">BŘE 2026</span>
+                    <span class="incident-title">"Claudy Day" — tři zranitelnosti v Claude.ai (Oasis Security)</span>
+                </div>
+                <div class="incident-body">Výzkumníci Oasis Security odhalili řetězec tří chyb: neviditelná prompt injekce přes URL parametry na claude.ai, kanál pro exfiltraci dat přes Anthropic Files API a open redirect. Dohromady umožňovaly útočníkovi ukrást historii konverzací a paměť jakéhokoli uživatele claude.ai tím, že ho přiměli kliknout na upravený odkaz zabudovaný do výsledku Google vyhledávání. Anthropic opravil injekční chybu; ostatní dvě řešil k dubnu 2026.</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">31. BŘE 2026</span>
+                    <span class="incident-title">Únik zdrojového kódu Claude Code — a zranitelnosti, které odhalil</span>
+                </div>
+                <div class="incident-body">Anthropic omylem zahrnul 59,8 MB JavaScript source mapu do veřejného npm balíčku <code>@anthropic-ai/claude-code</code> v2.1.88. Přes 512 000 řádků TypeScriptu bylo během hodin zpřístupněno, forknuto desítkami tisíc lidí. Do 24 hodin bezpečnostní firma Adversa nalezla bypass deny-rule: Claude Code omezuje listy subpříkazů na 50 položek — překročte to a místo blokování se zeptá na povolení. Proof-of-concept demonstroval exfiltraci SSH klíčů, AWS přihlašovacích údajů a GitHub tokenů. Zranitelnost opravena ve v2.1.90. Souběžná malware kampaň okamžitě vytvořila falešné GitHub repozitáře distribuující malware kradoucí přihlašovací údaje. Nestahujte nic, co tvrdí, že je "uniklý zdrojový kód."</div>
+            </div>
+
+            <div class="incident-card">
+                <div class="incident-header">
+                    <span class="incident-date">5. DUB 2026</span>
+                    <span class="incident-title">Trójský balíček PyPI kradoucí konverzace s Claude</span>
+                </div>
+                <div class="incident-body">JFrog Security odhalil <code>hermes-px</code> na PyPI — balíček prezentovaný jako privacy-focused proxy pro Claude, který tiše posílal každou konverzaci do databáze Supabase ovládané útočníkem. Balíček použil trojitou vrstvou obfuskace (XOR šifrování, zlib komprese, base64 kódování). Relevantní pro týmy používající jakékoli third-party wrappers pro Claude instalované přes pip.</div>
+            </div>
+
+            <div class="callout info">
+                <div class="callout-title">O bezpečnosti MCP serverů</div>
+                Ekosystém Model Context Protocol měl těžký rok. V září 2025 byl na MCP registru publikován funkční ale backdoorovaný Postmark MCP server. V červnu 2025 způsobila Asana MCP funkce únik dat zákazníků mezi instancemi po dobu dvou týdnů. Populární npm balíček <code>mcp-remote</code> (558 000+ stažení) měl kritickou zranitelnost CVE-2025-6514. Obecný závěr bezpečnostních výzkumníků: 82 % zkoumaných MCP implementací má souborové operace zranitelné vůči path traversal. MCP servery pro Claude Code instalujte se stejnou opatrností jako jakékoli jiné závislosti třetích stran.
+            </div>
+
+            <h2>Kterou verzi byste měli používat?</h2>
+
+            <p>Jednoduchý rozhodovací průvodce:</p>
+
+            <div style="margin: 1.5rem 0; border: 1px solid var(--light-border); border-radius: var(--radius-sm); overflow: hidden; padding: 0.25rem 1.25rem;">
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Osobní úkoly, nic pracovního</strong></div>
+                    <div class="decision-then">Claude.ai free nebo Pro — ale vypněte trénování v Nastavení → Soukromí</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Tým používající Claude pro pracovní úkoly</strong></div>
+                    <div class="decision-then">Claude for Work (Teams plán) — ~25 EUR/uživatel/měsíc, bez trénování na vašich datech</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Tvorba automatizací, práce s lokálními soubory nebo kódem</strong></div>
+                    <div class="decision-then">Claude Code se zapnutým sandbox mode a zkontrolovanými MCP servery</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Integrace do IDE pro vývoj</strong></div>
+                    <div class="decision-then">Rozšíření VS Code s .claudeignore pokrývajícím přihlašovací údaje a citlivé soubory</div>
+                </div>
+                <div class="decision-row">
+                    <div class="decision-if"><strong>Regulované odvětví — zdravotnictví, finance, obrana</strong></div>
+                    <div class="decision-then">Claude přes AWS Bedrock EU nebo Google Vertex AI EU endpointy pro datovou rezidenci, nebo on-premise LLM</div>
+                </div>
+            </div>
+
+            <h2>Co většina firem dělá špatně</h2>
+
+            <p>Není to technický konfigurační problém. Je to mezera v politice.</p>
+
+            <p>Zaměstnanci začnou používat bezplatné AI nástroje, protože jsou rychlé, užitečné a nikdo jim neřekl, že nemají. Když si toho IT nebo nákup všimne, je tam patnáct lidí používajících osobní Claude.ai účty s firemními daty každý den. Firemní karta může dokonce platit za Pro předplatné — které, jak bylo popsáno výše, neposkytuje žádnou další ochranu dat oproti bezplatnému plánu.</p>
+
+            <p>Řešení jsou dvě věci najednou: dejte lidem bezpečnou možnost (Teams účet) a napište odstavec politiky říkající, co do žádného AI nástroje nezadávat. Důvěrné ceny dodavatelů. Jména klientů. Smluvní podmínky pod NDA. Interní kalkulace nákladů. Tento seznam zabere deset minut sepsat a pokrývá 80 % reálné expozice.</p>
+
+            <blockquote>Zaměstnanci používající nebezpečné nástroje to nedělají ze lhostejnosti. Dělají to proto, že jim nikdo nedal bezpečnou alternativu.</blockquote>
+
+            <h2>Checklist nastavení</h2>
+
+            <div class="checklist-box-wrap">
+                <div class="checklist-title">Rychlé nastavení — Claude pro firemní týmy</div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Zjistěte, jaký plán vaši zaměstnanci používají.</strong> Zeptejte se IT nebo financí na jakákoli Claude.ai předplatná placená z firemní karty. Osobní Pro = nekryté pro firemní data.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Přejděte na Claude for Work (Teams plán)</strong>, pokud mají více než dva lidé Claude pro pracovní úkoly. Zacházení s daty je zcela jiné než u spotřebitelských plánů.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Povolte SSO</strong> na Teams plánu přes váš identity provider (Okta, Azure AD, Ping). To vám umožní centrálně spravovat přístup a odebírat uživatele při odchodu.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Napište jednoodstavcovou AI datovou politiku.</strong> Co nezadávat: ceny dodavatelů a vyjednávací pozice, jména klientů pod NDA, smluvní podmínky, interní kalkulace nákladů, osobní data zaměstnanců. Pošlete jednou týmu. Připíchněte na viditelné místo.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Při používání Claude Code: ověřte, že je sandbox mode zapnutý.</strong> Zkontrolujte <code>~/.claude/settings.json</code>. Projděte nainstalované MCP servery — odstraňte ty, které aktivně nevyužíváte nebo jejichž zdroj nemůžete ověřit.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Při používání rozšíření VS Code: nastavte .claudeignore.</strong> Minimálně vyloučte soubory <code>.env</code> a jakýkoli adresář obsahující přihlašovací údaje nebo data klientů.</span>
+                </div>
+                <div class="checklist-item">
+                    <div class="checklist-checkbox"></div>
+                    <span><strong>Určete jednu osobu zodpovědnou za čtvrtletní přehled AI nástrojů.</strong> Které nástroje tým používá? Existují nové osobní účty, o kterých nikdo nehlásil? Nezměnil nějaký nástroj podmínky? Nepotřebujete plný audit — 30 minut každé tři měsíce stačí.</span>
+                </div>
+            </div>
+
+        </div><!-- /cz -->
+
+    </div>
+</div>
+
+<!-- TAGS + SHARE -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Claude AI</span>
+        <span class="article-tag">AI Security</span>
+        <span class="article-tag">Claude Code</span>
+        <span class="article-tag">Data Privacy</span>
+        <span class="article-tag">MCP Servers</span>
+        <span class="article-tag">Claude for Work</span>
+        <span class="article-tag">AI Tools Business</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/claude-safety-guide" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div class="related-section">
+    <p class="related-label"><span class="en">More from Sourcing Sense</span><span class="cz">Další z Sourcing Sense</span></p>
+    <div class="related-grid">
+        <a href="/insights/ai-projects-fail" class="related-card">
+            <span class="related-badge article">Article</span>
+            <h4><span class="en">Why 90% of Procurement AI Projects Fail</span><span class="cz">Proč 90 % AI projektů v nákupu selže</span></h4>
+            <p><span class="en">Five real reasons — in the order they usually occur.</span><span class="cz">Pět skutečných důvodů — v pořadí, ve kterém se obvykle vyskytují.</span></p>
+        </a>
+        <a href="/insights/prompt-engineering-procurement" class="related-card">
+            <span class="related-badge tutorial">Tutorial</span>
+            <h4><span class="en">Prompt Engineering for Procurement Professionals</span><span class="cz">Prompt engineering pro nákupčí</span></h4>
+            <p><span class="en">Before/after examples for contracts, spend, quotes, and negotiations.</span><span class="cz">Příklady před/po pro smlouvy, výdaje, nabídky a vyjednávání.</span></p>
+        </a>
+        <a href="/insights/5-processes-to-automate" class="related-card">
+            <span class="related-badge article">Article</span>
+            <h4><span class="en">5 Procurement Processes You Should Automate First</span><span class="cz">5 nákupních procesů, které byste měli automatizovat jako první</span></h4>
+            <p><span class="en">Ranked by ROI vs. effort, with real tool stacks.</span><span class="cz">Seřazeno podle ROI vs. námahy, s reálnými nástroji.</span></p>
+        </a>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="article-cta">
+    <div class="cta-card">
+        <h3><span class="en">Need to sort out AI tools for your team?</span><span class="cz">Potřebujete dát dohromady AI nástroje pro váš tým?</span></h3>
+        <p>
+            <span class="en">A 20-minute call to review what your team is currently using, what the actual risk is, and what setup makes sense for your organisation's size and sector.</span>
+            <span class="cz">20minutový hovor pro přehled toho, co váš tým aktuálně používá, jaké je skutečné riziko a jaké nastavení dává smysl pro velikost a sektor vaší organizace.</span>
+        </p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
+            <span class="en">Book a free call</span><span class="cz">Domluvit bezplatný hovor</span>
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/insights" class="footer-link"><span class="en">← Back to Insights</span><span class="cz">← Zpět na Insights</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika využívání AI — CZ verze | Sourcing Sense</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --blue-900: #0a1628;
+    --blue-700: #152d54;
+    --blue-500: #2563eb;
+    --blue-400: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50:  #eff6ff;
+    --gold:     #f59e0b;
+    --green:    #10b981;
+    --green-bg: #ecfdf5;
+    --yellow:   #f59e0b;
+    --yellow-bg:#fffbeb;
+    --red:      #ef4444;
+    --red-bg:   #fef2f2;
+    --text:     #111827;
+    --text-mid: #374151;
+    --text-muted: #6b7280;
+    --border:   #e5e7eb;
+    --bg:       #ffffff;
+    --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'DM Serif Display', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    font-size: 10pt;
+    color: var(--text);
+    background: #f3f4f6;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 20px;
+    background: white;
+    padding: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  /* HEADER */
+  .doc-header {
+    background: var(--blue-900);
+    padding: 28px 36px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-500), var(--gold));
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 15pt;
+    color: white;
+    letter-spacing: 0.05em;
+  }
+  .brand-tagline {
+    font-size: 8pt;
+    color: #93c5fd;
+    margin-top: 2px;
+  }
+  .edition-badge {
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .doc-title {
+    font-family: var(--font-display);
+    font-size: 22pt;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .doc-subtitle {
+    font-size: 9pt;
+    color: #93c5fd;
+  }
+
+  /* META TABLE */
+  .meta-bar {
+    background: var(--blue-700);
+    padding: 14px 36px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    font-size: 8pt;
+    color: #bfdbfe;
+  }
+  .meta-item strong {
+    color: white;
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  /* BODY */
+  .doc-body {
+    padding: 28px 36px;
+  }
+
+  /* CUSTOMIZE NOTE */
+  .customize-note {
+    background: #fffbeb;
+    border-left: 3px solid var(--gold);
+    padding: 8px 12px;
+    font-size: 8.5pt;
+    color: #78350f;
+    margin: 10px 0 18px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* SECTION HEADINGS */
+  h2 {
+    font-family: var(--font-display);
+    font-size: 13pt;
+    color: var(--blue-900);
+    margin: 28px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--blue-500);
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--blue-700);
+    margin: 16px 0 6px;
+  }
+
+  p { margin-bottom: 8px; font-size: 9.5pt; }
+
+  ul, ol {
+    margin: 6px 0 10px 18px;
+    font-size: 9.5pt;
+  }
+  li { margin-bottom: 3px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 8.5pt;
+  }
+  th {
+    background: var(--blue-900);
+    color: white;
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f9fafb; }
+  tr:hover td { background: var(--blue-50); }
+
+  /* DATA CLASSIFICATION COLORS */
+  .cat-green { background: var(--green-bg) !important; }
+  .cat-yellow { background: var(--yellow-bg) !important; }
+  .cat-red { background: var(--red-bg) !important; }
+  .badge-green {
+    display: inline-block;
+    background: #d1fae5; color: #065f46;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .badge-yellow {
+    display: inline-block;
+    background: #fef3c7; color: #78350f;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .badge-red {
+    display: inline-block;
+    background: #fee2e2; color: #7f1d1d;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid var(--red);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    font-size: 9pt;
+    color: #7f1d1d;
+  }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--blue-50);
+    border-left: 4px solid var(--blue-500);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    font-size: 9pt;
+    color: var(--blue-700);
+  }
+
+  /* SEVERITY TABLE */
+  .sev-low td:first-child { border-left: 3px solid #10b981; }
+  .sev-mid td:first-child { border-left: 3px solid var(--gold); }
+  .sev-high td:first-child { border-left: 3px solid var(--red); }
+
+  /* APPENDIX */
+  .appendix-label {
+    display: inline-block;
+    background: var(--blue-500);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: var(--blue-900);
+    color: white;
+    padding: 24px 36px;
+    margin-top: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-500), var(--gold));
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 14pt;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .cta-text {
+    font-size: 9pt;
+    color: #bfdbfe;
+    margin-bottom: 14px;
+    max-width: 420px;
+  }
+  .cta-contacts {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-contact {
+    font-size: 9pt;
+    color: white;
+  }
+  .cta-contact span {
+    color: #93c5fd;
+    font-size: 8pt;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1px;
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    background: var(--blue-900);
+    padding: 10px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: #6b7280;
+  }
+  .doc-footer a { color: #60a5fa; text-decoration: none; }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    font-size: 8pt;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 20px;
+  }
+
+  /* EDITABLE FIELDS */
+  [contenteditable] {
+    border-bottom: 1.5px dashed #93c5fd;
+    color: #1d4ed8;
+    border-radius: 2px;
+    padding: 0 2px;
+    outline: none;
+    cursor: text;
+    min-width: 60px;
+    display: inline-block;
+  }
+  [contenteditable]:focus {
+    background: #eff6ff;
+    border-bottom-color: #2563eb;
+  }
+  [contenteditable]:hover {
+    background: #f0f9ff;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; width: 100%; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .cta-block { page-break-inside: avoid; }
+    [contenteditable] {
+      border-bottom: none;
+      color: inherit;
+      background: transparent !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="header-top">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img src="../loga/logo-light-banner.png" alt="Sourcing Sense" style="height:63px; width:auto;" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-name">SOURCING SENSE</div>
+          <div class="brand-tagline">sourcing-sense.com</div>
+        </div>
+      </div>
+      <div class="edition-badge">CZ EDITION</div>
+    </div>
+    <div class="doc-title">Politika využívání<br>umělé inteligence</div>
+    <div class="doc-subtitle">AI Usage Policy — CZ verze &nbsp;·&nbsp; Template v3.0</div>
+  </div>
+
+  <!-- META BAR -->
+  <div class="meta-bar">
+    <div class="meta-item"><strong>Verze</strong>3.0 (draft)</div>
+    <div class="meta-item"><strong>Datum vydání</strong><span contenteditable="true">[DOPLNIT]</span></div>
+    <div class="meta-item"><strong>Platnost od</strong><span contenteditable="true">[DOPLNIT]</span></div>
+    <div class="meta-item"><strong>Vydal</strong><span contenteditable="true">[JMÉNO / FUNKCE]</span></div>
+    <div class="meta-item"><strong>Schválil</strong><span contenteditable="true">[JMÉNO / FUNKCE]</span></div>
+    <div class="meta-item"><strong>Revize</strong>Jednou ročně</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+
+    <div class="customize-note">✏ <strong>Jak používat tuto šablonu:</strong> Doplňte název firmy, IČO a logo do záhlaví. Části označené <span contenteditable="true">[DOPLNIT]</span> upravte podle vaší organizace. Části s poznámkou ✏ PŘIZPŮSOBIT přizpůsobte kontextu vaší firmy.</div>
+
+    <!-- 1 -->
+    <h2>1. Účel a rozsah</h2>
+    <p>Tento dokument stanovuje pravidla pro využívání nástrojů umělé inteligence (AI) ve firmě. Cílem není AI zakázat ani zbytečně komplikovat práci. Cílem je zajistit, aby ji zaměstnanci používali způsobem, který neporušuje platné zákony a neohrozí firmu ani její klienty.</p>
+    <p>Dokument vychází z těchto legislativních rámců:</p>
+    <ul>
+      <li><strong>Nařízení EU o umělé inteligenci</strong> (EU AI Act, 2024/1689) — platný od srpna 2026</li>
+      <li><strong>Nařízení GDPR</strong> (2016/679) o ochraně osobních údajů</li>
+      <li><strong>Zákon č. 262/2006 Sb.</strong> (zákoník práce) — § 316 sledování zaměstnanců</li>
+      <li><strong>Zákon č. 110/2019 Sb.</strong> o zpracování osobních údajů</li>
+      <li><strong>Zákon č. 121/2000 Sb.</strong> (autorský zákon) — vlastnictví AI výstupů a duševní vlastnictví</li>
+      <li><strong>Zákon č. 89/2012 Sb.</strong> (NOZ) — odpovědnost za škodu, obchodní tajemství (§ 504)</li>
+      <li><strong>Zákon č. 181/2014 Sb.</strong> (zákon o kybernetické bezpečnosti) ve znění NIS2 transpozice</li>
+    </ul>
+    <p>Politika se vztahuje na všechny zaměstnance, spolupracovníky na DPP/DPČ a externě zapojené osoby, které mají přístup k firemním systémům nebo datům a využívají AI nástroje při práci.</p>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Pokud máte pobočky, dceřiné společnosti nebo specifické výjimky pro určité role, doplňte je zde.</div>
+
+    <!-- 2 -->
+    <h2>2. Klíčové pojmy</h2>
+    <table>
+      <tr><th>Pojem</th><th>Vysvětlení</th></tr>
+      <tr><td><strong>AI nástroj</strong></td><td>Software využívající modely umělé inteligence — chatboty (Claude, Copilot), generativní nástroje, automatizované systémy pro analýzu nebo rozhodování.</td></tr>
+      <tr><td><strong>Poskytovatel AI</strong> (Provider)</td><td>Subjekt, který AI systém vyvíjí nebo uvádí na trh (Anthropic, Microsoft, OpenAI). Nese primární odpovědnost za soulad modelu s EU AI Actem.</td></tr>
+      <tr><td><strong>Provozovatel AI</strong> (Deployer)</td><td>Firma, která AI systém využívá při své činnosti — tedy <strong>vaše firma</strong>. Nese odpovědnost za způsob použití, výběr nástroje a dohled nad výstupy.</td></tr>
+      <tr><td><strong>Uživatel AI</strong></td><td>Fyzická osoba (zaměstnanec) pracující s AI nástrojem v každodenní praxi.</td></tr>
+      <tr><td><strong>Osobní údaj</strong></td><td>Jakákoliv informace, která přímo nebo nepřímo identifikuje fyzickou osobu.</td></tr>
+      <tr><td><strong>Obchodní tajemství</strong></td><td>Informace s obchodní hodnotou, která není veřejně dostupná a firma ji aktivně chrání (ceny, marže, plány, know-how).</td></tr>
+      <tr><td><strong>GPAI</strong></td><td>Obecný AI model schopný plnit různé úkoly — Claude, ChatGPT, Copilot.</td></tr>
+      <tr><td><strong>High-risk AI</strong></td><td>AI systém v oblastech s vysokým dopadem na lidi — zaměstnání, vzdělávání, úvěrování, justice.</td></tr>
+      <tr><td><strong>DPA</strong></td><td>Smlouva o zpracování osobních údajů s poskytovatelem AI. Podmínka GDPR pro předávání dat externímu zpracovateli.</td></tr>
+      <tr><td><strong>AI agent</strong></td><td>Autonomní AI systém schopný plnit úkoly a jednat bez přímého lidského dohledu v každém kroku.</td></tr>
+    </table>
+    <div class="info-box"><strong>Poznámka k terminologii:</strong> Jako firma jste v roli <strong>provozovatele</strong> (deployer). Nejste poskytovatel — ten je Anthropic, Microsoft apod. Odpovídáte za výběr nástroje, nasazení, dohled nad výstupy a soulad s regulatorními požadavky.</div>
+
+    <!-- 3 -->
+    <h2>3. Schválené AI nástroje</h2>
+    <p>Zaměstnanci smí pro pracovní účely používat pouze níže uvedené AI nástroje. Použití jiných nástrojů pro práci s firemními daty vyžaduje předchozí schválení (viz Příloha B).</p>
+    <table>
+      <tr><th>Nástroj</th><th>Kategorie</th><th>Povoleno</th><th>Podmínky</th></tr>
+      <tr><td><strong>Microsoft Copilot</strong></td><td>Produktivita, analýza</td><td>ANO</td><td>Pouze v rámci M365 tenanta. Platná DPA s Microsoftem. Nepoužívat pro osobní údaje bez právního základu.</td></tr>
+      <tr><td><strong>Claude Pro / Max</strong></td><td>Obsah, analýza, kód</td><td>PODMÍNĚNĚ</td><td>Nepoužívat pro červená data. Vypnout trénování na datech uživatele (Account Settings → Privacy).</td></tr>
+      <tr><td><strong>Claude API / Artifacts</strong></td><td>Automatizace, agenti</td><td>PODMÍNĚNĚ</td><td>Každý agent musí mít zdokumentovaný účel a datovou klasifikaci. Platí agent compliance checklist.</td></tr>
+      <tr><td><strong>Jiné veřejné AI nástroje</strong></td><td>Obecné použití</td><td>PODMÍNĚNĚ</td><td>Pouze zelená data. Nikdy žlutá bez anonymizace, nikdy červená.</td></tr>
+    </table>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Aktualizujte tabulku podle skutečně zavedených nástrojů ve vaší firmě.</div>
+
+    <!-- 4 -->
+    <h2>4. Kategorizace dat</h2>
+    <p>Před vložením jakýchkoli dat do AI nástroje zaměstnanec ověří, do které kategorie data patří.</p>
+    <table>
+      <tr><th>Příklad dat</th><th style="width:100px">Kategorie</th><th>Pravidlo</th></tr>
+      <tr class="cat-green"><td>Veřejné informace o trhu, odvětví, konkurenci</td><td><span class="badge-green">🟢 ZELENÁ</span></td><td>Bez omezení.</td></tr>
+      <tr class="cat-green"><td>Obecné šablony, texty, překlady (bez reálných jmen/čísel)</td><td><span class="badge-green">🟢 ZELENÁ</span></td><td>Bez omezení.</td></tr>
+      <tr class="cat-green"><td>Interní procesy (obecný popis, bez citlivých detailů)</td><td><span class="badge-green">🟢 ZELENÁ</span></td><td>Bez omezení.</td></tr>
+      <tr class="cat-green"><td>Kód, skripty (bez hesel a přístupových údajů)</td><td><span class="badge-green">🟢 ZELENÁ</span></td><td>Bez omezení. Nikdy nevkládej tokeny/hesla/API klíče.</td></tr>
+      <tr class="cat-yellow"><td>Jména a kontakty obchodních partnerů</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>V Copilotu (M365) OK. Ve veřejných chatbotech anonymizuj.</td></tr>
+      <tr class="cat-yellow"><td>Interní e-maily — sumarizace, překlady</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>Copilot v M365: OK. Veřejné chatboty: pouze bez osobních údajů třetích osob.</td></tr>
+      <tr class="cat-yellow"><td>Roční hodnocení zaměstnanců</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>Copilot s DPA: OK. Veřejné chatboty: ne. Vždy bez zdravotních informací.</td></tr>
+      <tr class="cat-yellow"><td>Hodnocení a výběr dodavatelů</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>AI smí asistovat. Finální rozhodnutí musí udělat člověk a musí být zdokumentováno.</td></tr>
+      <tr class="cat-yellow"><td>Interní finanční data (bez vazby na konkrétní osoby)</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>Lze pro analýzy. Ne ve veřejných chatbotech.</td></tr>
+      <tr class="cat-yellow"><td>Ceníky, marže, spend data, sourcingové strategie</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>Copilot v M365 s platnou DPA: OK. Veřejné chatboty: zakázáno. Vždy human review.</td></tr>
+      <tr class="cat-yellow"><td>Smluvní dokumenty s cenou nebo osobními údaji</td><td><span class="badge-yellow">🟡 ŽLUTÁ</span></td><td>Copilot v M365 s platnou DPA: OK. Veřejné chatboty: zakázáno.</td></tr>
+      <tr class="cat-red"><td>Zdravotní stav, politické nebo náboženské přesvědčení</td><td><span class="badge-red">🔴 ČERVENÁ</span></td><td>Zakázáno v jakémkoliv AI nástroji.</td></tr>
+      <tr class="cat-red"><td>Osobní údaje zákazníků / uchazečů (jméno, kontakt, ID)</td><td><span class="badge-red">🔴 ČERVENÁ</span></td><td>Zakázáno v externích AI bez DPA a právního základu zpracování.</td></tr>
+      <tr class="cat-red"><td>Nepublikovaná finanční data (forecast, M&amp;A, investice)</td><td><span class="badge-red">🔴 ČERVENÁ</span></td><td>Zakázáno bez výjimky.</td></tr>
+      <tr class="cat-red"><td>Přihlašovací údaje, hesla, API klíče, tokeny</td><td><span class="badge-red">🔴 ČERVENÁ</span></td><td><strong>Absolutní zákaz</strong> — v jakémkoliv nástroji.</td></tr>
+    </table>
+    <div class="warning-box">⚠ <strong>Zásada anonymizace:</strong> Pokud si nejsi jistý, anonymizuj nebo nevkládej. Pokud by kombinace údajů umožnila identifikaci osoby nebo firmy bez jejich souhlasu, data do AI nepatří.</div>
+
+    <!-- 5 -->
+    <h2>5. Červené vlajky — kdy AI nepoužívat</h2>
+    <table>
+      <tr><th>Co děláš</th><th>Proč je to problém</th><th>Co místo toho</th></tr>
+      <tr><td>Vkládáš zdravotní nebo jiné citlivé osobní info do AI</td><td>GDPR čl. 9 — zvláštní kategorie, žádný běžný právní základ</td><td>Nepoužívat AI. Psát manuálně.</td></tr>
+      <tr><td>AI navrhuje propouštění nebo povýšení bez lidského záznamu</td><td>EU AI Act + zákoník práce — automatizované HR rozhodnutí</td><td>AI pouze na podklady. Finální rozhodnutí = člověk, zdokumentováno.</td></tr>
+      <tr><td>Vkládáš CV nebo kontakt uchazeče do veřejného chatbotu</td><td>GDPR — data třetí osoby bez DPA</td><td>Anonymizuj nebo použij Copilot v tenantě.</td></tr>
+      <tr><td>AI agent odesílá e-maily zákazníkům bez lidské kontroly</td><td>EU AI Act čl. 50 — transparentnost komunikace</td><td>Lidské schválení nebo označení „AI-generated".</td></tr>
+      <tr><td>Sdílíš nepublikovaný finanční plán v AI</td><td>Obchodní tajemství (NOZ § 504) + insider riziko</td><td>Tato data do AI nepatří — ani do Copilotu.</td></tr>
+      <tr><td>AI monitoruje aktivitu zaměstnanců bez jejich vědomí</td><td>Zákoník práce § 316 — musí být předem informováni</td><td>Informovat zaměstnance co a proč se monitoruje.</td></tr>
+      <tr><td>AI výstup jde rovnou do smlouvy nebo PO bez review</td><td>NOZ — odpovědnost za škodu způsobenou AI výstupem</td><td>Vždy lidský přezkum před odesláním závazného dokumentu.</td></tr>
+      <tr><td>Vkládáš cizí text/kód/obrázky do AI pro komerční výstup</td><td>Autorský zákon č. 121/2000 Sb. — riziko porušení cizích práv</td><td>Pouze vlastní materiály nebo materiály s licencí pro komerční použití.</td></tr>
+    </table>
+
+    <!-- 6 -->
+    <h2>6. Pravidla obecného použití</h2>
+    <h3>6.1 Co platí vždy</h3>
+    <ul>
+      <li>AI výstupy jsou <strong>startovní bod, ne finální produkt</strong>. Jakýkoliv výstup jdoucí ven z firmy musí zkontrolovat člověk.</li>
+      <li>AI nesmí být jediným základem rozhodnutí s přímým dopadem na práva jiných lidí — musí existovat <strong>lidský přezkum</strong>.</li>
+      <li>Pokud komunikuješ se zákazníkem a obsah je AI-generovaný, musí to být zřejmé — označením nebo schválením před odesláním.</li>
+      <li>Nikdy nevkládej do AI přihlašovací údaje, hesla, API klíče nebo tokeny.</li>
+      <li><strong>Závazné dokumenty</strong> (objednávky, smlouvy, nabídky) nesmí být odeslány bez lidského schválení, i kdyby je AI sestavila.</li>
+    </ul>
+    <h3>6.2 Autorská práva a vlastnictví AI výstupů</h3>
+    <ul>
+      <li>Výstupy generované AI nástroji <strong>nejsou automaticky chráněny autorským zákonem</strong> — chybí lidský tvůrčí prvek jako podmínka ochrany.</li>
+      <li>AI-generovaný obsah určený k publikaci nebo zapracování do smluv musí projít <strong>lidskou úpravou a review</strong>.</li>
+      <li><strong>Zákaz</strong> vkládat do AI texty, obrázky, kód nebo jiné materiály třetích stran bez příslušné licence.</li>
+      <li>Výstupy vytvořené zaměstnancem pomocí AI při výkonu práce jsou <strong>majetkem zaměstnavatele</strong> (§ 58 AZ).</li>
+    </ul>
+    <h3>6.3 Specificky pro Microsoft Copilot</h3>
+    <ul>
+      <li>Copilot běží v rámci M365 firemního tenanta — data zůstávají v tenantě, vztahuje se na ně DPA s Microsoftem.</li>
+      <li>Copilot vidí vše, k čemu máš přístup. Buď vědomý co do promptu přidáváš.</li>
+      <li>Výjimka: zdravotní stav a jiné zvláštní kategorie (GDPR čl. 9) — do Copilotu nepatří ani v tenantě.</li>
+    </ul>
+    <h3>6.4 Specificky pro AI agenty a automatizace</h3>
+    <ul>
+      <li>Každý nasazený AI agent musí být dokumentován (viz Příloha A).</li>
+      <li>Agent nesmí autonomně odesílat komunikaci zákazníkům bez lidského schválení.</li>
+      <li>Agenti zpracovávající osobní data musí mít zdokumentovaný právní základ zpracování.</li>
+    </ul>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Uveďte seznam schválených agentů nebo odkaz na interní registr.</div>
+
+    <!-- 7 -->
+    <h2>7. Legislativní rámec — prakticky</h2>
+    <h3>7.1 EU AI Act — role provozovatele</h3>
+    <p>Jako <strong>provozovatel</strong> (deployer) máte tyto povinnosti:</p>
+    <ul>
+      <li>Zajistit, že AI systém je používán <strong>v souladu s návodem poskytovatele</strong> a pro určený účel.</li>
+      <li>Implementovat <strong>lidský dohled</strong> nad výstupy AI, zejména v regulovaných oblastech.</li>
+      <li>Vést záznamy o použití AI v oblastech vysokého rizika.</li>
+      <li><strong>Zakázané použití AI</strong> (čl. 5 EU AI Actu): sociální skórování osob, manipulativní techniky ovlivňování rozhodování, biometrická identifikace v reálném čase ve veřejných prostorách, AI rozhodování na základě rasy, náboženství nebo sexuální orientace.</li>
+    </ul>
+    <div class="info-box"><strong>Vysoce riziková oblast:</strong> Pokud používáte AI k asistenci při výběru dodavatelů, hodnocení zaměstnanců nebo přijímacím řízení, vstupujete do regulované zóny. Požadavky: lidský dohled, transparentnost, dokumentace.</div>
+
+    <h3>7.2 GDPR a AI</h3>
+    <ul>
+      <li><strong>DPA smlouva</strong> s poskytovatelem AI je podmínkou pro předávání osobních údajů. Ověřte, zda máte podepsanou.</li>
+      <li><strong>Automatizované rozhodování (čl. 22):</strong> Fyzická osoba má právo nebýt předmětem rozhodnutí výhradně na základě automatizovaného zpracování s právním nebo závažným dopadem.</li>
+      <li><strong>Minimalizace dat:</strong> Do AI vkládejte pouze data skutečně nezbytná pro daný účel.</li>
+    </ul>
+
+    <h3>7.3 Zákoník práce (č. 262/2006 Sb.)</h3>
+    <ul>
+      <li><strong>§ 316 — kontrola zaměstnanců:</strong> Sledování aktivity pomocí AI je povoleno, ale zaměstnanci o tom musí být <strong>předem informováni</strong>.</li>
+      <li><strong>Automatizovaná HR rozhodnutí:</strong> Propouštění, povyšování nebo hodnocení nesmí být výsledkem čistě automatizovaného procesu. Musí existovat možnost <strong>lidského přezkumu</strong>.</li>
+    </ul>
+
+    <h3>7.4 Autorský zákon (č. 121/2000 Sb.)</h3>
+    <ul>
+      <li>AI výstupy <strong>nejsou autorsky chráněna díla</strong> — chybí lidský tvůrčí prvek jako podmínka ochrany.</li>
+      <li>Firma nemůže vymáhat autorská práva k čistě AI-generovanému obsahu. Proto je nutná lidská úprava.</li>
+      <li><strong>Riziko porušení cizích práv:</strong> Trénovací data AI mohou obsahovat chráněný obsah. Při komerčním použití AI výstupů je vhodná právní opatrnost.</li>
+    </ul>
+
+    <h3>7.5 Odpovědnost za škodu (NOZ č. 89/2012 Sb.)</h3>
+    <ul>
+      <li>Za škodu způsobenou AI výstupem, který byl použit bez adekvátního přezkumu, odpovídá <strong>provozovatel</strong> — tedy firma.</li>
+      <li>EU AI Liability Directive zavede usnadnění dokazování příčinné souvislosti pro případy škody způsobené AI.</li>
+      <li><strong>Praktický dopad:</strong> Každé rozhodnutí s dopadem na třetí strany musí být lidsky ověřené a zdokumentované.</li>
+    </ul>
+
+    <h3>7.6 Obchodní tajemství (NOZ § 504)</h3>
+    <p>Obchodním tajemstvím jsou zejména: cenové nabídky a marže, spend analýzy, sourcingové strategie, informace o dodavatelích a smlouvách, neveřejné finanční výsledky.</p>
+    <ul>
+      <li>Tato data <strong>nesmějí být vložena do žádného externího AI nástroje</strong> — ani anonymizovaně, pokud by kombinace údajů umožnila identifikaci.</li>
+      <li>Porušení ochrany obchodního tajemství může zakládat <strong>trestněprávní odpovědnost</strong> i nárok na náhradu škody.</li>
+    </ul>
+
+    <h3>7.7 Kybernetická bezpečnost (zákon č. 181/2014 Sb. / NIS2)</h3>
+    <ul>
+      <li>IT musí zahrnout AI nástroje do <strong>asset managementu a řízení rizik</strong>.</li>
+      <li>Incidenty spojené s AI nástroji musí být zahrnuty do <strong>incident response plánu</strong>.</li>
+    </ul>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Relevantní zejména pro firmy v scope NIS2 (kritická infrastruktura, střední a velké firmy v regulovaných sektorech).</div>
+
+    <!-- 8 -->
+    <h2>8. Vendor management — povinná prověrka AI nástrojů</h2>
+    <table>
+      <tr><th>Kontrola</th><th>Zodpovídá</th><th>Podmínka</th></tr>
+      <tr><td>Existence DPA smlouvy s vendorem</td><td>IT / Právník</td><td>Povinné před nasazením</td></tr>
+      <tr><td>Potvrzení „no-training on customer data" clause</td><td>IT / Právník</td><td>Povinné — bez toho nástroj nelze nasadit</td></tr>
+      <tr><td>Zařazení do registru schválených nástrojů</td><td>IT</td><td>Do 5 pracovních dnů od schválení</td></tr>
+      <tr><td>Kategorizace dat, která nástroj zpracovává</td><td>Provozovatel týmu</td><td>Povinné</td></tr>
+      <tr><td>Právní základ zpracování osobních dat (pokud relevantní)</td><td>DPO / Právník</td><td>Povinné při zpracování osobních údajů</td></tr>
+    </table>
+    <h3>Postup při datovém incidentu ze strany AI vendora</h3>
+    <ol>
+      <li>Okamžitě informovat IT a DPO / odpovědnou osobu</li>
+      <li>Zdokumentovat rozsah předaných dat</li>
+      <li>Při úniku osobních údajů: ohlásit ÚOOÚ do 72 hodin (GDPR čl. 33)</li>
+      <li>Ukončit používání nástroje do doby vyjasnění incidentu</li>
+    </ol>
+
+    <!-- 9 -->
+    <h2>9. Role a odpovědnosti</h2>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Doplňte konkrétní jména nebo funkce.</div>
+    <table>
+      <tr><th>Role</th><th>Odpovědnost</th></tr>
+      <tr><td><strong>Vedení společnosti</strong></td><td>Schvaluje a aktualizuje tuto politiku. Rozhoduje o zavedení nových AI nástrojů nebo agentů.</td></tr>
+      <tr><td><strong>Manažeři týmů</strong></td><td>Dbají na dodržování politiky. Schvalují použití AI pro projekt zahrnující žlutá nebo hraniční data.</td></tr>
+      <tr><td><strong>Každý zaměstnanec</strong></td><td>Dodržuje kategorizaci dat, reportuje podezřelé situace, nepoužívá neschválené nástroje.</td></tr>
+      <tr><td><strong>IT / Správa systémů</strong></td><td>Spravuje přístupy, vede registr schválených agentů a nástrojů, zajišťuje DPA podmínky.</td></tr>
+      <tr><td><strong>DPO / Právník</strong></td><td><span contenteditable="true">[DOPLNIT]</span> — Posuzuje nové use-casy z pohledu GDPR. Konzultován při nasazení agentů zpracovávajících osobní data.</td></tr>
+    </table>
+
+    <!-- 10 -->
+    <h2>10. Porušení politiky</h2>
+    <table>
+      <tr><th>Závažnost</th><th>Příklad</th><th>Postih</th></tr>
+      <tr class="sev-low"><td><strong>Nízká</strong> — neúmyslné / první porušení</td><td>Zapomněl/a anonymizovat žlutá data</td><td>Pohovor s nadřízeným, opakování školení</td></tr>
+      <tr class="sev-mid"><td><strong>Střední</strong> — opakované nebo vědomé porušení</td><td>Opakované vkládání červených dat</td><td>Disciplinární řízení dle zákoníku práce</td></tr>
+      <tr class="sev-high"><td><strong>Vysoká</strong> — únik dat nebo obchodního tajemství</td><td>Sdílení spend dat nebo smluv přes veřejný AI</td><td>Disciplinární řízení + možná odpovědnost vůči ÚOOÚ nebo třetím stranám</td></tr>
+    </table>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Doplňte konkrétní eskalační postup a kontaktní e-mail pro hlášení incidentů.</div>
+
+    <!-- 11 -->
+    <h2>11. Školení a povědomí</h2>
+    <p>Firma zajistí:</p>
+    <ul>
+      <li>Seznámení s politikou pro všechny nové zaměstnance v rámci onboardingu.</li>
+      <li>Potvrzení o přečtení a pochopení (podpis nebo elektronické potvrzení).</li>
+      <li>Aktualizaci školení při vydání nové verze nebo zavedení nových nástrojů.</li>
+    </ul>
+    <div class="customize-note">✏ <strong>PŘIZPŮSOBIT</strong> — Uveďte konkrétní formát (interní školení, e-learning, briefing na poradě).</div>
+
+    <!-- 12 -->
+    <h2>12. Revize a aktualizace</h2>
+    <ul>
+      <li><strong>Plánovaná roční revize</strong> — vždy nejpozději v lednu každého roku.</li>
+      <li><strong>Mimořádná revize</strong> při zavedení nového AI nástroje, změně právního rámce nebo bezpečnostním incidentu.</li>
+      <li>Každá verze musí být uložena s datem vydání a podpisem schvalující osoby.</li>
+    </ul>
+    <table>
+      <tr><th>Verze</th><th>Datum</th><th>Autor</th><th>Popis změny</th></tr>
+      <tr><td>1.0</td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td>Původní verze</td></tr>
+      <tr><td>2.0</td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td>Rozšíření o AI agenty</td></tr>
+      <tr><td>3.0</td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td>Doplnění: autorský zákon, vendor DPA, odpovědnost za škodu, obchodní tajemství, NIS2, EU AI Act terminologie</td></tr>
+    </table>
+
+    <!-- APPENDIX A -->
+    <h2>Přílohy</h2>
+    <div class="appendix-label">Příloha A</div>
+    <h3>Registr AI nástrojů a agentů</h3>
+    <table>
+      <tr><th>Nástroj / Agent</th><th>Účel</th><th>Provozovatel</th><th>Kategorie dat</th><th>DPA / Schválení</th></tr>
+      <tr><td>Microsoft Copilot</td><td><span contenteditable="true">[DOPLNIT]</span></td><td>IT</td><td>Zelená + Žlutá</td><td>DPA s Microsoftem — ano</td></tr>
+      <tr><td>Claude Pro</td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td>Max žlutá</td><td>Anthropic DPA — ověřit</td></tr>
+      <tr><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td></tr>
+      <tr><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td></tr>
+      <tr><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td><td><span contenteditable="true">[DOPLNIT]</span></td></tr>
+    </table>
+
+    <!-- APPENDIX B -->
+    <div class="appendix-label">Příloha B</div>
+    <h3>Postup schválení nového AI nástroje</h3>
+    <ol>
+      <li><strong>Žádost</strong> — zaměstnanec nebo manažer popíše use-case a navrhovaný nástroj</li>
+      <li><strong>IT prověrka</strong> — ověření DPA, no-training clause, bezpečnostní posouzení</li>
+      <li><strong>Právní posouzení</strong> — DPO / právník posoudí GDPR dopad</li>
+      <li><strong>Schválení vedením</strong> — při zpracování žlutých nebo červených dat</li>
+      <li><strong>Zápis do registru</strong> — IT přidá do Přílohy A</li>
+      <li><strong>Informování týmu</strong> — manažer informuje zaměstnance o podmínkách použití</li>
+    </ol>
+
+    <p class="disclaimer">Dokument připravil: David Račak, Sourcing Sense | sourcing-sense.com<br>
+    Tento template je určen jako pracovní základ — nepředstavuje právní poradenství. Před implementací doporučujeme konzultaci s právníkem.</p>
+
+  </div><!-- end doc-body -->
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Chcete zavést AI ve vaší firmě správně?</div>
+    <div class="cta-text">Pracujeme s výrobními a průmyslovými firmami v EMEA — od nastavení AI politiky přes výběr nástrojů po první funkční automatizace. Napište nám nebo si rovnou rezervujte hovor.</div>
+    <div class="cta-contacts">
+      <div class="cta-contact"><span>Email</span>info@sourcing-sense.com</div>
+      <div class="cta-contact"><span>Web</span>sourcing-sense.com</div>
+      <div class="cta-contact"><span>Rezervace hovoru</span>calendly.com/sourcing-sense</div>
+      <div class="cta-contact"><span>LinkedIn</span>David Račak</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>sourcing-sense.com &nbsp;·&nbsp; <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a></span>
+    <span>AI Usage Policy CZ v3.0 &nbsp;·&nbsp; © Sourcing Sense 2026</span>
+    <span>ŠABLONA DOKUMENTU</span>
+  </div>
+
+</div><!-- end page -->
+</body>
+</html>

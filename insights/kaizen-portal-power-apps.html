@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizen Portal with Power Apps: Build It in 2 Days | Sourcing Sense</title>
+    <meta name="description" content="How to build a Kaizen continuous improvement portal with Power Apps and Power Automate. Real procurement use case — submitted ideas, AI categorisation, structured board review. Built in 2 days.">
+    <meta name="keywords" content="Kaizen portal Power Apps, continuous improvement procurement, Power Automate idea submission, Dataverse procurement, AI categorisation Power Automate, Copilot Power Automate, Teams integration Power Apps, procurement process improvement, lean procurement, improvement ideas portal">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Kaizen Portal with Power Apps: Build It in 2 Days | Sourcing Sense">
+    <meta property="og:description" content="We built a Kaizen idea portal in 2 days. Here's what it does, what it cost, and whether it was worth it.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/kaizen-portal-power-apps.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/kaizen-portal-power-apps.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/kaizen-portal-power-apps.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/kaizen-portal-power-apps.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/kaizen-portal-power-apps.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kaizen Portal with Power Apps: Build It in 2 Days | Sourcing Sense" />
+    <meta name="twitter:description" content="We built a Kaizen idea portal in 2 days. Here's what it does, what it cost, and whether it was worth it." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Kaizen Portal with Power Apps: Build It in 2 Days",
+      "description": "How to build a Kaizen continuous improvement portal with Power Apps and Power Automate. Real procurement use case — submitted ideas, AI categorisation, structured board review. Built in 2 days.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sourcing Sense",
+        "url": "https://sourcing-sense.com"
+      },
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "url": "https://sourcing-sense.com/insights/kaizen-portal-power-apps.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/kaizen-portal-power-apps.html" },
+      "keywords": ["Kaizen portal Power Apps", "continuous improvement procurement", "Power Automate idea submission", "AI categorisation Power Automate", "Copilot Power Automate", "lean procurement"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I build a Kaizen idea portal with Power Apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Create a Canvas App in Power Apps with a simple submission form. Connect it to a Dataverse table to store ideas. Build a Power Automate flow triggered on new submissions — use Copilot to auto-categorise by type (cost saving, process fix, supplier, compliance), then notify a reviewer via Teams. Add a gallery view so the board can see and update idea status monthly. Full build guide at sourcing-sense.com/insights/kaizen-portal-power-apps.html"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a Kaizen portal with Power Automate AI categorisation cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you already have Microsoft 365 with Power Platform included, the basic flow is effectively free. For makers who need to build and edit the app, the Power Apps per-user plan costs around €4.70–14 per user per month depending on your licensing agreement. Standard users who only submit ideas need no additional licence beyond Microsoft 365. More details at sourcing-sense.com"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Power Automate Copilot categorise improvement ideas automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Power Automate Copilot action 'Run a prompt' sends the idea description to an AI model and returns a structured response — in this case a category label and a short effort estimate. You define the prompt: 'Categorise this improvement idea as one of: Cost Saving, Process Fix, Supplier Issue, Compliance. Also estimate effort: Low, Medium, High. Return JSON.' The output populates fields in your Dataverse record automatically."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8; --dark-text-muted: #475569;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+
+        /* ═══ NAV ═══ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ═══ ARTICLE HEADER ═══ */
+        .article-header {
+            padding: 7.5rem 2rem 3rem;
+            background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%);
+            position: relative; overflow: hidden;
+        }
+        .article-header::before {
+            content: ''; position: absolute; top: -15%; right: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .article-header-inner {
+            max-width: 760px; margin: 0 auto; position: relative; z-index: 1;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.78rem; color: var(--light-text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+
+        .article-badge {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content;
+            padding: 0.3rem 0.7rem; border-radius: 100px;
+        }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 400; line-height: 1.2;
+            letter-spacing: -0.01em; margin-bottom: 1rem;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem; color: var(--light-text-secondary);
+            line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px;
+        }
+
+        .article-meta {
+            display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+            font-size: 0.82rem; color: var(--light-text-muted);
+            padding-top: 1.25rem; border-top: 1px solid var(--light-border);
+        }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        .article-result-tag {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-size: 0.78rem; font-weight: 600; color: var(--emerald);
+            padding: 0.25rem 0.7rem; background: var(--emerald-subtle);
+            border-radius: 100px;
+        }
+
+        /* ═══ ARTICLE BODY ═══ */
+        .article-body {
+            max-width: 760px; margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        /* Prose styling */
+        .prose h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem; font-weight: 400;
+            margin: 2.5rem 0 1rem; line-height: 1.25;
+        }
+        .prose h3 {
+            font-size: 1.15rem; font-weight: 600;
+            margin: 2rem 0 0.75rem;
+        }
+        .prose p {
+            font-size: 1.05rem; color: var(--light-text-secondary);
+            line-height: 1.85; margin-bottom: 1.25rem;
+        }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+
+        .prose ul, .prose ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            list-style: disc;
+        }
+        .prose ol { list-style: decimal; }
+        .prose li {
+            font-size: 1.02rem; color: var(--light-text-secondary);
+            line-height: 1.8; margin-bottom: 0.4rem;
+        }
+
+        .prose blockquote {
+            padding: 1.25rem 1.75rem;
+            background: var(--accent-subtle);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 2rem 0;
+            font-size: 1.02rem; font-style: italic;
+            color: var(--light-text); line-height: 1.75;
+        }
+
+        .prose code {
+            font-family: var(--font-mono);
+            font-size: 0.88rem; padding: 0.15rem 0.4rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: 4px; color: var(--accent);
+        }
+
+        .prose pre {
+            background: var(--blue-900); color: var(--dark-text);
+            padding: 1.5rem; border-radius: var(--radius-sm);
+            overflow-x: auto; margin: 1.5rem 0;
+            font-family: var(--font-mono); font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .prose pre code {
+            background: none; border: none; padding: 0; color: inherit;
+        }
+
+        .prose img {
+            max-width: 100%; border-radius: var(--radius-sm);
+            border: 1px solid var(--light-border);
+            margin: 1.5rem 0;
+        }
+
+        /* Callout box */
+        .callout {
+            padding: 1.25rem 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1.5rem 0;
+            font-size: 0.95rem; line-height: 1.7;
+        }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+
+        .callout-title {
+            font-weight: 700; font-size: 0.82rem;
+            text-transform: uppercase; letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
+        }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: #d97706; }
+        .callout.info .callout-title { color: var(--accent); }
+
+        /* Results summary box */
+        .results-box {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem; padding: 1.5rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius); margin: 2rem 0;
+        }
+        .results-box-item { text-align: center; }
+        .results-box-num {
+            font-family: var(--font-display); font-size: 1.6rem;
+            color: var(--accent); line-height: 1; margin-bottom: 0.25rem;
+        }
+        .results-box-label { font-size: 0.78rem; color: var(--light-text-muted); }
+
+        /* Step cards */
+        .step-list { margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+        .step-card {
+            display: flex; gap: 1.25rem; align-items: flex-start;
+            padding: 1.25rem 1.5rem;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+        }
+        .step-num {
+            flex-shrink: 0; width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-subtle); color: var(--accent);
+            font-weight: 700; font-size: 0.95rem; border-radius: 50%;
+        }
+        .step-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .step-content p { font-size: 0.93rem; color: var(--light-text-secondary); line-height: 1.65; margin: 0; }
+
+        /* Cost table */
+        .cost-table {
+            width: 100%; border-collapse: collapse;
+            margin: 1.5rem 0; font-size: 0.95rem;
+        }
+        .cost-table th {
+            text-align: left; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--light-text-muted); padding: 0.6rem 1rem;
+            border-bottom: 2px solid var(--light-border);
+        }
+        .cost-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--light-border);
+            color: var(--light-text-secondary); vertical-align: top;
+        }
+        .cost-table tr:last-child td { border-bottom: none; }
+        .cost-table td:first-child { font-weight: 500; color: var(--light-text); }
+        .cost-pill {
+            display: inline-block; font-size: 0.75rem; font-weight: 600;
+            padding: 0.2rem 0.55rem; border-radius: 100px;
+        }
+        .cost-pill.free { background: var(--emerald-subtle); color: var(--emerald); }
+        .cost-pill.paid { background: var(--accent-subtle); color: var(--accent); }
+
+        /* Works / Doesn't work */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 2rem; }
+        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+        .verdict-box { padding: 1.25rem 1.5rem; border-radius: var(--radius); }
+        .verdict-box.works { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.2); }
+        .verdict-box.doesnt { background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.2); }
+        .verdict-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+        .verdict-box.works .verdict-title { color: var(--emerald); }
+        .verdict-box.doesnt .verdict-title { color: #d97706; }
+        .verdict-box ul { margin: 0; padding-left: 1.1rem; list-style: disc; }
+        .verdict-box li { font-size: 0.92rem; color: var(--light-text-secondary); line-height: 1.7; margin-bottom: 0.25rem; }
+
+        /* ═══ SHARE & TAGS ═══ */
+        .article-footer-strip {
+            max-width: 760px; margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+        .article-tags {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-tag {
+            font-size: 0.72rem; font-weight: 500;
+            padding: 0.3rem 0.7rem; border-radius: 100px;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            color: var(--light-text-muted);
+        }
+
+        .article-share {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding-top: 1.5rem; border-top: 1px solid var(--light-border);
+        }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn {
+            width: 36px; height: 36px; display: inline-flex;
+            align-items: center; justify-content: center;
+            background: var(--light-bg-alt); border: 1px solid var(--light-border);
+            border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s;
+        }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        /* ═══ RELATED ═══ */
+        .related-section {
+            padding: 4rem 2rem;
+            background: var(--light-bg-alt);
+            border-top: 1px solid var(--light-border);
+        }
+        .related-inner { max-width: 1200px; margin: 0 auto; }
+        .related-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.4rem; }
+        .related-back {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; font-weight: 500; color: var(--accent);
+            transition: gap 0.2s;
+        }
+        .related-back:hover { gap: 0.6rem; }
+        .related-back svg { width: 16px; height: 16px; transform: rotate(180deg); }
+
+        .related-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+        .related-card {
+            padding: 1.5rem; background: white;
+            border: 1px solid var(--light-border); border-radius: var(--radius);
+            transition: all 0.3s var(--ease);
+        }
+        .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
+        .related-badge {
+            font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; padding: 0.2rem 0.5rem;
+            border-radius: 100px; margin-bottom: 0.5rem; display: inline-block;
+        }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.82rem; color: var(--light-text-muted); line-height: 1.5; }
+
+        /* ═══ CTA ═══ */
+        .cta-strip {
+            padding: 4rem 2rem; background: var(--dark-bg); text-align: center;
+        }
+        .cta-strip-inner { max-width: 500px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0.75rem; }
+        .cta-strip p { font-size: 0.95rem; color: var(--dark-text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+        .cta-strip .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; font-weight: 600; padding: 0.85rem 1.6rem; background: white; color: var(--blue-900); border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-strip .btn-primary:hover { background: var(--blue-100); transform: translateY(-2px); }
+        .cta-strip .btn-primary svg { width: 16px; height: 16px; }
+
+        /* ═══ FOOTER ═══ */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; } .nav-center { display: none; } .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2.5rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip { padding: 0 1.25rem 2rem; }
+            .related-section { padding: 3rem 1.25rem; }
+            .cta-strip { padding: 3rem 1.25rem; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══ DARK THEME OVERRIDE ═══ */
+        :root {
+            --bg-primary:           #08090f;
+            --bg-surface:           #0d1117;
+            --bg-elevated:          #131820;
+            --light-bg:             #08090f;
+            --light-bg-alt:         #0d1117;
+            --light-card:           #0d1117;
+            --light-border:         rgba(255, 255, 255, 0.08);
+            --light-text:           #f1f5f9;
+            --light-text-secondary: #94a3b8;
+            --light-text-muted:     #3d4a5c;
+            --accent:               #3b82f6;
+            --accent-light:         #60a5fa;
+            --accent-glow:          rgba(59, 130, 246, 0.2);
+            --accent-subtle:        rgba(59, 130, 246, 0.1);
+            --dark-bg:              #05060a;
+            --dark-bg-alt:          #08090f;
+            --dark-card:            rgba(13, 17, 23, 0.9);
+            --dark-border:          rgba(255, 255, 255, 0.07);
+            --dark-text:            #f1f5f9;
+            --dark-text-secondary:  #94a3b8;
+            --dark-text-muted:      #3d4a5c;
+        }
+        nav { background: rgba(8, 9, 15, 0.88); border-bottom-color: rgba(255, 255, 255, 0.08); }
+        nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .lang-btn.active { background: rgba(59, 130, 246, 0.15); color: #60a5fa; box-shadow: none; }
+        .mobile-overlay { background: rgba(8, 9, 15, 0.97); }
+        .mobile-overlay a { color: #94a3b8; }
+        .mobile-close { color: #94a3b8; }
+        .hamburger { color: #f1f5f9; }
+        .btn-secondary { background: transparent; }
+        .related-card { background: #0d1117; }
+        .step-card { background: #0d1117; }
+        .results-box { background: #0d1117; }
+        .verdict-box.works { background: rgba(16,185,129,0.07); }
+        .verdict-box.doesnt { background: rgba(245,158,11,0.06); }
+        .nav-logo-text { color: #f1f5f9; }
+        .article-header { background: linear-gradient(175deg, rgba(59,130,246,0.06) 0%, var(--light-bg) 50%); }
+        input[type="text"], input[type="number"], input[type="email"], select, textarea {
+            background: #131820; color: var(--light-text); border-color: rgba(255,255,255,0.12);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Kaizen Portal Power Apps</span><span class="cz">Kaizen portál Power Apps</span></span>
+        </div>
+
+        <span class="article-badge use-case">
+            <span class="en">Use Case</span><span class="cz">Případ</span>
+        </span>
+
+        <h1>
+            <span class="en">We Built a Kaizen Portal in 2 Days. Here's What It Does, What It Cost, and Whether It Was Worth It.</span>
+            <span class="cz">Postavili jsme Kaizen portál za 2 dny. Tady je co dělá, co stál a jestli to stálo za to.</span>
+        </h1>
+
+        <p class="article-excerpt">
+            <span class="en">Improvement ideas in procurement die in email threads. People stop submitting because nothing happens. A Power Apps canvas app with an AI categorisation layer changed that — structured submissions, monthly board review, visible status. Low risk, high visibility, built on tools you already pay for.</span>
+            <span class="cz">Nápady na zlepšení v nákupu umírají v e-mailových vláknech. Lidé přestanou posílat, protože se nic neděje. Power Apps canvas aplikace s AI kategorizací to změnila — strukturované podávání, měsíční review, viditelný stav. Nízké riziko, vysoká viditelnost, postaveno na nástrojích, které už platíte.</span>
+        </p>
+
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                <span class="en">8 min read</span><span class="cz">8 min čtení</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+                David Račák
+            </span>
+            <span class="article-result-tag"><span class="en">Built in 2 days</span><span class="cz">Postaveno za 2 dny</span></span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-body">
+    <div class="prose">
+
+        <div class="results-box">
+            <div class="results-box-item">
+                <div class="results-box-num">2 days</div>
+                <div class="results-box-label"><span class="en">Build time</span><span class="cz">Čas na sestavení</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">4</div>
+                <div class="results-box-label"><span class="en">AI categories</span><span class="cz">AI kategorie</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">€0</div>
+                <div class="results-box-label"><span class="en">Cost for submitters</span><span class="cz">Náklady pro zadavatele</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">~€10</div>
+                <div class="results-box-label"><span class="en">Per maker/month</span><span class="cz">Na tvůrce / měsíc</span></div>
+            </div>
+        </div>
+
+        <h2><span class="en">The Problem With Improvement Ideas in Procurement</span><span class="cz">Problém s nápady na zlepšení v nákupu</span></h2>
+
+        <p>
+            <span class="en">Every procurement team has ideas. The buyer who processes 200 POs a month knows exactly where the bottlenecks are. The category manager dealing with a difficult supplier knows what the fix is. The analyst running reports knows which data fields are missing. They all know. And almost none of it gets acted on.</span>
+            <span class="cz">Každý nákupní tým má nápady. Nákupčí, který zpracovává 200 objednávek měsíčně, přesně ví kde jsou úzká hrdla. Category manager, který řeší obtížného dodavatele, ví jaká je oprava. Analytik, který spouští reporty, ví které datové pole chybí. Všichni to vědí. A skoro nic z toho se nerealizuje.</span>
+        </p>
+
+        <p>
+            <span class="en">The reason is always the same. There's no system. Someone says "send me an email with your ideas." You send it. It gets buried. Three months later the same problem gets discussed in a meeting as if it's new. <strong>The issue isn't a shortage of ideas. It's that ideas have nowhere to land.</strong></span>
+            <span class="cz">Důvod je vždy stejný. Žádný systém neexistuje. Někdo řekne „pošli mi e-mail s nápady." Pošlete ho. Pohřbí se. O tři měsíce později se stejný problém probírá na poradě jako by byl nový. <strong>Problém není nedostatek nápadů. Je to to, že nápady nemají kam přistát.</strong></span>
+        </p>
+
+        <p>
+            <span class="en">Kaizen — continuous incremental improvement — only works if you can capture, prioritise, and close the loop. The portal is the infrastructure for that. Without it, you're relying on meetings and memory, and both fail at scale.</span>
+            <span class="cz">Kaizen — průběžné postupné zlepšování — funguje jen tehdy, když dokážete zachytit, upřednostnit a uzavřít smyčku. Portál je k tomu infrastruktura. Bez něj se spoléháte na porady a paměť, a obě selhávají při větším objemu.</span>
+        </p>
+
+        <blockquote>
+            <span class="en">"Low risk, high visibility, builds team confidence before you touch anything critical." That's the pitch for this portal. Not a revolution. Just a place where ideas don't die.</span>
+            <span class="cz">„Nízké riziko, vysoká viditelnost, buduje důvěru týmu předtím, než sáhnete na něco kritického." To je prezentace tohoto portálu. Není to revoluce. Jen místo, kde nápady nezemřou.</span>
+        </blockquote>
+
+        <h2><span class="en">What the Portal Does</span><span class="cz">Co portál dělá</span></h2>
+
+        <p>
+            <span class="en">The setup has three parts working together: a Power Apps canvas app for submission, a Power Automate flow for processing, and Dataverse for storage. Here's the flow from the user's perspective.</span>
+            <span class="cz">Sestava má tři části, které fungují dohromady: Power Apps canvas aplikace pro podávání, Power Automate flow pro zpracování a Dataverse pro ukládání. Tady je průběh z pohledu uživatele.</span>
+        </p>
+
+        <p>
+            <span class="en">An employee opens the app — either from Teams or a direct browser link. They fill in three fields: a short title, a description of the problem or idea, and their name. That's it. No category to select, no priority to estimate, no form so long it feels like a legal document. Submission takes under two minutes.</span>
+            <span class="cz">Zaměstnanec otevře aplikaci — buď z Teams nebo přímého odkazu v prohlížeči. Vyplní tři pole: krátký název, popis problému nebo nápadu a své jméno. To je vše. Žádná kategorie k výběru, žádná priorita k odhadnutí, žádný formulář tak dlouhý, že vypadá jako právní dokument. Podání trvá méně než dvě minuty.</span>
+        </p>
+
+        <p>
+            <span class="en">Power Automate picks it up immediately. The AI layer categorises the idea into one of four buckets: <strong>Cost Saving, Process Fix, Supplier Issue,</strong> or <strong>Compliance</strong>. It also estimates effort (Low / Medium / High) and flags if the description closely matches an existing idea — a basic duplicate check. All of this happens automatically before the record is written to Dataverse.</span>
+            <span class="cz">Power Automate to okamžitě zpracuje. AI vrstva kategorizuje nápad do jednoho ze čtyř košů: <strong>Úspora nákladů, Oprava procesu, Problém s dodavatelem</strong> nebo <strong>Compliance</strong>. Také odhadne náročnost (Nízká / Střední / Vysoká) a označí, jestli popis úzce odpovídá existujícímu nápadu — základní kontrola duplicit. To vše proběhne automaticky před zápisem záznamu do Dataverse.</span>
+        </p>
+
+        <p>
+            <span class="en">The submitter gets a Teams notification confirming receipt and showing the assigned category. That alone changes behaviour. People see their idea got processed. It didn't disappear into a void. That visibility is what keeps submission rates up.</span>
+            <span class="cz">Zadavatel dostane Teams notifikaci potvrzující přijetí a zobrazující přiřazenou kategorii. Jen to samo o sobě mění chování. Lidé vidí, že jejich nápad byl zpracován. Nezmizel v prázdnotě. Tato viditelnost je to, co udržuje míru podávání nahoře.</span>
+        </p>
+
+        <p>
+            <span class="en">Once a month, the procurement board opens the gallery view in Power Apps. They see all open ideas, sorted by category and effort estimate. They mark each one as Accepted, In Progress, Declined, or Completed. Declined ideas get a one-line reason. Accepted ones get an owner. That's the entire review process.</span>
+            <span class="cz">Jednou měsíčně nákupní board otevře galerii v Power Apps. Vidí všechny otevřené nápady seřazené podle kategorie a odhadnuté náročnosti. Každý označí jako Přijato, V řešení, Zamítnuto nebo Dokončeno. Zamítnuté nápady dostanou jednořádkový důvod. Přijaté dostanou vlastníka. To je celý proces review.</span>
+        </p>
+
+        <h2><span class="en">The Architecture</span><span class="cz">Architektura</span></h2>
+
+        <p>
+            <span class="en">Four components. Nothing exotic. All inside the Microsoft ecosystem you likely already have.</span>
+            <span class="cz">Čtyři komponenty. Nic exotického. Vše v ekosystému Microsoft, který pravděpodobně už máte.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Power Apps canvas app</strong> — the submission form and the review board. Canvas apps give you full control over the layout. The submission form is one screen: three input fields and a Submit button. The review board is a second screen: a gallery control connected to the Dataverse table, with filters for category and status. No code required beyond a few formula expressions to filter and patch records.</span>
+            <span class="cz"><strong>Power Apps canvas aplikace</strong> — formulář pro podávání a board pro review. Canvas aplikace vám dávají plnou kontrolu nad rozvržením. Formulář pro podávání je jedna obrazovka: tři vstupní pole a tlačítko Odeslat. Review board je druhá obrazovka: ovládací prvek galerie připojený k tabulce Dataverse s filtry pro kategorii a stav. Žádný kód není potřeba mimo několik formulářových výrazů pro filtrování a záplaty záznamů.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Power Automate flow</strong> — triggered when a new record lands in Dataverse. The flow calls the Copilot "Run a prompt" action with the idea description, parses the JSON response, writes the category and effort estimate back to the record, sends the Teams confirmation to the submitter, and checks for similar titles using a string comparison against recent records. The whole flow runs in under 10 seconds.</span>
+            <span class="cz"><strong>Power Automate flow</strong> — spuštěný, když do Dataverse dorazí nový záznam. Flow zavolá Copilot akci „Spustit prompt" s popisem nápadu, zparsuje JSON odpověď, zapíše kategorii a odhad náročnosti zpět do záznamu, pošle Teams potvrzení zadavateli a zkontroluje podobné názvy pomocí porovnání řetězců s nedávnými záznamy. Celý flow běží méně než 10 sekund.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Dataverse</strong> — the table holding every idea with fields for: Title, Description, Submitter, SubmittedDate, Category (AI), EffortEstimate (AI), DuplicateFlag (AI), Status, Owner, Resolution, ResolutionDate. Dataverse is part of the Power Platform environment — no extra database to set up, no connection strings, and the Power Apps connector is native.</span>
+            <span class="cz"><strong>Dataverse</strong> — tabulka uchovávající každý nápad s poli pro: Název, Popis, Zadavatel, DatumPodání, Kategorie (AI), OdhadNáročnosti (AI), PříznaknakDuplikát (AI), Stav, Vlastník, Rozhodnutí, DatumRozhodnutí. Dataverse je součástí prostředí Power Platform — žádná extra databáze k nastavení, žádné connection stringy a konektor Power Apps je nativní.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Teams integration</strong> — the app is added as a tab in the procurement team's Teams channel. Users submit directly from Teams without switching to a browser. The automation sends notifications via Teams too, so the entire flow lives in one tool people already have open all day.</span>
+            <span class="cz"><strong>Integrace Teams</strong> — aplikace je přidána jako záložka v Teams kanálu nákupního týmu. Uživatelé podávají přímo z Teams bez přepínání do prohlížeče. Automatizace také posílá notifikace přes Teams, takže celý průběh žije v jednom nástroji, který mají lidé otevřený celý den.</span>
+        </p>
+
+        <h2><span class="en">The AI Layer: What Copilot Actually Does Here</span><span class="cz">Vrstva AI: Co Copilot zde vlastně dělá</span></h2>
+
+        <p>
+            <span class="en">This is where people either over-engineer it or dismiss it entirely. Let me be direct about what the AI does and what it doesn't do.</span>
+            <span class="cz">Tady to buď lidé přeinženýrují nebo to úplně odmítnou. Budu přímý ohledně toho, co AI dělá a co nedělá.</span>
+        </p>
+
+        <p>
+            <span class="en">The "Run a prompt" action in Power Automate sends the idea description to a Copilot model and returns structured output. The prompt looks like this:</span>
+            <span class="cz">Akce „Spustit prompt" v Power Automate pošle popis nápadu do modelu Copilot a vrátí strukturovaný výstup. Prompt vypadá takto:</span>
+        </p>
+
+        <pre><code><span class="en">You are a procurement improvement classifier.
+Given this idea description, return a JSON object with:
+- "category": one of ["Cost Saving", "Process Fix", "Supplier Issue", "Compliance"]
+- "effort": one of ["Low", "Medium", "High"]
+- "summary": a single sentence summary of the idea
+
+Idea: {{description}}
+
+Return only valid JSON. No explanation.</span><span class="cz">Jsi klasifikátor nákupních zlepšení.
+Na základě tohoto popisu nápadu vrať JSON objekt s:
+- "category": jeden z ["Úspora nákladů", "Oprava procesu", "Problém s dodavatelem", "Compliance"]
+- "effort": jeden z ["Nízká", "Střední", "Vysoká"]
+- "summary": jednověteční shrnutí nápadu
+
+Nápad: {{description}}
+
+Vrať pouze platný JSON. Bez vysvětlení.</span></code></pre>
+
+        <p>
+            <span class="en">The output is parsed with a JSON parse action and the fields are written back to the Dataverse record. That's it. No fine-tuning, no training data, no complex orchestration. A basic structured prompt with a controlled output format.</span>
+            <span class="cz">Výstup je zparsován akcí JSON parse a pole jsou zapsána zpět do záznamu Dataverse. To je vše. Žádné dolaďování, žádná tréninková data, žádná komplexní orchestrace. Základní strukturovaný prompt s řízeným výstupním formátem.</span>
+        </p>
+
+        <p>
+            <span class="en">The AI gets category right roughly 85–90% of the time on procurement ideas. The board can override it in the monthly review. The point isn't perfect accuracy — it's reducing the manual work of sorting 30 ideas before a review meeting. Even at 80% accuracy, you've saved half the prep time.</span>
+            <span class="cz">AI správně kategorizuje přibližně 85–90 % nákupních nápadů. Board to může přepsat při měsíčním review. Pointa není dokonalá přesnost — je to snížení manuální práce třídění 30 nápadů před review poradou. I při 80% přesnosti ušetříte polovinu přípravného času.</span>
+        </p>
+
+        <div class="callout warning">
+            <div class="callout-title"><span class="en">What Not to Do on Day One</span><span class="cz">Co nedělat první den</span></div>
+            <span class="en">Don't build a duplicate detection system that blocks submissions. Don't add sentiment analysis. Don't try to score ideas by ROI automatically. All of that sounds useful and all of it kills adoption by making the form slower and the results less trustworthy. Start with category + effort. Add complexity only after the team has been using it for two months.</span>
+            <span class="cz">Nestavte systém detekce duplikátů, který blokuje podávání. Nepřidávejte analýzu sentimentu. Nepokoušejte se automaticky hodnotit nápady podle ROI. To vše zní užitečně a to vše ničí adopci tím, že formulář je pomalejší a výsledky méně důvěryhodné. Začněte s kategorizací a náročností. Přidávejte složitost až po dvou měsících, kdy tým systém používá.</span>
+        </div>
+
+        <h2><span class="en">How to Build It: 5 Steps</span><span class="cz">Jak to sestavit: 5 kroků</span></h2>
+
+        <div class="step-list">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4><span class="en">Create the Dataverse table</span><span class="cz">Vytvořte tabulku Dataverse</span></h4>
+                    <p>
+                        <span class="en">Go to make.powerapps.com → Tables → New table. Name it "KaizenIdea". Add columns: Title (Text), Description (Text, multiline), Submitter (Text), Category (Choice: Cost Saving / Process Fix / Supplier Issue / Compliance), EffortEstimate (Choice: Low / Medium / High), Status (Choice: Open / Accepted / In Progress / Declined / Completed), Owner (Text), Resolution (Text, multiline), DuplicateFlag (Yes/No). The AI-populated fields (Category, EffortEstimate) start empty — the flow fills them in after submission.</span>
+                        <span class="cz">Jděte na make.powerapps.com → Tabulky → Nová tabulka. Pojmenujte ji „KaizenIdea". Přidejte sloupce: Název (Text), Popis (Text, víceřádkový), Zadavatel (Text), Kategorie (Výběr: Úspora nákladů / Oprava procesu / Problém s dodavatelem / Compliance), OdhadNáročnosti (Výběr: Nízká / Střední / Vysoká), Stav (Výběr: Otevřeno / Přijato / V řešení / Zamítnuto / Dokončeno), Vlastník (Text), Rozhodnutí (Text, víceřádkový), PříznaknaDuplikát (Ano/Ne). AI-vyplňovaná pole (Kategorie, OdhadNáročnosti) začínají prázdná — flow je vyplní po podání.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4><span class="en">Build the Canvas App</span><span class="cz">Sestavte Canvas aplikaci</span></h4>
+                    <p>
+                        <span class="en">New Canvas App → Blank. Add a data source: Dataverse → KaizenIdea table. Screen 1 (Submission): three text inputs (Title, Description, Submitter), a Submit button with the formula <code>Patch(KaizenIdeas, Defaults(KaizenIdeas), {Title: txtTitle.Text, Description: txtDesc.Text, Submitter: txtName.Text, Status: "Open"})</code>, and a success confirmation label. Screen 2 (Review Board): a vertical gallery connected to KaizenIdeas, showing Title, Submitter, Category, and Status. Add dropdown filters for Category and Status at the top. Clicking a gallery item navigates to a detail view where the board can update Status, Owner, and Resolution fields.</span>
+                        <span class="cz">Nová Canvas aplikace → Prázdná. Přidejte zdroj dat: Dataverse → tabulka KaizenIdea. Obrazovka 1 (Podávání): tři textové vstupy (Název, Popis, Zadavatel), tlačítko Odeslat s formulí <code>Patch(KaizenNápady, Defaults(KaizenNápady), {Název: txtTitle.Text, Popis: txtDesc.Text, Zadavatel: txtJméno.Text, Stav: "Otevřeno"})</code> a potvrzovací štítek úspěchu. Obrazovka 2 (Review board): vertikální galerie připojená ke KaizenNápady zobrazující Název, Zadavatel, Kategorie a Stav. Přidejte rozbalovací filtry pro Kategorii a Stav nahoře. Kliknutí na položku galerie přejde na detail, kde board může aktualizovat Stav, Vlastníka a Rozhodnutí.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4><span class="en">Build the Power Automate flow</span><span class="cz">Sestavte Power Automate flow</span></h4>
+                    <p>
+                        <span class="en">Trigger: "When a row is added" in Dataverse → KaizenIdea table. Action 1: "Run a prompt" (AI Builder / Copilot) — pass the Description field with the classification prompt above. Action 2: Parse the JSON response using a Parse JSON action with the schema <code>{"category": "string", "effort": "string", "summary": "string"}</code>. Action 3: Update the Dataverse row with Category and EffortEstimate from the parsed output. Action 4: "Post a message" in Teams to the submitter — use the submitter's email as the recipient, include the assigned category and a note that the board reviews monthly. Optional: add a Get rows action to check for Title similarity before writing the duplicate flag.</span>
+                        <span class="cz">Trigger: „Při přidání řádku" v Dataverse → tabulka KaizenNápad. Akce 1: „Spustit prompt" (AI Builder / Copilot) — předejte pole Popis s výše uvedeným klasifikačním promptem. Akce 2: Zparsujte JSON odpověď pomocí akce Parse JSON se schématem <code>{"category": "string", "effort": "string", "summary": "string"}</code>. Akce 3: Aktualizujte řádek Dataverse s Kategorií a OdhadomNáročnosti z parsovaného výstupu. Akce 4: „Odeslat zprávu" v Teams zadavateli — použijte e-mail zadavatele jako příjemce, uveďte přiřazenou kategorii a poznámku, že board provádí review měsíčně. Volitelně: přidejte akci Získat řádky pro kontrolu podobnosti Názvu před zápisem příznaku duplicity.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4><span class="en">Add the app to Teams</span><span class="cz">Přidejte aplikaci do Teams</span></h4>
+                    <p>
+                        <span class="en">In your Power Apps canvas app → Share → Copy the app link. In Teams, go to your procurement channel → + Add a tab → Power Apps → select the app. Now any team member can submit an idea directly from Teams without opening a browser. Pin the tab so it's visible at the top of the channel. Test the full flow: submit a test idea, check that the Dataverse record is created, verify the AI categorisation runs, confirm the Teams notification arrives. Fix anything before rolling out to the team.</span>
+                        <span class="cz">V Power Apps canvas aplikaci → Sdílet → Zkopírujte odkaz na aplikaci. V Teams přejděte na nákupní kanál → + Přidat záložku → Power Apps → vyberte aplikaci. Nyní může libovolný člen týmu podat nápad přímo z Teams bez otevírání prohlížeče. Připněte záložku, aby byla vidět nahoře v kanálu. Otestujte celý průběh: pošlete testovací nápad, zkontrolujte, že je vytvořen záznam Dataverse, ověřte, že AI kategorizace proběhne, potvrďte příchod Teams notifikace. Opravte vše před rozšířením na tým.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">5</div>
+                <div class="step-content">
+                    <h4><span class="en">Run the first monthly review</span><span class="cz">Spusťte první měsíční review</span></h4>
+                    <p>
+                        <span class="en">Schedule a 30-minute monthly slot with the procurement board. Open the review screen, filter by Status = Open. Go through each idea — mark it Accepted (assign owner), Declined (add one-line reason), or In Progress. Export a simple count: ideas submitted, ideas accepted, ideas completed. Share that number with the team at the end of the meeting. That transparency is the whole point. People see their ideas matter, or they see a clear reason why an idea was declined. Both outcomes are better than silence.</span>
+                        <span class="cz">Naplánujte měsíční slot 30 minut s nákupním boardem. Otevřete review obrazovku, filtrujte podle Stav = Otevřeno. Projděte každý nápad — označte ho jako Přijato (přiřaďte vlastníka), Zamítnuto (přidejte jednořádkový důvod) nebo V řešení. Exportujte jednoduchý počet: podané nápady, přijaté nápady, dokončené nápady. Sdílejte toto číslo s týmem na konci porady. Ta transparentnost je celý smysl. Lidé vidí, že jejich nápady mají váhu, nebo vidí jasný důvod, proč byl nápad zamítnut. Oba výsledky jsou lepší než ticho.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h2><span class="en">What It Actually Costs</span><span class="cz">Co to skutečně stojí</span></h2>
+
+        <p>
+            <span class="en">The honest cost breakdown. This assumes you already have Microsoft 365 and a Power Platform environment set up.</span>
+            <span class="cz">Čestný přehled nákladů. Předpokládá, že již máte Microsoft 365 a nastavené prostředí Power Platform.</span>
+        </p>
+
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th><span class="en">Component</span><span class="cz">Komponenta</span></th>
+                    <th><span class="en">Who needs it</span><span class="cz">Kdo potřebuje</span></th>
+                    <th><span class="en">Cost</span><span class="cz">Náklady</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Power Apps (view + submit)</td>
+                    <td><span class="en">All employees (submitters)</span><span class="cz">Všichni zaměstnanci (zadavatelé)</span></td>
+                    <td><span class="cost-pill free"><span class="en">Included in M365</span><span class="cz">V ceně M365</span></span></td>
+                </tr>
+                <tr>
+                    <td>Power Automate (basic flows)</td>
+                    <td><span class="en">All employees</span><span class="cz">Všichni zaměstnanci</span></td>
+                    <td><span class="cost-pill free"><span class="en">Included in M365</span><span class="cz">V ceně M365</span></span></td>
+                </tr>
+                <tr>
+                    <td>Dataverse</td>
+                    <td><span class="en">Makers only</span><span class="cz">Jen tvůrci</span></td>
+                    <td><span class="cost-pill paid"><span class="en">Requires PA/PP licence</span><span class="cz">Vyžaduje PA/PP licenci</span></span></td>
+                </tr>
+                <tr>
+                    <td><span class="en">Power Apps per-user plan</span><span class="cz">Power Apps per-user plán</span></td>
+                    <td><span class="en">App builders (1–2 people)</span><span class="cz">Stavitelé aplikací (1–2 lidé)</span></td>
+                    <td>~€4.70–14<span class="en">/user/month</span><span class="cz">/uživatel/měsíc</span></td>
+                </tr>
+                <tr>
+                    <td><span class="en">AI Builder credits (Copilot prompts)</span><span class="cz">AI Builder kredity (Copilot prompty)</span></td>
+                    <td><span class="en">Consumed per AI run</span><span class="cz">Spotřebovány za každé spuštění AI</span></td>
+                    <td><span class="en">~500 free credits/month with PA, then pay-per-use</span><span class="cz">~500 bezplatných kreditů/měsíc s PA, pak průběžné platby</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <span class="en">For a team submitting 20–30 ideas per month, AI Builder credits are well within the free tier. If you scale to hundreds of ideas monthly, the cost is still under €5/month in additional credits. The primary licence cost is the Power Apps per-user plan for the one or two people who build and maintain the app — roughly €10/user/month at standard pricing, often less under enterprise agreements.</span>
+            <span class="cz">Pro tým podávající 20–30 nápadů měsíčně jsou AI Builder kredity dobře v rámci bezplatného pásma. Pokud škálujete na stovky nápadů měsíčně, náklady jsou stále pod 5 € měsíčně na dodatečné kredity. Primární náklady na licenci jsou plán Power Apps per-user pro jednoho nebo dva lidi, kteří aplikaci staví a udržují — zhruba 10 €/uživatel/měsíc při standardním ceníku, často méně v rámci podnikových smluv.</span>
+        </p>
+
+        <div class="callout info">
+            <div class="callout-title"><span class="en">Licensing Note</span><span class="cz">Poznámka k licencování</span></div>
+            <span class="en">The Dataverse trigger in Power Automate requires a premium connector, which means the flow owner needs a Power Automate per-user plan or Power Apps per-user plan (which includes Power Automate). Standard M365 licences only cover standard connectors and SharePoint-based storage. If you want to avoid premium licensing entirely, use a SharePoint list instead of Dataverse — the functionality is nearly identical for this use case, you just lose some relational data features you don't need anyway.</span>
+            <span class="cz">Trigger Dataverse v Power Automate vyžaduje prémiový konektor, což znamená, že vlastník flow potřebuje plán Power Automate per-user nebo Power Apps per-user (který zahrnuje Power Automate). Standardní M365 licence pokrývají pouze standardní konektory a úložiště na bázi SharePointu. Pokud se chcete vyhnout prémiového licencování úplně, použijte místo Dataverse seznam SharePoint — funkčnost je pro tento případ použití téměř identická, jen přijdete o relační datové funkce, které stejně nepotřebujete.</span>
+        </div>
+
+        <h2><span class="en">What Works and What Doesn't</span><span class="cz">Co funguje a co ne</span></h2>
+
+        <div class="two-col">
+            <div class="verdict-box works">
+                <div class="verdict-title"><span class="en">What works</span><span class="cz">Co funguje</span></div>
+                <ul>
+                    <li><span class="en">Minimal form — title, description, name. Nothing else</span><span class="cz">Minimální formulář — název, popis, jméno. Nic dalšího</span></li>
+                    <li><span class="en">Instant Teams confirmation that the idea was received</span><span class="cz">Okamžité potvrzení v Teams, že nápad byl přijat</span></li>
+                    <li><span class="en">Monthly board review with a fixed 30-minute slot</span><span class="cz">Měsíční review boardu s pevným 30minutovým slotem</span></li>
+                    <li><span class="en">Publishing the monthly count — submitted, accepted, completed</span><span class="cz">Zveřejňování měsíčního počtu — podáno, přijato, dokončeno</span></li>
+                    <li><span class="en">AI categorisation reducing pre-meeting sorting work</span><span class="cz">AI kategorizace snižující práci třídění před poradou</span></li>
+                    <li><span class="en">Visible status so submitters know their idea isn't lost</span><span class="cz">Viditelný stav, aby zadavatelé věděli, že jejich nápad není ztracen</span></li>
+                    <li><span class="en">Teams tab access — zero context switching</span><span class="cz">Přístup přes záložku Teams — žádné přepínání kontextu</span></li>
+                </ul>
+            </div>
+            <div class="verdict-box doesnt">
+                <div class="verdict-title"><span class="en">What doesn't</span><span class="cz">Co nefunguje</span></div>
+                <ul>
+                    <li><span class="en">Mandatory category/priority fields on the submission form</span><span class="cz">Povinná pole kategorie/priority na formuláři pro podávání</span></li>
+                    <li><span class="en">Building the AI duplicate blocker before you have enough data</span><span class="cz">Stavění AI blokátoru duplikátů před tím, než máte dostatek dat</span></li>
+                    <li><span class="en">Automated ROI scoring — the estimates are too unreliable early on</span><span class="cz">Automatizované hodnocení ROI — odhady jsou příliš nespolehlivé na začátku</span></li>
+                    <li><span class="en">Quarterly review cadence — ideas get stale and submitters disengage</span><span class="cz">Čtvrtletní kadence review — nápady zastarají a zadavatelé se odtáhnou</span></li>
+                    <li><span class="en">Building the full board approval workflow before anyone has submitted 10 ideas</span><span class="cz">Stavění kompletního schvalovacího workflow boardu před tím, než kdokoli podá 10 nápadů</span></li>
+                    <li><span class="en">Showing all declined ideas to everyone — route them only to the submitter</span><span class="cz">Zobrazování všech zamítnutých nápadů všem — směrujte je pouze zadavateli</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2><span class="en">Was It Worth It?</span><span class="cz">Stálo to za to?</span></h2>
+
+        <p>
+            <span class="en">Yes. But not for the reasons you'd expect from an AI article.</span>
+            <span class="cz">Ano. Ale ne z důvodů, které byste čekali od AI článku.</span>
+        </p>
+
+        <p>
+            <span class="en">The AI categorisation is nice. It saves maybe 15 minutes per monthly review session. That's not the point. The point is that <strong>the portal changed the team's relationship with improvement</strong>. Ideas that used to die in email now have a place. People who never bothered submitting before do it because the friction is low and they can see what happens to their idea. That's a cultural shift you can't buy with a better spreadsheet.</span>
+            <span class="cz">AI kategorizace je fajn. Ušetří možná 15 minut za měsíční review sezení. To není pointa. Pointa je, že <strong>portál změnil vztah týmu ke zlepšování</strong>. Nápady, které dříve umíraly v e-mailech, mají teď místo. Lidé, kteří se dříve neobtěžovali podávat, to teď dělají, protože tření je nízké a vidí, co se s jejich nápadem děje. To je kulturní posun, který si za lepší tabulku nekoupíte.</span>
+        </p>
+
+        <p>
+            <span class="en">It's also a good first build. Low complexity, real business value, visible to the team and to management. If you've been thinking about using Power Platform for something bigger — supplier onboarding, purchase request workflows, contract tracking — this is the right place to start. You learn the platform basics without breaking anything critical.</span>
+            <span class="cz">Je to také dobrý první build. Nízká složitost, reálná obchodní hodnota, viditelná pro tým i management. Pokud přemýšlíte o použití Power Platform pro něco většího — onboarding dodavatelů, workflow žádostí o nákup, sledování smluv — toto je správné místo začít. Naučíte se základy platformy, aniž byste rozbili cokoli kritického.</span>
+        </p>
+
+        <p>
+            <span class="en">Two days to build. One hour a month to run. Ideas that actually get answered. For a procurement team, that's a good return.</span>
+            <span class="cz">Dva dny na sestavení. Hodina měsíčně na provoz. Nápady, na které se skutečně reaguje. Pro nákupní tým je to dobrá návratnost.</span>
+        </p>
+
+    </div>
+</article>
+
+<!-- ═══ TAGS & SHARE ═══ -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Power Apps</span>
+        <span class="article-tag">Power Automate</span>
+        <span class="article-tag">Dataverse</span>
+        <span class="article-tag">Kaizen</span>
+        <span class="article-tag">Continuous Improvement</span>
+        <span class="article-tag">AI Categorisation</span>
+        <span class="article-tag">Microsoft 365</span>
+        <span class="article-tag">Procurement Automation</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')" title="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(location.href)" title="Copy link">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.07a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L4.34 8.374"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- ═══ RELATED ARTICLES ═══ -->
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3><span class="en">Related insights</span><span class="cz">Související články</span></h3>
+            <a href="/insights" class="related-back">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                <span class="en">All insights</span><span class="cz">Všechny články</span>
+            </a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/car-booking-automation.html" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
+                <h4><span class="en">How I Killed a Useless Corporate Process With a 4-Step Power Automate Flow</span><span class="cz">Jak jsem zabil zbytečný firemní proces 4krokovým Power Automate flow</span></h4>
+                <p><span class="en">Company car booking, resource mailboxes, manager lookup via Entra ID. Zero cost, 500 min saved.</span><span class="cz">Rezervace firemních aut, resource mailboxy, vyhledávání manažera přes Entra ID. Nulové náklady, 500 minut ušetřeno.</span></p>
+            </a>
+            <a href="/insights/ai-transition-cost.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">What Does AI Actually Cost in Procurement? A Real Breakdown</span><span class="cz">Co AI v nákupu skutečně stojí? Reálný přehled</span></h4>
+                <p><span class="en">Licensing, implementation, maintenance — the numbers most vendors won't tell you.</span><span class="cz">Licencování, implementace, údržba — čísla, která vám většina dodavatelů neřekne.</span></p>
+            </a>
+            <a href="/insights/ai-projects-fail.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">Why Most Procurement AI Projects Fail Before They Start</span><span class="cz">Proč většina AI projektů v nákupu selže ještě před startem</span></h4>
+                <p><span class="en">The three things that separate successful automation from expensive shelf ware.</span><span class="cz">Tři věci, které oddělují úspěšnou automatizaci od drahého softwarového odpadu.</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA STRIP ═══ -->
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3><span class="en">Want to build this for your team?</span><span class="cz">Chcete to sestavit pro váš tým?</span></h3>
+        <p><span class="en">I can help you set up a working Kaizen portal in a half-day session — or review what you already have and tell you what's worth fixing.</span><span class="cz">Pomůžu vám nastavit funkční Kaizen portál za půldenní sezení — nebo zreviduju co již máte a řeknu vám co stojí za opravu.</span></p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            <span class="en">Book a Free Call</span><span class="cz">Domluvit hovor zdarma</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

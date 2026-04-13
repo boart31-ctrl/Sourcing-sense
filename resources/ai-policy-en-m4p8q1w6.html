@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Usage Policy — EMEA Edition | Sourcing Sense</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  :root {
+    --blue-900: #0a1628;
+    --blue-700: #152d54;
+    --blue-500: #2563eb;
+    --blue-400: #3b82f6;
+    --blue-100: #dbeafe;
+    --blue-50:  #eff6ff;
+    --gold:     #f59e0b;
+    --green:    #10b981;
+    --green-bg: #ecfdf5;
+    --yellow:   #f59e0b;
+    --yellow-bg:#fffbeb;
+    --red:      #ef4444;
+    --red-bg:   #fef2f2;
+    --text:     #111827;
+    --text-mid: #374151;
+    --text-muted: #6b7280;
+    --border:   #e5e7eb;
+    --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'DM Serif Display', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    font-size: 10pt;
+    color: var(--text);
+    background: #f3f4f6;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 20px;
+    background: white;
+    padding: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  .doc-header {
+    background: var(--blue-900);
+    padding: 28px 36px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-500), var(--gold));
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 15pt;
+    color: white;
+    letter-spacing: 0.05em;
+  }
+  .brand-tagline {
+    font-size: 8pt;
+    color: #93c5fd;
+    margin-top: 2px;
+  }
+  .edition-badge {
+    font-size: 7.5pt;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .doc-title {
+    font-family: var(--font-display);
+    font-size: 22pt;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .doc-subtitle {
+    font-size: 9pt;
+    color: #93c5fd;
+  }
+
+  .meta-bar {
+    background: var(--blue-700);
+    padding: 14px 36px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    font-size: 8pt;
+    color: #bfdbfe;
+  }
+  .meta-item strong {
+    color: white;
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  /* FRAMEWORKS STRIP */
+  .frameworks-strip {
+    background: var(--blue-50);
+    border-bottom: 1px solid var(--blue-100);
+    padding: 10px 36px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .frameworks-strip span {
+    font-size: 7.5pt;
+    color: var(--blue-700);
+    font-weight: 500;
+  }
+  .framework-pill {
+    background: white;
+    border: 1px solid var(--blue-400);
+    color: var(--blue-700);
+    font-size: 7pt;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .framework-pill.appendix {
+    border-color: #d1d5db;
+    color: #6b7280;
+    background: #f9fafb;
+  }
+
+  .doc-body {
+    padding: 28px 36px;
+  }
+
+  .customize-note {
+    background: #fffbeb;
+    border-left: 3px solid var(--gold);
+    padding: 8px 12px;
+    font-size: 8.5pt;
+    color: #78350f;
+    margin: 10px 0 18px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 13pt;
+    color: var(--blue-900);
+    margin: 28px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--blue-500);
+  }
+  h2:first-child { margin-top: 0; }
+
+  h3 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--blue-700);
+    margin: 16px 0 6px;
+  }
+
+  p { margin-bottom: 8px; font-size: 9.5pt; }
+
+  ul, ol {
+    margin: 6px 0 10px 18px;
+    font-size: 9.5pt;
+  }
+  li { margin-bottom: 3px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 8.5pt;
+  }
+  th {
+    background: var(--blue-900);
+    color: white;
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #f9fafb; }
+
+  .cat-green { background: var(--green-bg) !important; }
+  .cat-yellow { background: var(--yellow-bg) !important; }
+  .cat-red { background: var(--red-bg) !important; }
+  .badge-green {
+    display: inline-block;
+    background: #d1fae5; color: #065f46;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .badge-yellow {
+    display: inline-block;
+    background: #fef3c7; color: #78350f;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .badge-red {
+    display: inline-block;
+    background: #fee2e2; color: #7f1d1d;
+    font-weight: 700; font-size: 8pt;
+    padding: 1px 7px; border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  .warning-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid var(--red);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    font-size: 9pt;
+    color: #7f1d1d;
+  }
+
+  .info-box {
+    background: var(--blue-50);
+    border-left: 4px solid var(--blue-500);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    font-size: 9pt;
+    color: var(--blue-700);
+  }
+
+  .nist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .nist-card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blue-500);
+    padding: 10px 12px;
+    border-radius: 4px;
+  }
+  .nist-card h4 {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--blue-700);
+    margin-bottom: 4px;
+  }
+  .nist-card p {
+    font-size: 8.5pt;
+    color: var(--text-mid);
+    margin: 0;
+  }
+
+  .sev-low td:first-child { border-left: 3px solid #10b981; }
+  .sev-mid td:first-child { border-left: 3px solid var(--gold); }
+  .sev-high td:first-child { border-left: 3px solid var(--red); }
+
+  .appendix-label {
+    display: inline-block;
+    background: var(--blue-500);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .appendix-label.secondary {
+    background: #6b7280;
+  }
+
+  .jurisdiction-header {
+    background: #f1f5f9;
+    border-left: 4px solid var(--blue-400);
+    padding: 8px 14px;
+    margin: 16px 0 10px;
+    border-radius: 0 4px 4px 0;
+  }
+  .jurisdiction-header strong {
+    font-size: 10pt;
+    color: var(--blue-900);
+  }
+  .jurisdiction-header span {
+    font-size: 8pt;
+    color: var(--text-muted);
+    margin-left: 8px;
+  }
+
+  .cta-block {
+    background: var(--blue-900);
+    color: white;
+    padding: 24px 36px;
+    margin-top: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-500), var(--gold));
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: 14pt;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .cta-text {
+    font-size: 9pt;
+    color: #bfdbfe;
+    margin-bottom: 14px;
+    max-width: 480px;
+  }
+  .cta-contacts {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-contact {
+    font-size: 9pt;
+    color: white;
+  }
+  .cta-contact span {
+    color: #93c5fd;
+    font-size: 8pt;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1px;
+  }
+
+  .doc-footer {
+    background: var(--blue-900);
+    padding: 10px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: #6b7280;
+  }
+  .doc-footer a { color: #60a5fa; text-decoration: none; }
+
+  .disclaimer {
+    font-size: 8pt;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 20px;
+  }
+
+  /* EDITABLE FIELDS */
+  [contenteditable] {
+    border-bottom: 1.5px dashed #93c5fd;
+    color: #1d4ed8;
+    border-radius: 2px;
+    padding: 0 2px;
+    outline: none;
+    cursor: text;
+    min-width: 60px;
+    display: inline-block;
+  }
+  [contenteditable]:focus {
+    background: #eff6ff;
+    border-bottom-color: #2563eb;
+  }
+  [contenteditable]:hover {
+    background: #f0f9ff;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; width: 100%; }
+    h2 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+    .cta-block { page-break-inside: avoid; }
+    [contenteditable] {
+      border-bottom: none;
+      color: inherit;
+      background: transparent !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="header-top">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <img src="../loga/logo-light-banner.png" alt="Sourcing Sense" style="height:63px; width:auto;" onerror="this.style.display='none'">
+        <div>
+          <div class="brand-name">SOURCING SENSE</div>
+          <div class="brand-tagline">sourcing-sense.com</div>
+        </div>
+      </div>
+      <div class="edition-badge">EMEA EDITION</div>
+    </div>
+    <div class="doc-title">AI Usage Policy</div>
+    <div class="doc-subtitle">EMEA Edition — English Version &nbsp;·&nbsp; Template v1.0</div>
+  </div>
+
+  <!-- META BAR -->
+  <div class="meta-bar">
+    <div class="meta-item"><strong>Version</strong>1.0 (draft)</div>
+    <div class="meta-item"><strong>Date issued</strong><span contenteditable="true">[TO BE COMPLETED]</span></div>
+    <div class="meta-item"><strong>Effective from</strong><span contenteditable="true">[TO BE COMPLETED]</span></div>
+    <div class="meta-item"><strong>Issued by</strong><span contenteditable="true">[NAME / TITLE]</span></div>
+    <div class="meta-item"><strong>Approved by</strong><span contenteditable="true">[NAME / TITLE]</span></div>
+    <div class="meta-item"><strong>Review cycle</strong>Annually</div>
+  </div>
+
+  <!-- FRAMEWORKS STRIP -->
+  <div class="frameworks-strip">
+    <span>Regulatory frameworks covered:</span>
+    <span class="framework-pill">EU AI Act</span>
+    <span class="framework-pill">GDPR</span>
+    <span class="framework-pill">NIST AI RMF</span>
+    <span class="framework-pill">ISO 42001</span>
+    <span class="framework-pill appendix">UK ICO ↗ Appendix D</span>
+    <span class="framework-pill appendix">Korean AI Act ↗ Appendix D</span>
+  </div>
+
+  <!-- BODY -->
+  <div class="doc-body">
+
+    <div class="customize-note">✏ <strong>How to use this template:</strong> Add your company name, registration number and logo to the header. Complete all <span contenteditable="true">[TO BE COMPLETED]</span> fields. Sections marked ✏ CUSTOMISE should be adapted to your organisation's context. Appendix D contains jurisdiction-specific addenda for UK and South Korea — remove if not applicable.</div>
+
+    <!-- 1 -->
+    <h2>1. Purpose and Scope</h2>
+    <p>This document sets out the rules for using artificial intelligence (AI) tools within the organisation. The goal is not to block AI or create unnecessary friction. The goal is to ensure employees use AI in a way that complies with applicable law and does not expose the company or its clients to risk.</p>
+    <p>This policy is grounded in the following core regulatory frameworks:</p>
+    <ul>
+      <li><strong>EU AI Act</strong> (Regulation 2024/1689) — applies from August 2026</li>
+      <li><strong>GDPR</strong> (Regulation 2016/679) on personal data protection</li>
+      <li><strong>NIST AI Risk Management Framework 1.0</strong> — voluntary, used as governance baseline</li>
+      <li><strong>ISO 42001:2023</strong> — AI management system standard</li>
+      <li>Local employment law and commercial law as applicable in each jurisdiction</li>
+    </ul>
+    <p>Jurisdiction-specific frameworks (UK ICO, Korean AI Act) are covered in <strong>Appendix D</strong>.</p>
+    <p>This policy applies to all employees, contractors, and third parties with access to company systems or data who use AI tools in the course of their work.</p>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — Add jurisdiction-specific carve-outs for subsidiaries or specific roles if applicable.</div>
+
+    <!-- 2 -->
+    <h2>2. Key Definitions</h2>
+    <table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td><strong>AI tool</strong></td><td>Software using artificial intelligence models — chatbots (Claude, Copilot), generative tools, automated systems for analysis or decision-making.</td></tr>
+      <tr><td><strong>AI Provider</strong></td><td>The entity that develops or places an AI system on the market (e.g. Anthropic, Microsoft, OpenAI). Bears primary responsibility for the model's compliance with the EU AI Act.</td></tr>
+      <tr><td><strong>AI Deployer</strong></td><td>The company using an AI system in its own operations — <strong>your organisation</strong>. Responsible for how the tool is used, which tool is selected, and oversight of outputs.</td></tr>
+      <tr><td><strong>AI User</strong></td><td>An individual (employee) interacting with an AI tool in day-to-day work.</td></tr>
+      <tr><td><strong>Personal data</strong></td><td>Any information that directly or indirectly identifies a natural person.</td></tr>
+      <tr><td><strong>Trade secret</strong></td><td>Information with commercial value that is not publicly available and is actively protected by the company (pricing, margins, strategy, know-how).</td></tr>
+      <tr><td><strong>GPAI</strong></td><td>General-purpose AI model capable of multiple tasks — Claude, ChatGPT, Copilot.</td></tr>
+      <tr><td><strong>High-risk AI</strong></td><td>AI system used in areas with significant impact on people — employment, education, credit, justice. Subject to stricter oversight requirements under EU AI Act.</td></tr>
+      <tr><td><strong>DPA</strong></td><td>Data Processing Agreement. Contract on personal data processing with a third-party AI provider. Required under GDPR before transferring personal data to an external processor.</td></tr>
+      <tr><td><strong>AI agent</strong></td><td>Autonomous AI system capable of completing tasks and taking actions without direct human oversight at every step.</td></tr>
+      <tr><td><strong>Human-in-the-loop</strong></td><td>A governance principle requiring a human to review and approve AI outputs before they are acted upon, particularly for binding or high-impact decisions.</td></tr>
+    </table>
+    <div class="info-box"><strong>Note on EU AI Act roles:</strong> Your organisation is the <strong>deployer</strong>. The provider is Anthropic, Microsoft, etc. As deployer, you are responsible for: selecting appropriate tools, ensuring human oversight, maintaining records in high-risk use cases, and not using AI in prohibited ways.</div>
+
+    <!-- 3 -->
+    <h2>3. Approved AI Tools</h2>
+    <p>Employees may only use the AI tools listed below for work purposes. Use of other tools for processing company or personal data requires prior approval (see Appendix B).</p>
+    <table>
+      <tr><th>Tool</th><th>Category</th><th>Permitted</th><th>Conditions</th></tr>
+      <tr><td><strong>Microsoft Copilot</strong></td><td>Productivity, internal analysis</td><td>YES</td><td>Within M365 tenant only. Valid DPA with Microsoft. Do not use for personal data without legal basis.</td></tr>
+      <tr><td><strong>Claude Pro / Max</strong></td><td>Content creation, analysis, code</td><td>CONDITIONAL</td><td>No red-category data. Disable training on user data (Account Settings → Privacy).</td></tr>
+      <tr><td><strong>Claude API</strong></td><td>Automation, custom agents</td><td>CONDITIONAL</td><td>Each agent must have documented purpose and data classification. Agent compliance checklist applies.</td></tr>
+      <tr><td><strong>Other public AI tools</strong></td><td>General use</td><td>CONDITIONAL</td><td>Green data only. Never yellow without anonymisation. Never red.</td></tr>
+    </table>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — Update with actual tools in use. Add internal systems (ERP with AI modules, custom GPTs, etc.).</div>
+
+    <!-- 4 -->
+    <h2>4. Data Classification</h2>
+    <p>Before inserting any data into an AI tool, the employee must confirm which category it belongs to.</p>
+    <table>
+      <tr><th>Data example</th><th style="width:100px">Category</th><th>Rule</th></tr>
+      <tr class="cat-green"><td>Publicly available market, industry or competitor information</td><td><span class="badge-green">🟢 GREEN</span></td><td>No restriction.</td></tr>
+      <tr class="cat-green"><td>Generic document templates, translations (no real names or figures)</td><td><span class="badge-green">🟢 GREEN</span></td><td>No restriction.</td></tr>
+      <tr class="cat-green"><td>Internal processes (general description, no sensitive detail)</td><td><span class="badge-green">🟢 GREEN</span></td><td>No restriction.</td></tr>
+      <tr class="cat-green"><td>Code and scripts (without credentials or API keys)</td><td><span class="badge-green">🟢 GREEN</span></td><td>No restriction. Never input tokens, passwords or API keys.</td></tr>
+      <tr class="cat-yellow"><td>Names and contacts of business partners (suppliers, customers)</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>Copilot (M365 tenant): OK. Public chatbots: anonymise — replace names with codes.</td></tr>
+      <tr class="cat-yellow"><td>Internal emails — summarisation, translation, drafting</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>Copilot in M365: OK. Public chatbots: only if no personal data of third parties.</td></tr>
+      <tr class="cat-yellow"><td>Employee performance reviews — structuring, wording</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>Copilot with DPA: OK. Public chatbots: no. Never include health data.</td></tr>
+      <tr class="cat-yellow"><td>Supplier evaluation and selection</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>AI may assist with analysis. Final decision must be made and documented by a human.</td></tr>
+      <tr class="cat-yellow"><td>Internal financial data (results, budgets — not linked to individuals)</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>OK for analysis. Not in public chatbots. Forecasts and plans are red.</td></tr>
+      <tr class="cat-yellow"><td>Pricing, margins, spend data, sourcing strategies</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>Copilot in M365 with valid DPA: OK. Public chatbots: prohibited. Always human review.</td></tr>
+      <tr class="cat-yellow"><td>Contracts with pricing terms or personal data of parties</td><td><span class="badge-yellow">🟡 YELLOW</span></td><td>Copilot in M365 with valid DPA: OK. Public chatbots: prohibited.</td></tr>
+      <tr class="cat-red"><td>Health, political or religious data of employees</td><td><span class="badge-red">🔴 RED</span></td><td>Prohibited in any AI tool. Special category under GDPR Art. 9.</td></tr>
+      <tr class="cat-red"><td>Personal data of customers or job applicants (name, contact, ID)</td><td><span class="badge-red">🔴 RED</span></td><td>Prohibited in external AI without DPA and legal basis.</td></tr>
+      <tr class="cat-red"><td>Unpublished financial data — forecasts, M&amp;A, investments</td><td><span class="badge-red">🔴 RED</span></td><td>Prohibited without exception.</td></tr>
+      <tr class="cat-red"><td>Login credentials, passwords, API keys, tokens</td><td><span class="badge-red">🔴 RED</span></td><td><strong>Absolute prohibition</strong> — in any tool, internal or external.</td></tr>
+    </table>
+    <div class="warning-box">⚠ <strong>Anonymisation principle:</strong> If in doubt, anonymise or don't input. If data could identify a specific person or company without their consent, it does not belong in AI.</div>
+
+    <!-- 5 -->
+    <h2>5. Red Flags — When Not to Use AI</h2>
+    <table>
+      <tr><th>What you are doing</th><th>Why it is a problem</th><th>What to do instead</th></tr>
+      <tr><td>Inputting health or other sensitive personal data into AI</td><td>GDPR Art. 9 — special categories, no valid legal basis for AI processing</td><td>Do not use AI. Write manually.</td></tr>
+      <tr><td>AI recommends who to dismiss or promote without human record</td><td>EU AI Act + employment law — automated HR decision about a person</td><td>AI may assist with inputs only. Final decision = human, documented, reviewable.</td></tr>
+      <tr><td>Inputting a candidate's CV or contact into a public chatbot</td><td>GDPR — third-party personal data shared without DPA</td><td>Anonymise the profile or use Copilot within the tenant.</td></tr>
+      <tr><td>AI agent sends emails to customers without human review</td><td>EU AI Act Art. 50 — transparency of AI communication</td><td>Human approval required, or email must be labelled as AI-generated.</td></tr>
+      <tr><td>Sharing unpublished financial plan or M&amp;A information in AI</td><td>Trade secret + potential insider information risk</td><td>This data does not belong in AI — including Copilot.</td></tr>
+      <tr><td>AI monitors employee activity without their knowledge</td><td>Employment law — employees must be informed in advance</td><td>Inform employees what is monitored and why before deployment.</td></tr>
+      <tr><td>AI output goes directly into a contract or purchase order</td><td>Liability risk — company is responsible for AI-assisted decisions</td><td>Always require human review before sending any binding document.</td></tr>
+      <tr><td>Inputting third-party text, images or code into AI for commercial output</td><td>Copyright law — risk of infringing third-party rights</td><td>Only own materials or materials with commercial use licence.</td></tr>
+    </table>
+
+    <!-- 6 -->
+    <h2>6. General Rules of Use</h2>
+    <h3>6.1 Always applicable</h3>
+    <ul>
+      <li>AI outputs are a <strong>starting point, not a final product</strong>. Any output going outside the company must be reviewed by a human.</li>
+      <li>AI must not be the sole basis for decisions with direct impact on the rights of others — <strong>human review is required</strong>.</li>
+      <li>If communicating with a customer or partner using AI-generated content, this must be transparent — either through labelling or prior approval.</li>
+      <li>Never input login credentials, passwords, API keys or tokens into any AI tool.</li>
+      <li><strong>Binding documents</strong> (orders, contracts, offers) must not be sent without human approval, even if AI assembled them.</li>
+    </ul>
+    <h3>6.2 Copyright and ownership of AI outputs</h3>
+    <ul>
+      <li>AI-generated outputs are <strong>not automatically protected by copyright</strong> — they lack the human creative element required for protection under most jurisdictions.</li>
+      <li>AI-generated content intended for publication, commercial use, or incorporation into contracts must undergo <strong>human editing and review</strong>.</li>
+      <li><strong>Prohibited:</strong> Inputting third-party texts, images or code into AI without appropriate licence.</li>
+      <li>Outputs produced by employees using AI in the course of their work belong to <strong>the employer</strong> — consistent with standard work-for-hire provisions.</li>
+    </ul>
+    <h3>6.3 Microsoft Copilot</h3>
+    <ul>
+      <li>Copilot operates within the M365 tenant. Data stays in the tenant; covered by DPA with Microsoft.</li>
+      <li>Copilot can access everything you have access to. Be conscious of what you include in a prompt.</li>
+      <li>Exception: health data and other special categories (GDPR Art. 9) — do not belong in Copilot even within the tenant.</li>
+    </ul>
+    <h3>6.4 AI agents and automation</h3>
+    <ul>
+      <li>Every deployed AI agent must be documented (see Appendix A).</li>
+      <li>Agents must not autonomously send communications to customers or third parties without human approval.</li>
+      <li>Agents processing personal data must have a documented legal basis for processing.</li>
+    </ul>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — List approved agents or link to an internal agent register.</div>
+
+    <!-- 7 -->
+    <h2>7. Regulatory Framework — Practical Summary</h2>
+
+    <h3>7.1 EU AI Act — Deployer obligations</h3>
+    <p>As <strong>deployer</strong>, the organisation must:</p>
+    <ul>
+      <li>Use AI systems <strong>in accordance with the provider's instructions</strong> and for the intended purpose.</li>
+      <li>Implement <strong>human oversight</strong> of AI outputs, especially in regulated domains.</li>
+      <li>Maintain records of AI use in high-risk contexts.</li>
+      <li>Not deploy AI for <strong>prohibited uses</strong> (Art. 5): social scoring, subliminal manipulation, real-time biometric identification in public spaces, AI decisions based on race, religion, political opinion or sexual orientation.</li>
+    </ul>
+    <div class="info-box"><strong>High-risk area:</strong> Use of AI to assist in supplier selection, employee performance assessment or recruitment falls within the regulated zone. Requirements: human oversight, transparency, documentation.</div>
+
+    <h3>7.2 GDPR</h3>
+    <ul>
+      <li><strong>DPA with AI provider</strong> is a prerequisite for transferring personal data. Verify that signed agreements are in place.</li>
+      <li><strong>Automated decision-making (Art. 22):</strong> Individuals have the right not to be subject to decisions based solely on automated processing with legal or significant effects.</li>
+      <li><strong>Right to explanation:</strong> Where AI assists in a decision about a person, that person has the right to understand how the decision was reached.</li>
+      <li><strong>Data minimisation:</strong> Only input data that is strictly necessary for the purpose at hand.</li>
+    </ul>
+
+    <h3>7.3 NIST AI RMF 1.0 (governance baseline)</h3>
+    <p>The NIST AI Risk Management Framework provides a voluntary structure for managing AI risks across four functions:</p>
+    <div class="nist-grid">
+      <div class="nist-card">
+        <h4>GOVERN</h4>
+        <p>This policy. Roles, responsibilities, risk appetite, decision-making authority for AI deployment.</p>
+      </div>
+      <div class="nist-card">
+        <h4>MAP</h4>
+        <p>Identify which AI tools are used, what risks they carry, and how they affect people and processes.</p>
+      </div>
+      <div class="nist-card">
+        <h4>MEASURE</h4>
+        <p>Assess AI outputs regularly for accuracy, bias, reliability. Document findings.</p>
+      </div>
+      <div class="nist-card">
+        <h4>MANAGE</h4>
+        <p>Act on identified risks — update, restrict, or retire tools. Annual review minimum.</p>
+      </div>
+    </div>
+
+    <h3>7.4 ISO 42001:2023</h3>
+    <p>ISO 42001 is the international standard for AI Management Systems. Key principles applied in this policy:</p>
+    <ul>
+      <li><strong>Risk-based approach:</strong> AI tools are evaluated before deployment based on risk to individuals and the organisation.</li>
+      <li><strong>Accountability:</strong> Clear ownership for each AI tool and AI-assisted process.</li>
+      <li><strong>Continual improvement:</strong> Annual policy review and incident-driven updates.</li>
+      <li><strong>Transparency:</strong> Employees and affected parties are informed about AI use.</li>
+    </ul>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — If pursuing ISO 42001 certification, additional documentation requirements apply. Consult your certification body.</div>
+
+    <h3>7.5 Trade secrets and confidential information</h3>
+    <p>Trade secrets include: pricing and margin data, spend analytics, sourcing strategies, supplier and contract terms, unpublished financial results.</p>
+    <ul>
+      <li>This data <strong>must not be entered into any external AI tool</strong> — even in anonymised form if the combination could enable identification.</li>
+      <li>Breach of trade secret protection may give rise to <strong>civil and, in some jurisdictions, criminal liability</strong>.</li>
+    </ul>
+
+    <h3>7.6 Liability for AI-assisted decisions</h3>
+    <ul>
+      <li>The organisation, as deployer, is liable for harm caused by AI outputs that were used without adequate human review.</li>
+      <li>The <strong>EU AI Liability Directive</strong> (in adoption process) will introduce facilitated burden of proof for AI-related harm claims.</li>
+      <li><strong>Practical implication:</strong> Every decision with external impact must be human-verified and documented.</li>
+    </ul>
+
+    <!-- 8 -->
+    <h2>8. Vendor Management — Mandatory AI Tool Review</h2>
+    <table>
+      <tr><th>Check</th><th>Responsible</th><th>Condition</th></tr>
+      <tr><td>DPA agreement with vendor in place</td><td>IT / Legal</td><td>Required before deployment</td></tr>
+      <tr><td>Confirmation of "no-training on customer data" clause</td><td>IT / Legal</td><td>Required — tool cannot be deployed without this</td></tr>
+      <tr><td>Registration in approved tool register</td><td>IT</td><td>Within 5 business days of approval</td></tr>
+      <tr><td>Data category classification for the tool</td><td>Team deployer</td><td>Required</td></tr>
+      <tr><td>Legal basis for personal data processing (if applicable)</td><td>DPO / Legal</td><td>Required where personal data is processed</td></tr>
+    </table>
+    <h3>Procedure for data incident involving an AI vendor</h3>
+    <ol>
+      <li>Immediately notify IT and DPO / responsible person</li>
+      <li>Document the scope of data shared with the vendor</li>
+      <li>If personal data breach: notify supervisory authority within 72 hours (GDPR Art. 33)</li>
+      <li>Suspend use of the tool pending investigation</li>
+    </ol>
+
+    <!-- 9 -->
+    <h2>9. Roles and Responsibilities</h2>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — Add names or specific job titles.</div>
+    <table>
+      <tr><th>Role</th><th>Responsibility</th></tr>
+      <tr><td><strong>Senior Leadership</strong></td><td>Approves and updates this policy. Decides on deployment of new AI tools or agents.</td></tr>
+      <tr><td><strong>Team Managers</strong></td><td>Ensure policy compliance within their teams. Approve AI use for projects involving yellow or borderline data.</td></tr>
+      <tr><td><strong>All Employees</strong></td><td>Follow data classification rules, report suspicious situations, do not use unapproved tools for company data.</td></tr>
+      <tr><td><strong>IT / Systems</strong></td><td>Manages access, maintains approved agent and tool register, ensures DPA conditions are met.</td></tr>
+      <tr><td><strong>DPO / Legal</strong></td><td><span contenteditable="true">[TO BE COMPLETED]</span> — Reviews new use cases from a GDPR perspective. Consulted for agent deployments processing personal data.</td></tr>
+    </table>
+
+    <!-- 10 -->
+    <h2>10. Policy Violations</h2>
+    <table>
+      <tr><th>Severity</th><th>Example</th><th>Consequence</th></tr>
+      <tr class="sev-low"><td><strong>Low</strong> — unintentional / first offence</td><td>Failed to anonymise yellow data</td><td>Discussion with manager, refresher training</td></tr>
+      <tr class="sev-mid"><td><strong>Medium</strong> — repeated or intentional</td><td>Repeated input of red-category data</td><td>Disciplinary process per employment law</td></tr>
+      <tr class="sev-high"><td><strong>High</strong> — data leak or trade secret breach</td><td>Sharing pricing data or contracts via public AI</td><td>Disciplinary process + potential regulatory liability</td></tr>
+    </table>
+    <div class="customize-note">✏ <strong>CUSTOMISE</strong> — Add specific escalation path and contact for reporting incidents.</div>
+
+    <!-- 11 -->
+    <h2>11. Training and Awareness</h2>
+    <p>The company will ensure:</p>
+    <ul>
+      <li>Policy briefing for all new employees during onboarding.</li>
+      <li>Confirmation of receipt and understanding (signed or electronic acknowledgement).</li>
+      <li>Updated training upon release of a new policy version or introduction of new tools.</li>
+    </ul>
+
+    <!-- 12 -->
+    <h2>12. Review and Updates</h2>
+    <ul>
+      <li><strong>Annual review</strong> — no later than January each year.</li>
+      <li><strong>Ad hoc review</strong> upon introduction of a new AI tool, regulatory change, or security incident.</li>
+      <li>Each version must be stored with issue date and approving signature.</li>
+    </ul>
+    <table>
+      <tr><th>Version</th><th>Date</th><th>Author</th><th>Description</th></tr>
+      <tr><td>1.0</td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td>Initial EMEA edition — EU AI Act, GDPR, NIST AI RMF, ISO 42001</td></tr>
+    </table>
+
+    <!-- APPENDIX A -->
+    <h2>Appendices</h2>
+    <div class="appendix-label">Appendix A</div>
+    <h3>AI Tool and Agent Register</h3>
+    <table>
+      <tr><th>Tool / Agent</th><th>Purpose</th><th>Deployer</th><th>Data category</th><th>DPA / Approval</th></tr>
+      <tr><td>Microsoft Copilot</td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td>IT</td><td>Green + Yellow</td><td>DPA with Microsoft — yes</td></tr>
+      <tr><td>Claude Pro</td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td>Max yellow</td><td>Anthropic DPA — verify</td></tr>
+      <tr><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td></tr>
+      <tr><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td></tr>
+      <tr><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td><td><span contenteditable="true">[TO BE COMPLETED]</span></td></tr>
+    </table>
+
+    <!-- APPENDIX B -->
+    <div class="appendix-label">Appendix B</div>
+    <h3>New AI Tool Approval Process</h3>
+    <ol>
+      <li><strong>Request</strong> — employee or manager describes the use case and proposed tool</li>
+      <li><strong>IT review</strong> — verify DPA, no-training clause, security assessment</li>
+      <li><strong>Legal review</strong> — DPO / legal assesses GDPR and regulatory impact</li>
+      <li><strong>Senior approval</strong> — required for tools processing yellow or red data</li>
+      <li><strong>Register entry</strong> — IT adds to Appendix A</li>
+      <li><strong>Team notification</strong> — manager informs team of usage conditions</li>
+    </ol>
+
+    <!-- APPENDIX C -->
+    <div class="appendix-label">Appendix C</div>
+    <h3>Regulatory Framework Overview</h3>
+    <table>
+      <tr><th>Framework</th><th>Jurisdiction</th><th>Key obligation for deployer</th></tr>
+      <tr><td><strong>EU AI Act 2024/1689</strong></td><td>EU / EEA</td><td>Human oversight, prohibited uses, high-risk documentation</td></tr>
+      <tr><td><strong>GDPR 2016/679</strong></td><td>EU / EEA</td><td>DPA with vendors, lawful basis, data minimisation, Art. 22 automated decisions</td></tr>
+      <tr><td><strong>NIST AI RMF 1.0</strong></td><td>Global (voluntary)</td><td>Govern / Map / Measure / Manage risk functions</td></tr>
+      <tr><td><strong>ISO 42001:2023</strong></td><td>International</td><td>AI management system — risk-based, accountable, continually improved</td></tr>
+      <tr><td><strong>UK ICO AI Guidance</strong></td><td>United Kingdom</td><td>See Appendix D — applicable where UK operations or UK data subjects</td></tr>
+      <tr><td><strong>Korean AI Act 2024</strong></td><td>South Korea</td><td>See Appendix D — applicable where Korean operations or Korean data subjects</td></tr>
+    </table>
+
+    <!-- APPENDIX D -->
+    <div class="appendix-label secondary">Appendix D</div>
+    <h3>Jurisdiction-Specific Addenda</h3>
+    <p style="font-size:8.5pt; color: var(--text-muted); margin-bottom: 14px;"><em>Remove the sections below if your organisation does not operate in these jurisdictions and does not process data of residents in these countries.</em></p>
+
+    <div class="jurisdiction-header">
+      <strong>Part 1: United Kingdom</strong>
+      <span>Applicable where the company operates in the UK or processes data of UK residents</span>
+    </div>
+    <p><strong>Regulatory basis:</strong> UK GDPR and Data Protection Act 2018, enforced by the Information Commissioner's Office (ICO). UK ICO has published specific AI guidance that supplements the core data protection obligations.</p>
+    <ul>
+      <li>UK GDPR applies to UK data subjects and UK operations post-Brexit. Largely mirrors EU GDPR but is independently enforced by the ICO.</li>
+      <li>ICO's AI guidance emphasises: <strong>fairness, transparency, and accountability</strong> in automated processing.</li>
+      <li>AI systems used in employment or customer-facing decisions must be explainable to affected individuals.</li>
+      <li>High-risk AI processing may require a <strong>Data Protection Impact Assessment (DPIA)</strong>.</li>
+      <li>If the organisation transfers personal data from the UK to EEA or other countries, appropriate transfer mechanisms must be in place (UK adequacy decisions or UK International Data Transfer Agreements).</li>
+    </ul>
+
+    <div class="jurisdiction-header" style="margin-top:20px">
+      <strong>Part 2: South Korea</strong>
+      <span>Applicable where the company operates in South Korea or processes data of Korean residents</span>
+    </div>
+    <p><strong>Regulatory basis:</strong> Act on Development of AI and Establishment of Trust (Korean AI Act, enacted 2024) and Personal Information Protection Act (PIPA).</p>
+    <ul>
+      <li><strong>High-impact AI</strong> (similar to EU AI Act high-risk category) must implement safeguards and human oversight.</li>
+      <li><strong>Transparency obligations:</strong> Users must be informed when interacting with AI — disclosure is mandatory for customer-facing AI applications.</li>
+      <li><strong>Data governance:</strong> Personal data used for AI training or processing must comply with PIPA. Separate consent obligations apply.</li>
+      <li>Providers of AI services in Korea must register with the Korea Communications Commission if meeting volume thresholds.</li>
+      <li>Cross-border data transfers require additional safeguards under PIPA — ensure data processing agreements explicitly cover cross-border flows.</li>
+    </ul>
+
+    <p class="disclaimer">Document prepared by: David Račak, Sourcing Sense | sourcing-sense.com<br>
+    This template is provided as a working baseline — it does not constitute legal advice. We recommend review by a qualified lawyer before implementation, particularly where operations span multiple jurisdictions.</p>
+
+  </div><!-- end doc-body -->
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Need help implementing AI governance in your organisation?</div>
+    <div class="cta-text">We work with manufacturing and industrial companies across EMEA — from AI policy setup through tool selection to working automations. Drop us an email or book a call directly.</div>
+    <div class="cta-contacts">
+      <div class="cta-contact"><span>Email</span>info@sourcing-sense.com</div>
+      <div class="cta-contact"><span>Web</span>sourcing-sense.com</div>
+      <div class="cta-contact"><span>Book a call</span>calendly.com/sourcing-sense</div>
+      <div class="cta-contact"><span>LinkedIn</span>David Račak</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span>sourcing-sense.com &nbsp;·&nbsp; <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a></span>
+    <span>AI Usage Policy EMEA v1.0 &nbsp;·&nbsp; © Sourcing Sense 2026</span>
+    <span>DOCUMENT TEMPLATE</span>
+  </div>
+
+</div><!-- end page -->
+</body>
+</html>

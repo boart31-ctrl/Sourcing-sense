@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Things Procurement Teams Believe About AI That Are Wrong | Sourcing Sense</title>
+    <meta name="description" content="Five common AI misconceptions that stop procurement teams from starting. Copilot, data quality, job risk — all addressed with specific facts, not reassurance.">
+    <meta name="keywords" content="AI in procurement myths, AI procurement misconceptions, AI only for big companies, AI data leak risk procurement, mýty o AI v nákupu, M365 Copilot procurement, AI data quality, procurement AI ready">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Five Things Procurement Teams Believe About AI That Are Wrong">
+    <meta property="og:description" content="Five common AI misconceptions that stop procurement teams from starting. Copilot, data quality, job risk — all addressed with specific facts, not reassurance.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/ai-myths-procurement.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/ai-myths-procurement.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/ai-myths-procurement.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/ai-myths-procurement.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/ai-myths-procurement.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Five Things Procurement Teams Believe About AI That Are Wrong" />
+    <meta name="twitter:description" content="Five common AI misconceptions that stop procurement teams from starting. Specific facts, not reassurance." />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Five Things Procurement Teams Believe About AI That Are Wrong",
+      "description": "Five common AI misconceptions that stop procurement teams from starting. Copilot, data quality, job risk — all addressed with specific facts, not reassurance.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "url": "https://sourcing-sense.com/insights/ai-myths-procurement.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/ai-myths-procurement.html" },
+      "keywords": ["AI in procurement myths", "AI procurement misconceptions", "AI only for big companies", "mýty o AI v nákupu", "AI data leak risk procurement"]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-result-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--accent); padding: 0.25rem 0.7rem; background: var(--accent-subtle); border-radius: 100px; }
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; color: var(--light-text-secondary); }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: #f59e0b; }
+        .callout.info .callout-title { color: var(--accent); }
+        .results-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1.5rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); margin: 2rem 0; }
+        .results-box-item { text-align: center; }
+        .results-box-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+        .results-box-label { font-size: 0.8rem; color: var(--light-text-muted); font-weight: 500; }
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px solid var(--light-border); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+        .article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .article-tag { font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.65rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; color: var(--light-text-secondary); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; }
+        .article-share-label { font-size: 0.78rem; color: var(--light-text-muted); }
+        .share-btn { width: 34px; height: 34px; border-radius: 50%; background: var(--light-bg-alt); border: 1px solid var(--light-border); display: flex; align-items: center; justify-content: center; color: var(--light-text-secondary); transition: all 0.2s; }
+        .share-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        .share-btn svg { width: 15px; height: 15px; }
+        .related-section { background: var(--light-bg-alt); border-top: 1px solid var(--light-border); padding: 3rem 2rem; }
+        .related-inner { max-width: 760px; margin: 0 auto; }
+        .related-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+        .related-back { font-size: 0.82rem; color: var(--light-text-muted); transition: color 0.2s; }
+        .related-back:hover { color: var(--accent); }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { background: white; border: 1px solid var(--light-border); border-radius: var(--radius); padding: 1.25rem; transition: all 0.25s var(--ease); display: block; }
+        .related-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); transform: translateY(-2px); }
+        .related-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.55rem; border-radius: 100px; margin-bottom: 0.6rem; }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.35; color: var(--light-text); }
+        .related-card p { font-size: 0.82rem; color: var(--light-text-muted); line-height: 1.5; }
+        .cta-strip { background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 100%); padding: 3.5rem 2rem; text-align: center; }
+        .cta-strip-inner { max-width: 560px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: white; margin-bottom: 0.75rem; }
+        .cta-strip p { color: var(--blue-200); font-size: 1rem; line-height: 1.7; margin-bottom: 1.75rem; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; padding: 0.8rem 1.75rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(59,130,246,0.35); }
+        footer { background: var(--light-bg-alt); border-top: 1px solid var(--light-border); padding: 2rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { font-size: 0.82rem; color: var(--light-text-muted); }
+        .footer-social a { color: var(--light-text-muted); transition: color 0.2s; }
+        .footer-social a:hover { color: var(--accent); }
+        [data-lang="en"] .cz { display: none; }
+        [data-lang="cs"] .en { display: none; }
+        @media (max-width: 768px) {
+            .nav-center, .nav-right { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 5.5rem 1.25rem 2.5rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .related-grid { grid-template-columns: 1fr; }
+            .article-footer-strip { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2L37 32H3L20 2Z" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="2"/>
+      <path d="M20 10L30 28H10L20 10Z" fill="#2563eb"/>
+    </svg>
+    <span class="nav-logo-text">Sourcing Sense</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+    <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+    <li><a href="/insights" class="active">Insights</a></li>
+    <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
+    <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+    <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+    </div>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+      <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+    </a>
+  </div>
+  <button class="hamburger" onclick="toggleMob()">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+  <button class="mobile-close" onclick="toggleMob()">✕</button>
+  <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+  <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+  <a href="/insights" onclick="toggleMob()">Insights</a>
+  <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+  <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+  <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+  <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+      <span>›</span>
+      <a href="/insights">Insights</a>
+      <span>›</span>
+      <span class="en">AI Myths</span><span class="cz">Mýty o AI</span>
+    </nav>
+    <div class="article-badge article">
+      <span class="en">Article</span><span class="cz">Článek</span>
+    </div>
+    <h1>
+      <span class="en">Five Things Procurement Teams Believe About AI That Are Wrong</span>
+      <span class="cz">Pět věcí, které si nákupní týmy o AI myslí špatně</span>
+    </h1>
+    <p class="article-excerpt">
+      <span class="en">The blockers are rarely technical. They're a collection of assumptions that sound reasonable and are mostly incorrect. Here's the short version.</span>
+      <span class="cz">Bariéry jsou jen zřídka technické. Jsou to předpoklady, které znějí rozumně — a z velké části nejsou pravdivé. Tady je stručná verze.</span>
+    </p>
+    <div class="article-meta">
+      <span>David Račák</span>
+      <span>·</span>
+      <span class="en">April 12, 2026</span><span class="cz">12. dubna 2026</span>
+      <span>·</span>
+      <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+      <span class="article-result-tag">
+        <span class="en">→ Myths cleared, Monday morning ready</span>
+        <span class="cz">→ Mýty vyvráceny, v pondělí se může začít</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<main class="article-body">
+  <article class="prose">
+
+    <!-- EN VERSION -->
+    <div class="en">
+
+      <p>A few weeks ago I was on a call with a procurement manager from a mid-size manufacturing company. Smart person, well-organized team. When I asked why they hadn't touched AI yet, the answer was: "We're just not ready."</p>
+
+      <p>My honest reaction — not what I said out loud — was mild frustration. Because I've heard that exact phrase more times than I can count, and it almost never describes a real situation. It describes a collection of misconceptions that have calcified into a reason not to start.</p>
+
+      <p>So here are the five I hear most often, and why each one is wrong.</p>
+
+      <h2>Myth 1: "We only have Copilot, we can't do real AI"</h2>
+
+      <p>This one surprises me every time. Microsoft 365 Copilot runs on the same frontier models as the tools people think of as "real AI" — GPT-4 class, with Copilot Studio giving you access to the full range of large language model capabilities. The difference is that it runs inside your Microsoft tenant, with commercial data protection, no training on your data, and your IT department already onboarded.</p>
+
+      <p>What most teams are sitting on with a standard M365 license is more capability than they realize. Copilot in Teams, Outlook, Word, and Excel is already there. Copilot Studio lets you build internal tools without writing code. Power Automate connects those tools to your actual procurement workflows.</p>
+
+      <p>"Real AI" is not a category that excludes what you already have. If you have M365, you have it. The question is whether you're using it.</p>
+
+      <h2>Myth 2: "My data will leak through AI"</h2>
+
+      <p>This is the most emotionally charged myth, and the fear behind it is legitimate — supplier contracts, pricing, negotiation strategy. Nobody wants that going anywhere.</p>
+
+      <p>But the risk is almost exactly backwards. When an organization doesn't provide a safe, approved AI tool, people don't stop using AI. They use the free browser version of ChatGPT. They paste contract text into Gemini. They do it from their personal accounts, outside any corporate control, with no data protection agreement in place.</p>
+
+      <p>The data leak risk comes from the absence of a policy, not from AI itself. A properly configured Microsoft 365 environment with Copilot keeps your data within your tenant. It does not use your inputs to train any model. It does not share data with other organizations.</p>
+
+      <p><strong>The practical fix:</strong> give your team a sanctioned tool and a one-page policy on what goes in and what doesn't. That closes most of the actual risk. We cover this in detail in the <a href="/insights/ai-policy-procurement.html">AI policy article</a>.</p>
+
+      <h2>Myth 3: "AI will replace our people"</h2>
+
+      <p>Procurement people are particularly sensitive to this one, because the work looks automatable on the surface — emails, comparisons, reports, data entry. And some of it is. But "automatable" and "replaceable" are not the same thing.</p>
+
+      <p>What AI does in practice is redistribute time. The hours spent formatting RFQ comparison tables, chasing overdue POs, and writing the same status update email for the fourth week in a row — those go away or shrink significantly. The time goes somewhere else: supplier relationships, negotiation prep, category strategy, fixing the underlying process problems that keep creating manual work.</p>
+
+      <p>Teams that have implemented AI tools in procurement have not gotten smaller. They've gotten faster at the transactional work, which means they have actual capacity for the strategic work they kept saying they didn't have time for. The headcount question is a management decision, not an AI decision.</p>
+
+      <h2>Myth 4: "We need clean data before we can start"</h2>
+
+      <p>This is the myth I find most damaging, because it's the most defensible-sounding excuse to never start. Data quality in procurement is a genuine, ongoing problem. Inconsistent supplier naming, missing commodity codes, contract metadata that lives in three different systems — all real. But waiting for clean data before using AI is like waiting to be fit before you start exercising.</p>
+
+      <p>APQC research on AI adoption found that among organizations that implemented AI tools, 8 out of 10 reported that their data quality improved <em>as a result of implementation</em>. Not as a prerequisite. AI systems surface data inconsistencies, flag duplicates, and make categorization errors visible in ways that manual review misses entirely.</p>
+
+      <p>You start with the data you have, in the category or process where the ROI justifies it, and the data quality work happens in parallel with the actual benefit. Clean-data-first is a waterfall mindset applied to a problem that rewards iteration.</p>
+
+      <div class="callout info">
+        <div class="callout-title">On where to actually start</div>
+        If you're unsure which process to start with, the <a href="/insights/ai-in-procurement-start.html">first-steps guide</a> walks through how to pick the right pilot. Short answer: low data dependency, high repetition, clear measurable output.
+      </div>
+
+      <h2>Myth 5: "This is only for big companies with IT teams"</h2>
+
+      <p>This one was true in 2019. Enterprise AI required data scientists, custom integrations, months of implementation, and a budget that only large organizations could justify. That is genuinely no longer the case.</p>
+
+      <p>Copilot Studio, Power Automate, and Power Apps are low-code tools designed to be used by business people, not developers. A procurement buyer with no technical background can build a functional internal knowledge bot in two days using Copilot Studio. They can automate a supplier quote intake process in Power Automate in an afternoon. No IT ticket required beyond the initial license setup.</p>
+
+      <p>The barrier has moved from "do you have an IT department" to "do you have a few hours and the willingness to try." Mid-size companies and smaller teams are, in some ways, better positioned than large enterprises — fewer governance layers, faster decisions, and the pilot can actually get approved.</p>
+
+      <h2>Which myth causes the most damage</h2>
+
+      <p>If I had to pick one, it's myth four. "We need clean data first" is the one that keeps teams in indefinite preparation mode. It sounds responsible. It sounds like you're taking the problem seriously. And it produces exactly nothing.</p>
+
+      <p>The other myths tend to get corrected when someone actually tries something. The data myth doesn't, because it's framed as a prerequisite that justifies inaction. It's the bureaucratic equivalent of "we need more information before we can decide" — sometimes true, often a stall.</p>
+
+      <p>The question worth asking is not "are we ready for AI?" It's "what's the smallest useful thing we could do this week?" If that's reading the <a href="/insights/copilot-for-procurement.html">Copilot for procurement guide</a> or watching one Power Automate tutorial, that's a start. The teams that are ahead right now didn't start with a strategy. They started with something small.</p>
+
+    </div>
+
+    <!-- CZ VERSION -->
+    <div class="cz">
+
+      <p>Před pár týdny jsem měl hovor s nákupním manažerem ze středně velké výrobní firmy. Chytrý člověk, dobře organizovaný tým. Když jsem se zeptal, proč se ještě AI nedotkli, odpověď byla: "Prostě na to ještě nejsme připraveni."</p>
+
+      <p>Moje upřímná reakce — ne to, co jsem říkal nahlas — bylo mírné rozladění. Tu větu jsem totiž slyšel mockrát, a téměř nikdy nepopisuje reálnou situaci. Popisuje soubor mylných představ, které se časem změnily v důvod nezačínat.</p>
+
+      <p>Tady je pět nejčastějších — a proč je každá z nich špatně.</p>
+
+      <h2>Mýtus 1: „Máme jen Copilot, to není žádné opravdové AI"</h2>
+
+      <p>Tenhle mě překvapuje pokaždé. Microsoft 365 Copilot běží na stejných modelech jako nástroje, které lidé považují za "opravdové AI" — třída GPT-4, přičemž Copilot Studio dává přístup k plnému rozsahu schopností velkých jazykových modelů. Rozdíl je v tom, že běží uvnitř vašeho Microsoft tenantu, s ochranou firemních dat, bez trénování na vašich datech, a vaše IT oddělení ho už zná.</p>
+
+      <p>Většina týmů sedí na standardní licenci M365 a netuší, kolik toho vlastně má. Copilot v Teams, Outlooku, Wordu a Excelu tam je. Copilot Studio umožňuje stavět interní nástroje bez psaní kódu. Power Automate to celé propojuje s reálnými nákupními procesy.</p>
+
+      <p>"Opravdové AI" není kategorie, ze které by to, co už máte, bylo vyloučeno. Pokud máte M365, máte ho. Otázka je, jestli ho používáte.</p>
+
+      <h2>Mýtus 2: „Naše data přes AI uniknou"</h2>
+
+      <p>Tohle je nejemotivněji nabitý mýtus, a strach za ním je legitimní — smlouvy s dodavateli, ceníky, vyjednávací strategie. Nikdo nechce, aby se to dostalo ven.</p>
+
+      <p>Ale riziko funguje skoro přesně obráceně. Když firma neposkytne bezpečný, schválený AI nástroj, lidé AI nepřestanou používat. Používají bezplatnou browserovou verzi ChatGPT. Vkládají text smluv do Gemini. Dělají to z osobních účtů, mimo jakoukoli firemní kontrolu, bez jakékoli dohody o ochraně dat.</p>
+
+      <p>Riziko úniku dat pochází z absence politiky, ne z AI samotné. Správně nakonfigurované prostředí Microsoft 365 s Copilotem drží vaše data uvnitř vašeho tenantu. Nepoužívá vaše vstupy k trénování žádného modelu. Nesdílí data s jinými organizacemi.</p>
+
+      <p><strong>Praktické řešení:</strong> dejte svému týmu schválený nástroj a jednostránkovou politiku o tom, co do AI jde a co ne. To uzavře většinu skutečného rizika. Více o tom píšeme v <a href="/insights/ai-policy-procurement.html">článku o AI politice</a>.</p>
+
+      <h2>Mýtus 3: „AI nahradí naše lidi"</h2>
+
+      <p>Nákupní lidé jsou na tohle citliví, protože práce na povrchu automatizovatelně vypadá — e-maily, srovnávání, reporty, zadávání dat. A část z toho automatizovatelná je. Ale "automatizovatelné" a "nahraditelné" nejsou totéž.</p>
+
+      <p>AI v praxi přerozděluje čas. Hodiny strávené formátováním srovnávacích tabulek poptávek, honěním zpožděných objednávek a psaním stejného statusového e-mailu počtvrté za sebou — to buď zmizí, nebo se výrazně zmenší. Ten čas jde jinam: na vztahy s dodavateli, přípravu vyjednávání, kategoriovou strategii, řešení procesních problémů, které pořád generují manuální práci.</p>
+
+      <p>Týmy, které AI nástroje v nákupu zavedly, se nezmenšily. Zrychlily se v transakční práci, což znamená, že mají skutečnou kapacitu na strategickou práci, na kterou prý nikdy nebyl čas. Otázka počtu lidí je manažerské rozhodnutí, ne AI rozhodnutí.</p>
+
+      <h2>Mýtus 4: „Nejdřív potřebujeme mít čistá data"</h2>
+
+      <p>Tohle je mýtus, který považuji za nejškodlivější, protože zní nejobhajitelněji. Kvalita dat v nákupu je skutečný, trvající problém. Nekonzistentní názvy dodavatelů, chybějící komoditní kódy, metadata smluv rozesetá ve třech systémech — to je realita. Ale čekat na čistá data než začnete s AI je jako čekat, až budete fit, než začnete cvičit.</p>
+
+      <p>Výzkum APQC o adopci AI zjistil, že z organizací, které AI nástroje nasadily, 8 z 10 uvedly, že kvalita jejich dat se zlepšila <em>jako výsledek implementace</em>. Ne jako předpoklad. AI systémy odhalují datové nekonzistence, označují duplicity a viditelně ukazují chyby kategorizace způsoby, které manuální kontrola úplně minout.</p>
+
+      <p>Začínáte s daty, která máte, v kategorii nebo procesu, kde ROI to ospravedlňuje, a práce na kvalitě dat probíhá paralelně se skutečným přínosem. Nejdřív-čistá-data je waterfallové myšlení aplikované na problém, který odměňuje iteraci.</p>
+
+      <div class="callout info">
+        <div class="callout-title">Kde začít</div>
+        Pokud si nejste jisti, který proces si vybrat, <a href="/insights/ai-in-procurement-start.html">průvodce prvními kroky</a> vysvětluje, jak vybrat správný pilot. Stručně: nízká závislost na datech, vysoká opakovanost, jasně měřitelný výstup.
+      </div>
+
+      <h2>Mýtus 5: „To je jen pro velké firmy s IT oddělením"</h2>
+
+      <p>Tohle platilo v roce 2019. Firemní AI tehdy vyžadovalo datové vědce, vlastní integrace, měsíce implementace a rozpočet, který si mohly dovolit jen velké organizace. To prostě už neplatí.</p>
+
+      <p>Copilot Studio, Power Automate a Power Apps jsou low-code nástroje navržené pro business lidi, ne pro vývojáře. Nákupní specialista bez technického zázemí si v Copilot Studiu postaví funkční interní znalostní bot za dva dny. V Power Automate zautomatizuje příjem nabídek od dodavatelů za jedno odpoledne. Bez IT ticketu — stačí výchozí nastavení licencí.</p>
+
+      <p>Bariéra se posunula od "máte IT oddělení" na "máte pár hodin a chuť zkusit to." Středně velké firmy a menší týmy jsou v některých ohledech lépe postaveny než velké korporace — méně schvalovacích vrstev, rychlejší rozhodnutí a pilot se skutečně dá prosadit.</p>
+
+      <h2>Který mýtus způsobuje největší škodu</h2>
+
+      <p>Kdybych měl vybrat jeden, je to mýtus čtyři. "Nejdřív potřebujeme čistá data" je ten, který drží týmy v nekonečném přípravném režimu. Zní zodpovědně. Zní, jako byste problém brali vážně. A neprodukuje vůbec nic.</p>
+
+      <p>Ostatní mýty se obvykle opraví, když někdo něco skutečně zkusí. Datový mýtus ne — protože je rámovaný jako předpoklad, který ospravedlňuje nečinnost. Je to byrokratický ekvivalent "potřebujeme víc informací než se rozhodneme" — někdy pravda, často jen oddalování.</p>
+
+      <p>Otázka, která stojí za to se zeptat, není "jsme připraveni na AI?" Je to "jaká je nejmenší užitečná věc, kterou bychom mohli udělat tento týden?" Pokud je to přečíst si <a href="/insights/copilot-for-procurement.html">průvodce Copilot pro nákup</a> nebo se podívat na jedno Power Automate video, to je začátek. Týmy, které jsou dnes napřed, nezačínaly strategií. Začínaly něčím malým.</p>
+
+    </div>
+
+  </article>
+</main>
+
+<!-- TAGS & SHARE -->
+<div class="article-footer-strip">
+  <div class="article-tags">
+    <span class="article-tag">AI Procurement</span>
+    <span class="article-tag">M365 Copilot</span>
+    <span class="article-tag">Data Quality</span>
+    <span class="article-tag"><span class="en">Myths</span><span class="cz">Mýty</span></span>
+    <span class="article-tag">Power Automate</span>
+  </div>
+  <div class="article-share">
+    <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/ai-myths-procurement.html" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related-section">
+  <div class="related-inner">
+    <div class="related-header">
+      <h3><span class="en">More from Insights</span><span class="cz">Další z Insights</span></h3>
+      <a href="/insights" class="related-back"><span class="en">← All articles</span><span class="cz">← Všechny články</span></a>
+    </div>
+    <div class="related-grid">
+      <a href="/insights/ai-in-procurement-start.html" class="related-card">
+        <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+        <h4><span class="en">Where to Actually Start with AI in Procurement</span><span class="cz">Kde v nákupu s AI opravdu začít</span></h4>
+        <p><span class="en">How to pick the right first use case and avoid the most common pilot mistakes.</span><span class="cz">Jak vybrat správný první případ užití a vyhnout se nejčastějším chybám pilotu.</span></p>
+      </a>
+      <a href="/insights/will-ai-replace-procurement.html" class="related-card">
+        <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+        <h4><span class="en">Will AI Replace Procurement?</span><span class="cz">Nahradí AI nákup?</span></h4>
+        <p><span class="en">The honest answer, based on what AI can and cannot actually do in a procurement context.</span><span class="cz">Upřímná odpověď, založená na tom, co AI v nákupním kontextu skutečně dokáže a nedokáže.</span></p>
+      </a>
+      <a href="/insights/copilot-for-procurement.html" class="related-card">
+        <span class="related-badge tutorial"><span class="en">Tutorial</span><span class="cz">Tutoriál</span></span>
+        <h4><span class="en">Copilot for Procurement: What It Can Do Today</span><span class="cz">Copilot pro nákup: Co dnes umí</span></h4>
+        <p><span class="en">A practical breakdown of M365 Copilot features that apply directly to procurement work.</span><span class="cz">Praktický přehled funkcí M365 Copilot, které se přímo vztahují na nákupní práci.</span></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip-inner">
+    <h3><span class="en">Ready to move past the myths?</span><span class="cz">Připraveni jít za mýty?</span></h3>
+    <p>
+      <span class="en">A 30-minute call is usually enough to find one concrete thing your team can do this month. No pitch, no deck.</span>
+      <span class="cz">30minutový hovor obvykle stačí na to, abychom našli jednu konkrétní věc, kterou může váš tým udělat tento měsíc. Žádný pitch, žádná prezentace.</span>
+    </p>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+      <span class="en">Book a Free Call</span><span class="cz">Domluvit bezplatný hovor</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p>© 2026 Sourcing Sense · David Račák</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/david-ra%C4%8D%C3%A1k-a579b51a0/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+  try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+  try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+  const bl = navigator.language || '';
+  setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Write an AI Policy for Procurement | Sourcing Sense</title>
+    <meta name="description" content="You don't need a 30-page legal document. Here's what your AI usage policy actually needs to cover — data classification, approved tools, red flags, and a free template.">
+    <meta name="keywords" content="AI usage policy procurement, AI policy template, EU AI Act procurement, procurement AI governance, AI data classification, approved AI tools list, AI policy template download, procurement AI compliance, GDPR AI procurement, ISO 42001 procurement">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="How to Write an AI Policy for Procurement | Sourcing Sense">
+    <meta property="og:description" content="You don't need a 30-page legal document. Here's what your AI usage policy actually needs — data classification, approved tools list, red flags, and a free template.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/ai-policy-procurement.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/ai-policy-procurement.html" />
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/ai-policy-procurement.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/ai-policy-procurement.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/ai-policy-procurement.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Write an AI Policy for Procurement | Sourcing Sense" />
+    <meta name="twitter:description" content="What your AI usage policy actually needs. Data classification, approved tools, red flags — and a free template." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why Most AI Policies Fail (and What to Put in Yours Instead)",
+      "description": "You don't need a 30-page legal document. Here's what your AI usage policy actually needs to cover — data classification, approved tools, red flags, decision flowchart, and a free template.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "url": "https://sourcing-sense.com/insights/ai-policy-procurement.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/ai-policy-procurement.html" },
+      "keywords": ["AI usage policy procurement", "AI policy template", "EU AI Act procurement", "procurement AI governance", "AI data classification"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should an AI usage policy for procurement include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At minimum: a data classification table (what data can go into AI tools), an approved tools list, five red flags employees should watch for, a simple decision flowchart for ambiguous cases, and a named contact for questions. You don't need more than one page to start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the EU AI Act affect procurement teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, from August 2026. Procurement teams using AI for supplier selection, risk scoring, or contract analysis may be using 'high-risk' AI systems under the regulation. The main practical impact: you need to know which AI tools you're using, what decisions they influence, and whether they're trained on your data. Vendor transparency becomes a sourcing requirement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between an employee AI guide and an AI management framework?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An employee guide is 2-3 pages, plain language, covers what you can and can't do today. A management framework is the full formal document covering risk classification, governance roles, compliance mapping to EU AI Act and ISO 42001, and audit procedures. Most teams need the guide now and the framework by end of 2026."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --amber: #f59e0b; --amber-subtle: rgba(245,158,11,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --red: #ef4444; --red-subtle: rgba(239,68,68,0.06);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover, .nav-center a.active { color: var(--accent); }
+        .nav-center a.active { font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+
+        /* ARTICLE HEADER */
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.guide { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+
+        /* ARTICLE BODY */
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: var(--amber-subtle); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.danger { background: var(--red-subtle); border: 1px solid rgba(239,68,68,0.12); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.15); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: var(--amber); }
+        .callout.danger .callout-title { color: var(--red); }
+        .callout.info .callout-title { color: var(--accent); }
+
+        /* Section number boxes */
+        .section-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--accent-subtle); color: var(--accent); font-weight: 700; font-size: 1rem; border-radius: 8px; margin-bottom: 0.75rem; font-family: var(--font-mono); border: 1px solid rgba(37,99,235,0.15); }
+
+        /* Data classification table */
+        .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.92rem; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--light-border); }
+        .data-table thead th { padding: 0.75rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--light-text-muted); background: var(--light-bg-alt); text-align: left; border-bottom: 1px solid var(--light-border); }
+        .data-table tbody td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--light-border); vertical-align: top; line-height: 1.55; color: var(--light-text-secondary); }
+        .data-table tbody tr:last-child td { border-bottom: none; }
+        .data-table tbody tr:hover td { background: var(--light-bg-alt); }
+        .traffic-dot { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.88rem; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .dot-green { background: #22c55e; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-red { background: #ef4444; }
+        .traffic-green { color: #16a34a; }
+        .traffic-yellow { color: #d97706; }
+        .traffic-red { color: #dc2626; }
+
+        /* Flowchart */
+        .flowchart { background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); padding: 1.75rem; margin: 2rem 0; }
+        .flowchart-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--light-text-muted); margin-bottom: 1.25rem; }
+        .flow-step { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0; }
+        .flow-connector { display: flex; flex-direction: column; align-items: center; gap: 0; width: 28px; flex-shrink: 0; }
+        .flow-node { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); flex-shrink: 0; }
+        .flow-node.q { background: var(--accent-subtle); color: var(--accent); border: 1px solid rgba(37,99,235,0.2); }
+        .flow-node.yes { background: var(--emerald-subtle); color: var(--emerald); border: 1px solid rgba(16,185,129,0.2); font-size: 0.65rem; }
+        .flow-node.no { background: var(--red-subtle); color: var(--red); border: 1px solid rgba(239,68,68,0.15); font-size: 0.65rem; }
+        .flow-line { width: 2px; height: 20px; background: var(--light-border); margin: 2px 0; }
+        .flow-text { font-size: 0.92rem; color: var(--light-text-secondary); padding-top: 4px; padding-bottom: 16px; line-height: 1.5; }
+        .flow-text strong { color: var(--light-text); }
+        .flow-answer { font-size: 0.82rem; margin-top: 0.25rem; }
+        .flow-answer.ok { color: var(--emerald); }
+        .flow-answer.stop { color: var(--red); }
+        .flow-answer.ask { color: var(--amber); }
+
+        /* Red flags list */
+        .red-flag-list { list-style: none; margin: 0 0 1.5rem 0; }
+        .red-flag-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.7; margin-bottom: 0.6rem; padding: 0.75rem 1rem; background: var(--red-subtle); border: 1px solid rgba(239,68,68,0.1); border-radius: var(--radius-sm); }
+        .red-flag-list li::before { content: '⚑'; color: var(--red); flex-shrink: 0; font-size: 0.85rem; margin-top: 3px; }
+
+        /* Mistake number boxes */
+        .mistake-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--amber-subtle); color: var(--amber); font-weight: 700; font-size: 1rem; border-radius: 8px; margin-bottom: 0.75rem; font-family: var(--font-mono); border: 1px solid rgba(245,158,11,0.2); }
+
+        /* Download CTA box */
+        .template-cta { background: linear-gradient(135deg, #0a2540 0%, #1a3a6a 100%); border-radius: var(--radius); padding: 2.5rem; color: white; margin: 2.5rem 0; }
+        .template-cta h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+        .template-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; max-width: 520px; }
+        .template-btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .template-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; padding: 0.85rem 1.75rem; border-radius: var(--radius-sm); transition: all 0.25s; }
+        .template-btn.primary { background: var(--emerald); color: white; }
+        .template-btn.primary:hover { background: #0ea572; transform: translateY(-1px); }
+        .template-btn.secondary { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.2); }
+        .template-btn.secondary:hover { background: rgba(255,255,255,0.18); }
+
+        /* Article tags and share */
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+        .article-tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 100px; background: var(--light-bg-alt); border: 1px solid var(--light-border); color: var(--light-text-muted); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--light-border); }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+
+        /* FOOTER */
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-secondary); }
+        .footer-link { font-size: 0.75rem; color: var(--dark-text-secondary); transition: color 0.2s; }
+        .footer-link:hover { color: #60a5fa; }
+
+        /* Related articles */
+        .related-section { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .related-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light-text-muted); margin-bottom: 1.25rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { padding: 1.25rem; border: 1px solid var(--light-border); border-radius: var(--radius-sm); background: white; transition: all 0.25s var(--ease); display: block; }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .related-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.55rem; border-radius: 100px; display: inline-block; margin-bottom: 0.6rem; }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.guide { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.tool { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-size: 0.88rem; font-weight: 600; line-height: 1.45; color: var(--light-text); margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.8rem; color: var(--light-text-muted); line-height: 1.5; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            .nav-center, .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip, .related-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .data-table { font-size: 0.82rem; }
+            .data-table thead th, .data-table tbody td { padding: 0.6rem 0.75rem; }
+            .template-btn-row { flex-direction: column; }
+        }
+
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+
+        /* ═══════════════════════════════════════════
+           DARK THEME OVERRIDE
+        ═══════════════════════════════════════════ */
+        :root {
+            --bg-primary:           #08090f;
+            --bg-surface:           #0d1117;
+            --bg-elevated:          #131820;
+            --light-bg:             #08090f;
+            --light-bg-alt:         #0d1117;
+            --light-card:           #0d1117;
+            --light-border:         rgba(255, 255, 255, 0.08);
+            --light-text:           #f1f5f9;
+            --light-text-secondary: #94a3b8;
+            --light-text-muted:     #3d4a5c;
+            --accent:               #3b82f6;
+            --accent-light:         #60a5fa;
+            --accent-glow:          rgba(59, 130, 246, 0.2);
+            --accent-subtle:        rgba(59, 130, 246, 0.1);
+            --dark-bg:              #05060a;
+            --dark-bg-alt:          #08090f;
+            --dark-card:            rgba(13, 17, 23, 0.9);
+            --dark-border:          rgba(255, 255, 255, 0.07);
+            --dark-text:            #f1f5f9;
+            --dark-text-secondary:  #94a3b8;
+            --dark-text-muted:      #3d4a5c;
+        }
+        nav { background: rgba(8, 9, 15, 0.88); border-bottom-color: rgba(255, 255, 255, 0.08); }
+        nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .lang-btn.active { background: rgba(59, 130, 246, 0.15); color: #60a5fa; box-shadow: none; }
+        .mobile-overlay { background: rgba(8, 9, 15, 0.97); }
+        .mobile-overlay a { color: #94a3b8; }
+        .mobile-close { color: #94a3b8; }
+        .hamburger { color: #f1f5f9; }
+        .related-card { background: #0d1117; }
+        .nav-logo-text { color: #f1f5f9; }
+        .article-header { background: linear-gradient(175deg, rgba(59,130,246,0.06) 0%, var(--light-bg) 50%); }
+        .flowchart { background: #0d1117; }
+        .data-table thead th { background: #131820; }
+        .data-table tbody tr:hover td { background: #131820; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
+            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+        </a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">&#x2715;</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+    <div class="article-header-inner">
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">AI Policy for Procurement</span><span class="cz">AI politika pro nákup</span></span>
+        </div>
+        <span class="article-badge guide">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="en">Guide</span><span class="cz">Průvodce</span>
+        </span>
+        <h1>
+            <span class="en">Why Most AI Policies Fail (and What to Put in Yours Instead)</span>
+            <span class="cz">Proč většina AI politik selhává (a co do té vaší místo toho napsat)</span>
+        </h1>
+        <p class="article-excerpt">
+            <span class="en">You don't need a 30-page legal document. Here's what your AI policy actually needs to cover — and a free template to start with today.</span>
+            <span class="cz">Nepotřebujete 30stránkový právní dokument. Zde je to, co vaše AI politika skutečně musí obsahovat — a šablona zdarma, se kterou začnete dnes.</span>
+        </p>
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+            </span>
+            <span>David Račák</span>
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+    <div class="prose">
+
+        <!-- EN VERSION -->
+        <div class="en">
+
+            <p>Your employees are already using AI. ChatGPT for drafting supplier emails. Claude for reviewing contracts. Copilot for summarising meeting notes. It started quietly, one person at a time, and now it's everywhere.</p>
+
+            <p>The question is not whether your procurement team uses AI. The question is whether they're using it safely — and whether you'd know if they weren't.</p>
+
+            <blockquote>"We'll write the policy later" is the most common reason AI governance fails. Later never comes. And when something goes wrong — a supplier's confidential pricing data in a public AI tool, a contract summarised incorrectly — the absence of any guidance is the first thing everyone notices.</blockquote>
+
+            <p>This guide is about writing something practical. Not a legal framework. Not a compliance exercise. Something your team will actually read and use.</p>
+
+            <h2>The one-page version vs. the full framework</h2>
+
+            <p>Most organisations need two things, not one.</p>
+
+            <p>The <strong>employee guide</strong> is 2–3 pages. Plain language. Covers what you can and can't do today. Which tools are approved. What data stays out. Who to ask when you're not sure. Most people only need this.</p>
+
+            <p>The <strong>management framework</strong> is the full formal document. Risk classification. Governance roles. Compliance mapping against EU AI Act, ISO 42001:2023, GDPR. Audit procedures. This is what legal and compliance want on file. You need it by end of 2026.</p>
+
+            <p>Start with the employee guide. Get it to people now. Build the framework in parallel — but don't let the complexity of the framework delay the guide by three months. The guide is what changes behaviour.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Practical split</div>
+                Employee guide: write it this week, one afternoon, use the template below. Management framework: schedule it as a project for Q2–Q3 2026 with legal and IT involved.
+            </div>
+
+            <h2>The 5 sections your policy must have</h2>
+
+            <p>Whether you write one page or ten, these five things need to be in it.</p>
+
+            <h3>1. Data classification — the traffic light</h3>
+
+            <p>Most people don't know what data they're allowed to put into an AI tool. Give them a simple colour code.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Classification</th>
+                        <th>Examples</th>
+                        <th>AI tools allowed?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="traffic-dot traffic-green"><span class="dot dot-green"></span> Green</span></td>
+                        <td>Public supplier information, published price lists, general market research, your own drafts without sensitive data</td>
+                        <td>Yes — approved tools only</td>
+                    </tr>
+                    <tr>
+                        <td><span class="traffic-dot traffic-yellow"><span class="dot dot-yellow"></span> Yellow</span></td>
+                        <td>Internal process documents, aggregated spend reports (no supplier names), general contract templates, anonymised RFQ data</td>
+                        <td>Yes — with caution, approved tools only, no external sharing</td>
+                    </tr>
+                    <tr>
+                        <td><span class="traffic-dot traffic-red"><span class="dot dot-red"></span> Red</span></td>
+                        <td>Specific supplier pricing, commercial terms under NDA, personal data (contacts, salaries), customer data, M&amp;A related information</td>
+                        <td>No — never in public AI tools</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>This table takes ten minutes to build. It saves your team from guessing. Put it on page one.</p>
+
+            <h3>2. Approved tools list</h3>
+
+            <p>A short table. Tool name, approved use cases, data classification allowed, who approved it. Update it when something changes. The point is not to restrict everything — it's to remove ambiguity.</p>
+
+            <p>Common approved tools in procurement: Microsoft Copilot (if your org has it deployed), Claude for business, ChatGPT Enterprise. Common restrictions: free consumer versions of the same tools, because they use your inputs for training by default.</p>
+
+            <h3>3. Five red flags</h3>
+
+            <p>Tell people when to stop and ask. These five situations should always trigger a check before proceeding:</p>
+
+            <ul class="red-flag-list">
+                <li>You're about to paste a document marked Confidential or Restricted into any AI tool</li>
+                <li>The AI output will be sent directly to a supplier or external party without human review</li>
+                <li>You're using AI to make a supplier selection or exclusion decision without documenting why</li>
+                <li>A supplier is asking whether AI was used in your sourcing process or evaluation</li>
+                <li>You found a new AI tool you'd like to use that isn't on the approved list</li>
+            </ul>
+
+            <h3>4. Decision flowchart — "Can I put this in AI?"</h3>
+
+            <p>Some people prefer a logic tree to a table. Give them both.</p>
+
+            <div class="flowchart">
+                <div class="flowchart-title">Can I put this in AI?</div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q1</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Does the document contain <strong>personal data, NDA-protected information, or supplier-specific pricing?</strong>
+                        <div class="flow-answer stop">If yes → Do not use AI. Go to step 5 (who to ask).</div>
+                        <div class="flow-answer ok">If no → Continue to Q2.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q2</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Is the tool you're using on the <strong>approved tools list?</strong>
+                        <div class="flow-answer stop">If no → Do not use. Request approval through IT/Legal.</div>
+                        <div class="flow-answer ok">If yes → Continue to Q3.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q3</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Will the output be used to <strong>make a decision that affects a supplier</strong> (selection, exclusion, scoring)?
+                        <div class="flow-answer ask">If yes → Human review required before acting on the output. Document your reasoning.</div>
+                        <div class="flow-answer ok">If no → Proceed. Keep a copy of the output for 90 days.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q4</div>
+                    </div>
+                    <div class="flow-text">
+                        Not sure?
+                        <div class="flow-answer ask">Ask [name/role]. Response within 24 hours.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>5. Who to call</h3>
+
+            <p>Name a person. Not a department. Not a mailbox. A person. This is the most underrated part of any policy. When people have a specific question and no one to ask, they skip the check.</p>
+
+            <p>In most procurement teams, this is either the procurement manager, the IT business partner, or someone from legal. Whoever it is, they need to be prepared to answer in 24 hours — otherwise people stop asking.</p>
+
+            <h2>EU AI Act — what procurement teams actually need to know</h2>
+
+            <p>The EU AI Act (Regulation 2024/1689) starts applying in August 2026. It covers AI systems by risk level — and some of what procurement teams use sits in the <strong>high-risk category</strong>. Specifically: AI used in supplier selection, creditworthiness assessment of suppliers, or evaluation in competitive procurement processes. If you're using AI to score suppliers or shortlist vendors, the regulation applies to you.</p>
+
+            <p>The practical implication is not panic — it's documentation. You need to know which AI tools you're using, what decisions they influence, and whether the vendor can explain how the system works. Procurement teams should add "AI Act compliance" to their vendor due diligence checklist. If a supplier of AI tools can't tell you whether their system qualifies as high-risk under the regulation, that's a red flag in itself. The Act is also the reason to build your management framework now rather than late 2026 under pressure.</p>
+
+            <div class="callout info">
+                <div class="callout-title">Regulatory stack (for the management framework)</div>
+                EU AI Act (Regulation 2024/1689, Aug 2026) · GDPR (data in AI inputs) · UK ICO AI Guidance · NIST AI RMF 1.0 · ISO 42001:2023 · Korean AI Basic Act. For most procurement teams, EU AI Act + GDPR is the minimum to address explicitly.
+            </div>
+
+            <h2>The 3 most common policy mistakes</h2>
+
+            <div class="mistake-num">1</div>
+            <h3>Writing it for lawyers, not for buyers</h3>
+            <p>A 30-page policy with section references and legal definitions will not change anyone's behaviour. The people who need to read it are buyers, category managers, and sourcing specialists — people who are busy, not looking for a compliance exercise. If they can't find the answer to "can I paste this contract into Claude?" in under 30 seconds, the policy has failed.</p>
+
+            <div class="mistake-num">2</div>
+            <h3>No approved tools list — just a list of banned ones</h3>
+            <p>Telling people what they can't use without telling them what they can use creates a vacuum. They'll keep using whatever they were using before, just more quietly. The approved list is what drives the behaviour you actually want.</p>
+
+            <div class="mistake-num">3</div>
+            <h3>Treating it as a one-time document</h3>
+            <p>AI tools change faster than policy review cycles. A policy written in January 2026 may already be outdated by June. Build in a quarterly check — not a full rewrite, just: has anything changed in the approved tools list? Has a new regulatory requirement kicked in? Is the contact person still correct? Twenty minutes, once a quarter.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">The real cost of no policy</div>
+                One procurement manager pastes a shortlisted supplier's full commercial offer into a free AI tool to get a summary. That offer contained confidential pricing your supplier shared under NDA. You now have a potential breach. No policy means no defence — and no clear process for what happens next.
+            </div>
+
+            <h2>Get the free template</h2>
+
+            <p>The templates below cover both versions — the employee-facing guide and the full management framework. They're built around the five sections above and already mapped to EU AI Act, GDPR, and ISO 42001 requirements. Edit them to fit your organisation. Both versions are available in English and Czech.</p>
+
+        </div><!-- /en -->
+
+        <!-- CZ VERSION -->
+        <div class="cz">
+
+            <p>Vaši zaměstnanci AI už používají. ChatGPT na psaní e-mailů dodavatelům. Claude na kontrolu smluv. Copilot na shrnutí zápisů z meetingů. Začalo to potichu, jeden člověk po druhém, a teď je to všude.</p>
+
+            <p>Otázka není, jestli váš nákupní tým AI používá. Otázka je, jestli ji používá bezpečně — a jestli byste věděli, kdyby ne.</p>
+
+            <blockquote>„Politiku napíšeme později" je nejčastější důvod, proč řízení AI selhává. Později nikdy nepřijde. A když se něco pokazí — důvěrné cenové informace dodavatele v veřejném AI nástroji, chybně shrnutá smlouva — absence jakéhokoli návodu je první věc, které si všichni všimnou.</blockquote>
+
+            <p>Tento průvodce je o napsání něčeho praktického. Není to právní rámec ani compliance cvičení. Je to něco, co váš tým skutečně přečte a použije.</p>
+
+            <h2>Jednostránková verze vs. plný rámec</h2>
+
+            <p>Většina organizací potřebuje dvě věci, ne jednu.</p>
+
+            <p><strong>Průvodce pro zaměstnance</strong> má 2–3 strany. Srozumitelný jazyk. Pokrývá, co dnes smíte a nesmíte dělat. Které nástroje jsou schváleny. Jaká data nesmí ven. Na koho se obrátit, když si nejste jisti. Většina lidí potřebuje jen tohle.</p>
+
+            <p><strong>Manažerský rámec</strong> je plný formální dokument. Klasifikace rizik. Role v řízení. Mapování na EU AI Act, ISO 42001:2023, GDPR. Auditní postupy. To je to, co chce mít na stole právní oddělení a compliance. Potřebujete ho do konce roku 2026.</p>
+
+            <p>Začněte průvodcem pro zaměstnance. Dejte ho lidem teď. Rámec budujte paralelně — ale nenechte jeho složitost odložit průvodce o tři měsíce. Průvodce je to, co mění chování.</p>
+
+            <div class="callout tip">
+                <div class="callout-title">Praktické rozdělení</div>
+                Průvodce pro zaměstnance: napište tento týden, jedno odpoledne, použijte šablonu níže. Manažerský rámec: naplánujte jako projekt na Q2–Q3 2026 s právním oddělením a IT.
+            </div>
+
+            <h2>5 sekcí, které vaše politika musí mít</h2>
+
+            <p>Ať napíšete jednu stránku nebo deset, tyto pět věcí v ní být musí.</p>
+
+            <h3>1. Klasifikace dat — semafor</h3>
+
+            <p>Většina lidí neví, jaká data smí vložit do AI nástroje. Dejte jim jednoduchý barevný kód.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Klasifikace</th>
+                        <th>Příklady</th>
+                        <th>AI nástroje povoleny?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="traffic-dot traffic-green"><span class="dot dot-green"></span> Zelená</span></td>
+                        <td>Veřejné informace o dodavatelích, zveřejněné ceníky, obecný průzkum trhu, vaše vlastní návrhy bez citlivých dat</td>
+                        <td>Ano — pouze schválené nástroje</td>
+                    </tr>
+                    <tr>
+                        <td><span class="traffic-dot traffic-yellow"><span class="dot dot-yellow"></span> Žlutá</span></td>
+                        <td>Interní procesní dokumenty, agregované výkazy výdajů (bez názvů dodavatelů), obecné šablony smluv, anonymizovaná data z RFQ</td>
+                        <td>Ano — opatrně, pouze schválené nástroje, bez sdílení ven</td>
+                    </tr>
+                    <tr>
+                        <td><span class="traffic-dot traffic-red"><span class="dot dot-red"></span> Červená</span></td>
+                        <td>Konkrétní ceny dodavatelů, obchodní podmínky pod NDA, osobní údaje (kontakty, mzdy), zákaznická data, informace týkající se M&amp;A</td>
+                        <td>Ne — nikdy do veřejných AI nástrojů</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Tato tabulka zabere deset minut. Ušetří vašemu týmu dohady. Dejte ji na první stránku.</p>
+
+            <h3>2. Seznam schválených nástrojů</h3>
+
+            <p>Krátká tabulka. Název nástroje, schválené případy použití, povolená klasifikace dat, kdo ho schválil. Aktualizujte, když se něco změní. Cílem není omezit vše — ale odstranit nejasnosti.</p>
+
+            <p>Běžné schválené nástroje v nákupu: Microsoft Copilot (pokud ho vaše organizace nasadila), Claude for Business, ChatGPT Enterprise. Běžná omezení: bezplatné spotřebitelské verze stejných nástrojů — ty standardně používají vaše vstupy k trénování.</p>
+
+            <h3>3. Pět červených vlajek</h3>
+
+            <p>Řekněte lidem, kdy zastavit a zeptat se. Těchto pět situací by vždy mělo spustit ověření před pokračováním:</p>
+
+            <ul class="red-flag-list">
+                <li>Chystáte se vložit do AI nástroje dokument označený jako Důvěrné nebo Omezené</li>
+                <li>Výstup AI bude odeslán přímo dodavateli nebo externímu subjektu bez lidské kontroly</li>
+                <li>Používáte AI k rozhodnutí o výběru nebo vyřazení dodavatele bez dokumentace důvodů</li>
+                <li>Dodavatel se ptá, zda byl AI použit ve vašem sourcingového procesu nebo hodnocení</li>
+                <li>Našli jste nový AI nástroj, který chcete použít a který není na schváleném seznamu</li>
+            </ul>
+
+            <h3>4. Rozhodovací diagram — „Mohu to vložit do AI?"</h3>
+
+            <p>Někteří lidé preferují logický strom před tabulkou. Dejte jim obojí.</p>
+
+            <div class="flowchart">
+                <div class="flowchart-title">Mohu to vložit do AI?</div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q1</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Obsahuje dokument <strong>osobní údaje, informace chráněné NDA nebo konkrétní ceny dodavatelů?</strong>
+                        <div class="flow-answer stop">Pokud ano → AI nepoužívejte. Přejděte ke kroku 5 (na koho se obrátit).</div>
+                        <div class="flow-answer ok">Pokud ne → Pokračujte na Q2.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q2</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Je nástroj, který používáte, na <strong>seznamu schválených nástrojů?</strong>
+                        <div class="flow-answer stop">Pokud ne → Nepoužívejte. Požádejte o schválení přes IT/Legal.</div>
+                        <div class="flow-answer ok">Pokud ano → Pokračujte na Q3.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q3</div>
+                        <div class="flow-line"></div>
+                    </div>
+                    <div class="flow-text">
+                        Bude výstup použit k <strong>rozhodnutí, které ovlivňuje dodavatele</strong> (výběr, vyřazení, hodnocení)?
+                        <div class="flow-answer ask">Pokud ano → Před jednáním na základě výstupu je nutná lidská kontrola. Zdokumentujte své důvody.</div>
+                        <div class="flow-answer ok">Pokud ne → Pokračujte. Uchovejte kopii výstupu po dobu 90 dní.</div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-connector">
+                        <div class="flow-node q">Q4</div>
+                    </div>
+                    <div class="flow-text">
+                        Nejste si jisti?
+                        <div class="flow-answer ask">Zeptejte se [jméno/role]. Odpověď do 24 hodin.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>5. Na koho se obrátit</h3>
+
+            <p>Jmenujte osobu. Ne oddělení. Ne schránku. Osobu. Toto je nejpodceňovanější část každé politiky. Když mají lidé konkrétní otázku a nemají se na koho obrátit, kontrolu přeskočí.</p>
+
+            <p>Ve většině nákupních týmů to bude vedoucí nákupu, IT business partner nebo někdo z právního oddělení. Ať je to kdokoli, musí být připraven odpovědět do 24 hodin — jinak lidé přestanou ptát.</p>
+
+            <h2>EU AI Act — co nákupní týmy skutečně potřebují vědět</h2>
+
+            <p>EU AI Act (Nařízení 2024/1689) začíná platit v srpnu 2026. Pokrývá AI systémy podle úrovně rizika — a část toho, co nákupní týmy používají, spadá do <strong>kategorie vysokého rizika</strong>. Konkrétně: AI používaná při výběru dodavatelů, hodnocení jejich bonity nebo hodnocení v soutěžních nákupních procesech. Pokud pomocí AI hodnotíte dodavatele nebo sestavujete krátký seznam, nařízení se na vás vztahuje.</p>
+
+            <p>Praktickým dopadem není panika — je to dokumentace. Musíte vědět, které AI nástroje používáte, jaká rozhodnutí ovlivňují a zda vám dodavatel umí vysvětlit, jak systém funguje. Nákupní týmy by měly přidat „soulad s AI Act" do checklistu due diligence při výběru dodavatelů AI nástrojů. Pokud vám dodavatel AI nástrojů nedokáže říct, zda jeho systém splňuje podmínky vysokého rizika podle nařízení, je to samo o sobě červená vlajka. Zákon je také důvodem, proč budovat manažerský rámec nyní — ne na konci roku 2026 pod tlakem.</p>
+
+            <div class="callout info">
+                <div class="callout-title">Regulatorní zásobník (pro manažerský rámec)</div>
+                EU AI Act (Nařízení 2024/1689, srpen 2026) · GDPR (data ve vstupech AI) · UK ICO AI Guidance · NIST AI RMF 1.0 · ISO 42001:2023 · Korejský AI Basic Act. Pro většinu nákupních týmů je minimum EU AI Act + GDPR.
+            </div>
+
+            <h2>3 nejčastější chyby v AI politikách</h2>
+
+            <div class="mistake-num">1</div>
+            <h3>Psát pro právníky, ne pro nákupčí</h3>
+            <p>Třicetistránková politika s odkazovanými paragrafy a právními definicemi nikoho chování nezmění. Lidé, kteří ji potřebují číst, jsou nákupčí, category manažeři a specialisté na sourcing — lidé zaneprázdnění, ne hledající compliance cvičení. Pokud nenajdou odpověď na „mohu tuto smlouvu vložit do Claudu?" do 30 sekund, politika selhala.</p>
+
+            <div class="mistake-num">2</div>
+            <h3>Žádný seznam schválených nástrojů — jen seznam zakázaných</h3>
+            <p>Říkat lidem, co nemohou používat, aniž byste jim řekli, co mohou, vytváří vakuum. Budou dál používat to, co používali předtím, jen potichu. Seznam schválených nástrojů je to, co řídí chování, které skutečně chcete.</p>
+
+            <div class="mistake-num">3</div>
+            <h3>Zacházet s ní jako s jednorázovým dokumentem</h3>
+            <p>AI nástroje se mění rychleji než cykly revize politik. Politika napsaná v lednu 2026 může být do června zastaralá. Zaveďte čtvrtletní kontrolu — ne kompletní přepis, jen: změnilo se něco v seznamu schválených nástrojů? Vstoupil v platnost nový regulatorní požadavek? Je kontaktní osoba stále správná? Dvacet minut jednou za čtvrtletí.</p>
+
+            <div class="callout warning">
+                <div class="callout-title">Skutečná cena absence politiky</div>
+                Jeden nákupní manažer vloží do bezplatného AI nástroje kompletní komerční nabídku dodavatele ze shortlistu, aby získal shrnutí. Nabídka obsahovala důvěrné ceny, které dodavatel sdílel pod NDA. Nyní máte potenciální porušení. Žádná politika znamená žádnou obhajobu — a žádný jasný postup pro to, co se děje dál.
+            </div>
+
+            <h2>Získejte šablonu zdarma</h2>
+
+            <p>Šablony níže pokrývají obě verze — průvodce pro zaměstnance i plný manažerský rámec. Jsou postaveny na pěti sekcích výše a jsou již namapovány na požadavky EU AI Act, GDPR a ISO 42001. Upravte je pro vaši organizaci. Obě verze jsou k dispozici v angličtině a češtině.</p>
+
+        </div><!-- /cz -->
+
+        <!-- Template CTA (shared, bilingual inside) -->
+        <div class="template-cta">
+            <h3>
+                <span class="en">Free AI Policy Template — EN + CZ</span>
+                <span class="cz">Šablona AI politiky zdarma — EN + CZ</span>
+            </h3>
+            <p>
+                <span class="en">Two versions: the 2-page employee guide and the full management framework. Pre-filled with data classification tables, approved tools structure, red flags, and EU AI Act mapping. Ready to edit in Word or Google Docs.</span>
+                <span class="cz">Dvě verze: 2stránkový průvodce pro zaměstnance a plný manažerský rámec. Předvyplněno tabulkami klasifikace dat, strukturou schválených nástrojů, červenými vlajkami a mapováním EU AI Act. Připraveno k úpravě ve Wordu nebo Google Docs.</span>
+            </p>
+            <div class="template-btn-row">
+                <a href="/resources/ai-policy-template-en.html" class="template-btn primary">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span class="en">Get English template</span>
+                    <span class="cz">Anglická šablona</span>
+                </a>
+                <a href="/resources/ai-policy-template.html" class="template-btn secondary">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span class="en">Get Czech template</span>
+                    <span class="cz">Česká šablona</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- TAGS + SHARE -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">AI Governance</span>
+        <span class="article-tag">Procurement Policy</span>
+        <span class="article-tag">EU AI Act</span>
+        <span class="article-tag">Data Classification</span>
+        <span class="article-tag">ISO 42001</span>
+        <span class="article-tag">GDPR</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/ai-policy-procurement.html" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div class="related-section">
+    <p class="related-label"><span class="en">More from Sourcing Sense</span><span class="cz">Další z Sourcing Sense</span></p>
+    <div class="related-grid">
+        <a href="/insights/contract-nemesis.html" class="related-card">
+            <span class="related-badge tool">Tool</span>
+            <h4>
+                <span class="en">Contract Nemesis — AI Contract Review for Procurement</span>
+                <span class="cz">Contract Nemesis — AI kontrola smluv pro nákup</span>
+            </h4>
+            <p>
+                <span class="en">How to review supplier contracts faster without a legal team on speed dial.</span>
+                <span class="cz">Jak rychleji kontrolovat smlouvy dodavatelů bez právníka po ruce.</span>
+            </p>
+        </a>
+        <a href="/insights/claude-safety-guide.html" class="related-card">
+            <span class="related-badge guide">Guide</span>
+            <h4>
+                <span class="en">Claude Safety Guide for Procurement Teams</span>
+                <span class="cz">Průvodce bezpečným používáním Claudu pro nákupní týmy</span>
+            </h4>
+            <p>
+                <span class="en">What data is safe to share with Claude, and what to keep out — practical rules.</span>
+                <span class="cz">Jaká data je bezpečné sdílet s Claudem a co nechat stranou — praktická pravidla.</span>
+            </p>
+        </a>
+        <a href="/insights/ai-transition-cost.html" class="related-card">
+            <span class="related-badge article">Article</span>
+            <h4>
+                <span class="en">The Hidden Cost of Delayed AI Adoption in Procurement</span>
+                <span class="cz">Skryté náklady odloženého AI v nákupu</span>
+            </h4>
+            <p>
+                <span class="en">What waiting another year to start actually costs your team.</span>
+                <span class="cz">Co váš tým stojí čekat další rok na začátek.</span>
+            </p>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <a href="/insights" class="footer-link"><span class="en">← Back to Insights</span><span class="cz">← Zpět na Insights</span></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

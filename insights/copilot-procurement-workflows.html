@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Copilot in Procurement: Five Workflows You Can Start This Week | Sourcing Sense</title>
+    <meta name="description" content="You have Microsoft Copilot. Here's how to actually use it in procurement — five workflows: supplier email triage, meeting notes, spend analysis, RFQ comparison, policy search.">
+    <meta name="keywords" content="Microsoft Copilot for procurement, Microsoft Copilot procurement use cases, how to use Copilot in procurement, Copilot Outlook procurement, Copilot Excel spend analysis, Copilot Teams meeting notes, procurement AI workflows">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Microsoft Copilot in Procurement: Five Workflows You Can Start This Week | Sourcing Sense">
+    <meta property="og:description" content="You already have Copilot. Here's how to actually use it in procurement — five workflows covering email triage, meeting notes, spend analysis, RFQ comparison, and policy search.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/copilot-procurement-workflows.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/copilot-procurement-workflows.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/copilot-procurement-workflows.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/copilot-procurement-workflows.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/copilot-procurement-workflows.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Microsoft Copilot in Procurement: Five Workflows You Can Start This Week" />
+    <meta name="twitter:description" content="You already have Copilot. Here's how to use it — five practical procurement workflows." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Microsoft Copilot in Procurement: Five Workflows You Can Start This Week",
+      "description": "Most procurement teams got Microsoft Copilot and haven't used it beyond summarizing emails. Here are five practical workflows you can start this week.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sourcing Sense",
+        "url": "https://sourcing-sense.com"
+      },
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-04-11",
+      "url": "https://sourcing-sense.com/insights/copilot-procurement-workflows.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/copilot-procurement-workflows.html" },
+      "keywords": ["Microsoft Copilot procurement", "Copilot procurement use cases", "AI in procurement", "Copilot Outlook", "Copilot Excel", "Copilot Teams"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I already have Microsoft Copilot included in my Microsoft 365 subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Possibly yes. Microsoft introduced Copilot Chat (formerly Bing Chat Enterprise) as a free addition to Microsoft 365 Business Standard, Business Premium, and E3/E5 licences starting in September 2024. This gives you a web-grounded AI chat interface secured for your organisation. Full Copilot integration inside Word, Excel, Outlook, and Teams requires the separate Microsoft 365 Copilot add-on licence (currently around $30/user/month). Check your Microsoft 365 admin centre under Licences to see what you have."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the most useful Microsoft Copilot use cases for procurement teams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The five most practical starting points are: (1) Supplier email triage — classify and draft responses to incoming supplier inquiries in Outlook; (2) Meeting notes and action items — auto-summarise Teams meetings with owners and deadlines extracted; (3) Spend report analysis — paste spend data into Excel and ask Copilot to spot patterns, outliers, or category trends; (4) RFQ/RFP summarisation — paste supplier responses and ask for a structured comparison table; (5) Policy search — use Copilot in SharePoint to ask what your procurement policy says about single-source or emergency purchasing."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb; --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd; --blue-100: #dbeafe; --blue-50: #eff6ff; --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06); --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08); --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08); --light-bg: #ffffff; --light-bg-alt: #f8fafc; --light-border: #e2e8f0; --light-text: #0f172a; --light-text-secondary: #475569; --light-text-muted: #94a3b8; --font-display: 'DM Serif Display', Georgia, serif; --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-mono: 'JetBrains Mono', monospace; --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1); }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+        .article-result-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--emerald); padding: 0.25rem 0.7rem; background: var(--emerald-subtle); border-radius: 100px; }
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: #d97706; }
+        .callout.info .callout-title { color: var(--accent); }
+        .results-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1.5rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); margin: 2rem 0; }
+        .results-box-item { text-align: center; }
+        .results-box-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+        .results-box-label { font-size: 0.8rem; color: var(--light-text-muted); font-weight: 500; }
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px solid var(--light-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .article-tag { font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.65rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; color: var(--light-text-secondary); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; }
+        .article-share-label { font-size: 0.8rem; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--light-bg-alt); border: 1px solid var(--light-border); display: flex; align-items: center; justify-content: center; color: var(--light-text-secondary); transition: all 0.2s; }
+        .share-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        .share-btn svg { width: 16px; height: 16px; }
+        .related-section { background: var(--light-bg-alt); padding: 3rem 2rem; }
+        .related-inner { max-width: 760px; margin: 0 auto; }
+        .related-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+        .related-back { font-size: 0.83rem; color: var(--accent); font-weight: 500; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { padding: 1.25rem; background: white; border: 1px solid var(--light-border); border-radius: var(--radius); transition: all 0.2s; display: block; }
+        .related-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); transform: translateY(-2px); }
+        .related-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.5rem; border-radius: 100px; margin-bottom: 0.75rem; }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.35; color: var(--light-text); }
+        .related-card p { font-size: 0.83rem; color: var(--light-text-muted); line-height: 1.5; }
+        .cta-strip { padding: 4rem 2rem; background: linear-gradient(135deg, var(--blue-900) 0%, #1e3a6e 100%); color: white; text-align: center; }
+        .cta-strip-inner { max-width: 560px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.75rem; }
+        .cta-strip p { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.7; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--accent); font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+        footer { background: var(--light-bg); border-top: 1px solid var(--light-border); padding: 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+        .footer-bottom p { font-size: 0.82rem; color: var(--light-text-muted); }
+        .footer-social a { color: var(--light-text-muted); transition: color 0.2s; }
+        .footer-social a:hover { color: var(--accent); }
+        [data-lang="en"] .cz { display: none; }
+        [data-lang="cs"] .en { display: none; }
+        @media (max-width: 768px) { .nav-center, .nav-right { display: none; } .hamburger { display: block; } .article-meta { gap: 0.75rem; } .related-grid { grid-template-columns: 1fr; } .article-footer-strip { flex-direction: column; align-items: flex-start; } }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .prompt-block {
+            background: #0f172a;
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+            border-left: 3px solid var(--purple);
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Copilot in Procurement</span><span class="cz">Copilot v nákupu</span></span>
+        </div>
+
+        <span class="article-badge tutorial">
+            <span class="en">Tutorial</span><span class="cz">Návod</span>
+        </span>
+
+        <h1>
+            <span class="en">Microsoft Copilot in Procurement: Five Workflows You Can Start This Week</span>
+            <span class="cz">Microsoft Copilot v nákupu: pět věcí, které můžete začít tento týden</span>
+        </h1>
+
+        <p class="article-excerpt">
+            <span class="en">Most procurement teams got Copilot in their Microsoft 365 tenant months ago. Some used it once to summarize a long email thread, then forgot about it. This article is for those teams — here's what you're leaving on the table, and how to pick it up without a training program or a consultant.</span>
+            <span class="cz">Většina nákupních týmů dostala Copilota do svého Microsoft 365 tenanta před měsíci. Někteří ho použili jednou na shrnutí dlouhého e-mailového vlákna a pak na něj zapomněli. Tento článek je pro tyto týmy — co zbytečně nevyužíváte a jak to napravit bez školení nebo konzultanta.</span>
+        </p>
+
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                <span class="en">8 min read</span><span class="cz">8 min čtení</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a00-7-7z"/></svg>
+                David Račák
+            </span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+    <div class="prose">
+
+        <!-- SECTION: DO YOU HAVE COPILOT -->
+        <h2>
+            <span class="en">First: do you actually have Copilot right now?</span>
+            <span class="cz">Nejdřív: máte Copilota teď hned?</span>
+        </h2>
+
+        <p>
+            <span class="en">This trips people up. There are two different things Microsoft calls "Copilot," and only one of them costs extra.</span>
+            <span class="cz">Tady se lidé ztrácejí. Microsoft označuje jako „Copilot" dvě různé věci a jen jedna z nich stojí víc.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Copilot Chat</strong> (formerly called Bing Chat Enterprise) became a free addition to Microsoft 365 Business Standard, Business Premium, E3, and E5 licences in September 2024. It's a web-grounded AI chat — think of it as a GPT-4 class model with your organisation's privacy wrapper around it. Your conversations don't train Microsoft's models. It's available at copilot.microsoft.com when you're signed in with your work account.</span>
+            <span class="cz"><strong>Copilot Chat</strong> (dříve Bing Chat Enterprise) se stal v září 2024 bezplatnou součástí licencí Microsoft 365 Business Standard, Business Premium, E3 a E5. Je to AI chat napojený na web — představte si GPT-4 třídu modelu s firemní ochranou soukromí. Vaše konverzace netrénují Microsoftí modely. Dostupný na copilot.microsoft.com po přihlášení pracovním účtem.</span>
+        </p>
+
+        <p>
+            <span class="en"><strong>Microsoft 365 Copilot</strong> (the paid add-on, currently around $30/user/month) is what gives you Copilot embedded directly inside Outlook, Teams, Excel, Word, and SharePoint. It reads your emails, your meetings, your files. That's the one most people think they need — and yes, it's more powerful, but a lot of the practical use cases below work with just Copilot Chat too.</span>
+            <span class="cz"><strong>Microsoft 365 Copilot</strong> (placený doplněk, momentálně kolem 30 USD/uživatel/měsíc) vám dá Copilota přímo v Outlooku, Teams, Excelu, Wordu a SharePointu. Čte vaše e-maily, schůzky, soubory. To je ten, který si většina lidí myslí, že potřebuje — a ano, je výkonnější, ale mnoho níže popsaných postupů funguje i jen s Copilot Chat.</span>
+        </p>
+
+        <p>
+            <span class="en">To check what you have: go to the Microsoft 365 admin centre, click Billing → Licences, and look for "Microsoft 365 Copilot" in your list. If it's not there, you likely have Copilot Chat but not the full integration. Either way — both are worth using.</span>
+            <span class="cz">Jak zkontrolovat, co máte: jděte do Microsoft 365 admin centra, klikněte na Fakturace → Licence a hledejte „Microsoft 365 Copilot" v seznamu. Pokud tam není, máte pravděpodobně Copilot Chat, ale ne plnou integraci. Tak nebo tak — oba stojí za to používat.</span>
+        </p>
+
+        <!-- SECTION: WORKFLOW 1 -->
+        <h2>
+            <span class="en">Workflow 1 — Supplier email triage in Outlook</span>
+            <span class="cz">Workflow 1 — Třídění e-mailů od dodavatelů v Outlooku</span>
+        </h2>
+
+        <p>
+            <span class="en">If you're managing indirect procurement for a mid-size company, you probably receive somewhere between 30 and 80 supplier-related emails a day. A good chunk of those are routine: delivery confirmations, invoice queries, price update notifications, the occasional complaint dressed up as a polite question.</span>
+            <span class="cz">Pokud řídíte nepřímý nákup ve středně velké firmě, dostanete pravděpodobně každý den 30 až 80 e-mailů od dodavatelů. Velká část z nich je rutinní: potvrzení dodávek, dotazy k fakturám, oznámení o cenových aktualizacích, občasná stížnost převlečená za zdvořilý dotaz.</span>
+        </p>
+
+        <p>
+            <span class="en">With the full Microsoft 365 Copilot, you get a sidebar in Outlook that can summarise long threads, draft replies, and tell you what actions you still owe someone. The practical use in procurement: open a complex supplier thread — say, a back-and-forth about delivery terms — and ask Copilot to summarise the current status and what's been agreed so far. Then ask it to draft a reply confirming the agreed position.</span>
+            <span class="cz">S plným Microsoft 365 Copilotem máte v Outlooku postranní panel, který dokáže shrnout dlouhá vlákna, napsat odpovědi a říct vám, jaké kroky ještě dlužíte. Praktické využití v nákupu: otevřete komplikované vlákno s dodavatelem — třeba diskuzi o dodacích podmínkách — a požádejte Copilota o shrnutí aktuálního stavu a toho, na čem jste se dosud shodli. Pak ho požádejte o návrh odpovědi potvrzující dohodnutou pozici.</span>
+        </p>
+
+        <p>
+            <span class="en">Without the paid add-on, you can do a version of this with Copilot Chat: copy the email thread into the chat window and ask it to do the same thing. Slightly more friction, same output quality. Good enough to save you 10 minutes on a complicated thread.</span>
+            <span class="cz">Bez placeného doplňku můžete tutéž věc udělat v Copilot Chat: zkopírujte e-mailové vlákno do okna chatu a požádejte ho o totéž. O trochu víc práce, stejná kvalita výstupu. Dost dobré na to, abyste ušetřili 10 minut na komplikovaném vlákně.</span>
+        </p>
+
+        <p>
+            <span class="en">One thing to be careful about: Copilot will draft a reply that sounds confident and professional. Read it before sending. It doesn't know your negotiating position, your relationship history with this supplier, or that you already agreed to something different on a phone call last week.</span>
+            <span class="cz">Na co si dát pozor: Copilot napíše odpověď, která zní sebejistě a profesionálně. Přečtěte si ji před odesláním. Nezná vaši vyjednávací pozici, historii vztahu s tímto dodavatelem ani to, že jste minulý týden po telefonu dohodli něco jiného.</span>
+        </p>
+
+        <!-- SECTION: WORKFLOW 2 -->
+        <h2>
+            <span class="en">Workflow 2 — Meeting notes and action items in Teams</span>
+            <span class="cz">Workflow 2 — Zápisky ze schůzek a úkoly v Teams</span>
+        </h2>
+
+        <p>
+            <span class="en">If your organisation uses Teams for supplier calls and internal procurement reviews, this is probably the single fastest win available right now. With Microsoft 365 Copilot and Teams recording enabled, you get an automatic meeting summary after every call. The summary includes key points discussed, decisions made, and — the part that actually matters — a list of action items with the person who said they'd do each thing.</span>
+            <span class="cz">Pokud vaše organizace používá Teams pro hovory s dodavateli a interní přehledy nákupu, je to pravděpodobně nejrychlejší přínos, který máte teď k dispozici. S Microsoft 365 Copilotem a povoleným záznamem v Teams dostanete po každém hovoru automatické shrnutí. Shrnutí zahrnuje klíčové body, přijatá rozhodnutí a — ta část, na které skutečně záleží — seznam úkolů s tím, kdo slíbil co udělat.</span>
+        </p>
+
+        <p>
+            <span class="en">For supplier review meetings — quarterly business reviews, performance discussions, contract renewals — this removes the need for someone to take manual notes while trying to participate in the conversation at the same time. You can focus on the discussion and let Copilot handle the documentation.</span>
+            <span class="cz">Pro schůzky s přezkumem dodavatelů — čtvrtletní obchodní přehledy, diskuze o výkonnosti, obnovení smluv — to odstraňuje potřebu, aby někdo ručně zapisoval poznámky a zároveň se snažil účastnit rozhovoru. Můžete se soustředit na diskuzi a nechat dokumentaci na Copilotovi.</span>
+        </p>
+
+        <p>
+            <span class="en">Caveats worth knowing: you need to record the meeting for Copilot to work on it, which means you need participant consent. In some countries that's straightforward; in others it triggers GDPR conversations. Check your legal team's position before you roll this out to external supplier calls. Internal meetings are usually fine.</span>
+            <span class="cz">Co je dobré vědět: musíte schůzku nahrávat, aby na ní Copilot mohl pracovat, což znamená, že potřebujete souhlas účastníků. V některých zemích je to přímočaré; v jiných to spustí diskuze o GDPR. Před nasazením na externí hovory s dodavateli si ověřte postoj svého právního týmu. Interní schůzky jsou obvykle v pořádku.</span>
+        </p>
+
+        <p>
+            <span class="en">Also: Copilot's action item extraction is good, but not perfect. It picks up things people commit to verbally, but misses implied tasks. If your meeting culture relies on things being understood rather than explicitly stated, you'll need to review and add to the list manually.</span>
+            <span class="cz">Také: extrakce úkolů Copilotem je dobrá, ale ne dokonalá. Zachytí věci, ke kterým se lidé slovně zavázali, ale přehlédne implicitní úkoly. Pokud vaše firemní kultura spoléhá na věci, které jsou spíše pochopeny než explicitně řečeny, budete muset seznam ručně přezkoumat a doplnit.</span>
+        </p>
+
+        <!-- SECTION: WORKFLOW 3 -->
+        <h2>
+            <span class="en">Workflow 3 — Spend report analysis in Excel</span>
+            <span class="cz">Workflow 3 — Analýza výdajových reportů v Excelu</span>
+        </h2>
+
+        <p>
+            <span class="en">This one surprises people the most, because most procurement professionals are already comfortable in Excel — and they don't immediately see why they'd need AI help there. But the use case isn't about replacing your Excel skills. It's about the part that takes time: pattern recognition across large datasets.</span>
+            <span class="cz">Tato věc lidi překvapuje nejvíce, protože většina nákupních profesionálů je v Excelu doma — a hned nevidí, proč by tam potřebovala pomoc AI. Ale smysl není nahradit vaše znalosti Excelu. Jde o část, která zabere čas: rozpoznávání vzorů ve velkých datasetech.</span>
+        </p>
+
+        <p>
+            <span class="en">Here's a concrete example. You export three months of indirect spend from your ERP. You have 2,000 lines. Supplier, cost centre, amount, GL code, date. You want to know: which suppliers show unusual month-on-month growth? Which cost centres are spending outside their category? Are there any suppliers you're paying from multiple cost centres who could be consolidated?</span>
+            <span class="cz">Konkrétní příklad. Exportujete tři měsíce nepřímých výdajů z ERP. Máte 2 000 řádků. Dodavatel, nákladové středisko, částka, účetní kód, datum. Chcete vědět: kteří dodavatelé vykazují neobvyklý meziroční růst? Která nákladová střediska utrácejí mimo svou kategorii? Existují dodavatelé, kteří dostávají platby z více nákladových středisek a mohli by být konsolidováni?</span>
+        </p>
+
+        <p>
+            <span class="en">With Microsoft 365 Copilot in Excel, you select your data and type those questions in plain language. Copilot will generate pivot summaries, flag outliers, and suggest charts — all without you writing a single formula. You still need to interpret the output and decide what to do with it. But the analysis that used to take two hours now takes twenty minutes.</span>
+            <span class="cz">S Microsoft 365 Copilotem v Excelu vyberete data a napíšete tyto otázky běžným jazykem. Copilot vygeneruje souhrnné kontingenční tabulky, označí odlehlé hodnoty a navrhne grafy — to vše bez jediného vzorce z vaší strany. Stále musíte výstup interpretovat a rozhodnout, co s ním dělat. Ale analýza, která dřív trvala dvě hodiny, teď trvá dvacet minut.</span>
+        </p>
+
+        <p>
+            <span class="en">If you're using only Copilot Chat, paste a subset of your data (say, a summary by supplier and month) into the chat window and ask the same questions. You lose the native Excel integration, but you still get useful pattern recognition on the data you share.</span>
+            <span class="cz">Pokud používáte pouze Copilot Chat, vložte část dat (třeba přehled podle dodavatele a měsíce) do okna chatu a položte stejné otázky. Přijdete o nativní integraci s Excelem, ale stále dostanete užitečné rozpoznávání vzorů na datech, která sdílíte.</span>
+        </p>
+
+        <!-- SECTION: WORKFLOW 4 -->
+        <h2>
+            <span class="en">Workflow 4 — RFQ and supplier response summarization</span>
+            <span class="cz">Workflow 4 — Shrnutí poptávek a odpovědí dodavatelů</span>
+        </h2>
+
+        <p>
+            <span class="en">If you run competitive sourcing events — even informal ones, just emailing three suppliers and comparing quotes — you know how much time goes into reading and structuring the responses. Every supplier formats their proposal differently. Comparing them directly is painful.</span>
+            <span class="cz">Pokud pořádáte soutěžní nákupní akce — i ty neformální, kdy jen e-mailem oslovíte tři dodavatele a porovnáte nabídky — víte, kolik času zabere čtení a strukturování odpovědí. Každý dodavatel formátuje svou nabídku jinak. Přímé srovnání je bolestivé.</span>
+        </p>
+
+        <p>
+            <span class="en">Here's what works: paste each supplier's response into a Copilot Chat conversation (or into Word with Copilot) and ask it to extract the key commercial terms into a structured format. Then paste all three summaries into a second message and ask for a comparison table. You tell it what columns matter — price, lead time, payment terms, warranty, minimum order quantity — and it builds the table.</span>
+            <span class="cz">Co funguje: vložte odpověď každého dodavatele do konverzace v Copilot Chat (nebo do Wordu s Copilotem) a požádejte ho, aby extrahoval klíčové obchodní podmínky do strukturovaného formátu. Pak vložte všechna tři shrnutí do druhé zprávy a požádejte o srovnávací tabulku. Řeknete mu, které sloupce jsou důležité — cena, dodací lhůta, platební podmínky, záruka, minimální objednací množství — a sestaví tabulku.</span>
+        </p>
+
+        <p>
+            <span class="en">This doesn't replace your judgement on which supplier to choose. But it removes the 45 minutes you'd spend manually building that comparison in a spreadsheet. You spend that time on the decision instead of the formatting.</span>
+            <span class="cz">To nenahrazuje váš úsudek o tom, kterého dodavatele zvolit. Ale odstraňuje 45 minut, které byste strávili ručním sestavováním srovnání v tabulce. Ten čas strávíte samotným rozhodnutím místo formátováním.</span>
+        </p>
+
+        <div class="callout tip">
+            <div class="callout-title"><span class="en">Example prompt — RFQ comparison</span><span class="cz">Příklad promptu — srovnání nabídek</span></div>
+            <span class="en">
+                <div class="prompt-block">I received three supplier responses to an RFQ for [category]. Below are the three responses.
+
+Please extract the following from each: unit price, lead time, payment terms, warranty period, minimum order quantity, and any notable conditions or exceptions.
+
+Then produce a comparison table with suppliers as columns and these criteria as rows. Highlight any significant differences between suppliers.
+
+[Paste supplier responses here]</div>
+            </span>
+            <span class="cz">
+                <div class="prompt-block">Obdržel jsem tři odpovědi dodavatelů na poptávku pro [kategorie]. Níže jsou tři odpovědi.
+
+Prosím extrahuj z každé: jednotková cena, dodací lhůta, platební podmínky, záruční doba, minimální objednací množství a jakékoliv pozoruhodné podmínky nebo výjimky.
+
+Pak sestav srovnávací tabulku s dodavateli jako sloupce a tato kritéria jako řádky. Zdůrazni výrazné rozdíly mezi dodavateli.
+
+[Sem vložte odpovědi dodavatelů]</div>
+            </span>
+        </div>
+
+        <!-- SECTION: WORKFLOW 5 -->
+        <h2>
+            <span class="en">Workflow 5 — Policy search with SharePoint and Copilot</span>
+            <span class="cz">Workflow 5 — Vyhledávání v politikách přes SharePoint a Copilot</span>
+        </h2>
+
+        <p>
+            <span class="en">This one requires the full Microsoft 365 Copilot licence — specifically the SharePoint integration. But if you have it, it's genuinely useful for procurement teams who manage multiple policies, guidelines, and approved supplier lists stored across different SharePoint sites.</span>
+            <span class="cz">Tato funkce vyžaduje plnou licenci Microsoft 365 Copilot — konkrétně integraci se SharePointem. Ale pokud ji máte, je skutečně užitečná pro nákupní týmy, které spravují různé politiky, pokyny a seznamy schválených dodavatelů uložené na různých SharePointových stránkách.</span>
+        </p>
+
+        <p>
+            <span class="en">The typical problem: a category manager needs to know what the procurement policy says about single-source justification. The policy is in SharePoint. They know it's there. Finding the exact paragraph takes ten minutes of PDF scrolling. With Copilot in SharePoint (or via the Copilot Chat with the SharePoint plugin enabled), you type: <em>"What does the procurement policy say about the conditions for single-source procurement? What approval is required?"</em> — and it quotes the relevant section directly.</span>
+            <span class="cz">Typický problém: category manager potřebuje vědět, co říká nákupní politika o zdůvodnění nákupu od jednoho dodavatele. Politika je na SharePointu. Ví, že tam je. Najít přesný odstavec trvá deset minut scrollování PDF. S Copilotem v SharePointu (nebo přes Copilot Chat s povoleným SharePoint pluginem) napíšete: <em>„Co říká nákupní politika o podmínkách pro nákup od jednoho dodavatele? Jaké schválení je vyžadováno?"</em> — a přímo cituje příslušnou část.</span>
+        </p>
+
+        <p>
+            <span class="en">Same thing for approved vendor lists, spending thresholds, category-specific rules, travel and expense policies that overlap with procurement. Instead of knowing where to look, you just ask.</span>
+            <span class="cz">Totéž platí pro seznamy schválených dodavatelů, limity výdajů, pravidla specifická pro kategorie, politiky cestovních náhrad, které se překrývají s nákupem. Místo toho, abyste věděli, kde hledat, se jednoduše zeptáte.</span>
+        </p>
+
+        <div class="callout warning">
+            <div class="callout-title"><span class="en">Permissions matter here</span><span class="cz">Oprávnění jsou zde klíčová</span></div>
+            <span class="en">Copilot in SharePoint sees exactly what the logged-in user has access to — no more, no less. Before you go live with this, review your SharePoint permissions structure. If confidential documents (supplier contracts, negotiation notes, HR-adjacent spend data) are accessible to people who shouldn't see them, Copilot will surface that information when asked. This is a permissions problem that predates AI — but AI makes it more visible, fast.</span>
+            <span class="cz">Copilot v SharePointu vidí přesně to, k čemu má přihlášený uživatel přístup — ne víc, ne míň. Před nasazením si přezkumejte strukturu oprávnění v SharePointu. Pokud jsou důvěrné dokumenty (smlouvy s dodavateli, poznámky z jednání, data výdajů blízkých HR) přístupné lidem, kteří by je vidět neměli, Copilot tyto informace na dotaz zpřístupní. Jde o problém s oprávněními, který existoval ještě před AI — ale AI ho dělá viditelným, rychle.</span>
+        </div>
+
+        <!-- SECTION: CLOSING -->
+        <h2>
+            <span class="en">Where to start</span>
+            <span class="cz">Kde začít</span>
+        </h2>
+
+        <p>
+            <span class="en">Pick one workflow. Not all five. The teams that actually build new habits start with a single task they do repeatedly — something that's annoying enough to want fixed, small enough to test in a week. For most procurement people, that's either email triage or meeting notes. Both give you fast feedback on whether Copilot is saving you time or just creating a new review step.</span>
+            <span class="cz">Vyberte jeden workflow. Ne všech pět. Týmy, které si skutečně budují nové návyky, začínají jedním úkolem, který dělají opakovaně — něčím dost otravným, aby stálo za nápravu, a dost malým, aby šlo otestovat za týden. Pro většinu nákupčích to jsou buď e-maily nebo zápisky ze schůzek. Obě věci vám dají rychlou zpětnou vazbu na to, zda vám Copilot šetří čas nebo jen přidává nový krok přezkumu.</span>
+        </p>
+
+        <p>
+            <span class="en">The spend analysis and RFQ comparison workflows have higher payoff but need a bit more setup — you need to know what questions to ask and what format you want the output in. If you want a starting point for that, the <a href="/tools">tools section</a> has prompt templates for procurement use cases.</span>
+            <span class="cz">Analýza výdajů a srovnání nabídek mají vyšší přínos, ale vyžadují trochu více přípravy — musíte vědět, jaké otázky položit a v jakém formátu chcete výstup. Pokud chcete výchozí bod, v <a href="/tools">sekci nástrojů</a> jsou šablony promptů pro nákupní použití.</span>
+        </p>
+
+        <blockquote>
+            <span class="en">The bar is low. If Copilot saves you 20 minutes a day on the routine stuff, that's roughly 80 hours a year — two full working weeks — that you can spend on actual sourcing decisions instead of formatting emails and chasing meeting notes. That's worth checking in for an afternoon.</span>
+            <span class="cz">Laťka je nízká. Pokud vám Copilot ušetří 20 minut denně na rutinních věcech, je to zhruba 80 hodin ročně — dva plné pracovní týdny — které můžete strávit skutečnými nákupními rozhodnutími místo formátování e-mailů a honění zápisků ze schůzek. To stojí za jedno odpoledne na vyzkoušení.</span>
+        </blockquote>
+
+    </div>
+</article>
+
+<!-- TAGS + SHARE -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Microsoft Copilot</span>
+        <span class="article-tag"><span class="en">procurement workflows</span><span class="cz">nákupní procesy</span></span>
+        <span class="article-tag"><span class="en">AI in procurement</span><span class="cz">AI v nákupu</span></span>
+        <span class="article-tag">Teams</span>
+        <span class="article-tag">Outlook</span>
+        <span class="article-tag">Excel</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/copilot-procurement-workflows.html" target="_blank" class="share-btn" aria-label="Share on LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED -->
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3><span class="en">More from Insights</span><span class="cz">Další z Insights</span></h3>
+            <a href="/insights" class="related-back"><span class="en">← All articles</span><span class="cz">← Všechny články</span></a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/contract-nemesis.html" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
+                <h4><span class="en">Contract Nemesis: AI Contract Monitoring with Power Automate</span><span class="cz">Contract Nemesis: AI monitoring smluv s Power Automate</span></h4>
+                <p><span class="en">Every new contract automatically analyzed. Renewal dates extracted. Your team alerted instantly.</span><span class="cz">Každá nová smlouva automaticky analyzována. Datum obnovení extrahováno. Tým okamžitě upozorněn.</span></p>
+            </a>
+            <a href="/insights/ai-in-procurement-start.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">AI in Procurement for Non-Technical Teams</span><span class="cz">AI v nákupu pro netechnické týmy</span></h4>
+                <p><span class="en">What actually works when your team has no developers, no data scientists, and limited time.</span><span class="cz">Co skutečně funguje, když váš tým nemá vývojáře ani datové vědce.</span></p>
+            </a>
+            <a href="/insights/ai-myths-procurement.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">Five AI Myths That Are Wasting Procurement's Time</span><span class="cz">Pět AI mýtů, které plýtvají časem nákupu</span></h4>
+                <p><span class="en">The things people believe about AI in procurement that keep them from doing anything useful with it.</span><span class="cz">Věci, které lidé věří o AI v nákupu a brání jim dělat s ní cokoli užitečného.</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3><span class="en">Want help figuring out what to use?</span><span class="cz">Chcete pomoct s tím, co použít?</span></h3>
+        <p><span class="en">A 45-minute call is usually enough to map your team's top three repetitive tasks to actual AI tools — with no licensing upsell attached.</span><span class="cz">45minutový hovor obvykle stačí na to, abychom zmapovali tři nejopakovanější úkoly vašeho týmu a přiřadili k nim konkrétní AI nástroje — bez prodejního tlaku na licence.</span></p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            <span class="en">Book a free call</span><span class="cz">Domluvit bezplatný hovor</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense — David Račák</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/davidracak/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+  try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+  try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+  const bl = navigator.language || '';
+  setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+
+</body>
+</html>
