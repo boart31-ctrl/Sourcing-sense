@@ -18,7 +18,7 @@
 
   <url>
     <loc>https://sourcing-sense.com/insights</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -104,7 +104,70 @@
 
   <url>
     <loc>https://sourcing-sense.com/insights/ai-negotiation-suppliers</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/shadow-software</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/ai-myths-procurement</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/ai-in-procurement-start</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/ai-transition-cost</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/chatgpt-prompts-procurement</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/copilot-procurement-workflows</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/kaizen-portal-power-apps</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/claude-safety-guide</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/why-ai-projects-fail</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
