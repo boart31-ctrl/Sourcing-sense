@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Procurement Automation with AI — Free Savings Calculator & Tools | Sourcing Sense</title>
@@ -1571,14 +1566,15 @@
 
     <!-- ═══ PROMO BANNER ═══ -->
     <div class="promo-banner" id="promoBanner">
-        <span class="promo-badge"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+        <span class="promo-badge"><span class="en">Free · Limited</span><span class="cz">Zdarma · Limitovaně</span></span>
         <span class="promo-text">
-            <span class="en">AI Policy Template for procurement teams — now available</span>
-            <span class="cz">AI Policy šablona pro nákupní týmy — k dispozici</span>
+            <span class="en">AI Policy Template for procurement teams — launching in</span>
+            <span class="cz">AI Policy šablona pro nákupní týmy — spouštíme za</span>
         </span>
-        <a href="/resources/ai-policy-template" class="promo-cta">
-            <span class="en">Get it free →</span>
-            <span class="cz">Získat zdarma →</span>
+        <span class="promo-countdown" id="promoCd">7d 00h 00m</span>
+        <a href="#early-access" class="promo-cta">
+            <span class="en">Get early access →</span>
+            <span class="cz">Chci přednostní přístup →</span>
         </a>
         <button class="promo-close" onclick="closeBanner()" aria-label="Close">✕</button>
     </div>
@@ -1598,7 +1594,6 @@
             <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
             <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
             <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-            <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
             <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
             <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
         </ul>
@@ -1621,7 +1616,6 @@
         <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
         <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
         <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
         <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
         <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
         <a href="https://calendly.com/sourcing-sense/" onclick="toggleMob()" style="color:var(--accent)">
@@ -2093,14 +2087,17 @@
                 <span class="cz">Jeden email, obojí. Žádný spam, kdykoliv se odhlásíte.</span>
             </p>
             <div class="ea-offers">
-                <a href="/resources/ai-policy-template" class="ea-card" style="text-decoration:none;">
-                    <span class="ea-card-badge live"><span class="en">Free · Live now</span><span class="cz">Zdarma · Dostupné</span></span>
+                <div class="ea-card">
+                    <span class="ea-card-badge live"><span class="en">Free · Limited spots</span><span class="cz">Zdarma · Limitovaně</span></span>
                     <h3><span class="en">AI Policy Template</span><span class="cz">AI Policy šablona</span></h3>
                     <p>
-                        <span class="en">A ready-to-use AI usage policy for procurement and sourcing teams. Built from real EMEA experience. Enter your email, get it instantly.</span>
-                        <span class="cz">Hotová šablona AI policy pro nákupní týmy. Vychází z reálné EMEA praxe. Zadejte email, šablona dorazí okamžitě.</span>
+                        <span class="en">A ready-to-use AI usage policy for procurement and sourcing teams. Built from real EMEA experience. Launching soon — first come, first served.</span>
+                        <span class="cz">Hotová šablona AI policy pro nákupní týmy. Vychází z reálné EMEA praxe. Brzy spouštíme — první přijdou, první dostanou.</span>
                     </p>
-                </a>
+                    <div class="ea-countdown">
+                        <span class="en">Launching in: </span><span class="cz">Spouštíme za: </span><span id="eaCd">7d 00h 00m 00s</span>
+                    </div>
+                </div>
                 <div class="ea-card">
                     <span class="ea-card-badge soon"><span class="en">Coming soon</span><span class="cz">Brzy</span></span>
                     <h3>
@@ -2225,7 +2222,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ─── GAS BACKEND ───
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwaGWN7xyZxfS78wwpJsz37hAPzMJu4LIbQ_SB17GjpIZZ_VhLSk4kXSjZT4zAoslWNjw/exec';
 
 function postToGAS(payload) {
     const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));

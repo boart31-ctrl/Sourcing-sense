@@ -1,1 +1,5 @@
-gas-backend.js
+node_modules/
+*.jfif
+*.pdf
+.DS_Store
+Thumbs.db
