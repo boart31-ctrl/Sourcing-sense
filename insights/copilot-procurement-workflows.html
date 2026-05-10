@@ -81,7 +81,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        :root { --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb; --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd; --blue-100: #dbeafe; --blue-50: #eff6ff; --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06); --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08); --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08); --light-bg: #ffffff; --light-bg-alt: #f8fafc; --light-border: #e2e8f0; --light-text: #0f172a; --light-text-secondary: #475569; --light-text-muted: #94a3b8; --font-display: 'DM Serif Display', Georgia, serif; --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-mono: 'JetBrains Mono', monospace; --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1); }
+        :root { --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb; --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd; --blue-100: #dbeafe; --blue-50: #eff6ff; --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06); --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08); --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08); --light-bg: #ffffff; --light-bg-alt: #f8fafc; --light-border: #e2e8f0; --light-text: #0f172a; --light-text-secondary: #475569; --light-text-muted: #94a3b8; --dark-border: rgba(255,255,255,0.08); --dark-text-muted: #475569; --font-display: 'DM Serif Display', Georgia, serif; --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-mono: 'JetBrains Mono', monospace; --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1); }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
@@ -177,12 +177,14 @@
         .cta-strip p { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.7; }
         .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--accent); font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: var(--radius-sm); transition: all 0.25s ease; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-        footer { background: var(--light-bg); border-top: 1px solid var(--light-border); padding: 2rem; }
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
         .footer-inner { max-width: 1200px; margin: 0 auto; }
-        .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
-        .footer-bottom p { font-size: 0.82rem; color: var(--light-text-muted); }
-        .footer-social a { color: var(--light-text-muted); transition: color 0.2s; }
-        .footer-social a:hover { color: var(--accent); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
         [data-lang="en"] .cz { display: none; }
         [data-lang="cs"] .en { display: none; }
         @media (max-width: 768px) { .nav-center, .nav-right { display: none; } .hamburger { display: block; } .article-meta { gap: 0.75rem; } .related-grid { grid-template-columns: 1fr; } .article-footer-strip { flex-direction: column; align-items: flex-start; } }
