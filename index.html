@@ -1532,6 +1532,37 @@
         .newsletter-msg.success { color: var(--emerald); }
         .newsletter-msg.error { color: #ef4444; }
 
+        /* ═══ MS365 ADVANTAGE STRIP ═══ */
+        .ms-strip {
+            background: linear-gradient(90deg, #05060a 0%, #0a1628 50%, #05060a 100%);
+            border-top: 1px solid rgba(59,130,246,0.15);
+            border-bottom: 1px solid rgba(59,130,246,0.15);
+            padding: 1.75rem 2rem;
+        }
+        .ms-strip-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+        }
+        .ms-strip-label {
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent-light);
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .ms-strip-items {
+            display: flex; gap: 2rem; flex-wrap: wrap; flex: 1;
+        }
+        .ms-strip-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.82rem; color: var(--dark-text-secondary);
+            font-weight: 400;
+        }
+        .ms-strip-item svg { color: var(--accent-light); flex-shrink: 0; }
+        @media (max-width: 768px) {
+            .ms-strip-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .ms-strip-items { gap: 0.85rem; }
+            .ms-strip-item { font-size: 0.78rem; }
+        }
+
         /* ── SCROLL HINT ── */
         .scroll-hint {
             position: absolute;
@@ -1678,20 +1709,20 @@
 
                 <!-- 4. SUBHEADING -->
                 <p class="hero-sub">
-                    <span class="en">I help companies and individuals find where they lose the most time and money — then eliminate it using AI, lean methodology, and tools they already have.</span>
-                    <span class="cz">Pomáhám firmám i jednotlivcům najít kde ztrácejí nejvíce času a peněz — a pak to eliminovat pomocí AI, lean metodiky a nástrojů, které již vlastní.</span>
+                    <span class="en">I help procurement and ops teams cut manual work using AI built inside <strong style="color:var(--accent-light);font-weight:600;">Microsoft 365</strong> — tools your company already pays for. No new vendors. No extra licenses. No lock-in.</span>
+                    <span class="cz">Pomáhám nákupním a provozním týmům ušetřit ruční práci pomocí AI postaveného uvnitř <strong style="color:var(--accent-light);font-weight:600;">Microsoft 365</strong> — nástrojů, za které vaše firma již platí. Žádní noví dodavatelé. Žádné extra licence. Žádný lock-in.</span>
                 </p>
 
                 <!-- 5. CTA -->
                 <div class="hero-actions">
                     <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
-                        <span class="en">Book Free Discovery Call</span>
-                        <span class="cz">Domluvit hovor zdarma</span>
+                        <span class="en">Book Free 20-Min Call</span>
+                        <span class="cz">Domluvit 20min hovor zdarma</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <a href="#cases" class="btn-secondary">
-                        <span class="en">See what I've built</span>
-                        <span class="cz">Co jsem postavil</span>
+                    <a href="#services" class="btn-secondary">
+                        <span class="en">What can I order?</span>
+                        <span class="cz">Co si mohu objednat?</span>
                     </a>
                 </div>
             </div>
@@ -1801,8 +1832,8 @@
                     <span class="cz">Tři způsoby spolupráce</span>
                 </h2>
                 <p class="section-desc">
-                    <span class="en">No vague "AI consulting." Concrete deliverables, fixed scope, honest assessment up front. If I don't see a clear ROI, I'll tell you.</span>
-                    <span class="cz">Žádné vágní "AI poradenství." Konkrétní výstupy, pevný rozsah, upřímné zhodnocení předem. Pokud nevidím jasnou návratnost, řeknu vám to.</span>
+                    <span class="en">Concrete deliverables, fixed scope. Everything built in <strong style="color:var(--light-text);">Microsoft 365</strong> — Power Automate, Power Apps, Copilot Studio. No new software to buy, no external subscriptions, no ongoing vendor dependency. If I don't see clear ROI, I'll tell you upfront.</span>
+                    <span class="cz">Konkrétní výstupy, pevný rozsah. Vše stavím v <strong style="color:var(--light-text);">Microsoft 365</strong> — Power Automate, Power Apps, Copilot Studio. Žádný nový software, žádné externí předplatné, žádná průběžná závislost na dodavateli. Pokud nevidím jasnou návratnost, řeknu vám to předem.</span>
                 </p>
             </div>
             <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
@@ -1860,6 +1891,40 @@
             </div>
         </div>
     </section>
+
+    <!-- ═══════════════════════════════════════════
+         MS365 ADVANTAGE STRIP
+    ═══════════════════════════════════════════ -->
+    <div class="ms-strip">
+        <div class="ms-strip-inner">
+            <div class="ms-strip-label">
+                <span class="en">Why Microsoft 365?</span>
+                <span class="cz">Proč Microsoft 365?</span>
+            </div>
+            <div class="ms-strip-items">
+                <div class="ms-strip-item">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <span class="en">Enterprise-grade security — already approved by your IT</span>
+                    <span class="cz">Enterprise bezpečnost — IT už to schválilo</span>
+                </div>
+                <div class="ms-strip-item">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span class="en">€0 new licenses — you already pay for it</span>
+                    <span class="cz">€0 nových licencí — za to už platíte</span>
+                </div>
+                <div class="ms-strip-item">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+                    <span class="en">No vendor lock-in — your data stays yours</span>
+                    <span class="cz">Žádný vendor lock-in — data zůstávají vaše</span>
+                </div>
+                <div class="ms-strip-item">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="en">Your team can maintain it — no black-box dependency</span>
+                    <span class="cz">Váš tým to udrží — žádná závislost na black-boxu</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ═══════════════════════════════════════════
          PROCESS — DARK
