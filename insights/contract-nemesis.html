@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Nemesis: Automated Contract Monitoring With Power Automate | Sourcing Sense</title>
+    <meta name="description" content="5-step Power Automate flow that reads every new contract, extracts renewal dates and price clauses, and posts a summary to Teams. Runs on your M365 licence. Build in under 30 minutes.">
+    <meta name="keywords" content="Power Automate contract monitoring, automatické monitorování smluv, contract renewal alerts Power Automate, SharePoint contract management, AI contract review M365, Power Automate AI Builder contracts, procurement contract automation">
+    <meta name="author" content="David Račák">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="Contract Nemesis: Automated Contract Monitoring With Power Automate | Sourcing Sense">
+    <meta property="og:description" content="5-step Power Automate flow that reads every new contract, extracts renewal dates and price clauses, and posts a summary to Teams. Runs on your M365 licence.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/contract-nemesis.html">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/contract-nemesis.html">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/contract-nemesis.html" />
+    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/contract-nemesis.html" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/contract-nemesis.html" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contract Nemesis: Automated Contract Monitoring With Power Automate | Sourcing Sense" />
+    <meta name="twitter:description" content="5 steps. Reads every new contract. Extracts renewal dates and price clauses. Posts to Teams. Zero extra cost on M365." />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Contract Nemesis: Automated Contract Monitoring With Power Automate",
+      "description": "5-step Power Automate flow that reads every new contract, extracts renewal dates and price adjustment clauses, and posts a summary to Teams. Runs on your existing M365 licence.",
+      "author": { "@type": "Person", "name": "David Račák" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sourcing Sense",
+        "url": "https://sourcing-sense.com"
+      },
+      "datePublished": "2026-05-10",
+      "dateModified": "2026-05-10",
+      "url": "https://sourcing-sense.com/insights/contract-nemesis.html",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/contract-nemesis.html" },
+      "keywords": ["Power Automate contract monitoring", "contract renewal alerts", "AI contract review", "SharePoint contract management", "Microsoft 365 procurement automation"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can Power Automate automatically read and summarise contracts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Use the 'Get file content' action to pass a Word or PDF contract directly into an AI Builder custom prompt. The prompt extracts renewal dates, price adjustment clauses, and supplier details, then posts the result as a formatted message to a Teams channel. The whole flow is 5 steps and runs on a standard M365 licence with no extra cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I avoid AI getting contract dates wrong in Power Automate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add a 'Initialize variable' step before your AI prompt and use formatDateTime(utcNow(), 'dd.MM.yyyy') to inject today's date explicitly into the prompt context. This gives the model a reference point and prevents it from confusing relative date expressions like 'within 90 days' or ambiguous year references."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb;
+            --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd;
+            --blue-100: #dbeafe; --blue-50: #eff6ff;
+            --accent: #2563eb; --accent-light: #3b82f6;
+            --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06);
+            --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08);
+            --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08);
+            --light-bg: #ffffff; --light-bg-alt: #f8fafc;
+            --light-border: #e2e8f0; --light-text: #0f172a;
+            --light-text-secondary: #475569; --light-text-muted: #94a3b8;
+            --dark-bg: #0a1628; --dark-border: rgba(255,255,255,0.08);
+            --dark-text: #f1f5f9; --dark-text-secondary: #94a3b8; --dark-text-muted: #475569;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+        .article-result-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--emerald); padding: 0.25rem 0.7rem; background: var(--emerald-subtle); border-radius: 100px; }
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+        .prose code { font-family: var(--font-mono); font-size: 0.88rem; padding: 0.15rem 0.4rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 4px; color: var(--accent); }
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; color: var(--light-text-secondary); }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: #f59e0b; }
+        .callout.info .callout-title { color: var(--accent); }
+        .results-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1.5rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); margin: 2rem 0; }
+        .results-box-item { text-align: center; }
+        .results-box-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+        .results-box-label { font-size: 0.8rem; color: var(--light-text-muted); font-weight: 500; }
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+        .article-tag { font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 100px; background: var(--light-bg-alt); border: 1px solid var(--light-border); color: var(--light-text-muted); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--light-border); }
+        .article-share-label { font-size: 0.82rem; font-weight: 600; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 6px; color: var(--light-text-muted); transition: all 0.2s; }
+        .share-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+        .share-btn svg { width: 16px; height: 16px; }
+        .related-section { padding: 4rem 2rem; background: var(--light-bg-alt); border-top: 1px solid var(--light-border); }
+        .related-inner { max-width: 1200px; margin: 0 auto; }
+        .related-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.4rem; }
+        .related-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 500; color: var(--accent); transition: gap 0.2s; }
+        .related-back:hover { gap: 0.6rem; }
+        .related-back svg { width: 16px; height: 16px; transform: rotate(180deg); }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+        .related-card { padding: 1.5rem; background: white; border: 1px solid var(--light-border); border-radius: var(--radius); transition: all 0.3s var(--ease); display: block; }
+        .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.05); }
+        .related-badge { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border-radius: 100px; margin-bottom: 0.5rem; display: inline-block; }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; margin-bottom: 0.4rem; }
+        .related-card p { font-size: 0.82rem; color: var(--light-text-muted); line-height: 1.5; }
+        .cta-strip { padding: 4rem 2rem; background: var(--dark-bg); text-align: center; }
+        .cta-strip-inner { max-width: 500px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.6rem; color: var(--dark-text); margin-bottom: 0.75rem; }
+        .cta-strip p { font-size: 0.95rem; color: var(--dark-text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+        .cta-strip .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; font-weight: 600; padding: 0.85rem 1.6rem; background: white; color: var(--blue-900); border-radius: var(--radius-sm); transition: all 0.25s; }
+        .cta-strip .btn-primary:hover { background: var(--blue-100); transform: translateY(-2px); }
+        .cta-strip .btn-primary svg { width: 16px; height: 16px; }
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        [data-lang="en"] .cz { display: none !important; }
+        [data-lang="cs"] .en { display: none !important; }
+        :root {
+            --bg-primary: #08090f; --bg-surface: #0d1117; --bg-elevated: #131820;
+            --light-bg: #08090f; --light-bg-alt: #0d1117; --light-card: #0d1117;
+            --light-border: rgba(255,255,255,0.08); --light-text: #f1f5f9;
+            --light-text-secondary: #94a3b8; --light-text-muted: #3d4a5c;
+            --accent: #3b82f6; --accent-light: #60a5fa;
+            --accent-glow: rgba(59,130,246,0.2); --accent-subtle: rgba(59,130,246,0.1);
+            --dark-bg: #05060a; --dark-bg-alt: #08090f; --dark-card: rgba(13,17,23,0.9);
+            --dark-border: rgba(255,255,255,0.07); --dark-text: #f1f5f9;
+            --dark-text-secondary: #94a3b8; --dark-text-muted: #3d4a5c;
+        }
+        nav { background: rgba(8,9,15,0.88); border-bottom-color: rgba(255,255,255,0.08); }
+        nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.4); }
+        .lang-btn.active { background: rgba(59,130,246,0.15); color: #60a5fa; box-shadow: none; }
+        .mobile-overlay { background: rgba(8,9,15,0.97); }
+        .mobile-overlay a { color: #94a3b8; }
+        .mobile-close { color: #94a3b8; }
+        .hamburger { color: #f1f5f9; }
+        .related-card { background: #0d1117; }
+        .nav-logo-text { color: #f1f5f9; }
+        .article-header { background: linear-gradient(175deg, rgba(59,130,246,0.06) 0%, var(--light-bg) 50%); }
+        input[type="text"], input[type="number"], input[type="email"], select, textarea { background: #131820; color: var(--light-text); border-color: rgba(255,255,255,0.12); }
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; } .nav-center { display: none; } .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .article-header { padding: 7rem 1.25rem 2.5rem; }
+            .article-body { padding: 2rem 1.25rem 3rem; }
+            .article-footer-strip { padding: 0 1.25rem 2rem; }
+            .related-section { padding: 3rem 1.25rem; }
+            .cta-strip { padding: 3rem 1.25rem; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
+        </div>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+</div>
+
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span><span class="en">Contract Nemesis</span><span class="cz">Contract Nemesis</span></span>
+        </div>
+
+        <span class="article-badge use-case">
+            <span class="en">Use Case</span><span class="cz">Případ použití</span>
+        </span>
+
+        <h1>
+            <span class="en">Contract Nemesis: Automated Contract Monitoring With Power Automate</span>
+            <span class="cz">Contract Nemesis: Automatické monitorování smluv přes Power Automate</span>
+        </h1>
+
+        <p class="article-excerpt">
+            <span class="en">A contract lands in SharePoint. Nobody reads it closely. The renewal date slips by. The price escalation clause kicks in unnoticed. This is a 5-step Power Automate flow that makes sure that never happens again — and takes under 30 minutes to build.</span>
+            <span class="cz">Smlouva přistane v SharePointu. Nikdo ji pořádně nepřečte. Datum prodloužení unikne pozornosti. Klauzule o zvýšení ceny se spustí bez povšimnutí. Toto je 5krokový Power Automate flow, který zajistí, že se to už nestane — a postavíte ho za méně než 30 minut.</span>
+        </p>
+
+        <div class="article-meta">
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                <span class="en">May 2026</span><span class="cz">Květen 2026</span>
+            </span>
+            <span class="article-result-tag">→ <span class="en">Zero missed renewal dates</span><span class="cz">Žádná zmeškaná data obnovení</span></span>
+        </div>
+
+    </div>
+</section>
+
+<article class="article-body">
+    <div class="prose">
+
+        <div class="results-box">
+            <div class="results-box-item">
+                <div class="results-box-num">5</div>
+                <div class="results-box-label"><span class="en">Steps to build</span><span class="cz">Kroky k sestavení</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">&lt;30'</div>
+                <div class="results-box-label"><span class="en">Build time</span><span class="cz">Čas sestavení</span></div>
+            </div>
+            <div class="results-box-item">
+                <div class="results-box-num">€0</div>
+                <div class="results-box-label"><span class="en">Extra cost on M365</span><span class="cz">Náklady navíc na M365</span></div>
+            </div>
+        </div>
+
+        <h2><span class="en">The Problem Is Not Missing Contracts. It Is Missing Context.</span><span class="cz">Problém nejsou chybějící smlouvy. Je to chybějící kontext.</span></h2>
+
+        <p>
+            <span class="en">Most procurement teams have all their contracts somewhere. SharePoint, a shared drive, maybe a dedicated folder someone set up three years ago and hasn't been touched since. The contracts are there. The problem is that nobody is reading them systematically — and the information buried in them (renewal windows, auto-renewal clauses, price escalation triggers, liability caps) only matters on specific dates, most of which nobody has written down anywhere.</span>
+            <span class="cz">Většina nákupních týmů má všechny smlouvy někde uložené. SharePoint, sdílená složka, možná dedikovaný adresář, který někdo nastavil před třemi lety a od té doby se na něj nikdo nepodíval. Smlouvy tam jsou. Problém je, že je nikdo systematicky nečte — a informace v nich ukryté (okna pro obnovení, klauzule o automatickém prodloužení, spouštěče úpravy cen, limity odpovědnosti) jsou důležité jen v konkrétních termínech, které nikdo nikde nezaznamenal.</span>
+        </p>
+
+        <p>
+            <span class="en">The pattern is familiar: a supplier invoice arrives in March with a 4% price increase. Someone pulls up the contract and finds a CPI escalation clause that technically allows it. The clause was in the original document, signed two years ago. Nobody flagged it at the time because reading every contract closely on the day it lands is not how teams actually work. The contract was filed and forgotten.</span>
+            <span class="cz">Vzorec je známý: v březnu přijde faktura od dodavatele se 4% zdražením. Někdo vytáhne smlouvu a najde klauzuli o CPI eskalaci, která to technicky umožňuje. Klauzule byla v původním dokumentu, podepsaném před dvěma lety. Tehdy ji nikdo neupozornil, protože pečlivé čtení každé smlouvy v den, kdy přijde, prostě není způsob, jakým týmy fungují. Smlouva byla uložena a zapomenuta.</span>
+        </p>
+
+        <p>
+            <span class="en">This flow does not replace contract management software. It does not build a full contract register or send you reminders 90 days before expiry based on a curated database. What it does is much simpler: <strong>every time a new contract lands in your SharePoint folder, it reads the file, extracts the key dates and commercial clauses, and posts a clean summary to your Teams channel within two minutes.</strong> No chasing. No manual reading. No missed context.</span>
+            <span class="cz">Tento flow nenahrazuje software pro správu smluv. Nebuduje plný registr smluv ani vám neposílá připomínky 90 dní před vypršením na základě spravované databáze. Dělá mnohem jednodušší věc: <strong>pokaždé, když nová smlouva přistane ve vaší SharePoint složce, přečte soubor, vytáhne klíčová data a obchodní klauzule a zveřejní přehledné shrnutí do vašeho kanálu Teams do dvou minut.</strong> Žádné honění. Žádné ruční čtení. Žádný ztracený kontext.</span>
+        </p>
+
+        <h2><span class="en">What You Need Before You Start</span><span class="cz">Co potřebujete před začátkem</span></h2>
+
+        <p>
+            <span class="en">This is genuinely a short build. Before you open Power Automate, sort out two things:</span>
+            <span class="cz">Toto je skutečně krátká stavba. Než otevřete Power Automate, vyřešte dvě věci:</span>
+        </p>
+
+        <ul>
+            <li><span class="en"><strong>A dedicated SharePoint folder for incoming contracts.</strong> One folder, one purpose. Every new contract that needs to be reviewed goes here. The flow watches this folder and triggers on every new file. Do not mix this with your general documents library.</span><span class="cz"><strong>Dedikovaná SharePoint složka pro příchozí smlouvy.</strong> Jedna složka, jeden účel. Každá nová smlouva, která potřebuje být zkontrolována, jde sem. Flow sleduje tuto složku a spustí se pro každý nový soubor. Nemíchejte ji s obecnou knihovnou dokumentů.</span></li>
+            <li><span class="en"><strong>A Teams channel where the summary should land.</strong> This can be an existing procurement channel or a dedicated one. The key is that the right people see it — whoever is responsible for acting on contract information should be in this channel.</span><span class="cz"><strong>Kanál Teams, kam má shrnutí přistát.</strong> Může to být existující nákupní kanál nebo dedikovaný. Klíčové je, aby ho viděli správní lidé — kdo je zodpovědný za jednání na základě informací ze smluv, měl by být v tomto kanálu.</span></li>
+        </ul>
+
+        <div class="callout info">
+            <div class="callout-title"><span class="en">Licence check</span><span class="cz">Kontrola licence</span></div>
+            <span class="en">AI Builder is included in Power Automate Premium plans, but also ships with Microsoft 365 Copilot licences and select Business Premium bundles. Check your admin centre under AI Builder credits before assuming you need to purchase anything. If you have Copilot licences in your tenant, you almost certainly have AI Builder capacity already.</span>
+            <span class="cz">AI Builder je součástí plánů Power Automate Premium, ale dodává se také s licencemi Microsoft 365 Copilot a vybranými balíčky Business Premium. Zkontrolujte si centrum pro správu pod kredity AI Builder, než budete předpokládat, že něco potřebujete koupit. Pokud máte v tenantu licence Copilot, téměř jistě již máte kapacitu AI Builder.</span>
+        </div>
+
+        <h2><span class="en">The 5-Step Flow</span><span class="cz">5krokový flow</span></h2>
+
+        <h3><span class="en">Step 1 — Trigger: new file in the SharePoint contracts folder</span><span class="cz">Krok 1 — Spouštěč: nový soubor ve SharePoint složce se smlouvami</span></h3>
+
+        <p>
+            <span class="en">In Power Automate, create a new automated cloud flow. Set the trigger to <strong>"When a file is created (properties only)"</strong> from the SharePoint connector. Point it at the site and folder you prepared. This trigger fires every time a new document is uploaded — Word, PDF, or any other format your contracts arrive in.</span>
+            <span class="cz">V Power Automate vytvořte nový automatizovaný cloudový flow. Nastavte spouštěč na <strong>"When a file is created (properties only)"</strong> z konektoru SharePoint. Nasměrujte ho na web a složku, kterou jste připravili. Tento spouštěč se spustí pokaždé, když je nahrán nový dokument — Word, PDF nebo jakýkoli jiný formát, ve kterém vaše smlouvy přicházejí.</span>
+        </p>
+
+        <h3><span class="en">Step 2 — Get file content</span><span class="cz">Krok 2 — Získání obsahu souboru</span></h3>
+
+        <p>
+            <span class="en">Add the <strong>"Get file content"</strong> action from the SharePoint connector. Pass in the file identifier from the trigger output. This retrieves the full binary content of the document — no separate text conversion step needed. AI Builder accepts the file directly in this format, which keeps the flow clean and avoids encoding issues you can run into if you try to convert to text first.</span>
+            <span class="cz">Přidejte akci <strong>"Get file content"</strong> z konektoru SharePoint. Předejte identifikátor souboru z výstupu spouštěče. Tím se načte celý binární obsah dokumentu — není potřeba žádný samostatný krok převodu na text. AI Builder přijímá soubor přímo v tomto formátu, což udržuje flow čistý a zabraňuje problémům s kódováním, na které narazíte, pokud se pokusíte nejdřív převést na text.</span>
+        </p>
+
+        <h3><span class="en">Step 3 — Set today's date as a variable</span><span class="cz">Krok 3 — Nastavení dnešního data jako proměnné</span></h3>
+
+        <p>
+            <span class="en">Add an <strong>"Initialize variable"</strong> action. Name it <code>TodayDate</code>, type String, and set the value to:</span>
+            <span class="cz">Přidejte akci <strong>"Initialize variable"</strong>. Pojmenujte ji <code>TodayDate</code>, typ String a nastavte hodnotu na:</span>
+        </p>
+
+        <p><code>formatDateTime(utcNow(), 'dd.MM.yyyy')</code></p>
+
+        <p>
+            <span class="en">This step exists for one reason: AI models handle relative date expressions inconsistently. If a contract says "renewal within 90 days of expiry" and the model does not know today's date, you can get a hallucinated year or a vague "coming soon" interpretation. Injecting today's date explicitly into the prompt context fixes this. It takes 20 seconds to add and prevents the most common source of incorrect output from contract parsing.</span>
+            <span class="cz">Tento krok existuje z jednoho důvodu: AI modely zpracovávají relativní výrazy pro datum nekonzistentně. Pokud smlouva říká "obnovení do 90 dní od vypršení" a model nezná dnešní datum, můžete dostat vymyšlený rok nebo vágní interpretaci "brzy". Explicitní vložení dnešního data do kontextu promptu to napravuje. Přidání trvá 20 sekund a zabraňuje nejčastějšímu zdroji nesprávného výstupu při parsování smluv.</span>
+        </p>
+
+        <h3><span class="en">Step 4 — Run a custom prompt with the contract file</span><span class="cz">Krok 4 — Spuštění vlastního promptu se souborem smlouvy</span></h3>
+
+        <p>
+            <span class="en">Add the <strong>"Create text with GPT using a prompt"</strong> action from AI Builder (you may see it listed as "Create text with a prompt" depending on your environment). Pass in the file content from step 2 and the <code>TodayDate</code> variable from step 3.</span>
+            <span class="cz">Přidejte akci <strong>"Create text with GPT using a prompt"</strong> z AI Builder (v závislosti na vašem prostředí ji můžete vidět jako "Create text with a prompt"). Předejte obsah souboru z kroku 2 a proměnnou <code>TodayDate</code> z kroku 3.</span>
+        </p>
+
+        <p>
+            <span class="en">For the prompt itself, write the basic instructions — what fields you want extracted and in what format. A starting point:</span>
+            <span class="cz">Pro samotný prompt napište základní instrukce — jaká pole chcete vytáhnout a v jakém formátu. Výchozí bod:</span>
+        </p>
+
+        <p>
+            <span class="en"><em>"You are a procurement assistant. Today's date is [TodayDate]. Read the attached contract and extract: supplier name, contract start date, contract end date or renewal date, notice period for termination, price adjustment clause (if any — include the exact mechanism), and contract value if stated. Format the output as a Markdown table with two columns: Field and Value. If a field is not present in the document, write 'Not specified'."</em></span>
+            <span class="cz"><em>"Jsi nákupní asistent. Dnešní datum je [TodayDate]. Přečti přiloženou smlouvu a vytáhni: název dodavatele, datum začátku smlouvy, datum ukončení nebo obnovení smlouvy, výpovědní lhůtu, klauzuli o úpravě ceny (pokud existuje — uveď přesný mechanismus) a hodnotu smlouvy, pokud je uvedena. Naformátuj výstup jako Markdown tabulku se dvěma sloupci: Pole a Hodnota. Pokud pole v dokumentu není, napiš 'Neuvedeno'."</em></span>
+        </p>
+
+        <div class="callout tip">
+            <div class="callout-title"><span class="en">Let Copilot write the prompt for you</span><span class="cz">Nechte Copilot napsat prompt za vás</span></div>
+            <span class="en">Before writing the prompt yourself, paste your basic instructions into Microsoft Copilot Chat and ask it to rewrite them as a structured extraction prompt for a contract document. Copilot is genuinely good at this — it will tighten the phrasing, add output constraints you may have forgotten, and format it in a way that produces more consistent results from AI Builder. The prompt you get back will be better than what most people write from scratch.</span>
+            <span class="cz">Než budete sami psát prompt, vložte vaše základní instrukce do Microsoft Copilot Chatu a požádejte ho, aby je přepsal jako strukturovaný extrakční prompt pro smluvní dokument. Copilot je v tomto skutečně dobrý — zpřesní formulaci, přidá výstupní omezení, na která jste mohli zapomenout, a naformátuje to způsobem, který produkuje konzistentnější výsledky z AI Builder. Prompt, který dostanete zpět, bude lepší než to, co většina lidí napíše od nuly.</span>
+        </div>
+
+        <h3><span class="en">Step 5 — Post the summary to Teams</span><span class="cz">Krok 5 — Zveřejnění shrnutí do Teams</span></h3>
+
+        <p>
+            <span class="en">Add the <strong>"Post message in a chat or channel"</strong> action from the Microsoft Teams connector. Set the target to your contracts channel. For the message body, use the output text from the AI Builder step — it already comes back as Markdown, which Teams renders natively. Add a header line before the table so the message is immediately readable in the channel feed:</span>
+            <span class="cz">Přidejte akci <strong>"Post message in a chat or channel"</strong> z konektoru Microsoft Teams. Nastavte cíl na váš kanál smluv. Pro tělo zprávy použijte výstupní text z kroku AI Builder — vrací se již jako Markdown, který Teams nativně renderuje. Přidejte řádek záhlaví před tabulku, aby byla zpráva okamžitě čitelná ve feedu kanálu:</span>
+        </p>
+
+        <p>
+            <span class="en"><em>"📄 New contract uploaded: [Trigger file name] — here is the summary:"</em> followed by the AI Builder output on the next line.</span>
+            <span class="cz"><em>"📄 Nová smlouva nahrána: [název souboru ze spouštěče] — zde je shrnutí:"</em> následované výstupem AI Builder na dalším řádku.</span>
+        </p>
+
+        <p>
+            <span class="en">The result is a clean two-column Markdown table in the Teams channel within about 30 seconds of the file being uploaded. Supplier, dates, price clause, value — everything that matters, visible to whoever is in the channel, without anyone having to open the PDF.</span>
+            <span class="cz">Výsledkem je čistá dvousloupcová Markdown tabulka v kanálu Teams přibližně do 30 sekund od nahrání souboru. Dodavatel, data, cenová klauzule, hodnota — vše důležité, viditelné pro každého v kanálu, aniž by musel kdokoli otevírat PDF.</span>
+        </p>
+
+        <div class="callout warning">
+            <div class="callout-title"><span class="en">Teams vs email formatting</span><span class="cz">Formátování Teams vs e-mail</span></div>
+            <span class="en">Teams messages use Markdown — pipe-separated tables (<code>| Field | Value |</code>), bold with <code>**asterisks**</code>, line breaks with a blank line. If you want to route the output to Outlook instead, switch to the Office 365 Outlook "Send an email" action and wrap the AI output in basic HTML tags (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>). The AI Builder step is identical either way — only the delivery action changes.</span>
+            <span class="cz">Zprávy Teams používají Markdown — tabulky oddělené svislítky (<code>| Pole | Hodnota |</code>), tučný text s <code>**hvězdičkami**</code>, odřádkování prázdným řádkem. Pokud chcete výstup směrovat do Outlooku, přepněte na akci Office 365 Outlook "Send an email" a zabalte výstup AI do základních HTML tagů (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>). Krok AI Builder je v obou případech identický — mění se pouze akce doručení.</span>
+        </div>
+
+        <h2><span class="en">What This Actually Replaces</span><span class="cz">Co to ve skutečnosti nahrazuje</span></h2>
+
+        <p>
+            <span class="en">The immediate win is not efficiency — it is awareness. Before this flow, a contract landed in SharePoint, someone maybe skimmed the signature page, and the rest sat unread until a problem surfaced. Now, within 30 seconds of upload, the channel has a structured summary that anyone can scan in 20 seconds. Price escalation clauses get noticed. Renewal windows get noted. The person who was out the week the contract was uploaded does not miss it because it is sitting in the channel history.</span>
+            <span class="cz">Okamžitá výhra není efektivita — je to povědomí. Před tímto flow smlouva přistála v SharePointu, někdo možná přelétl podpisovou stránku a zbytek ležel nepřečtený, dokud se neobjevil problém. Nyní, do 30 sekund od nahrání, má kanál strukturované shrnutí, které kdokoli může prohledat za 20 sekund. Klauzule o zvýšení ceny jsou zaznamenány. Okna pro obnovení jsou poznamenána. Člověk, který byl mimo v týdnu, kdy byla smlouva nahrána, nic nezmeškáte, protože je to v historii kanálu.</span>
+        </p>
+
+        <blockquote>
+            <span class="en">The contract was always there. What was missing was the 30-second summary that tells you whether you need to read it now or in six months.</span>
+            <span class="cz">Smlouva tam vždy byla. Chybělo 30sekundové shrnutí, které vám řekne, zda ji potřebujete přečíst teď nebo za šest měsíců.</span>
+        </blockquote>
+
+        <h2><span class="en">Where You Can Take This Next</span><span class="cz">Kam to lze dále rozvíjet</span></h2>
+
+        <p>
+            <span class="en">This flow is deliberately simple — it is a proof of concept that takes under 30 minutes to build and immediately produces visible value. Once it has been running for a month without issues, the natural next steps are straightforward: write the AI output to a SharePoint list instead of (or in addition to) posting to Teams, and you have a contract register that builds itself. From there, a second scheduled flow can query that list daily for contracts expiring within 90 days and send a digest to the responsible owner. None of that requires rethinking the architecture — it is additions to what you have already built.</span>
+            <span class="cz">Tento flow je záměrně jednoduchý — je to proof of concept, který trvá méně než 30 minut sestavit a okamžitě přináší viditelnou hodnotu. Jakmile běží měsíc bez problémů, přirozené další kroky jsou přímočaré: zapište výstup AI do SharePoint listu místo (nebo navíc k) zveřejnění do Teams a máte registr smluv, který se buduje sám. Odtud druhý plánovaný flow může denně dotazovat tento seznam na smlouvy, které vyprší do 90 dnů, a posílat digest zodpovědnému vlastníkovi. Nic z toho nevyžaduje přehodnocení architektury — jsou to doplňky k tomu, co jste již postavili.</span>
+        </p>
+
+        <p>
+            <span class="en">If your team manages a significant contract volume, a Dataverse table gives you more querying flexibility than a SharePoint list — but that is a later problem. Start with the 5-step version. Run it on real contracts for two weeks. The gaps it exposes will tell you exactly what to build next.</span>
+            <span class="cz">Pokud váš tým spravuje značný objem smluv, tabulka Dataverse vám dává větší flexibilitu dotazování než SharePoint list — ale to je pozdější problém. Začněte s 5krokovou verzí. Spusťte ji na reálných smlouvách po dobu dvou týdnů. Mezery, které odhalí, vám přesně řeknou, co stavět dál.</span>
+        </p>
+
+        <p>
+            <span class="en">For a similar flow applied to a different operational problem — company car booking approvals — see <a href="/insights/car-booking-automation.html">Car Booking Automation</a>. For the broader question of where contract monitoring fits in a procurement AI strategy, <a href="/insights/ai-in-procurement-start.html">Where to Start With AI in Procurement</a> is a useful starting point.</span>
+            <span class="cz">Pro podobný flow aplikovaný na jiný provozní problém — schvalování rezervací firemních aut — viz <a href="/insights/car-booking-automation.html">Automatizace rezervace aut</a>. Pro širší otázku, kam monitorování smluv patří ve strategii AI v nákupu, je <a href="/insights/ai-in-procurement-start.html">Kde začít s AI v nákupu</a> užitečným výchozím bodem.</span>
+        </p>
+
+    </div>
+</article>
+
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">Power Automate</span>
+        <span class="article-tag">AI Builder</span>
+        <span class="article-tag">SharePoint</span>
+        <span class="article-tag">Teams</span>
+        <span class="article-tag">Contract Management</span>
+        <span class="article-tag">Microsoft 365</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')" title="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText(location.href)" title="Copy link">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.07a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L4.34 8.374"/></svg>
+        </button>
+    </div>
+</div>
+
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3><span class="en">Related insights</span><span class="cz">Související články</span></h3>
+            <a href="/insights" class="related-back">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                <span class="en">All insights</span><span class="cz">Všechny články</span>
+            </a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/car-booking-automation.html" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ použití</span></span>
+                <h4><span class="en">Company Car Booking Automation With Power Automate</span><span class="cz">Automatizace rezervace firemních aut přes Power Automate</span></h4>
+                <p><span class="en">4-step flow. Teams approval. Zero email chains. A similar pattern applied to fleet management.</span><span class="cz">4krokový flow. Schválení v Teams. Žádné e-mailové řetězce. Podobný vzor aplikovaný na správu vozového parku.</span></p>
+            </a>
+            <a href="/insights/ai-in-procurement-start.html" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
+                <h4><span class="en">Where to Start With AI in Procurement</span><span class="cz">Kde začít s AI v nákupu</span></h4>
+                <p><span class="en">Contract monitoring is one of the cleanest entry points. Here is how to think about the broader map.</span><span class="cz">Monitorování smluv je jeden z nejčistších vstupních bodů. Zde je způsob, jak přemýšlet o širší mapě.</span></p>
+            </a>
+            <a href="/insights/copilot-procurement-workflows.html" class="related-card">
+                <span class="related-badge tutorial"><span class="en">Tutorial</span><span class="cz">Návod</span></span>
+                <h4><span class="en">Microsoft Copilot in Procurement: Five Workflows</span><span class="cz">Microsoft Copilot v nákupu: pět workflow</span></h4>
+                <p><span class="en">What Copilot actually does in Teams, Outlook, and Excel — and where it fits alongside flows like this one.</span><span class="cz">Co Copilot skutečně dělá v Teams, Outlooku a Excelu — a kde se hodí vedle flow jako je tento.</span></p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3><span class="en">Want this running in your tenant?</span><span class="cz">Chcete to spustit ve vašem tenantovi?</span></h3>
+        <p><span class="en">A short call is usually enough to scope the folder structure, check your AI Builder credits, and hand you a working flow. No ongoing dependency.</span><span class="cz">Krátký hovor obvykle stačí k vymezení struktury složek, kontrole kreditů AI Builder a předání funkčního flow. Žádná průběžná závislost.</span></p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            <span class="en">Book a Free Call</span><span class="cz">Domluvit hovor zdarma</span>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense · David Račák</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+    try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+    try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+    const bl = navigator.language || '';
+    setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+</body>
+</html>

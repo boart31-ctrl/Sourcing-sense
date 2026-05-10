@@ -172,6 +172,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://sourcing-sense.com/insights/contract-nemesis</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Resources -->
   <url>
     <loc>https://sourcing-sense.com/resources/ai-policy-template</loc>
