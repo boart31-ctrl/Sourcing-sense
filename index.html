@@ -120,15 +120,15 @@
             --gold-light: #fbbf24;
             --emerald: #10b981;
 
-            /* Base body shift — dark navy-black instead of pure near-black */
-            --bg-primary:  #06071a;
-            --bg-surface:  #080d1e;
-            --bg-elevated: #0d1428;
+            /* Base body — subtle dark navy-black, readable */
+            --bg-primary:  #09091f;
+            --bg-surface:  #0d1020;
+            --bg-elevated: #131828;
 
-            --light-bg:    #06071a;
-            --light-bg-alt:#080d1e;
-            --dark-bg:     #040510;
-            --dark-bg-alt: #06071a;
+            --light-bg:    #09091f;
+            --light-bg-alt:#0d1020;
+            --dark-bg:     #070718;
+            --dark-bg-alt: #09091f;
             --dark-card:           rgba(13, 17, 23, 0.9);
             --dark-border:         rgba(255, 255, 255, 0.07);
             --dark-text:           #f1f5f9;
@@ -207,8 +207,8 @@
         .early-access {
             padding: 5rem 2rem;
             background:
-                radial-gradient(ellipse 60% 55% at 80% 0%, rgba(59,130,246,0.10) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 45% at 20% 100%, rgba(99,102,241,0.07) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 55% at 80% 0%, rgba(59,130,246,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 45% at 20% 100%, rgba(99,102,241,0.05) 0%, transparent 55%),
                 var(--bg-surface);
             position: relative; overflow: hidden;
         }
@@ -425,8 +425,8 @@
             /* Dot grid texture + blue glow */
             background-color: var(--bg-primary);
             background-image:
-                radial-gradient(ellipse 70% 60% at 75% -10%, rgba(59,130,246,0.14) 0%, transparent 65%),
-                radial-gradient(ellipse 40% 40% at 5% 80%, rgba(37,99,235,0.08) 0%, transparent 55%),
+                radial-gradient(ellipse 70% 60% at 75% -10%, rgba(59,130,246,0.11) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 5% 80%, rgba(37,99,235,0.06) 0%, transparent 55%),
                 radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
             background-size: 100%, 100%, 28px 28px;
         }
@@ -735,8 +735,8 @@
         .section-light {
             padding: 6rem 2rem;
             background:
-                radial-gradient(ellipse 70% 60% at 10% 0%, rgba(37,99,235,0.09) 0%, transparent 65%),
-                radial-gradient(ellipse 40% 30% at 90% 100%, rgba(99,102,241,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 60% at 10% 0%, rgba(59,130,246,0.06) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 30% at 90% 100%, rgba(99,102,241,0.04) 0%, transparent 60%),
                 var(--light-bg);
         }
 
@@ -744,16 +744,16 @@
         .section-light-alt {
             padding: 6rem 2rem;
             background:
-                radial-gradient(ellipse 60% 55% at 95% 0%, rgba(59,130,246,0.10) 0%, transparent 60%),
-                radial-gradient(ellipse 35% 40% at 5% 100%, rgba(37,99,235,0.06) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 55% at 95% 0%, rgba(59,130,246,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 35% 40% at 5% 100%, rgba(37,99,235,0.04) 0%, transparent 55%),
                 var(--light-bg-alt);
         }
 
         /* Tools — glow rises from bottom-center */
         #tools-section {
             background:
-                radial-gradient(ellipse 65% 50% at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 30% 25% at 15% 20%, rgba(99,102,241,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 65% 50% at 50% 100%, rgba(59,130,246,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 30% 25% at 15% 20%, rgba(99,102,241,0.04) 0%, transparent 50%),
                 var(--light-bg) !important;
         }
 
@@ -761,17 +761,17 @@
         .section-dark, .dark-section {
             padding: 6rem 2rem;
             background:
-                radial-gradient(ellipse 55% 60% at 15% 50%, rgba(37,99,235,0.11) 0%, transparent 60%),
-                radial-gradient(ellipse 40% 35% at 85% 10%, rgba(59,130,246,0.06) 0%, transparent 55%),
+                radial-gradient(ellipse 55% 60% at 15% 50%, rgba(59,130,246,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 35% at 85% 10%, rgba(37,99,235,0.05) 0%, transparent 55%),
                 var(--dark-bg);
             color: var(--dark-text);
         }
 
-        /* CTA override — strong center glow, more dramatic */
+        /* CTA override — strong center glow */
         .cta-section {
             background:
-                radial-gradient(ellipse 70% 70% at 50% 40%, rgba(37,99,235,0.15) 0%, transparent 65%),
-                radial-gradient(ellipse 30% 30% at 90% 90%, rgba(99,102,241,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 70% at 50% 40%, rgba(59,130,246,0.10) 0%, transparent 65%),
+                radial-gradient(ellipse 30% 30% at 90% 90%, rgba(99,102,241,0.05) 0%, transparent 50%),
                 var(--dark-bg) !important;
         }
 
