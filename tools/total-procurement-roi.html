@@ -225,6 +225,20 @@
         .cta-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.85rem;font-weight:600;padding:0.7rem 1.3rem;background:var(--emerald);color:white;border-radius:var(--radius-sm);transition:all 0.25s;width:fit-content;}
         .cta-btn:hover{background:#0ea572;transform:translateY(-1px);box-shadow:0 6px 20px rgba(16,185,129,0.25);}
         .cta-btn svg{width:15px;height:15px;}
+        .report-block{background:linear-gradient(135deg,rgba(37,99,235,0.06) 0%,rgba(37,99,235,0.02) 100%);border:1px solid rgba(37,99,235,0.25);border-radius:var(--radius-sm);padding:1.25rem;}
+        .report-block h4{font-size:0.95rem;margin-bottom:0.35rem;}
+        .report-block>p{font-size:0.82rem;color:var(--light-text-secondary);line-height:1.5;margin-bottom:0.9rem;}
+        .report-form{display:flex;gap:0.5rem;flex-wrap:wrap;}
+        .report-form input{flex:1;min-width:200px;padding:0.65rem 0.9rem;border:1px solid rgba(37,99,235,0.3);border-radius:var(--radius-sm);font-size:0.88rem;outline:none;}
+        .report-form input:focus{border-color:#2563eb;}
+        .report-form button{padding:0.65rem 1.2rem;background:#2563eb;color:white;border:none;border-radius:var(--radius-sm);font-size:0.85rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+        .report-form button:hover{background:#1d4ed8;}
+        .report-form button:disabled{opacity:0.6;cursor:wait;}
+        .report-msg{font-size:0.82rem;margin-top:0.6rem;display:none;}
+        .report-msg.success{display:block;color:#059669;}
+        .report-msg.error{display:block;color:#dc2626;}
+        .report-privacy{font-size:0.72rem;color:#94a3b8;margin-top:0.6rem;}
+        .report-privacy a{color:inherit;text-decoration:underline;}
 
         /* Action buttons */
         .action-buttons{display:flex;gap:0.6rem;}
@@ -851,6 +865,24 @@
         </span>
     </div>
 
+    <!-- Email report -->
+    <div class="report-block">
+        <h4><span class="en">📩 Email me this business case</span><span class="cz">📩 Poslat business case na e-mail</span></h4>
+        <p>
+            <span class="en">Get your full 8-dimension analysis in your inbox — every value driver with its source, plus the 3 steps to turn this case into an approved project.</span>
+            <span class="cz">Kompletní analýza 8 dimenzí ve vaší schránce — každá hodnota se zdrojem, plus 3 kroky, jak z business case udělat schválený projekt.</span>
+        </p>
+        <form class="report-form" onsubmit="submitReport(event)">
+            <input type="email" id="reportEmail" required placeholder="your@company.com">
+            <button type="submit" id="reportBtn"><span class="en">Send my report</span><span class="cz">Poslat report</span></button>
+        </form>
+        <div class="report-msg" id="reportMsg"></div>
+        <p class="report-privacy">
+            <span class="en">One email with your report. No spam. <a href="/privacy">Privacy</a></span>
+            <span class="cz">Jeden e-mail s reportem. Žádný spam. <a href="/privacy">Soukromí</a></span>
+        </p>
+    </div>
+
     <!-- CTA -->
     <div class="result-cta">
         <p><span class="en">These numbers are your business case. Book a free 20-min call to validate them with your actual process data.</span><span class="cz">Tato čísla jsou váš business case. Domluvte si bezplatný 20minutový hovor pro ověření se skutečnými daty.</span></p>
@@ -1300,6 +1332,45 @@ document.addEventListener('DOMContentLoaded',()=>{
     recalc();
 });
 
+// ── EMAIL REPORT (lead capture) ──
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+
+async function submitReport(e){
+    e.preventDefault();
+    const email = document.getElementById('reportEmail').value.trim();
+    const btn = document.getElementById('reportBtn');
+    const msg = document.getElementById('reportMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    msg.className = 'report-msg';
+    const payload = {
+        type: 'tool_report',
+        tool: 'total-procurement-roi',
+        email: email,
+        lang: lang,
+        project: vs('projName') || '',
+        results: {
+            totalAnnualValue: document.getElementById('resPrimary').textContent,
+            roi: document.getElementById('resRoi').textContent,
+            payback: document.getElementById('resPayback').textContent,
+            hoursFreed: document.getElementById('resHours').textContent,
+            co2Saved: document.getElementById('sumCO2').textContent,
+            incidentsPrevented: document.getElementById('sumInc').textContent
+        }
+    };
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload)), { mode: 'no-cors' });
+        msg.className = 'report-msg success';
+        msg.innerHTML = lang === 'cs'
+            ? 'Hotovo! Report dorazí během pár minut. Chcete business case projít spolu? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Rezervujte si 20 minut zdarma →</a>'
+            : 'Done! Your report is on its way. Want to pressure-test the case together? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Book a free 20-min call →</a>';
+        document.getElementById('reportEmail').value = '';
+    } catch (err) {
+        msg.className = 'report-msg error';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu, nebo napište na info@sourcing-sense.com.' : 'Something went wrong. Try again or email info@sourcing-sense.com.';
+    }
+    btn.disabled = false;
+}
 </script>
 </body>
 </html>

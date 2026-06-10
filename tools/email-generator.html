@@ -459,6 +459,26 @@
     </div>
 </div>
 
+<!-- Email pack capture -->
+<div style="max-width:1100px;margin:1.5rem auto 0;padding:0 2rem;">
+    <div style="background:linear-gradient(135deg,rgba(37,99,235,0.06) 0%,rgba(37,99,235,0.02) 100%);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:1.25rem;">
+        <h4 style="font-size:0.95rem;margin-bottom:0.35rem;"><span class="en">📩 Get all 8 templates as an editable pack</span><span class="cz">📩 Získejte všech 8 šablon jako editovatelný balíček</span></h4>
+        <p style="font-size:0.82rem;color:var(--light-text-secondary,#475569);line-height:1.5;margin-bottom:0.9rem;">
+            <span class="en">One email, all templates in EN + CZ, plus 10 negotiation phrases that consistently get supplier replies.</span>
+            <span class="cz">Jeden e-mail, všechny šablony v EN i CZ, plus 10 vyjednávacích frází, na které dodavatelé skutečně odpovídají.</span>
+        </p>
+        <form style="display:flex;gap:0.5rem;flex-wrap:wrap;" onsubmit="submitPack(event)">
+            <input type="email" id="packEmail" required placeholder="your@company.com" style="flex:1;min-width:200px;padding:0.65rem 0.9rem;border:1px solid rgba(37,99,235,0.3);border-radius:8px;font-size:0.88rem;outline:none;">
+            <button type="submit" id="packBtn" style="padding:0.65rem 1.2rem;background:#2563eb;color:white;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;white-space:nowrap;"><span class="en">Send the pack</span><span class="cz">Poslat balíček</span></button>
+        </form>
+        <div id="packMsg" style="font-size:0.82rem;margin-top:0.6rem;display:none;"></div>
+        <p style="font-size:0.72rem;color:#94a3b8;margin-top:0.6rem;">
+            <span class="en">One email with the pack. No spam. <a href="/privacy" style="color:inherit;text-decoration:underline;">Privacy</a></span>
+            <span class="cz">Jeden e-mail s balíčkem. Žádný spam. <a href="/privacy" style="color:inherit;text-decoration:underline;">Soukromí</a></span>
+        </p>
+    </div>
+</div>
+
 <!-- Bottom CTA -->
 <div class="bottom-cta">
     <p class="bottom-cta-text">
@@ -1218,6 +1238,35 @@ function toggleFaq(btn) {
     renderForm();
     renderPreview();
 })();
+
+// ── TEMPLATE PACK (lead capture) ──
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+
+async function submitPack(e) {
+    e.preventDefault();
+    const email = document.getElementById('packEmail').value.trim();
+    const btn = document.getElementById('packBtn');
+    const msg = document.getElementById('packMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+            type: 'tool_report',
+            tool: 'email-generator',
+            email: email,
+            lang: lang
+        })), { mode: 'no-cors' });
+        msg.style.display = 'block'; msg.style.color = '#059669';
+        msg.innerHTML = lang === 'cs'
+            ? 'Hotovo! Balíček dorazí během pár minut.'
+            : 'Done! The pack is on its way to your inbox.';
+        document.getElementById('packEmail').value = '';
+    } catch (err) {
+        msg.style.display = 'block'; msg.style.color = '#dc2626';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Try again.';
+    }
+    btn.disabled = false;
+}
 </script>
 </body>
 </html>

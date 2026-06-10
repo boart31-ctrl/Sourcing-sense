@@ -25,7 +25,7 @@
 | 12 | `about.html` nemá `<h1>` | Střední | ✅ opraveno |
 | 13 | FAQ schema slibuje nástroje, které neexistují („Supplier Classifier", „Quick Spend Analyzer") → riziko pro důvěru i AI odpovědi | Střední | ✅ opraveno |
 | 14 | `llms.txt` neodpovídá realitě (chybí AI Readiness Score, nové články; uvádí neexistující nástroje) | Střední | ✅ aktualizováno |
-| 15 | Kalkulačky (savings, total-roi, rfq) **nesbírají žádné e-maily** — lead magnet bez capture | Vysoký | → Fáze 2 |
+| 15 | Kalkulačky (savings, total-roi, rfq) **nesbírají žádné e-maily** — lead magnet bez capture | Vysoký | ✅ Fáze 2 hotová |
 
 ### Silné stránky (neměnit)
 - robots.txt vzorově nastavený pro AI crawlery; llms.txt + llms-full.txt existují
@@ -42,16 +42,16 @@ Vše z tabulky výše kromě #15. Detail v commitu.
 
 ---
 
-## Fáze 2 — Lead capture na nástrojích 🔜 DALŠÍ NA ŘADĚ
+## Fáze 2 — Lead capture na nástrojích ✅ HOTOVO (2026-06-10)
 
-Cíl: každý nástroj = lead magnet. Vzor: výsledek zdarma na obrazovce, **„Pošlete mi detailní report + akční plán na e-mail"** → postToGAS (backend už existuje, payload `type: 'tool_report'`).
+Každý nástroj = lead magnet. Výsledek zdarma na obrazovce, report za e-mail → GAS payload `type: 'tool_report'`.
 
-- [ ] `savings-calculator` — po výpočtu nabídnout e-mail report (vstupy + výsledky + doporučené další kroky + CTA na Calendly)
-- [ ] `total-procurement-roi` — totéž, report je tu nejhodnotnější (CPO business case)
-- [ ] `rfq-builder` — „pošlete si hotové RFQ na e-mail" (přirozený důvod dát e-mail)
-- [ ] `email-generator` — soft CTA na newsletter po zkopírování šablony
-- [ ] Po odeslání e-mailu vždy zobrazit Calendly CTA („Chcete to projít spolu? 20 min zdarma")
-- [ ] GAS skript: David musí v Apps Script doplnit odeslání reportu e-mailem (připravím přesný kód do `GAS-SETUP.md` — jediný setup, který bude potřeba)
+- [x] `savings-calculator` — e-mail report (vstupy + výsledky + 3 kroky + Calendly CTA po odeslání)
+- [x] `total-procurement-roi` — business case report (8 dimenzí, CPO úroveň)
+- [x] `rfq-builder` — „Email me the RFQ" + checklist před odesláním dodavatelům
+- [x] `email-generator` — balíček všech šablon + 10 vyjednávacích frází za e-mail
+- [x] Po odeslání každého formuláře Calendly CTA
+- [ ] ⚠️ **ČEKÁ NA DAVIDA: ~10 min setup dle `GAS-SETUP.md`** (přidat handler `tool_report` do Apps Script + nová verze deploymentu). Do té doby se leady jen ukládají požadavkem na GAS, e-mail nedojde.
 
 ## Fáze 3 — CZ SEO obsah (trh 50/50)
 
@@ -84,4 +84,4 @@ Cíl: každý nástroj = lead magnet. Vzor: výsledek zdarma na obrazovce, **„
 - [ ] UTM šablony na všechny odchozí kampaně
 
 ---
-*Poslední aktualizace: 2026-06-10 · Fáze 0–1 hotovo, pokračovat Fází 2.*
+*Poslední aktualizace: 2026-06-10 · Fáze 0–2 hotovo, pokračovat Fází 3 (CZ SEO obsah). David: udělat GAS-SETUP.md.*
