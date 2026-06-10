@@ -14,9 +14,6 @@
     <meta name="author" content="David Račák">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://sourcing-sense.com/tools/rfq-builder" />
-    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/tools/rfq-builder" />
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/tools/rfq-builder" />
-    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/tools/rfq-builder" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
     <meta property="og:type" content="website" />
@@ -25,9 +22,10 @@
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:title" content="Free RFQ Builder Tool — AI Template | Sourcing Sense" />
     <meta property="og:description" content="4-step wizard. Scope, requirements, evaluation criteria, terms. Download your RFQ in minutes. Free, no sign-up." />
-    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
     <meta property="og:url" content="https://sourcing-sense.com/tools/rfq-builder" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://sourcing-sense.com/og-image.png" />
 
     <script type="application/ld+json">
     {
@@ -252,6 +250,20 @@
         }
         .result-header h2 { font-family: var(--font-display); color: white; font-size: 1.3rem; font-weight: 400; }
         .result-actions { display: flex; gap: 0.5rem; }
+        .report-block{background:linear-gradient(135deg,rgba(37,99,235,0.06) 0%,rgba(37,99,235,0.02) 100%);border:1px solid rgba(37,99,235,0.25);border-radius:12px;padding:1.25rem;margin-top:1.25rem;}
+        .report-block h4{font-size:0.95rem;margin-bottom:0.35rem;}
+        .report-block>p{font-size:0.82rem;color:var(--light-text-secondary);line-height:1.5;margin-bottom:0.9rem;}
+        .report-form{display:flex;gap:0.5rem;flex-wrap:wrap;}
+        .report-form input{flex:1;min-width:200px;padding:0.65rem 0.9rem;border:1px solid rgba(37,99,235,0.3);border-radius:8px;font-size:0.88rem;outline:none;}
+        .report-form input:focus{border-color:#2563eb;}
+        .report-form button{padding:0.65rem 1.2rem;background:#2563eb;color:white;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+        .report-form button:hover{background:#1d4ed8;}
+        .report-form button:disabled{opacity:0.6;cursor:wait;}
+        .report-msg{font-size:0.82rem;margin-top:0.6rem;display:none;}
+        .report-msg.success{display:block;color:#059669;}
+        .report-msg.error{display:block;color:#dc2626;}
+        .report-privacy{font-size:0.72rem;color:#94a3b8;margin-top:0.6rem;}
+        .report-privacy a{color:inherit;text-decoration:underline;}
         .btn-copy, .btn-download {
             display: inline-flex; align-items: center; gap: 0.4rem;
             font-size: 0.8rem; font-weight: 600; padding: 0.5rem 1rem;
@@ -674,6 +686,25 @@
             </div>
         </div>
         <div class="result-doc" id="resultDoc"></div>
+
+        <!-- Email report -->
+        <div class="report-block">
+            <h4><span class="en">📩 Send this RFQ to my inbox</span><span class="cz">📩 Poslat RFQ na e-mail</span></h4>
+            <p>
+                <span class="en">Get your finished RFQ by email — ready to forward to suppliers — plus a one-page checklist of what to verify before you send it out.</span>
+                <span class="cz">Hotové RFQ vám pošlu e-mailem — připravené k přeposlání dodavatelům — plus jednostránkový checklist, co zkontrolovat před odesláním.</span>
+            </p>
+            <form class="report-form" onsubmit="submitReport(event)">
+                <input type="email" id="reportEmail" required placeholder="your@company.com">
+                <button type="submit" id="reportBtn"><span class="en">Email me the RFQ</span><span class="cz">Poslat RFQ</span></button>
+            </form>
+            <div class="report-msg" id="reportMsg"></div>
+            <p class="report-privacy">
+                <span class="en">One email with your document. No spam. <a href="/privacy">Privacy</a></span>
+                <span class="cz">Jeden e-mail s dokumentem. Žádný spam. <a href="/privacy">Soukromí</a></span>
+            </p>
+        </div>
+
         <div class="restart-row">
             <button class="btn-restart" onclick="restart()">
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
@@ -1134,6 +1165,39 @@ function toggleFaq(btn) {
     setLang(currentLang);
     initCriteria();
 })();
+
+// ── EMAIL REPORT (lead capture) ──
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+
+async function submitReport(e) {
+    e.preventDefault();
+    const email = document.getElementById('reportEmail').value.trim();
+    const btn = document.getElementById('reportBtn');
+    const msg = document.getElementById('reportMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    msg.className = 'report-msg';
+    const doc = document.getElementById('resultDoc').textContent || '';
+    const payload = {
+        type: 'tool_report',
+        tool: 'rfq-builder',
+        email: email,
+        lang: lang,
+        document: doc.slice(0, 6000)
+    };
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload)), { mode: 'no-cors' });
+        msg.className = 'report-msg success';
+        msg.innerHTML = lang === 'cs'
+            ? 'Hotovo! RFQ dorazí během pár minut. Chcete poptávku zkonzultovat? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Rezervujte si 20 minut zdarma →</a>'
+            : 'Done! Your RFQ is on its way. Want a second pair of eyes on it? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Book a free 20-min call →</a>';
+        document.getElementById('reportEmail').value = '';
+    } catch (err) {
+        msg.className = 'report-msg error';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu, nebo napište na info@sourcing-sense.com.' : 'Something went wrong. Try again or email info@sourcing-sense.com.';
+    }
+    btn.disabled = false;
+}
 </script>
 </body>
 </html>

@@ -4,14 +4,14 @@
   <!-- Hlavní stránky -->
   <url>
     <loc>https://sourcing-sense.com/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://sourcing-sense.com/tools</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,7 +32,7 @@
 
   <url>
     <loc>https://sourcing-sense.com/about</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -167,7 +167,7 @@
 
   <url>
     <loc>https://sourcing-sense.com/insights/why-ai-projects-fail</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -222,6 +222,20 @@
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/insights/ai-policy-procurement</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://sourcing-sense.com/privacy</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

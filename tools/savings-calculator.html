@@ -14,9 +14,6 @@
     <meta name="author" content="David Račák">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://sourcing-sense.com/tools/savings-calculator" />
-    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/tools/savings-calculator" />
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/tools/savings-calculator" />
-    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/tools/savings-calculator" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
     <meta property="og:type" content="website" />
@@ -25,9 +22,10 @@
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:title" content="Procurement Savings Calculator — Free Tool | Sourcing Sense" />
     <meta property="og:description" content="See exactly how much your manual procurement processes cost — and what automation would save. Free, no sign-up." />
-    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.png" />
     <meta property="og:url" content="https://sourcing-sense.com/tools/savings-calculator" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://sourcing-sense.com/og-image.png" />
 
     <script type="application/ld+json">
     {
@@ -287,6 +285,34 @@
             border-radius: var(--radius-sm); padding: 1.25rem;
             display: flex; flex-direction: column; gap: 0.75rem;
         }
+
+        /* Email report block */
+        .report-block {
+            background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(37,99,235,0.02) 100%);
+            border: 1px solid rgba(37,99,235,0.25);
+            border-radius: var(--radius-sm); padding: 1.25rem;
+        }
+        .report-block h4 { font-size: 0.98rem; margin-bottom: 0.35rem; }
+        .report-block > p { font-size: 0.83rem; color: var(--light-text-secondary); line-height: 1.5; margin-bottom: 0.9rem; }
+        .report-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .report-form input {
+            flex: 1; min-width: 200px; padding: 0.65rem 0.9rem;
+            border: 1px solid rgba(37,99,235,0.3); border-radius: var(--radius-sm);
+            font-size: 0.88rem; outline: none;
+        }
+        .report-form input:focus { border-color: var(--accent, #2563eb); }
+        .report-form button {
+            padding: 0.65rem 1.2rem; background: #2563eb; color: white; border: none;
+            border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600;
+            cursor: pointer; white-space: nowrap; transition: all 0.2s;
+        }
+        .report-form button:hover { background: #1d4ed8; }
+        .report-form button:disabled { opacity: 0.6; cursor: wait; }
+        .report-msg { font-size: 0.82rem; margin-top: 0.6rem; display: none; }
+        .report-msg.success { display: block; color: #059669; }
+        .report-msg.error { display: block; color: #dc2626; }
+        .report-privacy { font-size: 0.72rem; color: var(--light-text-muted, #94a3b8); margin-top: 0.6rem; }
+        .report-privacy a { color: inherit; text-decoration: underline; }
         .result-cta p {
             font-size: 0.85rem; color: var(--light-text-secondary); line-height: 1.5;
         }
@@ -686,6 +712,24 @@
             </div>
         </div>
 
+        <!-- Email report -->
+        <div class="report-block">
+            <h4><span class="en">📩 Get this as a detailed report</span><span class="cz">📩 Získejte detailní report</span></h4>
+            <p>
+                <span class="en">I'll send your numbers to your inbox with a breakdown of the calculation, benchmarks for your process type, and the 3 next steps to actually capture these savings.</span>
+                <span class="cz">Pošlu vám vaše čísla na e-mail — s rozpadem výpočtu, benchmarky pro váš typ procesu a 3 dalšími kroky, jak úspory skutečně získat.</span>
+            </p>
+            <form class="report-form" onsubmit="submitReport(event)">
+                <input type="email" id="reportEmail" required placeholder="your@company.com">
+                <button type="submit" id="reportBtn"><span class="en">Send my report</span><span class="cz">Poslat report</span></button>
+            </form>
+            <div class="report-msg" id="reportMsg"></div>
+            <p class="report-privacy">
+                <span class="en">One email with your report. No spam. <a href="/privacy">Privacy</a></span>
+                <span class="cz">Jeden e-mail s reportem. Žádný spam. <a href="/privacy">Soukromí</a></span>
+            </p>
+        </div>
+
         <!-- CTA -->
         <div class="result-cta">
             <p>
@@ -1031,6 +1075,56 @@ function toggleFaq(btn) {
 
     recalc();
 })();
+
+// ═══════════════════════════
+// EMAIL REPORT (lead capture)
+// ═══════════════════════════
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+
+async function submitReport(e) {
+    e.preventDefault();
+    const email = document.getElementById('reportEmail').value.trim();
+    const btn = document.getElementById('reportBtn');
+    const msg = document.getElementById('reportMsg');
+    const lang = document.documentElement.getAttribute('data-lang') || 'en';
+    btn.disabled = true;
+    msg.className = 'report-msg';
+    const payload = {
+        type: 'tool_report',
+        tool: 'savings-calculator',
+        email: email,
+        lang: lang,
+        currency: currency,
+        inputs: {
+            preset: document.getElementById('presetSelect').value,
+            hoursPerOccurrence: document.getElementById('slHours').value,
+            occurrencesPerYear: document.getElementById('slFreq').value,
+            people: document.getElementById('slPeople').value,
+            hourlyCost: document.getElementById('inCost').value,
+            efficiencyPct: document.getElementById('slEff').value,
+            implementationCost: document.getElementById('slImpl').value
+        },
+        results: {
+            annualSavings: document.getElementById('resSavings').textContent,
+            currentAnnualCost: document.getElementById('resCurrent').textContent,
+            hoursFreed: document.getElementById('resHours').textContent,
+            payback: document.getElementById('resPayback').textContent,
+            firstYearRoi: document.getElementById('resRoi').textContent
+        }
+    };
+    try {
+        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload)), { mode: 'no-cors' });
+        msg.className = 'report-msg success';
+        msg.innerHTML = lang === 'cs'
+            ? 'Hotovo! Report dorazí během pár minut. Mezitím — chcete čísla projít spolu? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Rezervujte si 20 minut zdarma →</a>'
+            : 'Done! Your report is on its way. Meanwhile — want to walk through the numbers together? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="font-weight:600;">Book a free 20-min call →</a>';
+        document.getElementById('reportEmail').value = '';
+    } catch (err) {
+        msg.className = 'report-msg error';
+        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu, nebo napište na info@sourcing-sense.com.' : 'Something went wrong. Try again or email info@sourcing-sense.com.';
+    }
+    btn.disabled = false;
+}
 </script>
 </body>
 </html>
