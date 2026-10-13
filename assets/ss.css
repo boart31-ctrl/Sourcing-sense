@@ -43,6 +43,7 @@ html {
     background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
     background-attachment: fixed;
 }
+html { overflow-x: clip; }
 html body { background: transparent !important; color: var(--ss-text); }
 #ss-bg { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; opacity: 0.9; }
 
@@ -155,7 +156,9 @@ nav.scrolled { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important; }
 .callout-title { color: var(--ss-text) !important; text-transform: none !important; letter-spacing: 0 !important; }
 .prompt-block, .prompt-box { background: #081127 !important; border: 1px solid var(--ss-line) !important; }
 .prompt-block pre, .prompt-block code { color: #d6def0 !important; background: none !important; }
+.prompt-block pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 
+.prose > table, .prose table.kpi-table { display: block; max-width: 100%; overflow-x: auto; }
 .table-wrapper { border-color: var(--ss-line) !important; background: rgba(11, 22, 51, 0.7); }
 .prose th { background: var(--ss-raised) !important; color: var(--ss-text) !important; }
 .prose td, .prose th { border-bottom-color: var(--ss-line) !important; }
