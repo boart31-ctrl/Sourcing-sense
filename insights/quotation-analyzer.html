@@ -20,10 +20,8 @@
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="cs_CZ" />
     <link rel="canonical" href="https://sourcing-sense.com/insights/quotation-analyzer.html">
     <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/quotation-analyzer.html" />
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/quotation-analyzer.html" />
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/quotation-analyzer.html" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
@@ -404,7 +402,6 @@
         }
 
         [data-lang="en"] .cz { display: none !important; }
-        [data-lang="cs"] .en { display: none !important; }
 
         /* ═══════════════════════════════════════════
            DARK THEME OVERRIDE
@@ -476,30 +473,26 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <ul class="nav-center">
-        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
-        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
-        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
-        </div>
-        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span></a>
     </div>
     <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
-    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
         
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -509,37 +502,35 @@
     <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
 
         <div class="breadcrumb">
-            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <a href="/"><span class="en">Home</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <a href="/insights"><span class="en">Insights</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <span><span class="en">Quotation Analyzer</span><span class="cz">Analyzátor nabídek</span></span>
+            <span><span class="en">Quotation Analyzer</span></span>
         </div>
 
         <span class="article-badge use-case">
-            <span class="en">Use Case</span><span class="cz">Případ</span>
+            <span class="en">Use Case</span>
         </span>
 
         <h1>
             <span class="en">How I Built an AI Quotation Analyzer in 10 Minutes Using Power Automate</span>
-            <span class="cz">Jak jsem za 10 minut postavil AI analyzátor nabídek v Power Automate</span>
         </h1>
 
         <p class="article-excerpt">
             <span class="en">3 steps. Zero extra licenses. Upload a supplier PDF in any language — get a structured procurement analysis in Teams within two minutes. Here's exactly how.</span>
-            <span class="cz">3 kroky. Žádné extra licence. Nahrajte PDF od dodavatele v jakémkoliv jazyce — do dvou minut dostanete strukturovanou analýzu v Teams. Přesně takhle.</span>
         </p>
 
         <div class="article-meta">
             <span>
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-                <span class="en">8 min read</span><span class="cz">8 min čtení</span>
+                <span class="en">8 min read</span>
             </span>
             <span>
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-                <span class="en">February 2026</span><span class="cz">Únor 2026</span>
+                <span class="en">February 2026</span>
             </span>
-            <span class="article-result-tag">⚡ 30 min <span class="en">to build</span><span class="cz">na sestavení</span></span>
+            <span class="article-result-tag">⚡ 30 min <span class="en">to build</span></span>
         </div>
 
     </div>
@@ -554,49 +545,44 @@
         <div class="results-box">
             <div class="results-box-item">
                 <div class="results-box-num">3</div>
-                <div class="results-box-label"><span class="en">Steps to build</span><span class="cz">Kroky k sestavení</span></div>
+                <div class="results-box-label"><span class="en">Steps to build</span></div>
             </div>
             <div class="results-box-item">
                 <div class="results-box-num">10 min</div>
-                <div class="results-box-label"><span class="en">Setup time</span><span class="cz">Čas na setup</span></div>
+                <div class="results-box-label"><span class="en">Setup time</span></div>
             </div>
             <div class="results-box-item">
                 <div class="results-box-num">€0</div>
-                <div class="results-box-label"><span class="en">Extra cost</span><span class="cz">Náklady navíc</span></div>
+                <div class="results-box-label"><span class="en">Extra cost</span></div>
             </div>
         </div>
 
-        <h2><span class="en">The Problem</span><span class="cz">Problém</span></h2>
+        <h2><span class="en">The Problem</span></h2>
 
         <p>
             <span class="en">I was drowning in supplier quotations I couldn't properly read. Different formats. Different languages. German machinery quotes with nested appendices. Czech service offers buried in legal text. Italian HVAC proposals with pricing structures that made no sense without context.</span>
-            <span class="cz">Topil jsem se v nabídkách dodavatelů, které jsem nemohl pořádně přečíst. Různé formáty. Různé jazyky. Německé nabídky strojů s vnořenými přílohami. České nabídky služeb zabalené v právním textu. Italské HVAC nabídky s cenovými strukturami, které bez kontextu nedávaly smysl.</span>
         </p>
 
         <p>
             <span class="en">Every quotation required the same mental process: extract the key commercial terms, identify what's missing, flag risks, and figure out the negotiation levers. The analysis itself isn't hard — it's just <strong>repetitive, time-consuming, and easy to rush when you're reviewing your fifteenth PDF that week</strong>.</span>
-            <span class="cz">Každá nabídka vyžadovala stejný mentální proces: extrahovat klíčové obchodní podmínky, identifikovat co chybí, označit rizika a najít páky pro vyjednávání. Samotná analýza není těžká — je jen <strong>opakující se, časově náročná a snadno se uspěchá, když kontrolujete patnácté PDF ten týden</strong>.</span>
         </p>
 
         <p>
             <span class="en">What I wanted was simple: drop a PDF into a folder, and get a procurement-ready analysis back. No switching apps. No copy-pasting into ChatGPT. No formatting the output for my manager.</span>
-            <span class="cz">Co jsem chtěl bylo jednoduché: hodit PDF do složky a dostat zpět analýzu připravenou pro nákup. Žádné přepínání aplikací. Žádné kopírování do ChatGPT. Žádné formátování výstupu pro nadřízeného.</span>
         </p>
 
         <div class="callout info">
-            <div class="callout-title"><span class="en">Why This Matters</span><span class="cz">Proč na tom záleží</span></div>
+            <div class="callout-title"><span class="en">Why This Matters</span></div>
             <span class="en">Most procurement teams already have Microsoft 365 with Power Automate and Azure OpenAI access included in their corporate license. They just don't know it. No procurement of new software needed — no security review, no IT approval, no budget request.</span>
-            <span class="cz">Většina nákupních týmů už má Microsoft 365 s Power Automate a přístupem k Azure OpenAI zahrnutým ve firemní licenci. Jen o tom nevědí. Žádný nákup nového softwaru — žádná bezpečnostní kontrola, žádné schvalování IT, žádná žádost o rozpočet.</span>
         </div>
 
-        <h2><span class="en">The Solution: 3 Steps in Power Automate</span><span class="cz">Řešení: 3 kroky v Power Automate</span></h2>
+        <h2><span class="en">The Solution: 3 Steps in Power Automate</span></h2>
 
         <p>
             <span class="en">The entire flow has exactly three components. That's it. Here's what each one does:</span>
-            <span class="cz">Celý flow má přesně tři komponenty. To je vše. Tady je co každý dělá:</span>
         </p>
 
-        <h3><span class="en">Step 1: Trigger — "When a file is created in a folder"</span><span class="cz">Krok 1: Trigger — "Když je soubor vytvořen ve složce"</span></h3>
+        <h3><span class="en">Step 1: Trigger — "When a file is created in a folder"</span></h3>
 
         <!-- Power Automate flow screenshot -->
 <figure style="margin: 2rem 0;">
@@ -605,33 +591,28 @@
          style="border-radius: var(--radius); border: 1px solid var(--light-border); width: 100%;">
     <figcaption style="font-size: 0.82rem; color: var(--light-text-muted); margin-top: 0.6rem; text-align: center;">
         <span class="en">The entire flow. Three steps. That's it.</span>
-        <span class="cz">Celý flow. Tři kroky. To je vše.</span>
     </figcaption>
 </figure>
         <p>
             <span class="en">Point this to a SharePoint folder (or OneDrive). Whenever anyone drops a PDF into that folder, the flow fires automatically. No buttons to click, no forms to fill out. Just drag and drop.</span>
-            <span class="cz">Namiřte to na SharePoint složku (nebo OneDrive). Kdykoli kdokoli hodí PDF do složky, flow se automaticky spustí. Žádná tlačítka, žádné formuláře. Stačí drag and drop.</span>
         </p>
 
         <p>
             <span class="en">You can set this up for your whole team — one shared folder, multiple buyers dropping quotes in, everyone getting structured analysis back.</span>
-            <span class="cz">Můžete to nastavit pro celý tým — jedna sdílená složka, více nákupčích háže nabídky dovnitř, každý dostane zpět strukturovanou analýzu.</span>
         </p>
 
-        <h3><span class="en">Step 2: AI Analysis — "Run a prompt"</span><span class="cz">Krok 2: AI Analýza — "Spustit prompt"</span></h3>
+        <h3><span class="en">Step 2: AI Analysis — "Run a prompt"</span></h3>
 
         <p>
             <span class="en">This is where the magic happens. Power Automate's <strong>"Run a prompt"</strong> action sends the uploaded document to an AI model (GPT-3.5 via Azure, included in your Microsoft license) along with your custom instructions.</span>
-            <span class="cz">Tady se děje ta magie. Akce <strong>"Run a prompt"</strong> v Power Automate pošle nahraný dokument do AI modelu (GPT-3.5 přes Azure, zahrnutý ve vaší Microsoft licenci) spolu s vašimi vlastními instrukcemi.</span>
         </p>
 
         <p>
             <span class="en">The prompt is the most important part of the entire setup. It tells the AI exactly how to think like a procurement professional. Mine assigns the AI a role — a senior procurement expert who evaluates quotations against specific criteria. Here's the structure I use:</span>
-            <span class="cz">Prompt je nejdůležitější část celého setupu. Říká AI přesně jak přemýšlet jako nákupní profesionál. Můj přiřadí AI roli — seniorního nákupního experta, který hodnotí nabídky podle specifických kritérií. Tady je struktura kterou používám:</span>
         </p>
 
         <div class="callout tip">
-            <div class="callout-title"><span class="en">Prompt Structure Overview</span><span class="cz">Přehled struktury promptu</span></div>
+            <div class="callout-title"><span class="en">Prompt Structure Overview</span></div>
             <span class="en"><strong>Role:</strong> Senior procurement expert in Category Management, Strategic Procurement, and TCO analysis.<br><br>
             <strong>Task — when a document is uploaded, perform:</strong><br>
             1. Document Summary — table format with supplier, price, terms, lead time, score<br>
@@ -640,93 +621,71 @@
             4. Three Negotiation Strategies — Conservative (essentials), Balanced (value enhancers), Progressive (turn offer into advantage)<br>
             5. Executive Summary — is this approval-ready or does it need rework?<br><br>
             <strong>Rules:</strong> Score based on content present, not assumptions. Don't hallucinate missing data. List what's missing explicitly.</span>
-            <span class="cz"><strong>Role:</strong> Seniorní nákupní expert v Category Managementu, Strategickém nákupu a TCO analýze.<br><br>
-            <strong>Úkol — při nahrání dokumentu proveď:</strong><br>
-            1. Shrnutí dokumentu — tabulkový formát s dodavatelem, cenou, podmínkami, dodací lhůtou, skóre<br>
-            2. Evaluační tabulka — ohodnoť 8 oblastí (transparentnost ceny, TCO, technické specifikace, platební podmínky, compliance, dodávka, riziko, ESG) každou x/10 s komentářem<br>
-            3. Odchylky — označ vše co se odchyluje od best practices v nákupu<br>
-            4. Tři vyjednávací strategie — Konzervativní (nutné minimum), Balanced (přidaná hodnota), Progresivní (obrátit nabídku ve výhodu)<br>
-            5. Exekutivní shrnutí — je to připravené ke schválení nebo potřebuje přepracovat?<br><br>
-            <strong>Pravidla:</strong> Hodnoť na základě obsahu, ne domněnek. Nehallucimuj chybějící data. Explicitně uveď co chybí.</span>
         </div>
 
         <p>
             <span class="en">Because this runs on GPT-3.5 (older model through Azure), you need to be <strong>very specific</strong> in your prompt. With newer models like GPT-4 or Claude, you could be vaguer and still get great results. With 3.5, precision in instructions is everything — which is actually a good discipline for any prompt engineer.</span>
-            <span class="cz">Protože to běží na GPT-3.5 (starší model přes Azure), musíte být <strong>velmi specifičtí</strong> v promptu. S novějšími modely jako GPT-4 nebo Claude byste mohli být vágní a stále dostat skvělé výsledky. S 3.5 je přesnost v instrukcích vše — což je vlastně dobrá disciplína pro každého prompt inženýra.</span>
         </p>
 
         <p>
             <span class="en">The output arrives in under two minutes. Structured tables, scores, negotiation tactics — ready to forward to your manager or paste into an approval workflow.</span>
-            <span class="cz">Výstup dorazí do dvou minut. Strukturované tabulky, skóre, vyjednávací taktiky — připravené k přeposlání nadřízenému nebo vložení do schvalovacího workflow.</span>
         </p>
 
-        <h3><span class="en">Step 3: Delivery — "Post message in a chat or channel"</span><span class="cz">Krok 3: Doručení — "Odeslat zprávu do chatu nebo kanálu"</span></h3>
+        <h3><span class="en">Step 3: Delivery — "Post message in a chat or channel"</span></h3>
 
         <p>
             <span class="en">The final step sends the AI analysis to Microsoft Teams — either to a specific channel (e.g., #procurement-reviews) or directly to you as a private message. The analysis appears formatted and ready to read, right where your team already works.</span>
-            <span class="cz">Poslední krok pošle AI analýzu do Microsoft Teams — buď do specifického kanálu (např. #procurement-reviews) nebo přímo vám jako soukromou zprávu. Analýza se objeví naformátovaná a připravená ke čtení, přímo tam kde váš tým už pracuje.</span>
         </p>
 
         <p>
             <span class="en">No new app to open. No email to forward. The analysis meets you where you already are.</span>
-            <span class="cz">Žádná nová aplikace k otevření. Žádný email k přeposílání. Analýza vás potká tam, kde už jste.</span>
         </p>
 
-        <h2><span class="en">What the Output Looks Like</span><span class="cz">Jak vypadá výstup</span></h2>
+        <h2><span class="en">What the Output Looks Like</span></h2>
 
         <p>
             <span class="en">For every quotation, you get a structured evaluation covering eight procurement-critical areas. Each area gets a score out of 10 and a specific comment about what's present, what's missing, and what's risky.</span>
-            <span class="cz">Pro každou nabídku dostanete strukturované hodnocení pokrývající osm oblastí kritických pro nákup. Každá oblast dostane skóre z 10 a specifický komentář o tom co je přítomné, co chybí a co je rizikové.</span>
         </p>
 
         <p>
             <span class="en">The areas evaluated are: <strong>Price Transparency</strong> (are costs detailed including Incoterms?), <strong>Total Cost of Ownership</strong> (are long-term costs included?), <strong>Technical Specifications</strong> (are specs clear and sufficient?), <strong>Contractual &amp; Payment Terms</strong> (are payment terms balanced?), <strong>Compliance &amp; Standards</strong> (CE marking, EHS, safety?), <strong>Delivery &amp; Logistics</strong> (Incoterms, shipping, insurance?), <strong>Risk &amp; Responsibility</strong> (liabilities covered?), and <strong>Sustainability &amp; ESG</strong> (any green factors mentioned?).</span>
-            <span class="cz">Hodnocené oblasti jsou: <strong>Transparentnost ceny</strong> (jsou náklady detailní včetně Incoterms?), <strong>Celkové náklady vlastnictví</strong> (jsou zahrnuty dlouhodobé náklady?), <strong>Technické specifikace</strong> (jsou specifikace jasné a dostatečné?), <strong>Smluvní a platební podmínky</strong> (jsou platební podmínky vyvážené?), <strong>Compliance &amp; standardy</strong> (CE značení, EHS, bezpečnost?), <strong>Dodávka &amp; logistika</strong> (Incoterms, doprava, pojištění?), <strong>Riziko &amp; odpovědnost</strong> (jsou závazky pokryty?) a <strong>Udržitelnost &amp; ESG</strong> (jsou zmíněny zelené faktory?).</span>
         </p>
 
         <p>
             <span class="en">Then you get three negotiation strategies — from conservative essentials to progressive tactics that can turn a mediocre offer into a strategic advantage. This is where the real value lives: instead of just reading the quote, you get <strong>actionable next steps for the negotiation</strong>.</span>
-            <span class="cz">Pak dostanete tři vyjednávací strategie — od konzervativních nezbytností po progresivní taktiky, které mohou proměnit průměrnou nabídku ve strategickou výhodu. Tady žije skutečná hodnota: místo pouhého čtení nabídky dostanete <strong>konkrétní kroky pro vyjednávání</strong>.</span>
         </p>
 
         <blockquote>
             <span class="en">"The most important part is not the flow itself — it's the prompt. For me, this is where AI really shines: when there's too much unstructured data and I need clarity, not creativity."</span>
-            <span class="cz">„Nejdůležitější část není samotný flow — je to prompt. Pro mě je tohle místo, kde AI opravdu září: když je příliš mnoho nestrukturovaných dat a potřebuji jasnost, ne kreativitu."</span>
         </blockquote>
 
-        <h2><span class="en">What You Can Add Later</span><span class="cz">Co můžete přidat později</span></h2>
+        <h2><span class="en">What You Can Add Later</span></h2>
 
         <p>
             <span class="en">This three-step flow is the starting point. Once your team starts using it and trusting the output, you can extend it with storing quotations in a SharePoint list for comparison, comparing similar offers side by side, extracting pricing structures into Excel for benchmarking, and routing high-value quotes to a manager for approval automatically.</span>
-            <span class="cz">Tento tříkrokový flow je startovní bod. Jakmile ho váš tým začne používat a důvěřovat výstupům, můžete ho rozšířit o ukládání nabídek do SharePoint seznamu pro porovnání, srovnávání podobných nabídek vedle sebe, extrahování cenových struktur do Excelu pro benchmarking a automatické směrování nabídek vysoké hodnoty k nadřízenému ke schválení.</span>
         </p>
 
         <p>
             <span class="en">But first, you need something people actually use. Everything else comes later.</span>
-            <span class="cz">Ale nejdřív potřebujete něco, co lidé opravdu používají. Všechno ostatní přijde potom.</span>
         </p>
 
         <div class="callout warning">
-            <div class="callout-title"><span class="en">Important Limitation</span><span class="cz">Důležité omezení</span></div>
+            <div class="callout-title"><span class="en">Important Limitation</span></div>
             <span class="en">This flow uses GPT-3.5 through Azure — it's included in most corporate Microsoft licenses at no extra cost. However, accuracy improves dramatically with GPT-4 or Claude. If your company has access to premium AI models, the same prompt structure will produce even better results. The prompt architecture matters more than the model version.</span>
-            <span class="cz">Tento flow používá GPT-3.5 přes Azure — je zahrnutý ve většině firemních Microsoft licencí bez extra nákladů. Přesnost se ale dramaticky zlepší s GPT-4 nebo Claude. Pokud má vaše firma přístup k prémiovým AI modelům, stejná struktura promptu bude produkovat ještě lepší výsledky. Architektura promptu je důležitější než verze modelu.</span>
         </div>
 
-        <h2><span class="en">Results</span><span class="cz">Výsledky</span></h2>
+        <h2><span class="en">Results</span></h2>
 
         <p>
             <span class="en">What used to take 15–30 minutes of focused reading, highlighting, and note-taking per quotation now takes under two minutes — and the output is more consistent than manual review. The AI doesn't get tired on the fifteenth PDF. It doesn't skip the ESG check because it's Friday afternoon. It applies the same rigorous framework every single time.</span>
-            <span class="cz">Co dříve zabralo 15–30 minut soustředěného čtení, zvýrazňování a poznámkování na nabídku, nyní trvá pod dvě minuty — a výstup je konzistentnější než manuální kontrola. AI se neunaví u patnáctého PDF. Nepřeskočí ESG kontrolu protože je pátek odpoledne. Aplikuje stejný důsledný framework pokaždé.</span>
         </p>
 
         <p>
             <span class="en">The whole thing took less than 10 minutes to build. The real investment was crafting the prompt — understanding what a good procurement analysis actually needs to cover, and translating that into clear instructions for the model.</span>
-            <span class="cz">Celá věc zabrala méně než 10 minut na sestavení. Skutečná investice byla vytvoření promptu — pochopení toho co kvalitní nákupní analýza skutečně musí pokrýt, a přeložení toho do jasných instrukcí pro model.</span>
         </p>
 
         <p>
             <span class="en">If your company has Microsoft 365, you can build this right now. No IT ticket. No vendor evaluation. No budget. Just Power Automate, a SharePoint folder, and a well-written prompt.</span>
-            <span class="cz">Pokud má vaše firma Microsoft 365, můžete to postavit hned teď. Žádný IT tiket. Žádné hodnocení dodavatelů. Žádný rozpočet. Jen Power Automate, SharePoint složka a dobře napsaný prompt.</span>
         </p>
 
     </div>
@@ -742,7 +701,7 @@
         <span class="article-tag">Microsoft 365</span>
     </div>
     <div class="article-share">
-        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <span class="article-share-label"><span class="en">Share</span></span>
         <!-- ✏️ CHANGE: update the share URL in the onclick -->
         <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')" title="LinkedIn">
             <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -757,28 +716,28 @@
 <section class="related-section">
     <div class="related-inner">
         <div class="related-header">
-            <h3><span class="en">Related insights</span><span class="cz">Související články</span></h3>
+            <h3><span class="en">Related insights</span></h3>
             <a href="/insights" class="related-back">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                <span class="en">All insights</span><span class="cz">Všechny články</span>
+                <span class="en">All insights</span>
             </a>
         </div>
         <!-- ✏️ CHANGE: update related articles per page -->
         <div class="related-grid">
             <a href="/insights/spend-analysis.html" class="related-card">
-                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                <h4><span class="en">Automated Spend Analysis from Raw SAP Data</span><span class="cz">Automatická analýza nákladů ze surových SAP dat</span></h4>
-                <p><span class="en">From data chaos to real-time visibility.</span><span class="cz">Od datového chaosu k viditelnosti v reálném čase.</span></p>
+                <span class="related-badge use-case"><span class="en">Use Case</span></span>
+                <h4><span class="en">Automated Spend Analysis from Raw SAP Data</span></h4>
+                <p><span class="en">From data chaos to real-time visibility.</span></p>
             </a>
             <a href="/insights/contract-nemesis.html" class="related-card">
-                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                <h4><span class="en">Contract Risk Scanner</span><span class="cz">Skener rizik ve smlouvách</span></h4>
-                <p><span class="en">From manual reviews to instant analysis.</span><span class="cz">Od manuálních kontrol k okamžité analýze.</span></p>
+                <span class="related-badge use-case"><span class="en">Use Case</span></span>
+                <h4><span class="en">Contract Risk Scanner</span></h4>
+                <p><span class="en">From manual reviews to instant analysis.</span></p>
             </a>
             <a href="/insights/why-ai-projects-fail.html" class="related-card">
-                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
-                <h4><span class="en">Why 90% of Procurement AI Projects Fail</span><span class="cz">Proč 90 % AI projektů v nákupu selže</span></h4>
-                <p><span class="en">The 3 things that separate success from failure.</span><span class="cz">3 věci, které oddělují úspěch od neúspěchu.</span></p>
+                <span class="related-badge article"><span class="en">Article</span></span>
+                <h4><span class="en">Why 90% of Procurement AI Projects Fail</span></h4>
+                <p><span class="en">The 3 things that separate success from failure.</span></p>
             </a>
         </div>
     </div>
@@ -787,10 +746,10 @@
 <!-- ═══ CTA STRIP ═══ -->
 <section class="cta-strip">
     <div class="cta-strip-inner">
-        <h3><span class="en">Want this for your business?</span><span class="cz">Chcete tohle pro váš business?</span></h3>
-        <p><span class="en">Let's discuss how AI automation can deliver similar results for your processes.</span><span class="cz">Pojďme prodiskutovat jak může AI automatizace přinést podobné výsledky pro vaše procesy.</span></p>
+        <h3><span class="en">Want this for your business?</span></h3>
+        <p><span class="en">Let's discuss how AI automation can deliver similar results for your processes.</span></p>
         <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
-            <span class="en">Book a Free Call</span><span class="cz">Domluvit hovor zdarma</span>
+            <span class="en">Book a Free Call</span>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
     </div>
@@ -815,6 +774,7 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
 function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
 function setLang(lang) {
+    lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
     try { localStorage.setItem('ss-lang', lang); } catch(e) {}
