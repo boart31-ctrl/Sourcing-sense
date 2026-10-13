@@ -10,13 +10,13 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procurement Savings Tracking: Realized Savings &amp; Validation | Sourcing Sense</title>
-    <meta name="description" content="How to track procurement savings Finance will sign off: negotiated vs realized savings, cost avoidance, baselines, savings validation, leakage, and when you need a savings tracking tool.">
-    <meta name="keywords" content="procurement savings tracking, realized savings, savings validation, cost avoidance vs cost reduction, procurement savings tracker, savings tracking tool">
+    <title>AI Procurement Savings Tracking: Catch Leakage Automatically | Sourcing Sense</title>
+    <meta name="description" content="Build an AI savings tracker in Microsoft 365: AI reads contracts into a price register, matches invoices, explains leakage and drafts the savings report. Prompt included.">
+    <meta name="keywords" content="AI procurement savings tracking, savings leakage, realized savings, AI contract price extraction, Power Automate invoice matching, procurement savings tracker">
     <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta property="og:title" content="Procurement Savings Tracking: Realized Savings &amp; Validation | Sourcing Sense">
-    <meta property="og:description" content="How to track procurement savings Finance will sign off: negotiated vs realized savings, cost avoidance, baselines, savings validation, leakage, and when you need a savings tracking tool.">
+    <meta property="og:title" content="AI Procurement Savings Tracking: Catch Leakage Automatically | Sourcing Sense">
+    <meta property="og:description" content="Build an AI savings tracker in Microsoft 365: AI reads contracts into a price register, matches invoices, explains leakage and drafts the savings report. Prompt included.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sourcing-sense.com/insights/procurement-savings-tracking">
     <meta property="og:site_name" content="Sourcing Sense" />
@@ -27,14 +27,14 @@
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/procurement-savings-tracking" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Procurement Savings Tracking: Realized Savings &amp; Validation" />
-    <meta name="twitter:description" content="How to track procurement savings Finance will sign off: negotiated vs realized savings, cost avoidance, baselines, savings validation, leakage, and when you need a savings tracking tool." />
+    <meta name="twitter:title" content="AI Procurement Savings Tracking: Catch Leakage Automatically" />
+    <meta name="twitter:description" content="Build an AI savings tracker in Microsoft 365: AI reads contracts into a price register, matches invoices, explains leakage and drafts the savings report. Prompt included." />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Procurement Savings Tracking: Realized Savings & Validation",
-  "description": "How to track procurement savings Finance will sign off: negotiated vs realized savings, cost avoidance, baselines, savings validation, leakage, and when you need a savings tracking tool.",
+  "headline": "AI Procurement Savings Tracking: Catch Leakage Automatically",
+  "description": "Build an AI savings tracker in Microsoft 365: AI reads contracts into a price register, matches invoices, explains leakage and drafts the savings report. Prompt included.",
   "author": {
     "@type": "Person",
     "name": "David Račak",
@@ -53,12 +53,12 @@
     "@id": "https://sourcing-sense.com/insights/procurement-savings-tracking"
   },
   "keywords": [
-    "procurement savings tracking",
+    "AI procurement savings tracking",
+    "savings leakage",
     "realized savings",
-    "savings validation",
-    "cost avoidance vs cost reduction",
-    "procurement savings tracker",
-    "savings tracking tool"
+    "AI contract price extraction",
+    "Power Automate invoice matching",
+    "procurement savings tracker"
   ]
 }
     </script>
@@ -82,7 +82,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Savings Tracking",
+      "name": "AI Savings Tracking",
       "item": "https://sourcing-sense.com/insights/procurement-savings-tracking"
     }
   ]
@@ -95,34 +95,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is the difference between realized savings and negotiated savings?",
+      "name": "Can AI track procurement savings automatically?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Negotiated savings are forecast: price difference times expected volume, reported when the deal is signed. Realized savings are confirmed: price difference times volume actually invoiced, reported after the money was not spent."
+        "text": "AI can read contracts into a price register and explain invoice mismatches; ordinary automation does the matching and counting. Together they track negotiated vs realized savings and flag leakage without manual spreadsheets."
       }
     },
     {
       "@type": "Question",
-      "name": "Does cost avoidance count as savings?",
+      "name": "What is savings leakage in procurement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It counts as value, but it does not reduce spend against budget. Report it, label it as cost avoidance, and keep it out of the hard savings total."
+        "text": "The difference between negotiated and realized savings: money agreed with suppliers that never shows up in paid invoices, usually because of old prices in the ERP, off-contract buying or invoices at the previous rate."
       }
     },
     {
       "@type": "Question",
-      "name": "How often should procurement savings be validated?",
+      "name": "Do I need special software for AI savings tracking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Quarterly for most mid-size companies, monthly if savings feed into budgets or bonuses. Validate the baseline and implementation at signature, the volume when invoices arrive."
+        "text": "Not to start. A Microsoft 365 tenant with SharePoint, Power Automate and an approved language model step covers one category. Dedicated savings tracking software becomes worth it with many buyers, approval workflows and audit requirements."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a good savings leakage rate?",
+      "name": "Should a language model calculate the savings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There is no universal benchmark worth quoting. Measure your own leakage for two quarters, find the biggest cause, fix it, and measure again. The trend matters more than any industry number."
+        "text": "No. Let it read documents and explain differences; do the arithmetic in Excel, Power Automate or Power BI where it is exact and auditable."
       }
     }
   ]
@@ -256,6 +256,7 @@
             white-space: pre-wrap;
         }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 
     <style>
         .table-wrapper { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--light-border); border-radius: var(--radius-sm); }
@@ -265,7 +266,6 @@
         .prose tr:last-child td { border-bottom: none; }
         .formula { font-family: var(--font-mono); font-size: 0.88rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); padding: 0.8rem 1rem; margin: 1rem 0; overflow-x: auto; }
     </style>
-    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
@@ -306,17 +306,17 @@
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
             <a href="/insights">Insights</a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <span>Savings Tracking</span>
+            <span>AI Savings Tracking</span>
         </div>
 
-        <span class="article-badge article">Article</span>
+        <span class="article-badge use-case">Use Case</span>
 
-        <h1>Procurement Savings Tracking: How to Measure, Validate and Report Realized Savings</h1>
+        <h1>AI Savings Tracking: How to Catch Procurement Savings Leakage Automatically</h1>
 
-        <p class="article-excerpt">Negotiated savings are a forecast. Realized savings are a result. How to track the difference, get Finance to validate it, and stop savings leaking between the contract and the invoice.</p>
+        <p class="article-excerpt">Negotiated savings leak between the contract and the invoice because nobody has time to compare them. Three AI steps inside Microsoft 365 do the comparison for you — here is the build, the prompt, and where it breaks.</p>
 
         <div class="article-meta">
-            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg> 9 min read</span>
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg> 8 min read</span>
             <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 2v4M8 2v4M3 10h18"/></svg> October 2026</span>
             <span>David Račak</span>
         </div>
@@ -328,144 +328,117 @@
 <article class="article-body">
     <div class="prose">
 
-        <p>Every procurement team reports savings. Far fewer can show those savings in the P&amp;L. The gap between the two is the reason Finance rolls its eyes when the quarterly savings slide comes up, and the reason savings tracking deserves more attention than it usually gets.</p>
+        <p>Every procurement team reports savings. Far fewer can show them in the P&amp;L. The gap has a name — savings leakage — and it happens in the dull space between a signed contract and a paid invoice: the new price never reaches the ERP, a site keeps ordering from the old supplier, the supplier keeps billing last year's rate. Nobody notices because nobody has time to compare thousands of invoice lines against hundreds of contracts.</p>
 
-        <p>I have sat on both sides of that meeting. This is the practical version: what to count, how to validate it with Finance, why negotiated savings leak before they are realized, and when a spreadsheet is enough versus when you need a savings tracking tool.</p>
+        <p>That comparison is exactly the kind of work AI and automation are now good at. This is how I would build an AI savings tracker inside Microsoft 365, what each part does, the prompt that does the hard part, and where it breaks.</p>
 
-        <div class="callout info">
-            <div class="callout-title">The short version</div>
-            Track every saving through three stages — <strong>negotiated</strong>, <strong>implemented</strong>, <strong>realized</strong> — against a baseline Finance agreed to <em>before</em> the negotiation. Only realized savings go on the slide that matters. Everything else is a pipeline.
+        <h2>The idea in one picture</h2>
+
+        <figure class="ss-figure">
+            <svg viewBox="0 0 720 300" role="img" aria-label="Contracts are read by AI into a price register; invoices are matched against it; mismatches become leakage flags and a monthly savings report.">
+                <defs>
+                    <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+                    <marker id="ah1h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="arrowhead hot" d="M0,0 L10,5 L0,10 z"/></marker>
+                </defs>
+                <rect class="box" x="10" y="30" width="140" height="64" rx="10"/>
+                <text class="t" x="24" y="56">Signed contracts</text><text class="s" x="24" y="76">PDF, any language</text>
+                <rect class="box ai" x="200" y="30" width="150" height="64" rx="10"/>
+                <text class="k" x="214" y="52">AI step 1</text><text class="t" x="214" y="70">Extract prices</text><text class="s" x="214" y="86">item, price, dates, index</text>
+                <rect class="box" x="400" y="30" width="140" height="64" rx="10"/>
+                <text class="t" x="414" y="56">Price register</text><text class="s" x="414" y="76">SharePoint list</text>
+                <rect class="box" x="10" y="190" width="140" height="64" rx="10"/>
+                <text class="t" x="24" y="216">Invoice lines</text><text class="s" x="24" y="236">ERP export, daily</text>
+                <rect class="box ai" x="200" y="190" width="150" height="64" rx="10"/>
+                <text class="k" x="214" y="212">AI step 2</text><text class="t" x="214" y="230">Match &amp; explain</text><text class="s" x="214" y="246">price, supplier, unit</text>
+                <rect class="box out" x="400" y="190" width="140" height="64" rx="10"/>
+                <text class="t" x="414" y="216">Leakage flags</text><text class="s" x="414" y="236">to the buyer in Teams</text>
+                <rect class="box ai" x="580" y="110" width="130" height="64" rx="10"/>
+                <text class="k" x="594" y="132">AI step 3</text><text class="t" x="594" y="150">Savings report</text><text class="s" x="594" y="166">drafted monthly</text>
+                <path class="wire" d="M150,62 L196,62" marker-end="url(#ah1)"/>
+                <path class="wire" d="M350,62 L396,62" marker-end="url(#ah1)"/>
+                <path class="wire" d="M150,222 L196,222" marker-end="url(#ah1)"/>
+                <path class="wire hot" d="M470,94 C470,140 300,140 290,186" marker-end="url(#ah1h)"/>
+                <path class="wire" d="M350,222 L396,222" marker-end="url(#ah1)"/>
+                <path class="wire" d="M540,62 C600,62 640,80 644,106" marker-end="url(#ah1)"/>
+                <path class="wire" d="M540,222 C600,222 640,200 644,178" marker-end="url(#ah1)"/>
+            </svg>
+            <figcaption>Three AI steps, everything else is plain automation. The copper line is the comparison nobody has time to do by hand.</figcaption>
+        </figure>
+
+        <p>The design rule is simple: AI does the reading and the explaining, ordinary flows do the moving and the counting. Arithmetic stays in Excel or Power Automate, where it is exact and auditable. A language model that adds up savings is a model that will eventually add them up wrong.</p>
+
+        <h2>Step 1: let AI read the contracts</h2>
+
+        <p>The price register is the foundation, and in most mid-size companies it does not exist in a usable form. Prices live in PDFs, email confirmations and price lists attached to framework agreements. Typing them into a register is the job that never gets done.</p>
+
+        <p>A Power Automate flow triggered when a contract lands in a SharePoint library sends the document text to a language model — AI Builder's prompt action or an Azure OpenAI connection, whichever your tenant allows — and writes the answer as rows into a SharePoint list. The prompt is the part that matters:</p>
+
+        <div class="prompt-block"><pre><code>You extract commercial terms from a supplier contract or price list.
+Return JSON only, no commentary:
+{"supplier": "", "contract_ref": "", "currency": "",
+ "valid_from": "YYYY-MM-DD", "valid_to": "YYYY-MM-DD",
+ "lines": [{"item": "", "supplier_part_no": "", "unit": "",
+            "unit_price": 0, "min_qty": null}],
+ "price_adjustment": {"type": "fixed | index | annual_review | none",
+                      "index_name": "", "cap_percent": null},
+ "evidence": [{"field": "", "quote": "", "page": 0}]}
+Rules: copy numbers exactly as written; use null when a value is not
+stated; never calculate or convert; put the sentence you used for every
+price and date into "evidence".</code></pre></div>
+
+        <p>Two details make this reliable enough to use. The <code>evidence</code> field forces the model to quote where each price came from, so a buyer can check a line in seconds instead of rereading the contract. And the instruction never to calculate keeps the model doing what it is good at — reading — and away from what it is bad at. This is the same pattern as <a href="/insights/contract-nemesis">Contract Nemesis</a>, pointed at prices instead of renewal dates.</p>
+
+        <h2>Step 2: match invoices and explain the gap</h2>
+
+        <p>Once a day, a second flow takes yesterday's invoice lines from the ERP export and looks up the contracted price for each supplier and item. Most lines match exactly and are ignored. The mismatches are where AI earns its place a second time, because a raw "price differs" alert is useless: buyers need to know <em>why</em>.</p>
+
+        <p>For each mismatch the model gets the invoice line, the register line and the contract evidence, and classifies the cause: the old price is still being billed, the item was bought from a non-contracted supplier, the unit of measure differs (a box of 100 against a price per piece), an index adjustment explains the difference, or something it cannot explain. That last bucket goes to a human. The rest arrive in Teams as a short message to the responsible buyer with the evidence attached.</p>
+
+        <div class="callout tip">
+            <div class="callout-title">Start with one category</div>
+            Pick a category with many invoice lines and few items: gloves, fasteners, cleaning, packaging. You will see leakage within the first month, and the unit-of-measure problems will teach you more about your data than any workshop.
         </div>
 
-        <h2>Negotiated, implemented, realized: three numbers, not one</h2>
+        <h2>Step 3: the monthly savings report writes itself</h2>
 
-        <p>Most savings disputes come from mixing three different numbers that all get called "savings".</p>
+        <p>The register now holds negotiated prices, and the matching flow knows what was actually paid. That gives you the three numbers Finance cares about without anyone building a spreadsheet: negotiated savings (agreed price difference times forecast volume), realized savings (the same difference times invoiced volume) and leakage (the money lost between the two). Power BI or a plain Excel pivot does the counting.</p>
 
-        <ul>
-            <li><strong>Negotiated savings</strong> — the difference you agreed with the supplier, multiplied by the volume you expect to buy. This is what you report the day the contract is signed. It is a forecast.</li>
-            <li><strong>Implemented savings</strong> — the new price is actually loaded in the ERP, the catalogue, or the framework agreement, and requisitioners are buying against it. Without this step the negotiated saving is a document, not a price.</li>
-            <li><strong>Realized savings</strong> — the saving that shows up in invoices actually paid, at the volume actually bought. This is the number Finance can reconcile, and the only one that should be called a result.</li>
-        </ul>
+        <p>Copilot, or the same language model step, then drafts the commentary: which categories delivered, where leakage came from, which suppliers keep billing old prices. You edit it; you do not write it from scratch. Keep cost avoidance — increases you prevented — in its own column. It is real value, but spend did not go down, and mixing the two is the fastest way to lose a CFO.</p>
 
-        <p>A healthy tracker shows all three side by side. The distance between negotiated and realized is your <strong>savings leakage</strong>, and it is one of the most useful procurement KPIs nobody reports.</p>
-
-        <h2>Cost reduction vs cost avoidance</h2>
-
-        <p>The second argument with Finance is about what counts at all.</p>
+        <h2>What you need, and what it costs</h2>
 
         <div class="table-wrapper"><table>
-            <thead><tr><th>Type</th><th>What it is</th><th>Hits the budget?</th><th>Example</th></tr></thead>
+            <thead><tr><th>Component</th><th>Usually already there?</th><th>Watch out for</th></tr></thead>
             <tbody>
-                <tr><td><strong>Cost reduction</strong> (hard savings)</td><td>You pay less than the baseline for the same thing</td><td>Yes — lower spend vs last year or budget</td><td>Gloves drop from €4.20 to €3.90 per box</td></tr>
-                <tr><td><strong>Cost avoidance</strong> (soft savings)</td><td>You prevented an increase that would otherwise have happened</td><td>No — spend stays flat, but would have risen</td><td>Supplier asked for +8%, you settled at +3%</td></tr>
-                <tr><td><strong>Process / efficiency savings</strong></td><td>Less time, fewer errors, less working capital</td><td>Rarely directly</td><td>Automating quote comparison saves 6 hours a week</td></tr>
+                <tr><td>SharePoint library and list</td><td>Yes, in any Microsoft 365 tenant</td><td>Name columns before the first flow runs</td></tr>
+                <tr><td>Power Automate standard flows</td><td>Yes, in most business plans</td><td>Scheduled ERP export needs a file drop or connector</td></tr>
+                <tr><td>Language model step</td><td>Sometimes — AI Builder credits or Azure OpenAI</td><td>Check with IT which one is approved before building</td></tr>
+                <tr><td>ERP invoice export</td><td>Yes, but often manual</td><td>Supplier and item codes must be consistent</td></tr>
+                <tr><td>Power BI</td><td>Often</td><td>Optional — an Excel pivot is enough to start</td></tr>
             </tbody>
         </table></div>
 
-        <p>All three are real value. They just belong in different columns. Reporting cost avoidance as cost reduction is the fastest way to lose credibility with a CFO. Keep them separate and label them honestly, and you will be allowed to report all of them.</p>
+        <p>For a single category, this is days of work, not a project. The <a href="/tools/savings-calculator">savings calculator</a> will put a number on the hours, and <a href="/insights/how-to-calculate-procurement-savings">the ROI article</a> shows how to put the build into a business case.</p>
 
-        <h2>Pick the baseline before you negotiate</h2>
+        <h2>Where it breaks</h2>
 
-        <p>Savings are always "compared to something". If that something is chosen after the deal, every saving is suspect. Agree the baseline method with Finance up front, per category, and write it in the tracker.</p>
+        <p>Scanned contracts with poor print quality break step one; run them through OCR first and expect lower confidence. Unit-of-measure chaos breaks step two more often than wrong prices do, so add a conversion column early. Index-linked prices need the index value for the invoice month, which the model cannot know — store it in its own list and let the flow look it up. And the system only finds leakage on contracts that are in the register, so the first month is mostly about getting the register complete.</p>
 
-        <ul>
-            <li><strong>Last price paid</strong> — the default for repeat purchases. Simple and auditable.</li>
-            <li><strong>Budget or standard cost</strong> — common in manufacturing where standard costs already exist for direct materials.</li>
-            <li><strong>Average or lowest compliant quote</strong> — for first-time buys where there is no price history. Use the average of qualified quotes, not the most expensive one.</li>
-            <li><strong>Index-adjusted price</strong> — for commodities. If steel or energy indices moved, the baseline moves with them, otherwise market movement gets booked as your saving (or your loss).</li>
-        </ul>
-
-        <div class="callout warning">
-            <div class="callout-title">The classic trap</div>
-            Using the supplier's opening quote as the baseline. Suppliers know buyers do this, so opening quotes are padded. A saving against an inflated first offer is not a saving.
-        </div>
-
-        <h2>Savings validation: how to get Finance to sign off</h2>
-
-        <p>Savings validation is simply Finance agreeing that a number is real. You make that easy by answering three questions for every line before anyone asks:</p>
-
-        <ol>
-            <li><strong>Is the baseline legitimate?</strong> Which method, which source document, agreed when.</li>
-            <li><strong>Is the price implemented?</strong> Contract, price list or PO showing the new price and its effective date.</li>
-            <li><strong>Is the volume real?</strong> Forecast volume for negotiated savings; actual invoiced volume for realized savings.</li>
-        </ol>
-
-        <p>Then agree a rhythm: savings move from "negotiated" to "validated" when Finance has seen the evidence, and from "validated" to "realized" when invoice data confirms them. Quarterly is enough for most mid-size companies. Monthly if savings drive bonuses.</p>
-
-        <h2>Why negotiated savings leak</h2>
-
-        <p>In my experience the leakage is rarely dramatic. It is a dozen small things:</p>
-
-        <ul>
-            <li><strong>The new price never reaches the system.</strong> The contract is signed, but the ERP price, catalogue or punch-out still carries the old one.</li>
-            <li><strong>Maverick buying.</strong> Requisitioners keep ordering from the old supplier or off-contract because it is what they know.</li>
-            <li><strong>Volume differs from forecast.</strong> Savings were calculated on 100,000 units; the plant bought 60,000.</li>
-            <li><strong>Invoices at the old price.</strong> The supplier keeps billing the old rate and nobody compares invoice price to contract price.</li>
-            <li><strong>Specification creep.</strong> The cheaper item gets swapped for the "usual" one at the first complaint.</li>
-            <li><strong>Double counting.</strong> Two buyers claim the same saving on a shared supplier, or a multi-year deal gets counted in full every year.</li>
-        </ul>
-
-        <p>Each of these is detectable with data you already have. That is where tracking stops being a reporting chore and becomes a control.</p>
-
-        <h2>What a procurement savings tracker should contain</h2>
-
-        <p>Whether it lives in Excel, a SharePoint list or dedicated software, the structure is the same. These are the columns I would not run without:</p>
-
-        <div class="table-wrapper"><table>
-            <thead><tr><th>Column</th><th>Why it matters</th></tr></thead>
-            <tbody>
-                <tr><td>Initiative ID, category, supplier, owner</td><td>One line per initiative, one owner, no double counting</td></tr>
-                <tr><td>Savings type</td><td>Cost reduction / cost avoidance / process — never mixed</td></tr>
-                <tr><td>Baseline method + baseline price</td><td>The thing Finance will ask about first</td></tr>
-                <tr><td>New price, effective date, end date</td><td>Savings only count while the price is in force</td></tr>
-                <tr><td>Forecast volume (12 months)</td><td>Drives the negotiated value</td></tr>
-                <tr><td>Negotiated savings (annualised)</td><td>Pipeline value</td></tr>
-                <tr><td>Status: negotiated / implemented / validated / realized</td><td>Shows where the money is stuck</td></tr>
-                <tr><td>Realized savings to date</td><td>Actual invoiced volume × price difference</td></tr>
-                <tr><td>Leakage (negotiated − realized)</td><td>The KPI that tells you where to act</td></tr>
-                <tr><td>Evidence link</td><td>Contract, price list, Finance sign-off</td></tr>
-            </tbody>
-        </table></div>
-
-        <p>For the maths behind each column — annualising, multi-year deals, savings percentages — see <a href="/insights/how-to-calculate-procurement-savings">how to calculate procurement savings and ROI</a>.</p>
-
-        <h2>Spreadsheet or savings tracking software?</h2>
-
-        <p>Honest answer: a well-built spreadsheet or SharePoint list is enough for most teams below roughly fifty active initiatives a year and a handful of buyers. It becomes painful when several people edit it, when realized savings need invoice data from the ERP, or when bonuses depend on the number and audit trails start to matter.</p>
-
-        <p>Dedicated savings tracking software (often a module of a source-to-pay suite) earns its licence when you need workflow approvals, automatic realized-savings calculation from invoice data, and audit history. Before you buy one, check what your team already pays for. In a Microsoft 365 company, a SharePoint list for the tracker, Power Automate for approvals and Power BI for the dashboard covers most of what mid-size teams actually use — without a new vendor.</p>
-
-        <h2>Where AI and automation help</h2>
-
-        <p>The labour in savings tracking is not the spreadsheet. It is chasing evidence and comparing prices. That is exactly the boring, rule-based work automation is good at:</p>
-
-        <ul>
-            <li><strong>Invoice price vs contract price check.</strong> A scheduled flow compares invoice line prices against the agreed price and flags differences. This catches the most common leakage automatically.</li>
-            <li><strong>Contract data extraction.</strong> Pull effective dates, price clauses and renewal dates out of contracts into the tracker instead of retyping them. This is what <a href="/insights/contract-nemesis">Contract Nemesis</a> does.</li>
-            <li><strong>Quote comparison as baseline evidence.</strong> When the baseline is "average of compliant quotes", a <a href="/insights/quotation-analyzer">quotation analyzer</a> produces the comparison table and the evidence in one step.</li>
-            <li><strong>Monthly savings summary.</strong> An AI model drafts the commentary for the savings report from the tracker data. You review; you do not write from scratch.</li>
-        </ul>
-
-        <p>None of this needs a data science team. It needs clean columns and a clear rule for what counts.</p>
+        <blockquote>Savings tracking stops being a reporting chore when it starts catching money. That is the moment people stop asking whether it is worth maintaining.</blockquote>
 
         <h2>FAQ</h2>
 
-        <h3>What is the difference between realized savings and negotiated savings?</h3>
-        <p>Negotiated savings are forecast: price difference times expected volume, reported when the deal is signed. Realized savings are confirmed: price difference times volume actually invoiced, reported after the money was not spent.</p>
+        <h3>Can AI track procurement savings automatically?</h3>
+        <p>AI can read contracts into a price register and explain invoice mismatches; ordinary automation does the matching and counting. Together they track negotiated vs realized savings and flag leakage without manual spreadsheets.</p>
 
-        <h3>Does cost avoidance count as savings?</h3>
-        <p>It counts as value, but it does not reduce spend against budget. Report it, label it as cost avoidance, and keep it out of the hard savings total.</p>
+        <h3>What is savings leakage in procurement?</h3>
+        <p>The difference between negotiated and realized savings: money agreed with suppliers that never shows up in paid invoices, usually because of old prices in the ERP, off-contract buying or invoices at the previous rate.</p>
 
-        <h3>How often should procurement savings be validated?</h3>
-        <p>Quarterly for most mid-size companies, monthly if savings feed into budgets or bonuses. Validate the baseline and implementation at signature, the volume when invoices arrive.</p>
+        <h3>Do I need special software for AI savings tracking?</h3>
+        <p>Not to start. A Microsoft 365 tenant with SharePoint, Power Automate and an approved language model step covers one category. Dedicated savings tracking software becomes worth it with many buyers, approval workflows and audit requirements.</p>
 
-        <h3>What is a good savings leakage rate?</h3>
-        <p>There is no universal benchmark worth quoting. Measure your own leakage for two quarters, find the biggest cause, fix it, and measure again. The trend matters more than any industry number.</p>
-
-        <div class="callout tip">
-            <div class="callout-title">Put a number on it first</div>
-            Before building a tracker, estimate what your manual savings reporting costs in hours. The free <a href="/tools/savings-calculator">procurement savings calculator</a> does it in two minutes, and the <a href="/tools/total-procurement-roi">total procurement ROI calculator</a> builds the full business case.
-        </div>
+        <h3>Should a language model calculate the savings?</h3>
+        <p>No. Let it read documents and explain differences; do the arithmetic in Excel, Power Automate or Power BI where it is exact and auditable.</p>
 
     </div>
 </article>
@@ -473,10 +446,10 @@
 <!-- TAGS + SHARE -->
 <div class="article-footer-strip">
     <div class="article-tags">
+        <span class="article-tag">AI in procurement</span>
         <span class="article-tag">Savings tracking</span>
-        <span class="article-tag">Realized savings</span>
-        <span class="article-tag">Cost avoidance</span>
-        <span class="article-tag">Finance</span>
+        <span class="article-tag">Power Automate</span>
+        <span class="article-tag">Contracts</span>
     </div>
     <div class="article-share">
         <span class="article-share-label">Share</span>
@@ -496,18 +469,18 @@
         <div class="related-grid">
             <a href="/insights/how-to-calculate-procurement-savings" class="related-card">
                 <span class="related-badge article">Article</span>
-                <h4>How to Calculate Procurement Savings and ROI</h4>
-                <p>Formulas and worked examples for savings, cost avoidance and procurement ROI.</p>
+                <h4>AI in Procurement ROI</h4>
+                <p>How to calculate savings and payback of an AI use case.</p>
             </a>
             <a href="/insights/contract-nemesis" class="related-card">
                 <span class="related-badge use-case">Use Case</span>
                 <h4>Contract Nemesis: Automated Contract Monitoring</h4>
                 <p>Pull prices, dates and clauses out of every new contract automatically.</p>
             </a>
-            <a href="/insights/supplier-scoreboard" class="related-card">
-                <span class="related-badge tutorial">Tutorial</span>
-                <h4>Supplier Scoreboard Without a Consultant</h4>
-                <p>Five KPI categories and a 3-tab Excel structure that works.</p>
+            <a href="/ai-use-cases" class="related-card">
+                <span class="related-badge tutorial">Library</span>
+                <h4>AI use cases in procurement</h4>
+                <p>What AI can do today across source-to-pay, with tools and effort.</p>
             </a>
         </div>
     </div>
