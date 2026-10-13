@@ -837,12 +837,13 @@
         <p class="section-desc">
             <span class="en">No spam. Just practical AI insights for business — when there's something worth sharing.</span>
         </p>
-        <div class="newsletter-form">
-            <input type="email" class="newsletter-input" id="nlEmail" placeholder="">
-            <button class="newsletter-btn" onclick="submitNewsletter()">
+        <form class="newsletter-form" id="nlForm" onsubmit="submitNewsletter(event)">
+            <input type="email" class="newsletter-input" id="nlEmail" required placeholder="Your work email">
+            <button type="submit" class="newsletter-btn" id="nlBtn">
                 <span class="en">Subscribe</span>
             </button>
-        </div>
+        </form>
+        <label class="ss-consent"><input type="checkbox" required form="nlForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
         <p class="newsletter-note" id="nlNote">
             <span class="en">Unsubscribe anytime. Your email stays private.</span>
         </p>
@@ -877,7 +878,6 @@ function setLang(lang) {
     lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
-    document.getElementById('nlEmail').placeholder = lang === 'cs' ? 'Váš email' : 'Your email';
     try { localStorage.setItem('ss-lang', lang); } catch(e) {}
 }
 (function() {
@@ -897,13 +897,24 @@ function filterPosts(cat) {
 }
 
 // Newsletter
-function submitNewsletter() {
-    const email = document.getElementById('nlEmail').value.trim();
-    if (!email || !email.includes('@')) { document.getElementById('nlEmail').style.borderColor = '#ef4444'; setTimeout(() => document.getElementById('nlEmail').style.borderColor = '', 1500); return; }
-    const lang = document.documentElement.getAttribute('data-lang');
-    document.getElementById('nlNote').innerHTML = lang === 'cs' ? '✅ Přihlášeno! Díky.' : '✅ Subscribed! Thanks.';
-    document.getElementById('nlNote').style.color = '#10b981';
-    document.getElementById('nlEmail').value = '';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
+async function submitNewsletter(e) {
+    e.preventDefault();
+    const input = document.getElementById('nlEmail');
+    const note = document.getElementById('nlNote');
+    const btn = document.getElementById('nlBtn');
+    btn.disabled = true;
+    try {
+        const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({ type: 'newsletter', email: input.value.trim(), source: 'insights', lang: 'en' }));
+        await (window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' }));
+        note.textContent = 'Subscribed. The next issue goes to ' + input.value.trim() + '.';
+        note.style.color = '#10b981';
+        input.value = '';
+    } catch (err) {
+        note.innerHTML = 'Couldn\'t subscribe you. Email <a href="mailto:info@sourcing-sense.com?subject=Subscribe">info@sourcing-sense.com</a> with "subscribe" instead.';
+        note.style.color = '#f87171';
+    }
+    btn.disabled = false;
 }
 </script>
 </body>

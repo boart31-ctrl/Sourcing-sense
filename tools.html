@@ -892,9 +892,9 @@ async function submitScoreWaitlist(e) {
     const msg = document.getElementById('scoreWaitlistMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     try {
-        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+        await (window.ssSend || ((u) => fetch(u, { mode: 'no-cors' })))(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
             type: 'newsletter', email: email, source: 'score-waitlist', lang: lang
-        })), { mode: 'no-cors' });
+        })));
         msg.style.color = '#10b981';
         msg.textContent = lang === 'cs' ? 'Díky! Dáme vám vědět.' : "You're on the list!";
         document.getElementById('scoreWaitlistEmail').value = '';
@@ -909,7 +909,7 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxo
 
 function postToGAS(payload) {
     const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
-    return fetch(url, { mode: 'no-cors' });
+    return window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' });
 }
 
 // Suggestion submit

@@ -357,12 +357,12 @@
         <div class="email-gate">
             <h4><span class="en">Get the full report + AI Policy template</span></h4>
             <p><span class="en">Enter your work email and I'll send a PDF summary of your score with a prioritised action plan — plus the free AI Usage Policy template.</span></p>
-            <form class="email-gate-form" onsubmit="submitGate(event)">
+            <form class="email-gate-form" id="gateForm" onsubmit="submitGate(event)">
                 <input type="email" id="gateEmail" required placeholder="your@company.com">
                 <button type="submit" id="gateBtn"><span class="en">Send report</span></button>
             </form>
+            <label class="ss-consent"><input type="checkbox" required form="gateForm"> <span>I agree that Sourcing Sense stores my email to send my report and occasional AI procurement tips. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
             <div id="gateMsg"></div>
-            <p class="gate-note"><span class="en">No spam. You'll also receive occasional AI procurement tips from Sourcing Sense.</span></p>
         </div>
 
         <!-- CTA -->
@@ -799,7 +799,7 @@ async function submitGate(e) {
     btn.disabled = true;
     btn.textContent = lang === 'cs' ? 'Odesílám...' : 'Sending...';
     try {
-        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+        await (window.ssSend || ((u) => fetch(u, { mode: 'no-cors' })))(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
             type: 'resource_download',
             name: '',
             email: email,
@@ -807,13 +807,13 @@ async function submitGate(e) {
             source: 'score-tool',
             score: window._quizScore || 0,
             lang: lang
-        })), { mode: 'no-cors' });
+        })));
         msg.style.color = '#10b981';
         msg.textContent = lang === 'cs' ? 'Odesláno! Zkontrolujte svůj email.' : 'Sent! Check your inbox.';
         document.getElementById('gateEmail').value = '';
     } catch (err) {
         msg.style.color = '#ef4444';
-        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Please try again.';
+        msg.textContent = 'Couldn\'t send the report. Email info@sourcing-sense.com and I\'ll send it by hand.';
     }
     btn.disabled = false;
     btn.innerHTML = lang === 'cs' ? 'Odeslat report' : 'Send report';

@@ -2151,12 +2151,13 @@
                 </div>
             </div>
             <div class="ea-form-wrap">
-                <form class="ea-form" onsubmit="submitEarlyAccess(event)">
+                <form class="ea-form" id="eaForm" onsubmit="submitEarlyAccess(event)">
                     <input type="email" class="ea-input" id="eaEmail" required placeholder="your@email.com">
                     <button type="submit" class="ea-btn" id="eaBtn">
                         <span class="en">Notify me</span>
                     </button>
                 </form>
+                <label class="ss-consent"><input type="checkbox" required form="eaForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
                 <p class="ea-note">
                     <span class="en">Free. No credit card. Unsubscribe anytime.</span>
                 </p>
@@ -2207,12 +2208,13 @@
                         <p style="font-size:0.78rem;color:var(--dark-text-muted);line-height:1.5;margin-bottom:0.5rem;">
                             <span class="en">AI procurement tips, new tools, no spam.</span>
                         </p>
-                        <form class="newsletter-form" onsubmit="submitNewsletter(event)">
+                        <form class="newsletter-form" id="nlForm" onsubmit="submitNewsletter(event)">
                             <input type="email" class="newsletter-input" id="nlEmail" required placeholder="your@email.com">
                             <button type="submit" class="newsletter-btn" id="nlBtn">
                                 <span class="en">Subscribe</span>
                             </button>
                         </form>
+                        <label class="ss-consent ss-consent-sm"><input type="checkbox" required form="nlForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
                         <div class="newsletter-msg" id="nlMsg"></div>
                     </div>
                 </div>
@@ -2263,7 +2265,7 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxo
 
 function postToGAS(payload) {
     const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
-    return fetch(url, { mode: 'no-cors' });
+    return window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' });
 }
 
 // ─── PROMO BANNER ───
@@ -2313,7 +2315,7 @@ async function submitEarlyAccess(e) {
         document.getElementById('eaEmail').value = '';
     } catch (err) {
         msg.className = 'ea-msg error';
-        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Try again.';
+        msg.textContent = 'Couldn\'t send that. Email info@sourcing-sense.com and I\'ll add you by hand.';
     }
     btn.disabled = false;
     btn.innerHTML = '<span class="en">Notify me</span>';
@@ -2339,7 +2341,7 @@ async function submitNewsletter(e) {
         document.getElementById('nlEmail').value = '';
     } catch (err) {
         msg.className = 'newsletter-msg error';
-        msg.textContent = lang === 'cs' ? 'Něco se pokazilo. Zkuste to znovu.' : 'Something went wrong. Try again.';
+        msg.textContent = 'Couldn\'t send that. Email info@sourcing-sense.com and I\'ll add you by hand.';
     }
 
     btn.disabled = false;

@@ -862,6 +862,7 @@
                         </label>
                         <textarea class="form-textarea" id="cMessage" required></textarea>
                     </div>
+                    <p class="ss-consent-note">Your name, email and message are used only to reply to you. <a href="/privacy">Privacy policy</a></p>
                     <button type="submit" class="form-submit">
                         <span class="en">Send Message</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
@@ -928,7 +929,7 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxo
 
 function postToGAS(payload) {
     const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
-    return fetch(url, { mode: 'no-cors' });
+    return window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' });
 }
 
 // Contact form submit
@@ -956,9 +957,11 @@ async function submitContact(e) {
     } catch (err) {
         btn.disabled = false;
         btn.style.opacity = '1';
-        alert(lang === 'cs'
-            ? 'Odeslání se nezdařilo. Zkuste to znovu nebo napište na info@sourcing-sense.com'
-            : 'Failed to send. Please try again or email info@sourcing-sense.com');
+        // Fall back to the visitor's own mail app with the message pre-filled
+        const body = document.getElementById('cMessage').value.trim() + '\n\n' + document.getElementById('cName').value.trim();
+        if (confirm('The form could not send your message. Open it in your email app instead?')) {
+            window.location.href = 'mailto:info@sourcing-sense.com?subject=' + encodeURIComponent('Website enquiry: ' + document.getElementById('cTopic').value) + '&body=' + encodeURIComponent(body);
+        }
     }
 }
 
