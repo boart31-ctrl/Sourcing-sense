@@ -583,7 +583,7 @@ function renderQuestion(idx) {
     document.getElementById('btnPrev').disabled = idx === 0;
     const isLast = idx === QUESTIONS.length - 1;
     document.getElementById('btnNextLabelEn').textContent = isLast ? 'See my score' : 'Next';
-    document.getElementById('btnNextLabelCz').textContent = isLast ? 'Zobrazit skóre' : 'Další';
+    const czLbl = document.getElementById('btnNextLabelCz'); if (czLbl) czLbl.textContent = isLast ? 'Zobrazit skóre' : 'Další';
     document.getElementById('btnNext').disabled = answers[idx] === null;
 
     // Animate card
