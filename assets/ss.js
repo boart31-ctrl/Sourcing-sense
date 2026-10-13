@@ -56,6 +56,7 @@
     const norm = p => (p || '/').replace(/^https?:\/\/[^/]+/, '').replace(/[?#].*$/, '').replace(/\.html$/, '').replace(/\/$/, '') || '/';
     const stagesFor = p => PAGE[norm(p)] || ALL;
     window.ssStagesFor = stagesFor;
+    window.ssStages = STAGES;
 
     /* seeded random */
     function rng(seed) {
@@ -110,8 +111,8 @@
 
         let svg = `<svg class="ss-map" viewBox="0 0 ${W} ${H}" role="img" aria-label="Source-to-pay map highlighting ${[...on].filter(k => k !== 'governance').join(', ') || 'governance'}" xmlns="http://www.w3.org/2000/svg">`;
         const gOn = on.has('governance');
-        svg += `<rect class="gov${gOn ? ' on' : ''}" x="6" y="6" width="${W - 12}" height="${H - 12}" rx="18"/>`;
-        if (labels) svg += `<text class="gov-label${gOn ? ' on' : ''}" x="22" y="26">Governance &amp; policy</text>`;
+        svg += `<rect data-stage="governance" class="gov${gOn ? ' on' : ''}" x="6" y="6" width="${W - 12}" height="${H - 12}" rx="18"/>`;
+        if (labels) svg += `<text data-stage="governance" class="gov-label${gOn ? ' on' : ''}" x="22" y="26">Governance &amp; policy</text>`;
 
         sats.forEach(s => {
             const hot = on.has(s.to.key);
@@ -130,10 +131,10 @@
                     (reduceMotion ? '' : `<animate attributeName="r" values="11;16;11" dur="${(3 + r() * 2).toFixed(1)}s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.45;0.05;0.45" dur="${(3 + r() * 2).toFixed(1)}s" repeatCount="indefinite"/>`) +
                     `</circle>`;
             }
-            svg += `<circle class="stage${isOn ? ' on' : ''}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${isOn ? 7.5 : 5.5}"/>`;
+            svg += `<circle data-stage="${p.key}" class="stage${isOn ? ' on' : ''}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${isOn ? 7.5 : 5.5}"/>`;
             if (labels) {
                 const below = p.y >= cy;
-                svg += `<text class="label${isOn ? ' on' : ''}" x="${p.x.toFixed(1)}" y="${(p.y + (below ? 28 : -18)).toFixed(1)}" text-anchor="middle">${p.name}</text>`;
+                svg += `<text data-stage="${p.key}" class="label${isOn ? ' on' : ''}" x="${p.x.toFixed(1)}" y="${(p.y + (below ? 28 : -18)).toFixed(1)}" text-anchor="middle">${p.name}</text>`;
             }
         });
 
@@ -188,7 +189,7 @@
             if (hero && !hero.classList.contains('ss-has-map')) {
                 const fig = plate('ss-hero-map', ALL, 'home', false);
                 const cap = document.createElement('figcaption');
-                cap.innerHTML = 'Source-to-pay, stage by stage. Every article and tool here maps to one of these stages.';
+                cap.innerHTML = 'Source-to-pay, stage by stage. <a href="/ai-use-cases">Browse 28 AI use cases by stage</a>.';
                 fig.appendChild(cap);
                 hero.appendChild(fig);
                 hero.classList.add('ss-has-map');

@@ -32,6 +32,14 @@ David Račak — EMEA procurement expert with 8+ years experience, Lean Six Sigm
 
 ---
 
+## AI Use Cases in Procurement: 28 Things AI Can Do Today
+
+URL: https://sourcing-sense.com/ai-use-cases
+
+28 AI use cases in procurement mapped to source-to-pay: what each one does, the tools (Microsoft 365, ChatGPT, specialist software), data needed, build effort and how far to trust it.
+
+---
+
 ## Contact David Račak — AI Procurement Automation Consulting
 
 URL: https://sourcing-sense.com/contact
@@ -294,20 +302,19 @@ Sections:
 
 ---
 
-## How to Calculate Procurement Savings & ROI (With Formulas)
+## AI in Procurement ROI: How to Calculate Savings & Payback
 
 URL: https://sourcing-sense.com/insights/how-to-calculate-procurement-savings
 
-Procurement savings formulas with worked examples: price savings, cost avoidance, savings percentage, procurement ROI, and the ROI and payback of automating a procurement process.
+Formulas for an AI business case in procurement: time value, price caught, running cost, ROI and payback, with three worked examples and how to estimate AI token costs.
 
 Sections:
-- 1. Price savings (cost reduction)
-- 2. Cost avoidance
-- 3. Savings percentage
-- 4. Annualising and multi-year deals
-- 5. Procurement ROI
-- 6. ROI of automating a procurement process
-- Common calculation mistakes
+- Where the value of an AI use case comes from
+- The formulas
+- Three worked examples
+- Estimating the AI running cost
+- The procurement savings formulas, for completeness
+- Mistakes that kill AI business cases
 - FAQ
 
 ---
@@ -330,21 +337,19 @@ Sections:
 
 ---
 
-## Procurement Savings Tracking: Realized Savings & Validation
+## AI Procurement Savings Tracking: Catch Leakage Automatically
 
 URL: https://sourcing-sense.com/insights/procurement-savings-tracking
 
-How to track procurement savings Finance will sign off: negotiated vs realized savings, cost avoidance, baselines, savings validation, leakage, and when you need a savings tracking tool.
+Build an AI savings tracker in Microsoft 365: AI reads contracts into a price register, matches invoices, explains leakage and drafts the savings report. Prompt included.
 
 Sections:
-- Negotiated, implemented, realized: three numbers, not one
-- Cost reduction vs cost avoidance
-- Pick the baseline before you negotiate
-- Savings validation: how to get Finance to sign off
-- Why negotiated savings leak
-- What a procurement savings tracker should contain
-- Spreadsheet or savings tracking software?
-- Where AI and automation help
+- The idea in one picture
+- Step 1: let AI read the contracts
+- Step 2: match invoices and explain the gap
+- Step 3: the monthly savings report writes itself
+- What you need, and what it costs
+- Where it breaks
 - FAQ
 
 ---
@@ -412,16 +417,15 @@ Sections:
 
 ---
 
-## Will AI Replace Procurement Jobs? A Practitioner's Answer
+## Will AI Replace Procurement Jobs? A Stage-by-Stage Answer
 
 URL: https://sourcing-sense.com/insights/will-ai-replace-procurement
 
-Will AI replace procurement jobs? A practitioner's task-by-task answer: what gets automated first, what stays human, who is actually at risk, and five things buyers should do this year.
+Will AI replace procurement jobs? A practitioner's stage-by-stage look at source-to-pay: what AI tools take over today, what stays human, who is at risk, and what buyers should do this year.
 
 Sections:
-- Think in tasks, not job titles
-- What disappears first
-- What stays human, and why
+- Source-to-pay, stage by stage
+- What AI is actually doing today
 - Who is actually at risk
 - What to do this year
 - FAQ
