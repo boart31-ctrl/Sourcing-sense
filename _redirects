@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects (https://developers.cloudflare.com/pages/configuration/redirects/)
+/insights/why-ai-projects-fail        /insights/ai-projects-fail        301
+/insights/why-ai-projects-fail.html   /insights/ai-projects-fail        301
+/resources/ai-policy-template-en      /resources/ai-policy-template     301
+/resources/ai-policy-template-en.html /resources/ai-policy-template     301
+/tool-template                        /tools                            301
+/tool-template.html                   /tools                            301
+/insights/spend-analysis              /insights/5-processes-to-automate 301
+/insights/ai-adoption-checklist       /insights/ai-in-procurement-start 301
+/insights/ai-in-procurement-for-non-technical-teams /insights/ai-in-procurement-start 301
