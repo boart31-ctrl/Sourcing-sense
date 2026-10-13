@@ -7,8 +7,38 @@
     'use strict';
 
     /* ---------- 1. form sending ---------- */
+    // Remember where the visitor came from (first landing in this tab) so each
+    // form row in the sheet says which post, page or campaign brought the lead.
+    (function rememberSource() {
+        try {
+            if (sessionStorage.getItem('ss-src')) return;
+            const q = new URLSearchParams(location.search);
+            const src = {
+                utm_source: q.get('utm_source') || '', utm_medium: q.get('utm_medium') || '',
+                utm_campaign: q.get('utm_campaign') || '', utm_content: q.get('utm_content') || '',
+                referrer: document.referrer ? new URL(document.referrer).hostname : '',
+                landing: location.pathname
+            };
+            sessionStorage.setItem('ss-src', JSON.stringify(src));
+        } catch (e) { /* storage blocked: send without source */ }
+    })();
+
+    function withSource(url) {
+        try {
+            const u = new URL(url);
+            const raw = u.searchParams.get('data');
+            if (!raw) return url;
+            const payload = JSON.parse(raw);
+            const src = JSON.parse(sessionStorage.getItem('ss-src') || '{}');
+            payload.page = location.pathname;
+            Object.keys(src).forEach(k => { if (src[k] && payload[k] === undefined) payload[k] = src[k]; });
+            u.searchParams.set('data', JSON.stringify(payload));
+            return u.toString();
+        } catch (e) { return url; }
+    }
+
     window.ssSend = async function (url) {
-        const res = await fetch(url, { method: 'GET', redirect: 'follow' });
+        const res = await fetch(withSource(url), { method: 'GET', redirect: 'follow' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
         let data = null;
         try { data = await res.json(); } catch (e) { /* non-JSON reply still means the script ran */ }
