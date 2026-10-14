@@ -829,28 +829,15 @@
     </div>
 </section>
 
-<!-- ═══ NEWSLETTER ═══ -->
+<!-- ═══ FOLLOW ═══ -->
 <section class="newsletter-section">
     <div class="newsletter-inner reveal">
-        <span class="section-eyebrow">
-            <span class="en">Stay updated</span>
-        </span>
-        <h2 class="section-heading" style="font-size:1.8rem;">
-            <span class="en">New insights, straight to your inbox</span>
-        </h2>
-        <p class="section-desc">
-            <span class="en">No spam. Just practical AI insights for business — when there's something worth sharing.</span>
-        </p>
-        <form class="newsletter-form" id="nlForm" onsubmit="submitNewsletter(event)">
-            <input type="email" class="newsletter-input" id="nlEmail" required placeholder="Your work email">
-            <button type="submit" class="newsletter-btn" id="nlBtn">
-                <span class="en">Subscribe</span>
-            </button>
-        </form>
-        <label class="ss-consent"><input type="checkbox" required form="nlForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
-        <p class="newsletter-note" id="nlNote">
-            <span class="en">Unsubscribe anytime. Your email stays private.</span>
-        </p>
+        <h2 class="section-heading" style="font-size:1.8rem;">One build a week, no mailing list</h2>
+        <p class="section-desc">New use cases go out on LinkedIn first. If you'd rather see one for your own process, send it — the good ones become articles.</p>
+        <div class="newsletter-form" style="justify-content:center;gap:0.6rem;flex-wrap:wrap;">
+            <a class="newsletter-btn" style="text-decoration:none;display:inline-flex;align-items:center;" href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+            <a class="newsletter-btn" style="text-decoration:none;display:inline-flex;align-items:center;background:transparent;border:1px solid var(--ss-line-strong);color:var(--ss-text);" href="/contact">Send a process</a>
+        </div>
     </div>
 </section>
 
@@ -900,26 +887,6 @@ function filterPosts(cat) {
     });
 }
 
-// Newsletter
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxoyijrblESOSWJbO7D2eQq08KImO9qm8vogZM4v9sn1UR0uQ/exec';
-async function submitNewsletter(e) {
-    e.preventDefault();
-    const input = document.getElementById('nlEmail');
-    const note = document.getElementById('nlNote');
-    const btn = document.getElementById('nlBtn');
-    btn.disabled = true;
-    try {
-        const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({ type: 'newsletter', email: input.value.trim(), source: 'insights', lang: 'en' }));
-        await (window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' }));
-        note.textContent = 'Subscribed. The next issue goes to ' + input.value.trim() + '.';
-        note.style.color = '#10b981';
-        input.value = '';
-    } catch (err) {
-        note.innerHTML = 'Couldn\'t subscribe you. Email <a href="mailto:info@sourcing-sense.com?subject=Subscribe">info@sourcing-sense.com</a> with "subscribe" instead.';
-        note.style.color = '#f87171';
-    }
-    btn.disabled = false;
-}
 </script>
 <script src="/assets/ss.js" defer></script>
 </body>

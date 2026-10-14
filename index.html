@@ -234,10 +234,10 @@
             margin: 0 auto 2.5rem;
         }
         .ea-offers {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
-            margin-bottom: 2.5rem;
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem;
+            margin-bottom: 2.5rem; text-align: left;
         }
-        @media (max-width: 600px) { .ea-offers { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .ea-offers { grid-template-columns: 1fr; } }
         .ea-card {
             background: var(--bg-elevated);
             border: 1px solid var(--dark-border);
@@ -2128,44 +2128,23 @@
     ═══════════════════════════════════════════ -->
     <section class="early-access" id="early-access">
         <div class="early-access-inner">
-            <p class="ea-eyebrow"><span class="en">Exclusive early access</span></p>
-            <h2>
-                <span class="en">Two things coming — grab your spot</span>
-            </h2>
-            <p>
-                <span class="en">Drop your email once, get both. No spam, unsubscribe anytime.</span>
-            </p>
+            <h2>Start where it's useful to you</h2>
+            <p>No mailing list. Take what you need, and if something here matches a process you're stuck with, send it over.</p>
             <div class="ea-offers">
-                <a href="/resources/ai-policy-template" class="ea-card" style="text-decoration:none;">
-                    <span class="ea-card-badge live"><span class="en">Free · Live now</span></span>
-                    <h3><span class="en">AI Policy Template</span></h3>
-                    <p>
-                        <span class="en">A ready-to-use AI usage policy for procurement and sourcing teams. Built from real EMEA experience. Enter your email, get it instantly.</span>
-                    </p>
+                <a href="/ai-use-cases" class="ea-card" style="text-decoration:none;">
+                    <h3>See what AI can do in procurement</h3>
+                    <p>28 use cases across source-to-pay, each with the tools, data and effort it takes.</p>
                 </a>
-                <div class="ea-card">
-                    <span class="ea-card-badge soon"><span class="en">Coming soon</span></span>
-                    <h3>
-                        <span class="en">5-Day AI Business Crash Course</span>
-                    </h3>
-                    <p>
-                        <span class="en">Five emails. Five real use cases. How to actually use AI to cut costs, save time, and impress your boss. No hype, no theory.</span>
-                    </p>
-                </div>
+                <a href="/resources/ai-policy-template" class="ea-card" style="text-decoration:none;">
+                    <h3>Get the AI policy template</h3>
+                    <p>A ready-to-use AI usage policy for procurement teams, mapped to the EU AI Act and GDPR.</p>
+                </a>
+                <a href="/contact" class="ea-card" style="text-decoration:none;">
+                    <h3>Send me your most manual process</h3>
+                    <p>Describe it in a few lines. I'll tell you honestly whether AI helps, and how.</p>
+                </a>
             </div>
-            <div class="ea-form-wrap">
-                <form class="ea-form" id="eaForm" onsubmit="submitEarlyAccess(event)">
-                    <input type="email" class="ea-input" id="eaEmail" required placeholder="your@email.com">
-                    <button type="submit" class="ea-btn" id="eaBtn">
-                        <span class="en">Notify me</span>
-                    </button>
-                </form>
-                <label class="ss-consent"><input type="checkbox" required form="eaForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
-                <p class="ea-note">
-                    <span class="en">Free. No credit card. Unsubscribe anytime.</span>
-                </p>
-                <div class="ea-msg" id="eaMsg"></div>
-            </div>
+            <p class="ea-note">New builds every week on <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" rel="noopener" style="color:var(--ss-blue);text-decoration:underline;text-underline-offset:3px;">LinkedIn</a>.</p>
         </div>
     </section>
 
@@ -2206,20 +2185,6 @@
                     <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span></a>
                     <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a>
                     <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank">LinkedIn</a>
-                    <div style="margin-top:1rem;">
-                        <h4 style="margin-bottom:0.5rem;"><span class="en">Stay in the loop</span></h4>
-                        <p style="font-size:0.78rem;color:var(--dark-text-muted);line-height:1.5;margin-bottom:0.5rem;">
-                            <span class="en">AI procurement tips, new tools, no spam.</span>
-                        </p>
-                        <form class="newsletter-form" id="nlForm" onsubmit="submitNewsletter(event)">
-                            <input type="email" class="newsletter-input" id="nlEmail" required placeholder="your@email.com">
-                            <button type="submit" class="newsletter-btn" id="nlBtn">
-                                <span class="en">Subscribe</span>
-                            </button>
-                        </form>
-                        <label class="ss-consent ss-consent-sm"><input type="checkbox" required form="nlForm"> <span>I agree that Sourcing Sense stores my email to send what I asked for and occasional related emails. Unsubscribe any time. <a href="/privacy">Privacy policy</a></span></label>
-                        <div class="newsletter-msg" id="nlMsg"></div>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -2299,57 +2264,6 @@ function closeBanner() {
     tick();
     setInterval(tick, 1000);
 })();
-
-// ─── EARLY ACCESS FORM ───
-async function submitEarlyAccess(e) {
-    e.preventDefault();
-    const email = document.getElementById('eaEmail').value.trim();
-    const btn = document.getElementById('eaBtn');
-    const msg = document.getElementById('eaMsg');
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-    btn.disabled = true;
-    btn.textContent = '...';
-    msg.textContent = '';
-    msg.className = 'ea-msg';
-    try {
-        await postToGAS({ type: 'early_access', email: email, source: 'early-access-section', lang: lang });
-        msg.className = 'ea-msg success';
-        msg.textContent = lang === 'cs' ? 'Přihlášeno! Dáme vědět.' : 'Done! We\'ll notify you.';
-        document.getElementById('eaEmail').value = '';
-    } catch (err) {
-        msg.className = 'ea-msg error';
-        msg.textContent = 'Couldn\'t send that. Email info@sourcing-sense.com and I\'ll add you by hand.';
-    }
-    btn.disabled = false;
-    btn.innerHTML = '<span class="en">Notify me</span>';
-}
-
-// ─── NEWSLETTER ───
-async function submitNewsletter(e) {
-    e.preventDefault();
-    const email = document.getElementById('nlEmail').value.trim();
-    const btn = document.getElementById('nlBtn');
-    const msg = document.getElementById('nlMsg');
-    const lang = document.documentElement.getAttribute('data-lang') || 'en';
-
-    btn.disabled = true;
-    btn.textContent = '...';
-    msg.textContent = '';
-    msg.className = 'newsletter-msg';
-
-    try {
-        await postToGAS({ type: 'newsletter', email: email, source: 'footer', lang: lang });
-        msg.className = 'newsletter-msg success';
-        msg.textContent = lang === 'cs' ? 'Přihlášeno! Díky.' : 'Subscribed! Thanks.';
-        document.getElementById('nlEmail').value = '';
-    } catch (err) {
-        msg.className = 'newsletter-msg error';
-        msg.textContent = 'Couldn\'t send that. Email info@sourcing-sense.com and I\'ll add you by hand.';
-    }
-
-    btn.disabled = false;
-    btn.innerHTML = '<span class="en">Subscribe</span>';
-}
 
 // ─── LANGUAGE SYSTEM ───
 function setLang(lang) {
