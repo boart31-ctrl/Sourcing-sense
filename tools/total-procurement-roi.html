@@ -11,17 +11,15 @@
     <title>Total Procurement ROI Calculator — Free | Sourcing Sense</title>
     <meta name="description" content="Free total procurement ROI calculator — quantify the full value of procurement across 8 dimensions. CPO business case tool with sourced benchmarks. No sign-up.">
     <meta name="keywords" content="total procurement ROI calculator, procurement value calculator, CPO business case tool, procurement ROI analysis, procurement automation ROI, procurement value measurement, procurement KPI calculator, procurement business case, maverick spend calculator, contract risk calculator, procurement TCO tool, procurement performance dashboard">
-    <meta name="author" content="David Račák">
+    <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://sourcing-sense.com/tools/total-procurement-roi" />
     <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/tools/total-procurement-roi" />
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/tools/total-procurement-roi" />
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/tools/total-procurement-roi" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="cs_CZ" />
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:title" content="Total Procurement ROI Calculator — Free | Sourcing Sense" />
     <meta property="og:description" content="Calculate the full value of procurement across 8 dimensions: time, contracts, TCO, maverick spend, payments, EHS, space, and carbon. Free, no sign-up." />
@@ -39,7 +37,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-      "author": { "@type": "Person", "name": "David Račák" }
+      "author": { "@type": "Person", "name": "David Račak" }
     }
     </script>
 
@@ -373,6 +371,7 @@
         }
         input[type="range"] { accent-color: var(--accent); }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
@@ -383,58 +382,54 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <ul class="nav-center">
-        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
-        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-            <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/ai-use-cases"><span class="en">AI use cases</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span></a></li>
+            <li><a href="/resources/ai-policy-template"><span class="en">Resources</span></a></li>
             
-        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
-        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn active" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" onclick="setLang('cs')">CZ</button>
-        </div>
         <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
-            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+            <span class="en">Book a Call</span>
         </a>
     </div>
     <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
-    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
         
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
 </div>
 
 <!-- TOOL HEADER -->
 <section class="tool-header">
     <div class="tool-header-inner">
         <div class="breadcrumb">
-            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <a href="/"><span class="en">Home</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
+            <a href="/tools"><span class="en">Tools</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <span><span class="en">Total Procurement ROI</span><span class="cz">Total Procurement ROI</span></span>
+            <span><span class="en">Total Procurement ROI</span></span>
         </div>
         <h1>
             <span class="en">Total Procurement ROI Calculator</span>
-            <span class="cz">Total Procurement ROI Calculator</span>
         </h1>
         <p class="tool-header-desc">
             <span class="en">Build a complete business case for procurement automation. Time savings are just the start — add contract risk, TCO, maverick spend, payments, EHS, and carbon to get the full picture.</span>
-            <span class="cz">Sestavte kompletní business case pro automatizaci nákupu. Úspora času je jen začátek — přidejte smluvní rizika, TCO, maverick spend, platby, BOZP a uhlíkovou stopu.</span>
         </p>
         <div class="tool-badge-row">
-            <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
-            <span class="tool-badge no-signup"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
-            <span class="tool-badge advanced"><span class="en">8 value dimensions</span><span class="cz">8 dimenzí hodnoty</span></span>
+            <span class="tool-badge free"><span class="en">Free</span></span>
+            <span class="tool-badge no-signup"><span class="en">No sign-up</span></span>
+            <span class="tool-badge advanced"><span class="en">8 value dimensions</span></span>
         </div>
     </div>
 </section>
@@ -445,7 +440,7 @@
 <!-- LEFT: Inputs -->
 <div class="calc-inputs">
     <div class="calc-inputs-header">
-        <h2><span class="en">Inputs</span><span class="cz">Vstupy</span></h2>
+        <h2><span class="en">Inputs</span></h2>
         <div class="currency-toggle">
             <button id="btnEur" class="currency-btn active" onclick="setCurrency('EUR')">€ EUR</button>
             <button id="btnCzk" class="currency-btn" onclick="setCurrency('CZK')">Kč CZK</button>
@@ -455,23 +450,23 @@
     <!-- SECTION 0: Project metadata -->
     <div class="meta-section">
         <div class="field-group">
-            <label class="field-label" for="projName"><span class="en">Project name</span><span class="cz">Název projektu</span></label>
+            <label class="field-label" for="projName"><span class="en">Project name</span></label>
             <input type="text" id="projName" class="text-input" placeholder="e.g. AP Automation 2026">
         </div>
         <div class="field-group">
-            <label class="field-label" for="projNotes"><span class="en">Notes / context</span><span class="cz">Poznámky / kontext</span></label>
+            <label class="field-label" for="projNotes"><span class="en">Notes / context</span></label>
             <textarea id="projNotes" class="text-input" rows="2" placeholder="Process, department, scope…"></textarea>
         </div>
         <div class="meta-row">
             <div class="field-group" style="flex:1;margin-bottom:0;">
-                <label class="field-label" for="implDate"><span class="en">Target implementation date</span><span class="cz">Cílové datum implementace</span></label>
+                <label class="field-label" for="implDate"><span class="en">Target implementation date</span></label>
                 <input type="date" id="implDate" class="text-input" onchange="recalc()">
             </div>
         </div>
     </div>
 
     <!-- PRESET SELECTOR -->
-    <span class="preset-label"><span class="en">Load a scenario preset</span><span class="cz">Načíst přednastavený scénář</span></span>
+    <span class="preset-label"><span class="en">Load a scenario preset</span></span>
     <select class="preset-select" id="presetSel" onchange="loadPreset()">
         <option value="">— Custom —</option>
         <option value="contract_review">Contract Review Automation</option>
@@ -481,55 +476,55 @@
     </select>
 
     <!-- SECTION 1: Core (always open) -->
-    <p class="sec1-title"><span class="en">Section 1 — Time &amp; Process Cost</span><span class="cz">Sekce 1 — Čas a náklady procesu</span></p>
+    <p class="sec1-title"><span class="en">Section 1 — Time &amp; Process Cost</span></p>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">Hours per occurrence</span><span class="cz">Hodiny na výskyt</span></span>
+            <span class="slider-label"><span class="en">Hours per occurrence</span></span>
             <span class="slider-value" id="valHours">3 h</span>
         </div>
         <input type="range" id="slHours" min="0.5" max="24" step="0.5" value="3" oninput="onSlide('slHours','valHours',v=>v+' h')">
     </div>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">Occurrences per year</span><span class="cz">Počet výskytů ročně</span></span>
+            <span class="slider-label"><span class="en">Occurrences per year</span></span>
             <span class="slider-value" id="valFreq">50×</span>
         </div>
         <input type="range" id="slFreq" min="1" max="500" step="1" value="50" oninput="onSlide('slFreq','valFreq',v=>v+'×')">
     </div>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">People involved</span><span class="cz">Počet zapojených lidí</span></span>
+            <span class="slider-label"><span class="en">People involved</span></span>
             <span class="slider-value" id="valPeople">2 ppl</span>
         </div>
         <input type="range" id="slPeople" min="1" max="20" step="1" value="2" oninput="onSlide('slPeople','valPeople',v=>v+' ppl')">
     </div>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">Fully loaded hourly cost</span><span class="cz">Plná hodinová sazba</span></span>
+            <span class="slider-label"><span class="en">Fully loaded hourly cost</span></span>
         </div>
         <div class="money-wrap">
             <span class="money-sym" id="sym1">€</span>
             <input type="number" id="inCost" class="money-input" value="45" min="1" oninput="recalc()">
         </div>
-        <p class="slider-hint"><span class="en">Gross salary × 1.3–1.5 incl. employer costs. EU mid-senior: €45/h.</span><span class="cz">Hrubá mzda × 1,3–1,5 vč. odvodů. Střední úroveň CZ: 1 100 Kč/h.</span></p>
+        <p class="slider-hint"><span class="en">Gross salary × 1.3–1.5 incl. employer costs. EU mid-senior: €45/h.</span></p>
     </div>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">Automation efficiency</span><span class="cz">Míra automatizace</span></span>
+            <span class="slider-label"><span class="en">Automation efficiency</span></span>
             <span class="slider-value" id="valEff">70%</span>
         </div>
         <input type="range" id="slEff" min="10" max="99" step="1" value="70" oninput="onSlide('slEff','valEff',v=>v+'%')">
-        <p class="slider-hint"><span class="en">70% is conservative. Invoice coding: 90–95%. Contract review: 60–75%.</span><span class="cz">70 % je konzervativní. Faktury: 90–95 %. Smlouvy: 60–75 %.</span></p>
+        <p class="slider-hint"><span class="en">70% is conservative. Invoice coding: 90–95%. Contract review: 60–75%.</span></p>
     </div>
     <div class="slider-group">
         <div class="slider-row">
-            <span class="slider-label"><span class="en">Implementation cost</span><span class="cz">Náklady na implementaci</span></span>
+            <span class="slider-label"><span class="en">Implementation cost</span></span>
         </div>
         <div class="money-wrap">
             <span class="money-sym" id="symImpl">€</span>
             <input type="number" id="inImpl" class="money-input" value="2000" min="0" oninput="recalc()">
         </div>
-        <p class="slider-hint"><span class="en">First project baseline: €2,000–8,000 depending on complexity.</span><span class="cz">Základní projekt: 50 000–200 000 Kč podle složitosti.</span></p>
+        <p class="slider-hint"><span class="en">First project baseline: €2,000–8,000 depending on complexity.</span></p>
     </div>
     <hr class="divider">
 
@@ -537,34 +532,34 @@
     <div class="section-block">
         <label class="section-header" for="en2">
             <input type="checkbox" id="en2" class="section-check" onchange="toggleSec(2,this.checked)">
-            <span class="section-title-text"><span class="en">Contract Risk &amp; Management</span><span class="cz">Smluvní rizika</span></span>
-            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <span class="section-title-text"><span class="en">Contract Risk &amp; Management</span></span>
+            <span class="sec-badge office en">Office</span>
             <svg class="sec-arrow" id="secArrow2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec2">
             <div class="field-group">
-                <label class="field-label"><span class="en">Annual contract value under review</span><span class="cz">Roční hodnota smluv</span></label>
+                <label class="field-label"><span class="en">Annual contract value under review</span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="contractVal" class="money-input" value="500000" oninput="recalc()"></div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Value leakage rate (manual)</span><span class="cz">Míra úniku hodnoty</span></span><span class="slider-value" id="valLeak">11%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Value leakage rate (manual)</span></span><span class="slider-value" id="valLeak">11%</span></div>
                 <input type="range" id="slLeak" min="1" max="30" step="0.5" value="11" oninput="onSlide('slLeak','valLeak',v=>v+'%')">
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Leakage reduction from automation</span><span class="cz">Redukce úniku automatizací</span></span><span class="slider-value" id="valLeakRed">60%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Leakage reduction from automation</span></span><span class="slider-value" id="valLeakRed">60%</span></div>
                 <input type="range" id="slLeakRed" min="10" max="90" step="5" value="60" oninput="onSlide('slLeakRed','valLeakRed',v=>v+'%')">
             </div>
             <div class="two-col">
                 <div class="field-group">
-                    <label class="field-label"><span class="en">Current cycle time (days)</span><span class="cz">Aktuální doba cyklu</span></label>
+                    <label class="field-label"><span class="en">Current cycle time (days)</span></label>
                     <input type="number" id="currentDays" class="num-input" value="21" min="1" oninput="recalc()">
                 </div>
                 <div class="field-group">
-                    <label class="field-label"><span class="en">With automation (days)</span><span class="cz">S automatizací</span></label>
+                    <label class="field-label"><span class="en">With automation (days)</span></label>
                     <input type="number" id="autoDays" class="num-input" value="7" min="1" oninput="recalc()">
                 </div>
             </div>
-            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.worldcc.com/Resources/Content-Hub/details/Poor-Contract-Management-Continues-To-Costs-Companies-9-Of-Their-Bottom-Line" target="_blank">WorldCC — Poor Contract Management</a></p>
+            <p class="sec-source"><span class="en">Source:</span> <a href="https://www.worldcc.com/Resources/Content-Hub/details/Poor-Contract-Management-Continues-To-Costs-Companies-9-Of-Their-Bottom-Line" target="_blank">WorldCC — Poor Contract Management</a></p>
         </div>
     </div>
 
@@ -572,24 +567,24 @@
     <div class="section-block">
         <label class="section-header" for="en3">
             <input type="checkbox" id="en3" class="section-check" onchange="toggleSec(3,this.checked)">
-            <span class="section-title-text"><span class="en">TCO &amp; Price Accuracy</span><span class="cz">TCO a přesnost cen</span></span>
-            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <span class="section-title-text"><span class="en">TCO &amp; Price Accuracy</span></span>
+            <span class="sec-badge office en">Office</span>
             <svg class="sec-arrow" id="secArrow3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec3">
             <div class="field-group">
-                <label class="field-label"><span class="en">Annual category spend under analysis</span><span class="cz">Roční výdaje kategorie</span></label>
+                <label class="field-label"><span class="en">Annual category spend under analysis</span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="tcoSpend" class="money-input" value="1000000" oninput="recalc()"></div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Quotes with hidden/missing costs</span><span class="cz">Nabídky se skrytými náklady</span></span><span class="slider-value" id="valHidden">15%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Quotes with hidden/missing costs</span></span><span class="slider-value" id="valHidden">15%</span></div>
                 <input type="range" id="slHidden" min="1" max="50" step="1" value="15" oninput="onSlide('slHidden','valHidden',v=>v+'%')">
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Average hidden cost deviation</span><span class="cz">Průměrná odchylka skrytých nákladů</span></span><span class="slider-value" id="valDev">3.2%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Average hidden cost deviation</span></span><span class="slider-value" id="valDev">3.2%</span></div>
                 <input type="range" id="slDev" min="0.5" max="15" step="0.1" value="3.2" oninput="onSlide('slDev','valDev',v=>v+'%')">
             </div>
-            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
+            <p class="sec-source"><span class="en">Source:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
         </div>
     </div>
 
@@ -597,31 +592,31 @@
     <div class="section-block">
         <label class="section-header" for="en4">
             <input type="checkbox" id="en4" class="section-check" onchange="toggleSec(4,this.checked)">
-            <span class="section-title-text"><span class="en">Payment Terms &amp; Cash</span><span class="cz">Platební podmínky</span></span>
-            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <span class="section-title-text"><span class="en">Payment Terms &amp; Cash</span></span>
+            <span class="sec-badge office en">Office</span>
             <svg class="sec-arrow" id="secArrow4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec4">
             <div class="field-group">
-                <label class="field-label"><span class="en">AP spend eligible for early payment</span><span class="cz">AP výdaje pro předčasnou platbu</span></label>
+                <label class="field-label"><span class="en">AP spend eligible for early payment</span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="apSpend" class="money-input" value="500000" oninput="recalc()"></div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Available early payment discount</span><span class="cz">Dostupná sleva za předčasnou platbu</span></span><span class="slider-value" id="valDiscount">2%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Available early payment discount</span></span><span class="slider-value" id="valDiscount">2%</span></div>
                 <input type="range" id="slDiscount" min="0.5" max="5" step="0.5" value="2" oninput="onSlide('slDiscount','valDiscount',v=>v+'%')">
-                <p class="slider-hint"><span class="en">Standard 2/10 net 30.</span><span class="cz">Standardní 2/10 net 30.</span></p>
+                <p class="slider-hint"><span class="en">Standard 2/10 net 30.</span></p>
             </div>
             <div class="two-col">
                 <div class="slider-group" style="margin-bottom:0">
-                    <div class="slider-row"><span class="slider-label"><span class="en">Current capture rate</span><span class="cz">Aktuální záchyt</span></span><span class="slider-value" id="valCC">10%</span></div>
+                    <div class="slider-row"><span class="slider-label"><span class="en">Current capture rate</span></span><span class="slider-value" id="valCC">10%</span></div>
                     <input type="range" id="slCC" min="0" max="90" step="5" value="10" oninput="onSlide('slCC','valCC',v=>v+'%')">
                 </div>
                 <div class="slider-group" style="margin-bottom:0">
-                    <div class="slider-row"><span class="slider-label"><span class="en">Target capture rate</span><span class="cz">Cílový záchyt</span></span><span class="slider-value" id="valTC">70%</span></div>
+                    <div class="slider-row"><span class="slider-label"><span class="en">Target capture rate</span></span><span class="slider-value" id="valTC">70%</span></div>
                     <input type="range" id="slTC" min="10" max="100" step="5" value="70" oninput="onSlide('slTC','valTC',v=>v+'%')">
                 </div>
             </div>
-            <p class="sec-source"><span class="en">Source:</span><span class="cz">Zdroj:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
+            <p class="sec-source"><span class="en">Source:</span> <a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 Global CPO Survey</a></p>
         </div>
     </div>
 
@@ -629,28 +624,28 @@
     <div class="section-block">
         <label class="section-header" for="en5">
             <input type="checkbox" id="en5" class="section-check" onchange="toggleSec(5,this.checked)">
-            <span class="section-title-text"><span class="en">Maverick Spend &amp; Compliance</span><span class="cz">Maverick spend a soulad</span></span>
-            <span class="sec-badge office en">Office</span><span class="sec-badge office cz">Kancelář</span>
+            <span class="section-title-text"><span class="en">Maverick Spend &amp; Compliance</span></span>
+            <span class="sec-badge office en">Office</span>
             <svg class="sec-arrow" id="secArrow5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec5">
             <div class="field-group">
-                <label class="field-label"><span class="en">Total addressable spend</span><span class="cz">Celkové adresovatelné výdaje</span></label>
+                <label class="field-label"><span class="en">Total addressable spend</span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="addrSpend" class="money-input" value="2000000" oninput="recalc()"></div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Non-compliant spend rate</span><span class="cz">Míra nesouladu výdajů</span></span><span class="slider-value" id="valNoncomp">12%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Non-compliant spend rate</span></span><span class="slider-value" id="valNoncomp">12%</span></div>
                 <input type="range" id="slNoncomp" min="1" max="50" step="1" value="12" oninput="onSlide('slNoncomp','valNoncomp',v=>v+'%')">
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Avg price premium on maverick purchases</span><span class="cz">Průměrná prémie mimo smlouvy</span></span><span class="slider-value" id="valPremium">8%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Avg price premium on maverick purchases</span></span><span class="slider-value" id="valPremium">8%</span></div>
                 <input type="range" id="slPremium" min="1" max="30" step="1" value="8" oninput="onSlide('slPremium','valPremium',v=>v+'%')">
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Expected compliance improvement</span><span class="cz">Očekávané zlepšení souladu</span></span><span class="slider-value" id="valComp">50%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Expected compliance improvement</span></span><span class="slider-value" id="valComp">50%</span></div>
                 <input type="range" id="slComp" min="10" max="90" step="5" value="50" oninput="onSlide('slComp','valComp',v=>v+'%')">
             </div>
-            <p class="sec-source"><span class="en">Source: ISM industry benchmark (CAPS Research spend compliance data).</span><span class="cz">Zdroj: ISM průmyslový benchmark (CAPS Research).</span></p>
+            <p class="sec-source"><span class="en">Source: ISM industry benchmark (CAPS Research spend compliance data).</span></p>
         </div>
     </div>
 
@@ -658,29 +653,29 @@
     <div class="section-block">
         <label class="section-header" for="en6">
             <input type="checkbox" id="en6" class="section-check" onchange="toggleSec(6,this.checked)">
-            <span class="section-title-text"><span class="en">EHS / Injury Risk</span><span class="cz">BOZP / riziko úrazů</span></span>
-            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span><span class="sec-badge warehouse cz" title="Platí pro automatizaci fyzických skladových procesů">Sklad</span>
+            <span class="section-title-text"><span class="en">EHS / Injury Risk</span></span>
+            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span>
             <svg class="sec-arrow" id="secArrow6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec6">
             <div class="two-col">
                 <div class="field-group">
-                    <label class="field-label"><span class="en">FTE in affected process</span><span class="cz">FTE v procesu</span></label>
+                    <label class="field-label"><span class="en">FTE in affected process</span></label>
                     <input type="number" id="inFte" class="num-input" value="10" min="1" oninput="recalc()">
                 </div>
                 <div class="field-group">
-                    <label class="field-label"><span class="en">Incident rate /100 FTE/yr</span><span class="cz">Míra nehod /100 FTE/rok</span></label>
+                    <label class="field-label"><span class="en">Incident rate /100 FTE/yr</span></label>
                     <input type="number" id="inIncRate" class="num-input" value="3.2" min="0" step="0.1" oninput="recalc()">
-                    <p class="slider-hint"><span class="en">EU mfg avg: 3.2</span><span class="cz">EU průměr výroby: 3,2</span></p>
+                    <p class="slider-hint"><span class="en">EU mfg avg: 3.2</span></p>
                 </div>
             </div>
             <div class="field-group">
-                <label class="field-label"><span class="en">Avg cost per incident</span><span class="cz">Průměrné náklady na nehodu</span></label>
+                <label class="field-label"><span class="en">Avg cost per incident</span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inIncCost" class="money-input" value="38000" oninput="recalc()"></div>
-                <p class="slider-hint"><span class="en">EU-OSHA estimate: €38,000 incl. indirect costs.</span><span class="cz">Odhad EU-OSHA: 38 000 € vč. nepřímých nákladů.</span></p>
+                <p class="slider-hint"><span class="en">EU-OSHA estimate: €38,000 incl. indirect costs.</span></p>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Incident reduction from automation</span><span class="cz">Redukce nehod automatizací</span></span><span class="slider-value" id="valEhsRed">25%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Incident reduction from automation</span></span><span class="slider-value" id="valEhsRed">25%</span></div>
                 <input type="range" id="slEhsRed" min="5" max="80" step="5" value="25" oninput="onSlide('slEhsRed','valEhsRed',v=>v+'%')">
             </div>
             <p class="sec-source"><a href="https://osha.europa.eu/en/themes/good-osh-is-good-for-business" target="_blank">EU-OSHA — Good OSH is Good for Business</a></p>
@@ -691,23 +686,23 @@
     <div class="section-block">
         <label class="section-header" for="en7">
             <input type="checkbox" id="en7" class="section-check" onchange="toggleSec(7,this.checked)">
-            <span class="section-title-text"><span class="en">Space &amp; Archiving</span><span class="cz">Prostor a archivace</span></span>
-            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span><span class="sec-badge warehouse cz" title="Platí pro automatizaci fyzických skladových procesů">Sklad</span>
+            <span class="section-title-text"><span class="en">Space &amp; Archiving</span></span>
+            <span class="sec-badge warehouse en" title="Applicable when automating physical warehouse or goods-handling workflows">Warehouse</span>
             <svg class="sec-arrow" id="secArrow7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec7">
             <div class="two-col">
                 <div class="field-group">
-                    <label class="field-label"><span class="en">m² for paper/manual storage</span><span class="cz">m² pro papírové úložiště</span></label>
+                    <label class="field-label"><span class="en">m² for paper/manual storage</span></label>
                     <input type="number" id="inM2" class="num-input" value="20" min="1" oninput="recalc()">
                 </div>
                 <div class="field-group">
-                    <label class="field-label"><span class="en">Cost per m²/year</span><span class="cz">Cena za m²/rok</span></label>
+                    <label class="field-label"><span class="en">Cost per m²/year</span></label>
                     <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inCostM2" class="money-input" value="180" oninput="recalc()"></div>
                 </div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Expected space reduction</span><span class="cz">Očekávané uvolnění prostoru</span></span><span class="slider-value" id="valSpaceRed">40%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Expected space reduction</span></span><span class="slider-value" id="valSpaceRed">40%</span></div>
                 <input type="range" id="slSpaceRed" min="10" max="100" step="5" value="40" oninput="onSlide('slSpaceRed','valSpaceRed',v=>v+'%')">
             </div>
         </div>
@@ -717,29 +712,29 @@
     <div class="section-block">
         <label class="section-header" for="en8">
             <input type="checkbox" id="en8" class="section-check" onchange="toggleSec(8,this.checked)">
-            <span class="section-title-text"><span class="en">Carbon &amp; Environment</span><span class="cz">Uhlík a životní prostředí</span></span>
+            <span class="section-title-text"><span class="en">Carbon &amp; Environment</span></span>
             <svg class="sec-arrow" id="secArrow8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </label>
         <div class="section-body" id="sec8">
             <div class="two-col">
                 <div class="field-group">
-                    <label class="field-label"><span class="en">Paper (reams/year)</span><span class="cz">Papír (balíky/rok)</span></label>
+                    <label class="field-label"><span class="en">Paper (reams/year)</span></label>
                     <input type="number" id="inReams" class="num-input" value="50" min="0" oninput="recalc()">
                 </div>
                 <div class="field-group">
-                    <label class="field-label"><span class="en">Travel (km/year)</span><span class="cz">Cestování (km/rok)</span></label>
+                    <label class="field-label"><span class="en">Travel (km/year)</span></label>
                     <input type="number" id="inKm" class="num-input" value="2000" min="0" oninput="recalc()">
                 </div>
             </div>
             <div class="slider-group">
-                <div class="slider-row"><span class="slider-label"><span class="en">Reduction from digital processes</span><span class="cz">Redukce digitalizací</span></span><span class="slider-value" id="valCarbRed">60%</span></div>
+                <div class="slider-row"><span class="slider-label"><span class="en">Reduction from digital processes</span></span><span class="slider-value" id="valCarbRed">60%</span></div>
                 <input type="range" id="slCarbRed" min="10" max="100" step="5" value="60" oninput="onSlide('slCarbRed','valCarbRed',v=>v+'%')">
             </div>
             <div class="field-group">
-                <label class="field-label"><span class="en">EU ETS carbon price (€/tonne)</span><span class="cz">Cena EU ETS uhlíku (€/t)</span> <span class="field-label-sub">— <span class="en">March 2026</span><span class="cz">Březen 2026</span></span></label>
+                <label class="field-label"><span class="en">EU ETS carbon price (€/tonne)</span> <span class="field-label-sub">— <span class="en">March 2026</span></span></label>
                 <div class="money-wrap"><span class="money-sym sec-sym">€</span><input type="number" id="inEts" class="money-input" value="81" min="1" oninput="recalc()"></div>
             </div>
-            <p class="sec-source"><a href="https://sandbag.be/carbon-price-viewer/" target="_blank">Sandbag Carbon Price Viewer</a> · <span class="en">Emission factors: paper 0.0045 t/ream, car 0.00021 t/km.</span><span class="cz">Emisní faktory: papír 0,0045 t/balík, auto 0,00021 t/km.</span></p>
+            <p class="sec-source"><a href="https://sandbag.be/carbon-price-viewer/" target="_blank">Sandbag Carbon Price Viewer</a> · <span class="en">Emission factors: paper 0.0045 t/ream, car 0.00021 t/km.</span></p>
         </div>
     </div>
 
@@ -750,114 +745,113 @@
 
     <!-- Primary card -->
     <div class="result-primary">
-        <p class="rp-label"><span class="en">Total annual value</span><span class="cz">Celková roční hodnota</span></p>
+        <p class="rp-label"><span class="en">Total annual value</span></p>
         <div class="rp-value" id="resPrimary">—</div>
-        <p class="rp-sub"><span class="en">combined across all enabled sections</span><span class="cz">součet všech aktivních sekcí</span></p>
+        <p class="rp-sub"><span class="en">combined across all enabled sections</span></p>
         <span id="resSavings" style="display:none">—</span>
     </div>
 
     <!-- 4 metric cards -->
     <div class="result-metrics">
         <div class="result-metric">
-            <p class="rm-label"><span class="en">Payback period</span><span class="cz">Návratnost</span></p>
+            <p class="rm-label"><span class="en">Payback period</span></p>
             <div class="rm-value" id="resPayback">—</div>
             <p class="rm-sub" id="resPaybackSub"></p>
         </div>
         <div class="result-metric">
-            <p class="rm-label"><span class="en">ROI on impl. cost</span><span class="cz">ROI na impl. náklady</span></p>
+            <p class="rm-label"><span class="en">ROI on impl. cost</span></p>
             <div class="rm-value accent" id="resRoi">—</div>
-            <p class="rm-sub"><span class="en">return on investment</span><span class="cz">návratnost investice</span></p>
+            <p class="rm-sub"><span class="en">return on investment</span></p>
         </div>
         <div class="result-metric">
-            <p class="rm-label"><span class="en">Hours freed / year</span><span class="cz">Uvolněných hodin / rok</span></p>
+            <p class="rm-label"><span class="en">Hours freed / year</span></p>
             <div class="rm-value positive" id="resHours">—</div>
-            <p class="rm-sub"><span class="en">process time saved</span><span class="cz">úspora procesního času</span></p>
+            <p class="rm-sub"><span class="en">process time saved</span></p>
         </div>
         <div class="result-metric">
-            <p class="rm-label"><span class="en">Additional value</span><span class="cz">Další přidaná hodnota</span></p>
+            <p class="rm-label"><span class="en">Additional value</span></p>
             <div class="rm-value purple" id="resAddl">—</div>
-            <p class="rm-sub"><span class="en">beyond time savings</span><span class="cz">nad rámec úspory času</span></p>
+            <p class="rm-sub"><span class="en">beyond time savings</span></p>
         </div>
     </div>
 
     <!-- Inflation delay warning -->
     <div class="inflation-warn" id="inflationWarn">
         ⚠ <span class="en">Every month of implementation delay costs ~<strong id="inflationMonthly">—</strong> in inflation-eroded savings value (EU HICP avg 3.5%/yr).</span>
-        <span class="cz">Každý měsíc odkladu implementace stojí ~<strong id="inflationMonthlyCz">—</strong> v inflačně erodované hodnotě úspor (EU HICP průměr 3,5 %/rok).</span>
     </div>
 
     <!-- Additional value cards (sections 2–8) -->
     <div class="addl-card" id="addlCard2">
-        <p class="addl-label"><span class="en">Contract risk avoided</span><span class="cz">Zamezené smluvní riziko</span></p>
+        <p class="addl-label"><span class="en">Contract risk avoided</span></p>
         <div class="addl-value" id="addlVal2">—</div>
-        <p class="addl-desc"><span class="en">Value leakage prevented + faster contracting value.</span><span class="cz">Zamezení úniku hodnoty + rychlejší uzavírání smluv.</span></p>
+        <p class="addl-desc"><span class="en">Value leakage prevented + faster contracting value.</span></p>
         <p class="addl-source"><a href="https://www.worldcc.com/Resources/Content-Hub/details/Poor-Contract-Management-Continues-To-Costs-Companies-9-Of-Their-Bottom-Line" target="_blank">WorldCC: avg 9% bottom-line impact</a></p>
     </div>
     <div class="addl-card" id="addlCard3">
-        <p class="addl-label"><span class="en">TCO improvement</span><span class="cz">Zlepšení TCO</span></p>
+        <p class="addl-label"><span class="en">TCO improvement</span></p>
         <div class="addl-value" id="addlVal3">—</div>
-        <p class="addl-desc"><span class="en">Hidden and missing costs identified and eliminated.</span><span class="cz">Odhalení a eliminace skrytých nákladů.</span></p>
+        <p class="addl-desc"><span class="en">Hidden and missing costs identified and eliminated.</span></p>
         <p class="addl-source"><a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 CPO Survey</a></p>
     </div>
     <div class="addl-card" id="addlCard4">
-        <p class="addl-label"><span class="en">Early payment discount recovery</span><span class="cz">Záchyt slev za předčasnou platbu</span></p>
+        <p class="addl-label"><span class="en">Early payment discount recovery</span></p>
         <div class="addl-value" id="addlVal4">—</div>
-        <p class="addl-desc"><span class="en">Discount capture increase from improved AP visibility.</span><span class="cz">Zvýšení záchytu slev díky lepší viditelnosti AP.</span></p>
+        <p class="addl-desc"><span class="en">Discount capture increase from improved AP visibility.</span></p>
         <p class="addl-source"><a href="https://www.deloitte.com/us/en/services/consulting/articles/2025-global-chief-procurement-officer-survey.html" target="_blank">Deloitte 2025 CPO Survey</a></p>
     </div>
     <div class="addl-card" id="addlCard5">
-        <p class="addl-label"><span class="en">Maverick spend recovery</span><span class="cz">Záchrana maverick spend</span></p>
+        <p class="addl-label"><span class="en">Maverick spend recovery</span></p>
         <div class="addl-value" id="addlVal5">—</div>
-        <p class="addl-desc"><span class="en">Off-contract price premium eliminated through compliance.</span><span class="cz">Eliminace cenové prémie mimo smlouvy.</span></p>
-        <p class="addl-source"><span class="en">ISM industry benchmark (CAPS Research)</span><span class="cz">ISM průmyslový benchmark (CAPS Research)</span></p>
+        <p class="addl-desc"><span class="en">Off-contract price premium eliminated through compliance.</span></p>
+        <p class="addl-source"><span class="en">ISM industry benchmark (CAPS Research)</span></p>
     </div>
     <div class="addl-card" id="addlCard6">
-        <p class="addl-label"><span class="en">EHS risk reduction</span><span class="cz">Redukce BOZP rizik</span></p>
+        <p class="addl-label"><span class="en">EHS risk reduction</span></p>
         <div class="addl-value" id="addlVal6">—</div>
-        <p class="addl-desc"><span class="en">Incident cost reduction from automated safety controls.</span><span class="cz">Snížení nákladů nehod automatizovanými bezpečnostními kontrolami.</span></p>
+        <p class="addl-desc"><span class="en">Incident cost reduction from automated safety controls.</span></p>
         <p class="addl-source"><a href="https://osha.europa.eu/en/themes/good-osh-is-good-for-business" target="_blank">EU-OSHA — Good OSH is Good for Business</a></p>
     </div>
     <div class="addl-card" id="addlCard7">
-        <p class="addl-label"><span class="en">Space freed value</span><span class="cz">Hodnota uvolněného prostoru</span></p>
+        <p class="addl-label"><span class="en">Space freed value</span></p>
         <div class="addl-value" id="addlVal7">—</div>
-        <p class="addl-desc"><span class="en">Physical storage space recovered through digitisation.</span><span class="cz">Fyzický prostor získaný digitalizací.</span></p>
+        <p class="addl-desc"><span class="en">Physical storage space recovered through digitisation.</span></p>
     </div>
     <div class="addl-card" id="addlCard8">
-        <p class="addl-label"><span class="en">Carbon value</span><span class="cz">Hodnota uhlíku</span></p>
+        <p class="addl-label"><span class="en">Carbon value</span></p>
         <div class="addl-value" id="addlVal8">—</div>
-        <p class="addl-desc"><span class="en">CO₂ reduction valued at EU ETS carbon price.</span><span class="cz">Redukce CO₂ oceněná cenou EU ETS.</span></p>
+        <p class="addl-desc"><span class="en">CO₂ reduction valued at EU ETS carbon price.</span></p>
         <p class="addl-source"><a href="https://sandbag.be/carbon-price-viewer/" target="_blank">EU ETS — Sandbag Carbon Price Viewer</a></p>
     </div>
 
     <!-- Summary bar -->
     <div class="summary-bar">
-        <p class="summary-title"><span class="en">Summary</span><span class="cz">Souhrn</span></p>
-        <div class="summary-row"><span class="summary-key"><span class="en">Total annual value</span><span class="cz">Celková roční hodnota</span></span><span class="summary-val" id="sumTotalVal">—</span></div>
+        <p class="summary-title"><span class="en">Summary</span></p>
+        <div class="summary-row"><span class="summary-key"><span class="en">Total annual value</span></span><span class="summary-val" id="sumTotalVal">—</span></div>
         <div class="summary-row"><span class="summary-key">ROI</span><span class="summary-val" id="sumRoi">—</span></div>
-        <div class="summary-row"><span class="summary-key"><span class="en">Payback</span><span class="cz">Návratnost</span></span><span class="summary-val" id="sumPayback">—</span></div>
-        <div class="summary-row"><span class="summary-key">CO₂ <span class="en">saved</span><span class="cz">ušetřeno</span></span><span class="summary-val" id="sumCO2">—</span></div>
-        <div class="summary-row"><span class="summary-key"><span class="en">Incidents prevented</span><span class="cz">Zamezené nehody</span></span><span class="summary-val" id="sumInc">—</span></div>
+        <div class="summary-row"><span class="summary-key"><span class="en">Payback</span></span><span class="summary-val" id="sumPayback">—</span></div>
+        <div class="summary-row"><span class="summary-key">CO₂ <span class="en">saved</span></span><span class="summary-val" id="sumCO2">—</span></div>
+        <div class="summary-row"><span class="summary-key"><span class="en">Incidents prevented</span></span><span class="summary-val" id="sumInc">—</span></div>
     </div>
 
     <!-- Non-financial chips -->
     <div class="chip-row">
         <span class="chip green active" id="chipHours">
             <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
-            <span id="chipHoursVal">0 h</span> <span class="en">freed</span><span class="cz">uvolněno</span>
+            <span id="chipHoursVal">0 h</span> <span class="en">freed</span>
         </span>
         <span class="chip green" id="chipCO2">
             🌱 <span class="chip-val">0 t</span> CO₂
         </span>
         <span class="chip" id="chipInc">
-            🛡 <span class="chip-val">0/yr</span> <span class="en">incidents</span><span class="cz">nehod</span>
+            🛡 <span class="chip-val">0/yr</span> <span class="en">incidents</span>
         </span>
     </div>
 
     <!-- CTA -->
     <div class="result-cta">
-        <p><span class="en">These numbers are your business case. Book a free 20-min call to validate them with your actual process data.</span><span class="cz">Tato čísla jsou váš business case. Domluvte si bezplatný 20minutový hovor pro ověření se skutečnými daty.</span></p>
+        <p><span class="en">These numbers are your business case. Book a free 20-min call to validate them with your actual process data.</span></p>
         <a href="https://calendly.com/sourcing-sense/" target="_blank" class="cta-btn">
-            <span class="en">Book a free 20-min call</span><span class="cz">Domluvit bezplatný 20min hovor</span>
+            <span class="en">Book a free 20-min call</span>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
     </div>
@@ -866,11 +860,11 @@
     <div class="action-buttons">
         <button class="action-btn" onclick="handlePrint()">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            <span class="en">Save as PDF</span><span class="cz">Uložit jako PDF</span>
+            <span class="en">Save as PDF</span>
         </button>
         <button class="action-btn" id="copyBtn" onclick="copySummary()">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-            <span class="en">Copy summary</span><span class="cz">Kopírovat souhrn</span>
+            <span class="en">Copy summary</span>
         </button>
     </div>
 
@@ -917,49 +911,49 @@
         Sources: WorldCC (contract leakage) · Deloitte 2025 Global CPO Survey · EU-OSHA Good OSH is Good for Business · Sandbag EU ETS Carbon Price Viewer · ISM/CAPS Research (spend compliance)
     </div>
     <div class="pr-footer">
-        <span>sourcing-sense.com · David Račák</span>
+        <span>sourcing-sense.com · David Račak</span>
         <span>Generated with Total Procurement ROI Calculator</span>
     </div>
 </div>
 
 <!-- FAQ -->
 <div class="faq-section">
-    <h2 class="faq-title"><span class="en">Common questions</span><span class="cz">Časté otázky</span></h2>
+    <h2 class="faq-title"><span class="en">Common questions</span></h2>
     <div class="faq-list">
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                <span><span class="en">How reliable are the benchmark figures?</span><span class="cz">Jak spolehlivé jsou benchmarkové hodnoty?</span></span>
+                <span><span class="en">How reliable are the benchmark figures?</span></span>
                 <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="faq-a">
-                <p><span class="en">Each default is sourced from a named study — WorldCC, Deloitte, EU-OSHA, or ISM/CAPS Research. They represent industry averages. Your actual numbers will differ. The point of this tool is to give you a defensible starting point, not a final answer. Adjust the sliders to your situation and show your manager the assumptions, not just the output.</span><span class="cz">Každý výchozí parametr pochází z pojmenované studie — WorldCC, Deloitte, EU-OSHA nebo ISM/CAPS Research. Představují průmyslové průměry. Vaše skutečná čísla se budou lišit. Účelem nástroje je dát vám obhajitelný výchozí bod, ne konečnou odpověď.</span></p>
+                <p><span class="en">Each default is sourced from a named study — WorldCC, Deloitte, EU-OSHA, or ISM/CAPS Research. They represent industry averages. Your actual numbers will differ. The point of this tool is to give you a defensible starting point, not a final answer. Adjust the sliders to your situation and show your manager the assumptions, not just the output.</span></p>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                <span><span class="en">Which sections should I enable for my project?</span><span class="cz">Které sekce mám aktivovat?</span></span>
+                <span><span class="en">Which sections should I enable for my project?</span></span>
                 <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="faq-a">
-                <p><span class="en">Use the preset dropdown as a starting point. Contract Review → sections 2 + 3. AP/Invoice workflow → sections 4 + 5. Warehouse automation → sections 6 + 7 + 8. If in doubt, enable only what you can directly tie to your project scope — overstating the case in front of management backfires.</span><span class="cz">Použijte přednastavený scénář jako výchozí bod. Kontrola smluv → sekce 2 + 3. AP/fakturační workflow → sekce 4 + 5. Automatizace skladu → sekce 6 + 7 + 8. Aktivujte jen to, co přímo souvisí s rozsahem vašeho projektu.</span></p>
+                <p><span class="en">Use the preset dropdown as a starting point. Contract Review → sections 2 + 3. AP/Invoice workflow → sections 4 + 5. Warehouse automation → sections 6 + 7 + 8. If in doubt, enable only what you can directly tie to your project scope — overstating the case in front of management backfires.</span></p>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                <span><span class="en">What does the inflation delay warning mean?</span><span class="cz">Co znamená varování o inflačním zpoždění?</span></span>
+                <span><span class="en">What does the inflation delay warning mean?</span></span>
                 <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="faq-a">
-                <p><span class="en">If your implementation date is more than 3 months away, the tool estimates how much of the projected savings value erodes each month due to inflation (using EU HICP 3.5% annual average). It's an honest way to quantify the cost of delay — useful when you need to justify moving faster internally.</span><span class="cz">Pokud je datum implementace více než 3 měsíce v budoucnu, nástroj odhaduje, kolik z plánovaných úspor eroduje každý měsíc kvůli inflaci (EU HICP průměr 3,5 % ročně). Je to poctivý způsob, jak kvantifikovat náklady zpoždění.</span></p>
+                <p><span class="en">If your implementation date is more than 3 months away, the tool estimates how much of the projected savings value erodes each month due to inflation (using EU HICP 3.5% annual average). It's an honest way to quantify the cost of delay — useful when you need to justify moving faster internally.</span></p>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">
-                <span><span class="en">Can I use this report in a board presentation?</span><span class="cz">Mohu report použít v prezentaci pro vedení?</span></span>
+                <span><span class="en">Can I use this report in a board presentation?</span></span>
                 <svg class="faq-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="faq-a">
-                <p><span class="en">Yes — that's what it's built for. Click "Save as PDF" to get a branded print report with source citations. The "Copy summary" button gives you plain text you can paste into slides. If you want a version tailored to your company's specific data and risk profile, that's what the 20-min call is for.</span><span class="cz">Ano — k tomu je nástroj určen. Klikněte na "Uložit jako PDF" pro branded report se zdroji. Tlačítko "Kopírovat souhrn" dá prosté text pro prezentaci. Pokud chcete verzi přizpůsobenou vašim firemním datům, k tomu slouží 20minutový hovor.</span></p>
+                <p><span class="en">Yes — that's what it's built for. Click "Save as PDF" to get a branded print report with source citations. The "Copy summary" button gives you plain text you can paste into slides. If you want a version tailored to your company's specific data and risk profile, that's what the 20-min call is for.</span></p>
             </div>
         </div>
     </div>
@@ -967,22 +961,22 @@
 
 <!-- Related articles -->
 <div class="related-articles">
-    <h2 class="related-title"><span class="en">Related reading</span><span class="cz">Doporučené čtení</span></h2>
+    <h2 class="related-title"><span class="en">Related reading</span></h2>
     <div class="related-grid">
         <a href="/insights/5-processes-to-automate" class="related-card">
             <p class="related-card-label">Insights</p>
-            <h3><span class="en">5 Procurement Processes to Automate First</span><span class="cz">5 procesů v nákupu k automatizaci jako první</span></h3>
-            <p><span class="en">Where to start and why the order matters.</span><span class="cz">Kde začít a proč záleží na pořadí.</span></p>
+            <h3><span class="en">5 Procurement Processes to Automate First</span></h3>
+            <p><span class="en">Where to start and why the order matters.</span></p>
         </a>
         <a href="/insights/prompt-engineering-procurement" class="related-card">
             <p class="related-card-label">Insights</p>
-            <h3><span class="en">Prompt Engineering for Procurement</span><span class="cz">Prompt engineering pro nákup</span></h3>
-            <p><span class="en">How to get consistent, useful output from AI tools.</span><span class="cz">Jak dostat konzistentní a užitečný výstup z AI nástrojů.</span></p>
+            <h3><span class="en">Prompt Engineering for Procurement</span></h3>
+            <p><span class="en">How to get consistent, useful output from AI tools.</span></p>
         </a>
         <a href="/tools/savings-calculator" class="related-card">
             <p class="related-card-label">Tool</p>
-            <h3><span class="en">Procurement Savings Calculator</span><span class="cz">Kalkulátor úspor v nákupu</span></h3>
-            <p><span class="en">Quick single-process ROI — start here if you have one specific process in mind.</span><span class="cz">Rychlé ROI pro jeden proces.</span></p>
+            <h3><span class="en">Procurement Savings Calculator</span></h3>
+            <p><span class="en">Quick single-process ROI — start here if you have one specific process in mind.</span></p>
         </a>
     </div>
 </div>
@@ -991,7 +985,6 @@
 <div class="methodology">
     <p>
         <span class="en">Methodology: Core savings = hours × occurrences × people × hourly rate × efficiency. Contract risk = contract value × leakage rate × leakage reduction. TCO = spend × hidden-cost rate × deviation. Payment = AP spend × discount rate × (target − current capture). Maverick = addressable spend × non-compliance rate × price premium × compliance improvement. EHS = (FTE ÷ 100) × incident rate × cost per incident × reduction. Space = m² × cost/m² × reduction. Carbon value = (reams × 0.0045 + km × 0.00021) × reduction × ETS price. Actual results vary by implementation quality and baseline data.</span>
-        <span class="cz">Metodika: Úspora = hodiny × četnost × lidé × sazba × efektivita. Smluvní riziko = hodnota smluv × míra úniku × redukce. TCO = výdaje × míra skrytých nákladů × odchylka. Platby = AP výdaje × sleva × (cílový − aktuální záchyt). Maverick = adresovatelné výdaje × míra nesouladu × prémium × zlepšení souladu. BOZP = (FTE ÷ 100) × míra nehod × náklady × redukce. Prostor = m² × cena/m² × redukce. Uhlíková hodnota = (balíky × 0,0045 + km × 0,00021) × redukce × cena ETS.</span>
     </p>
 </div>
 
@@ -999,8 +992,8 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-bottom">
-            <p>© 2026 Sourcing Sense · David Račák</p>
-            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span><span class="cz">← Zpět na nástroje</span></a>
+            <p>© 2026 Sourcing Sense · David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
+            <a href="/tools" class="footer-link"><span class="en">← Back to Tools</span></a>
         </div>
     </div>
 </footer>
@@ -1161,9 +1154,9 @@ function recalc(){
 
     // Payback metric
     if(payback<Infinity&&payback>0){
-        if(payback<1){ setEl('resPayback','< 1'); setEl('resPaybackSub','<span class="en">month</span><span class="cz">měsíc</span>'); }
-        else if(payback<12){ setEl('resPayback',Math.ceil(payback)+' mo'); setEl('resPaybackSub','<span class="en">payback</span><span class="cz">návratnost</span>'); }
-        else { setEl('resPayback',(payback/12).toFixed(1)+' yr'); setEl('resPaybackSub','<span class="en">payback</span><span class="cz">návratnost</span>'); }
+        if(payback<1){ setEl('resPayback','< 1'); setEl('resPaybackSub','<span class="en">month</span>'); }
+        else if(payback<12){ setEl('resPayback',Math.ceil(payback)+' mo'); setEl('resPaybackSub','<span class="en">payback</span>'); }
+        else { setEl('resPayback',(payback/12).toFixed(1)+' yr'); setEl('resPaybackSub','<span class="en">payback</span>'); }
     } else { setEl('resPayback','—'); setEl('resPaybackSub',''); }
 
     setEl('resRoi',roi_pct?Math.round(roi_pct)+'%':'—');
@@ -1303,5 +1296,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 </script>
+<script src="/assets/ss.js" defer></script>
 </body>
 </html>

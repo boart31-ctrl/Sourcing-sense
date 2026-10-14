@@ -11,20 +11,18 @@
     <title>AI in Procurement: Where to Actually Start | Sourcing Sense</title>
     <meta name="description" content="How procurement managers can start with AI — practically. No developer needed. A simple framework for finding your first project and running it in two weeks.">
     <meta name="keywords" content="how to start with AI in procurement, AI for procurement managers, AI in procurement for non-technical teams, jak začít s AI v nákupu, AI procurement beginner, Microsoft Copilot procurement, procurement AI projects, indirect procurement AI">
-    <meta name="author" content="David Račák">
+    <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta property="og:title" content="AI in Procurement: Where to Actually Start (If You're Not a Developer)">
     <meta property="og:description" content="Every procurement manager has read about AI. Most still don't know what to do Monday morning. Here's the practical starting point.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sourcing-sense.com/insights/ai-in-procurement-start.html">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/ai-in-procurement-start">
     <meta property="og:site_name" content="Sourcing Sense" />
     <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="cs_CZ" />
-    <link rel="canonical" href="https://sourcing-sense.com/insights/ai-in-procurement-start.html">
-    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/ai-in-procurement-start.html" />
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights/ai-in-procurement-start.html" />
-    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/ai-in-procurement-start.html" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/ai-in-procurement-start">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/ai-in-procurement-start" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/ai-in-procurement-start" />
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
     <link rel="sitemap" type="application/xml" href="https://sourcing-sense.com/sitemap.xml" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -37,12 +35,12 @@
       "@type": "Article",
       "headline": "AI in Procurement: Where to Actually Start (If You're Not a Developer)",
       "description": "How procurement managers can start with AI — practically. No developer needed. A simple framework for finding your first project and running it in two weeks.",
-      "author": { "@type": "Person", "name": "David Račák" },
+      "author": { "@type": "Person", "name": "David Račak" },
       "publisher": { "@type": "Organization", "name": "Sourcing Sense", "url": "https://sourcing-sense.com" },
       "datePublished": "2026-04-12",
       "dateModified": "2026-04-12",
-      "url": "https://sourcing-sense.com/insights/ai-in-procurement-start.html",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/ai-in-procurement-start.html" },
+      "url": "https://sourcing-sense.com/insights/ai-in-procurement-start",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sourcing-sense.com/insights/ai-in-procurement-start" },
       "keywords": ["AI in procurement", "how to start with AI", "procurement AI", "Microsoft Copilot", "non-technical AI", "procurement manager AI"]
     }
     </script>
@@ -185,7 +183,6 @@
             .related-grid { grid-template-columns: 1fr; }
         }
         [data-lang="en"] .cz { display: none !important; }
-        [data-lang="cs"] .en { display: none !important; }
         :root {
             --bg-primary: #08090f; --bg-surface: #0d1117; --bg-elevated: #131820;
             --light-bg: #08090f; --light-bg-alt: #0d1117; --light-card: #0d1117;
@@ -208,6 +205,7 @@
         .nav-logo-text { color: #f1f5f9; }
         .article-header { background: linear-gradient(175deg, rgba(59,130,246,0.06) 0%, var(--light-bg) 50%); }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
@@ -217,62 +215,58 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <ul class="nav-center">
-        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
-        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
-        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/ai-use-cases"><span class="en">AI use cases</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
-        </div>
-        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span></a>
     </div>
     <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
-    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
-    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span></a>
 </div>
 
 <section class="article-header">
     <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
         <div class="breadcrumb">
-            <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
+            <a href="/"><span class="en">Home</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
+            <a href="/insights"><span class="en">Insights</span></a>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            <span><span class="en">Where to Start with AI</span><span class="cz">Kde začít s AI</span></span>
+            <span><span class="en">Where to Start with AI</span></span>
         </div>
         <span class="article-badge article">
-            <span class="en">Article</span><span class="cz">Článek</span>
+            <span class="en">Article</span>
         </span>
         <h1>
             <span class="en">AI in Procurement: Where to Actually Start (If You're Not a Developer)</span>
-            <span class="cz">AI v nákupu: kde začít, pokud nejste technický člověk</span>
         </h1>
         <p class="article-excerpt">
             <span class="en">Procurement managers have read the articles, sat through the webinars, nodded at the vendor demos. Then Monday arrives. The question is always the same: what do I actually do first? This is the answer to that question.</span>
-            <span class="cz">Nákupčí si přečetli články, proseděli webináře, přikyvovali na demo dodavatelů. Pak přišlo pondělí. Otázka je vždy stejná: co vlastně udělám jako první? Toto je odpověď na tu otázku.</span>
         </p>
         <div class="article-meta">
             <span>
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-                <span class="en">7 min read</span><span class="cz">7 min čtení</span>
+                <span class="en">7 min read</span>
             </span>
             <span>
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-                <span class="en">April 2026</span><span class="cz">Duben 2026</span>
+                <span class="en">April 2026</span>
             </span>
-            <span class="article-result-tag">→ <span class="en">First project in 2 weeks</span><span class="cz">První projekt za 2 týdny</span></span>
+            <span class="article-result-tag">→ <span class="en">First project in 2 weeks</span></span>
         </div>
     </div>
 </section>
@@ -280,115 +274,96 @@
 <article class="article-body">
     <div class="prose">
 
-        <h2><span class="en">The Monday morning problem</span><span class="cz">Problém pondělního rána</span></h2>
+        <h2><span class="en">The Monday morning problem</span></h2>
 
         <p>
             <span class="en">Here's a scene that plays out in procurement departments everywhere. A manager attends an AI webinar. Maybe it's about spend analytics, maybe contract intelligence, maybe supplier risk. The demo looks genuinely useful. The presenter mentions efficiency gains — in some industry studies, teams using AI on structured procurement tasks report cutting processing time by 40 to 60 percent on those specific workflows. The manager leaves the webinar thinking "we should do something with this."</span>
-            <span class="cz">Tahle scéna se odehrává v nákupních odděleních všude. Manažer se zúčastní webináře o AI. Možná je to o analýze výdajů, možná o správě smluv, možná o riziku dodavatelů. Demo vypadá opravdu užitečně. Přednášející zmiňuje efektivitu — podle různých průzkumů týmy používající AI na strukturované nákupní úlohy hlásí zkrácení doby zpracování o 40 až 60 procent na těch konkrétních procesech. Manažer odchází z webináře s myšlenkou "měli bychom s tím něco dělat."</span>
         </p>
 
         <p>
             <span class="en">Monday morning: inbox, three supplier escalations, a budget review meeting at 10. The AI thing goes to the bottom of the stack. Six months later, nothing has changed. The tools exist. The problem isn't access to tools anymore. The problem is <strong>not knowing where to touch the system first</strong>.</span>
-            <span class="cz">Pondělní ráno: doručená pošta, tři eskalace od dodavatelů, schůzka k přezkumu rozpočtu v 10. Věc s AI jde na dno hromady. Po šesti měsících se nic nezměnilo. Nástroje existují. Problém už není přístup k nástrojům. Problém je <strong>nevědět, kde jako první sáhnout do systému</strong>.</span>
         </p>
 
-        <h2><span class="en">Name the task before you name the tool</span><span class="cz">Pojmenujte úlohu dřív než nástroj</span></h2>
+        <h2><span class="en">Name the task before you name the tool</span></h2>
 
         <p>
             <span class="en">The most common mistake isn't picking the wrong tool. It's buying a tool and then looking for a problem that fits it. You see it constantly: a company subscribes to an AI platform, spends two months on onboarding, then realizes no one knows what specific work it should replace. The adoption stalls because there's no concrete before-and-after to point to.</span>
-            <span class="cz">Nejčastější chyba není vybrat špatný nástroj. Je to koupit nástroj a pak hledat problém, který do něj sedí. Vidíte to pořád: firma se přihlásí k AI platformě, stráví dva měsíce onboardingem, pak zjistí, že nikdo neví, jakou konkrétní práci by měla nahradit. Adopce se zasekne, protože není žádné konkrétní „před a po", na které by bylo možné ukázat.</span>
         </p>
 
         <p>
             <span class="en">Start the other direction. Open a blank document and write down the five tasks in your week that feel most like manual labor. Not strategic work. Not the things that require judgment. The things that are <strong>repetitive, information-heavy, and low-stakes if an AI gets them 80% right</strong> — because you'll review them anyway.</span>
-            <span class="cz">Začněte obráceně. Otevřete prázdný dokument a napište pět úloh z vašeho týdne, které se nejvíce podobají ruční práci. Nejde o strategické věci. Nejde o věci, které vyžadují úsudek. Jde o věci, které jsou <strong>opakující se, informačně náročné a s nízkými sázkami, pokud je AI udělá z 80 % správně</strong> — protože je stejně zkontrolujete.</span>
         </p>
 
         <p>
             <span class="en">Common answers in procurement teams: summarizing supplier email threads before a negotiation meeting, formatting quotation comparison tables, pulling delivery data from emails into a spreadsheet, writing first drafts of RFQ scope documents, chasing internal approvals.</span>
-            <span class="cz">Běžné odpovědi v nákupních týmech: sumarizace emailových vláken od dodavatelů před jednáním, formátování srovnávacích tabulek nabídek, přenášení dat o dodávkách z emailů do tabulky, psaní prvních návrhů dokumentů rozsahu pro výzvy k nabídce, urgování interních schválení.</span>
         </p>
 
         <p>
             <span class="en">One task from that list. That's your first project.</span>
-            <span class="cz">Jedna úloha z toho seznamu. To je váš první projekt.</span>
         </p>
 
-        <h2><span class="en">Find the person who's already impatient</span><span class="cz">Najděte člověka, který je už teď netrpělivý</span></h2>
+        <h2><span class="en">Find the person who's already impatient</span></h2>
 
         <p>
             <span class="en">Every team has one. Someone who's been complaining about a specific manual task for longer than anyone can remember. They're not waiting for top-down permission — they've already tried a workaround using Excel macros, or they copy-paste things into ChatGPT in their own time, or they've mentioned three times that "this is insane, there has to be a better way."</span>
-            <span class="cz">Každý tým ho má. Někdo, kdo si stěžuje na konkrétní manuální úlohu déle, než si kdokoli pamatuje. Nečeká na povolení shora — už vyzkoušel obejití přes makra v Excelu, nebo kopíruje věci do ChatGPT ve svém vlastním čase, nebo třikrát zmínil, že „tohle je šílené, musí být lepší způsob."</span>
         </p>
 
         <p>
             <span class="en">That person is your co-pilot for the first project. They know the task in detail. They're motivated to make it work. And because they're already frustrated with the status quo, they won't give up when the first attempt isn't perfect — they'll iterate until it is.</span>
-            <span class="cz">Ten člověk je váš co-pilot pro první projekt. Úlohu zná do detailu. Je motivovaný ji zprovoznit. A protože jsou już frustrovaní ze stávající situace, nevzdají se, když první pokus nebude dokonalý — budou iterovat, dokud to nevyjde.</span>
         </p>
 
         <p>
             <span class="en">Managing it top-down — "everyone will now use this tool" — almost never works for first AI projects. The adoption gap that kills most initiatives comes from skipping the single motivated person and going straight to mandatory rollout.</span>
-            <span class="cz">Řídit to shora dolů — „všichni teď budou používat tento nástroj" — téměř nikdy nefunguje pro první AI projekty. Propast adopce, která zabíjí většinu iniciativ, pochází z přeskočení jednoho motivovaného člověka a přechodu rovnou na povinné zavedení.</span>
         </p>
 
-        <h2><span class="en">What "starting" looks like at 50 vs 300 people</span><span class="cz">Jak „začátek" vypadá u 50 vs 300 lidí</span></h2>
+        <h2><span class="en">What "starting" looks like at 50 vs 300 people</span></h2>
 
         <p>
             <span class="en">At a 50-person company, the first AI project is almost always informal. One person, one task, one tool, two weeks. You don't need a steering committee. You don't need a business case. You pick something from your list, run it for two weeks, and see what happens. If it saves three hours a week and the output quality is acceptable, you document it and expand it. If it doesn't work, you cross it off and try the next item on your list.</span>
-            <span class="cz">V padesátičlenné firmě je první AI projekt téměř vždy neformální. Jeden člověk, jedna úloha, jeden nástroj, dva týdny. Nepotřebujete řídící výbor. Nepotřebujete business case. Vyberete si něco ze svého seznamu, jedete to dva týdny a uvidíte, co se stane. Pokud to ušetří tři hodiny týdně a kvalita výstupu je přijatelná, zdokumentujete to a rozšíříte. Pokud to nefunguje, škrtnete to a zkusíte další položku na seznamu.</span>
         </p>
 
         <p>
             <span class="en">At a 300-person company, the mechanics are similar but the paperwork is heavier. You'll probably need to go through IT to confirm data security requirements — especially if you're processing supplier contracts or spend data. Plan for two weeks of procurement project time, but also one to two weeks of IT coordination. The total is still under a month for a first working prototype.</span>
-            <span class="cz">Ve třísetčlenné firmě jsou mechanismy podobné, ale administrativa je těžší. Pravděpodobně budete muset projít přes IT, abyste potvrdili požadavky na bezpečnost dat — zejména pokud zpracováváte smlouvy s dodavateli nebo data o výdajích. Počítejte se dvěma týdny nákupního projektového času, ale také s jedním až dvěma týdny koordinace s IT. Celkový čas je stále pod měsícem pro první funkční prototyp.</span>
         </p>
 
         <div class="callout info">
-            <div class="callout-title"><span class="en">What you already have</span><span class="cz">Co již máte</span></div>
+            <div class="callout-title"><span class="en">What you already have</span></div>
             <span class="en">If your organization runs Microsoft 365 E3 or Business Standard, you already have access to <strong>Copilot Chat</strong> at no additional cost. It's not the full M365 Copilot with deep Teams and Outlook integration — but it's a capable AI assistant with enterprise data protection turned on by default since September 2024. Your prompts aren't used for training. Your data stays in your tenant. This is a reasonable starting point before spending anything on new tools. Check your licence tier with IT before assuming you need to buy something.</span>
-            <span class="cz">Pokud vaše organizace provozuje Microsoft 365 E3 nebo Business Standard, máte již přístup k <strong>Copilot Chat</strong> bez dalších nákladů. Nejde o plný M365 Copilot s hlubokou integrací Teams a Outlooku — ale je to schopný AI asistent s podnikovou ochranou dat zapnutou ve výchozím nastavení od září 2024. Vaše prompty se nepoužívají pro trénink. Vaše data zůstávají ve vašem tenantovi. To je rozumný výchozí bod předtím, než za něco utratíte. Ověřte si úroveň vaší licence u IT, než budete předpokládat, že musíte něco koupit.</span>
         </div>
 
-        <h2><span class="en">Run for two weeks, then decide</span><span class="cz">Jeďte dva týdny, pak se rozhodněte</span></h2>
+        <h2><span class="en">Run for two weeks, then decide</span></h2>
 
         <p>
             <span class="en">Two weeks is enough to know whether an AI approach to a specific task is viable. Not polished, not optimized — just viable. You're looking for three signals: Does it save meaningful time? Is the output good enough to be useful (not perfect)? Does the person using it want to keep using it?</span>
-            <span class="cz">Dva týdny stačí na to, abyste věděli, zda je AI přístup ke konkrétní úloze životaschopný. Nejde o leštěný nebo optimalizovaný výsledek — jen životaschopný. Hledáte tři signály: Ušetří to smysluplný čas? Je výstup dostatečně dobrý, aby byl užitečný (ne dokonalý)? Chce ho člověk, který ho používá, používat dál?</span>
         </p>
 
         <p>
             <span class="en">If all three are yes, you've found something worth building on. Document the prompt or the workflow, train one more person, see if the same results hold. If two of three are yes, dig into what's failing — sometimes a better prompt fixes it entirely. If only one or none are yes, close it down and move to the next task on your list. No shame in that. The point of a two-week test is to find out quickly without sinking three months into something that doesn't work.</span>
-            <span class="cz">Pokud jsou všechny tři odpovědi ano, našli jste něco, na čem stojí za to stavět. Zdokumentujte prompt nebo workflow, zaškolte ještě jednoho člověka, sledujte, zda výsledky platí i nadále. Pokud jsou dvě ze tří ano, podívejte se, co selhává — někdy lepší prompt to celé vyřeší. Pokud je jen jedno nebo žádné ano, zavřete to a přejděte k další úloze na vašem seznamu. Za to se stydět nemusíte. Smyslem dvoutýdenního testu je rychle zjistit, aniž byste do něčeho, co nefunguje, utopili tři měsíce.</span>
         </p>
 
-        <h2><span class="en">A real example to anchor this</span><span class="cz">Reálný příklad na ukotvení</span></h2>
+        <h2><span class="en">A real example to anchor this</span></h2>
 
         <p>
-            <span class="en">Contract monitoring is one of the cleanest starting points in procurement — the task is well-defined, the current process is purely manual, and the output is easy to verify. If you use SharePoint and Power Automate, you can build a flow that reads every new contract, extracts renewal dates and price adjustment clauses, and posts a summary to Teams. The build takes about 30 minutes. The <a href="/insights/contract-nemesis.html">full walkthrough is here</a>. It's the kind of first project that costs nothing extra (it runs on your M365 licence), produces a visible result in week one, and actually changes how the team works.</span>
-            <span class="cz">Monitorování smluv je jedním z nejčistších výchozích bodů v nákupu — úloha je dobře definovaná, současný proces je čistě manuální a výstup je snadné ověřit. Pokud používáte SharePoint a Power Automate, můžete sestavit flow, který přečte každou novou smlouvu, vytáhne data obnovení a klauzule o úpravě ceny a zveřejní shrnutí v Teams. Sestavení trvá asi 30 minut. <a href="/insights/contract-nemesis.html">Celý návod je zde</a>. Je to druh prvního projektu, který nestojí nic navíc (běží na vaší M365 licenci), produkuje viditelný výsledek v prvním týdnu a skutečně mění způsob práce týmu.</span>
+            <span class="en">Contract monitoring is one of the cleanest starting points in procurement — the task is well-defined, the current process is purely manual, and the output is easy to verify. If you use SharePoint and Power Automate, you can build a flow that reads every new contract, extracts renewal dates and price adjustment clauses, and posts a summary to Teams. The build takes about 30 minutes. The <a href="/insights/contract-nemesis">full walkthrough is here</a>. It's the kind of first project that costs nothing extra (it runs on your M365 licence), produces a visible result in week one, and actually changes how the team works.</span>
         </p>
 
-        <h2><span class="en">What slows people down</span><span class="cz">Co lidi zpomaluje</span></h2>
+        <h2><span class="en">What slows people down</span></h2>
 
         <p>
             <span class="en">The two most common blockers aren't technical. The first is perfectionism — waiting for the right strategy document, the right AI partner, the right moment when everything is aligned. That moment doesn't come. The second is scope creep before launch — the task starts as "summarize supplier emails" and by week two the plan includes CRM integration, a custom dashboard, and automated spend reporting. Scope that before anything is running means nothing runs.</span>
-            <span class="cz">Dva nejčastější bloky nejsou technické. První je perfekcionismus — čekání na správný strategický dokument, správného AI partnera, správný moment, kdy je vše v souladu. Ten moment nepřichází. Druhý je rozrůstání rozsahu před spuštěním — úloha začíná jako „sumarizace emailů od dodavatelů" a do druhého týdne plán zahrnuje integraci CRM, vlastní dashboard a automatizované reportování výdajů. Rozrůstat rozsah předtím, než cokoli běží, znamená, že nic neběží.</span>
         </p>
 
         <p>
             <span class="en">Pick one task. Run it for two weeks. That's the entire framework.</span>
-            <span class="cz">Vyberte jednu úlohu. Jeďte ji dva týdny. To je celý rámec.</span>
         </p>
 
         <div class="callout tip">
-            <div class="callout-title"><span class="en">Your starting checklist</span><span class="cz">Váš startovní checklist</span></div>
+            <div class="callout-title"><span class="en">Your starting checklist</span></div>
             <span class="en">1. Write down five tasks that feel like repetitive manual work. 2. Pick the one that has a clear, verifiable output. 3. Find the person on your team who is already frustrated with that task. 4. Check whether you already have a tool — Copilot Chat is likely already in your M365 subscription. 5. Run the experiment for two weeks. Measure time saved and output quality. Decide from there.</span>
-            <span class="cz">1. Napište si pět úloh, které se cítí jako opakující se ruční práce. 2. Vyberte tu, která má jasný, ověřitelný výstup. 3. Najděte člověka ve vašem týmu, který je z té úlohy již frustrovaný. 4. Zkontrolujte, zda již nástroj máte — Copilot Chat je pravděpodobně již ve vašem M365 předplatném. 5. Spusťte experiment na dva týdny. Změřte ušetřený čas a kvalitu výstupu. Pak se rozhodněte.</span>
         </div>
 
         <p>
             <span class="en">There's no elaborate methodology here. The teams that get moving are the ones that stop planning and start testing. Pick one task from your shortlist and run it for two weeks.</span>
-            <span class="cz">Není tu žádná složitá metodologie. Týmy, které se dají do pohybu, jsou ty, které přestanou plánovat a začnou testovat. Vyberte jednu úlohu ze svého seznamu a jeďte ji dva týdny.</span>
         </p>
 
     </div>
@@ -404,7 +379,7 @@
         <span class="article-tag">Change Management</span>
     </div>
     <div class="article-share">
-        <span class="article-share-label"><span class="en">Share</span><span class="cz">Sdílet</span></span>
+        <span class="article-share-label"><span class="en">Share</span></span>
         <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')" title="LinkedIn">
             <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </button>
@@ -417,27 +392,27 @@
 <section class="related-section">
     <div class="related-inner">
         <div class="related-header">
-            <h3><span class="en">Related insights</span><span class="cz">Související články</span></h3>
+            <h3><span class="en">Related insights</span></h3>
             <a href="/insights" class="related-back">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                <span class="en">All insights</span><span class="cz">Všechny články</span>
+                <span class="en">All insights</span>
             </a>
         </div>
         <div class="related-grid">
-            <a href="/insights/will-ai-replace-procurement.html" class="related-card">
-                <span class="related-badge article"><span class="en">Article</span><span class="cz">Článek</span></span>
-                <h4><span class="en">Will AI Replace Procurement Jobs?</span><span class="cz">Nahradí AI nákupčí?</span></h4>
-                <p><span class="en">The honest answer from someone who works in procurement and uses AI daily.</span><span class="cz">Upřímná odpověď od někoho, kdo pracuje v nákupu a AI používá každý den.</span></p>
+            <a href="/insights/will-ai-replace-procurement" class="related-card">
+                <span class="related-badge article"><span class="en">Article</span></span>
+                <h4><span class="en">Will AI Replace Procurement Jobs?</span></h4>
+                <p><span class="en">The honest answer from someone who works in procurement and uses AI daily.</span></p>
             </a>
-            <a href="/insights/copilot-procurement-workflows.html" class="related-card">
-                <span class="related-badge tutorial"><span class="en">Tutorial</span><span class="cz">Návod</span></span>
-                <h4><span class="en">Microsoft Copilot for Procurement: Six Things Worth Trying This Week</span><span class="cz">Microsoft Copilot pro nákup: šest věcí k vyzkoušení</span></h4>
-                <p><span class="en">Practical prompts and use cases for Teams, Outlook and Excel — using what you already have.</span><span class="cz">Praktické prompty a případy použití pro Teams, Outlook a Excel — s tím, co už máte.</span></p>
+            <a href="/insights/copilot-procurement-workflows" class="related-card">
+                <span class="related-badge tutorial"><span class="en">Tutorial</span></span>
+                <h4><span class="en">Microsoft Copilot for Procurement: Six Things Worth Trying This Week</span></h4>
+                <p><span class="en">Practical prompts and use cases for Teams, Outlook and Excel — using what you already have.</span></p>
             </a>
-            <a href="/insights/contract-nemesis.html" class="related-card">
-                <span class="related-badge use-case"><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                <h4><span class="en">Contract Nemesis: Automated Contract Monitoring</span><span class="cz">Contract Nemesis: Automatické monitorování smluv</span></h4>
-                <p><span class="en">5-step Power Automate flow that reads every new contract and alerts your team. A clean first project.</span><span class="cz">5kroký Power Automate flow, který přečte každou novou smlouvu a upozorní tým. Čistý první projekt.</span></p>
+            <a href="/insights/contract-nemesis" class="related-card">
+                <span class="related-badge use-case"><span class="en">Use Case</span></span>
+                <h4><span class="en">Contract Nemesis: Automated Contract Monitoring</span></h4>
+                <p><span class="en">5-step Power Automate flow that reads every new contract and alerts your team. A clean first project.</span></p>
             </a>
         </div>
     </div>
@@ -445,10 +420,10 @@
 
 <section class="cta-strip">
     <div class="cta-strip-inner">
-        <h3><span class="en">Not sure where your team should start?</span><span class="cz">Nevíte, kde by váš tým měl začít?</span></h3>
-        <p><span class="en">A 30-minute call is usually enough to identify two or three tasks worth testing. No vendor pitch, no slides — just a conversation about what your team actually does.</span><span class="cz">Půlhodinový hovor obvykle stačí k identifikaci dvou nebo tří úloh, které stojí za vyzkoušení. Žádný prodejní pitch, žádné slajdy — jen rozhovor o tom, co váš tým skutečně dělá.</span></p>
+        <h3><span class="en">Not sure where your team should start?</span></h3>
+        <p><span class="en">A 30-minute call is usually enough to identify two or three tasks worth testing. No vendor pitch, no slides — just a conversation about what your team actually does.</span></p>
         <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
-            <span class="en">Book a Free Call</span><span class="cz">Domluvit hovor zdarma</span>
+            <span class="en">Book a Free Call</span>
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
     </div>
@@ -457,7 +432,7 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-bottom">
-            <p>© 2026 Sourcing Sense · David Račák</p>
+            <p>© 2026 Sourcing Sense · David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -472,6 +447,7 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
 function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
 function setLang(lang) {
+    lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
     try { localStorage.setItem('ss-lang', lang); } catch(e) {}
@@ -482,5 +458,6 @@ function setLang(lang) {
     setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
 })();
 </script>
+<script src="/assets/ss.js" defer></script>
 </body>
 </html>

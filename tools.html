@@ -9,13 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Procurement Tools — Savings Calculator, ROI Calculator, RFQ Builder | Sourcing Sense</title>
-    <meta name="description" content="Free procurement calculators and automation tools: savings calculator, contract management ROI calculator, RFQ builder, email generator, supplier classifier. No sign-up required.">
+    <meta name="description" content="Free procurement calculators and automation tools: savings calculator, total procurement ROI calculator, RFQ generator, email generator, AI readiness score. No sign-up required.">
     <meta name="keywords" content="procurement calculators, procurement savings calculator, contract management roi calculator, procurement roi, free procurement tools, procurement savings tracking tool, procurement automation, RFQ builder tool, sourcing email, AI procurement tools, automated procurement, procurement process automation, calculating procurement savings, procurement workflow automation, automate purchasing">
     <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://sourcing-sense.com/tools" />
     <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/tools">
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/tools">
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/tools">
     <!-- AI Bot Discovery -->
     <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
@@ -29,7 +28,6 @@
     <meta property="og:url" content="https://sourcing-sense.com/tools" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="cs_CZ" />
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -76,7 +74,7 @@
           {
             "@type": "Offer",
             "name": "Free AI Procurement Tools",
-            "description": "Email generator, savings calculator, supplier classifier, spend analyzer, RFQ builder",
+            "description": "Email generator, savings calculator, total procurement ROI calculator, RFQ generator, AI readiness score",
             "price": "0",
             "priceCurrency": "EUR",
             "url": "https://sourcing-sense.com/tools"
@@ -100,7 +98,7 @@
           "name": "What is the best free AI tool for procurement?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sourcing Sense offers free AI procurement tools at sourcing-sense.com/tools including an AI Email Generator, Savings Calculator, Supplier Classifier, Quick Spend Analyzer, and RFQ Builder. No sign-up required for basic tools."
+            "text": "Sourcing Sense offers free AI procurement tools at sourcing-sense.com/tools including a Procurement Email Generator, Savings Calculator, Total Procurement ROI Calculator, RFQ Generator and AI Readiness Score. No sign-up required."
           }
         },
         {
@@ -414,7 +412,6 @@
         }
 
         [data-lang="en"] .cz { display: none !important; }
-        [data-lang="cs"] .en { display: none !important; }
 
         /* ═══════════════════════════════════════════
            DARK THEME OVERRIDE
@@ -476,6 +473,7 @@
         }
         input[type="range"] { accent-color: var(--accent); }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
@@ -491,51 +489,47 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <ul class="nav-center">
-        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
-        <li><a href="/tools" class="active"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-            <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/ai-use-cases"><span class="en">AI use cases</span></a></li>
+        <li><a href="/tools" class="active"><span class="en">Tools</span></a></li>
+        <li><a href="/insights"><span class="en">Insights</span></a></li>
+            <li><a href="/resources/ai-policy-template"><span class="en">Resources</span></a></li>
             
-        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
-        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
-        </div>
-        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span></a>
     </div>
     <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
-    <a href="/tools" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
         
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
 </div>
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero">
     <div class="container">
-        <span class="section-eyebrow"><span class="en">AI Tools</span><span class="cz">AI Nástroje</span></span>
+        <span class="section-eyebrow"><span class="en">AI Tools</span></span>
         <h1 class="section-heading" style="font-size:clamp(2.2rem,5vw,3.2rem);">
             <span class="en">Practical AI tools you can use today</span>
-            <span class="cz">Praktické AI nástroje, které můžete použít hned</span>
         </h1>
         <p class="section-desc" style="margin-bottom:0;">
             <span class="en">Simple tools that solve real problems. Free tools require no sign-up. Premium tools — first use free, then register for full access.</span>
-            <span class="cz">Jednoduché nástroje řešící reálné problémy. Bezplatné nástroje bez registrace. Premium nástroje — první použití zdarma, pak registrace pro plný přístup.</span>
         </p>
         <div class="hero-tabs">
-            <span class="hero-tab active" onclick="filterTools('all')"><span class="en">All tools</span><span class="cz">Všechny</span></span>
-            <span class="hero-tab" onclick="filterTools('free')"><span class="en">Free</span><span class="cz">Zdarma</span></span>
-            <span class="hero-tab" onclick="filterTools('premium')"><span class="en">Premium</span><span class="cz">Premium</span></span>
-            <span class="hero-tab" onclick="filterTools('coming')"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+            <span class="hero-tab active" onclick="filterTools('all')"><span class="en">All tools</span></span>
+            <span class="hero-tab" onclick="filterTools('free')"><span class="en">Free</span></span>
+            <span class="hero-tab" onclick="filterTools('premium')"><span class="en">Premium</span></span>
+            <span class="hero-tab" onclick="filterTools('coming')"><span class="en">Coming soon</span></span>
         </div>
     </div>
 </section>
@@ -546,7 +540,7 @@
         <div class="reveal">
             <span class="section-eyebrow" style="color:var(--emerald);">
                 <span style="background:var(--emerald);" class="section-eyebrow-line"></span>
-                <span class="en">Free — No sign-up required</span><span class="cz">Zdarma — bez registrace</span>
+                <span class="en">Free — No sign-up required</span>
             </span>
         </div>
         <div class="tools-grid">
@@ -555,23 +549,23 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">📧</div>
-                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                        <span class="tool-badge free"><span class="en">Free</span></span>
                     </div>
-                    <h3><span class="en">Email Template Generator</span><span class="cz">Generátor emailových šablon</span></h3>
-                    <p><span class="en">Professional procurement and business communication templates. Supplier negotiations, RFQ responses, escalations, follow-ups — all AI-generated for your specific context.</span><span class="cz">Profesionální šablony pro nákupní a obchodní komunikaci. Vyjednávání s dodavateli, odpovědi na RFQ, eskalace, follow-upy — vše generováno AI pro váš konkrétní kontext.</span></p>
+                    <h3><span class="en">Email Template Generator</span></h3>
+                    <p><span class="en">Professional procurement and business communication templates. Supplier negotiations, RFQ responses, escalations, follow-ups — all AI-generated for your specific context.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">Negotiations</span><span class="cz">Vyjednávání</span></span>
+                        <span class="tool-feature"><span class="en">Negotiations</span></span>
                         <span class="tool-feature">RFQ</span>
-                        <span class="tool-feature"><span class="en">Escalations</span><span class="cz">Eskalace</span></span>
-                        <span class="tool-feature"><span class="en">Follow-ups</span><span class="cz">Follow-upy</span></span>
+                        <span class="tool-feature"><span class="en">Escalations</span></span>
+                        <span class="tool-feature"><span class="en">Follow-ups</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <a href="/tools/email-generator" class="tool-cta free-btn">
-                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <span class="en">Open tool</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                    <span class="tool-meta"><span class="en">No sign-up</span></span>
                 </div>
             </div>
 
@@ -579,22 +573,22 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">💰</div>
-                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                        <span class="tool-badge free"><span class="en">Free</span></span>
                     </div>
-                    <h3><span class="en">Savings Calculator</span><span class="cz">Kalkulačka úspor</span></h3>
-                    <p><span class="en">Estimate potential savings from automating your procurement processes. Input your current metrics — headcount, manual hours, error rates — and get projected ROI.</span><span class="cz">Odhadněte potenciální úspory z automatizace vašich nákupních procesů. Zadejte aktuální metriky — počet lidí, manuální hodiny, chybovost — a získejte projekci návratnosti.</span></p>
+                    <h3><span class="en">Savings Calculator</span></h3>
+                    <p><span class="en">Estimate potential savings from automating your procurement processes. Input your current metrics — headcount, manual hours, error rates — and get projected ROI.</span></p>
                     <div class="tool-features">
                         <span class="tool-feature">ROI</span>
-                        <span class="tool-feature"><span class="en">Time savings</span><span class="cz">Úspora času</span></span>
-                        <span class="tool-feature"><span class="en">Cost reduction</span><span class="cz">Snížení nákladů</span></span>
+                        <span class="tool-feature"><span class="en">Time savings</span></span>
+                        <span class="tool-feature"><span class="en">Cost reduction</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <a href="/tools/savings-calculator" class="tool-cta free-btn">
-                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <span class="en">Open tool</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                    <span class="tool-meta"><span class="en">No sign-up</span></span>
                 </div>
             </div>
 
@@ -602,55 +596,45 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">📊</div>
-                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
-                        <span class="tool-badge" style="background:rgba(139,92,246,0.08);color:#8b5cf6;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.25rem 0.65rem;border-radius:100px;"><span class="en">New</span><span class="cz">Nové</span></span>
+                        <span class="tool-badge free"><span class="en">Free</span></span>
+                        <span class="tool-badge" style="background:rgba(139,92,246,0.08);color:#8b5cf6;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.25rem 0.65rem;border-radius:100px;"><span class="en">New</span></span>
                     </div>
-                    <h3><span class="en">Total Procurement ROI</span><span class="cz">Total Procurement ROI</span></h3>
-                    <p><span class="en">Full ROI analysis across 8 value dimensions: time savings, contract risk, TCO, maverick spend, payment terms, EHS, space, and carbon. Build a CPO-level business case with sourced benchmarks.</span><span class="cz">Kompletní ROI analýza přes 8 dimenzí hodnoty: úspora času, smluvní rizika, TCO, maverick spend, platební podmínky, BOZP, prostor a uhlík. Postavte business case pro vedení s ověřenými daty.</span></p>
+                    <h3><span class="en">Total Procurement ROI</span></h3>
+                    <p><span class="en">Full ROI analysis across 8 value dimensions: time savings, contract risk, TCO, maverick spend, payment terms, EHS, space, and carbon. Build a CPO-level business case with sourced benchmarks.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">8 dimensions</span><span class="cz">8 dimenzí</span></span>
-                        <span class="tool-feature"><span class="en">PDF report</span><span class="cz">PDF report</span></span>
-                        <span class="tool-feature"><span class="en">Sourced benchmarks</span><span class="cz">Ověřená data</span></span>
+                        <span class="tool-feature"><span class="en">8 dimensions</span></span>
+                        <span class="tool-feature"><span class="en">PDF report</span></span>
+                        <span class="tool-feature"><span class="en">Sourced benchmarks</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <a href="/tools/total-procurement-roi" class="tool-cta free-btn">
-                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <span class="en">Open tool</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                    <span class="tool-meta"><span class="en">No sign-up</span></span>
                 </div>
             </div>
 
             <div class="tool-card reveal d3" data-type="free" style="border-top:2px solid var(--accent);position:relative;overflow:hidden;">
-                <div style="position:absolute;top:12px;right:12px;">
-                    <span style="background:rgba(245,158,11,0.12);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;">
-                        <span class="en">Coming soon</span><span class="cz">Již brzy</span>
-                    </span>
-                </div>
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">📊</div>
-                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                        <span class="tool-badge free"><span class="en">Free</span></span>
                     </div>
-                    <h3><span class="en">Business AI Readiness Score</span><span class="cz">Business AI Readiness Score</span></h3>
-                    <p><span class="en">10 questions. 3 minutes. Find out where your company is on AI governance, data risk, and tool adoption — and what to fix first. Score 0–100 with personalised recommendations.</span><span class="cz">10 otázek. 3 minuty. Zjistěte, kde je vaše firma v oblasti AI governance, datového rizika a zavádění nástrojů — a co řešit jako první. Skóre 0–100 s personalizovanými doporučeními.</span></p>
+                    <h3><span class="en">Business AI Readiness Score</span></h3>
+                    <p><span class="en">10 questions. 3 minutes. Find out where your company is on AI governance, data risk, and tool adoption — and what to fix first. Score 0–100 with personalised recommendations.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">AI governance</span><span class="cz">AI governance</span></span>
-                        <span class="tool-feature"><span class="en">Data risk</span><span class="cz">Datové riziko</span></span>
-                        <span class="tool-feature"><span class="en">Instant score</span><span class="cz">Okamžité skóre</span></span>
+                        <span class="tool-feature"><span class="en">AI governance</span></span>
+                        <span class="tool-feature"><span class="en">Data risk</span></span>
+                        <span class="tool-feature"><span class="en">Instant score</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
-                    <form onsubmit="submitScoreWaitlist(event)" style="display:flex;gap:0.4rem;width:100%;">
-                        <input type="email" required placeholder="your@email.com"
-                            style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid var(--light-border);border-radius:6px;font-size:0.8rem;color:var(--light-text);font-family:var(--font-body);outline:none;"
-                            id="scoreWaitlistEmail">
-                        <button type="submit" style="padding:0.5rem 0.9rem;background:var(--accent);color:white;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;border:none;white-space:nowrap;">
-                            <span class="en">Notify me</span><span class="cz">Upozornit</span>
-                        </button>
-                    </form>
-                    <div id="scoreWaitlistMsg" style="font-size:0.75rem;margin-top:0.4rem;"></div>
+                    <a href="/tools/ai-readiness-score" class="tool-cta free-btn">
+                        <span class="en">Open tool</span>
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                    </a>
                 </div>
             </div>
 
@@ -658,22 +642,22 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon free">📋</div>
-                        <span class="tool-badge free"><span class="en">Free</span><span class="cz">Zdarma</span></span>
+                        <span class="tool-badge free"><span class="en">Free</span></span>
                     </div>
-                    <h3><span class="en">RFQ Builder</span><span class="cz">Generátor RFQ</span></h3>
-                    <p><span class="en">A guided 4-step wizard to create a professional Request for Quotation document. Set scope, evaluation criteria, and submission conditions — then copy or download the finished RFQ.</span><span class="cz">Průvodce ve 4 krocích pro vytvoření profesionální poptávky. Nastavte rozsah, hodnotící kritéria a podmínky — pak zkopírujte nebo stáhněte hotový dokument.</span></p>
+                    <h3><span class="en">RFQ Builder</span></h3>
+                    <p><span class="en">A guided 4-step wizard to create a professional Request for Quotation document. Set scope, evaluation criteria, and submission conditions — then copy or download the finished RFQ.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">4-step wizard</span><span class="cz">Průvodce krok za krokem</span></span>
-                        <span class="tool-feature"><span class="en">EN / CZ output</span><span class="cz">EN / CZ výstup</span></span>
-                        <span class="tool-feature"><span class="en">Download .txt</span><span class="cz">Stáhnout .txt</span></span>
+                        <span class="tool-feature"><span class="en">4-step wizard</span></span>
+                        <span class="tool-feature"><span class="en">EN / CZ output</span></span>
+                        <span class="tool-feature"><span class="en">Download .txt</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <a href="/tools/rfq-builder" class="tool-cta free-btn">
-                        <span class="en">Open tool</span><span class="cz">Otevřít nástroj</span>
+                        <span class="en">Open tool</span>
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <span class="tool-meta"><span class="en">No sign-up</span><span class="cz">Bez registrace</span></span>
+                    <span class="tool-meta"><span class="en">No sign-up</span></span>
                 </div>
             </div>
 
@@ -687,7 +671,7 @@
         <div class="reveal">
             <span class="section-eyebrow" style="color:var(--amber);">
                 <span style="background:var(--amber);" class="section-eyebrow-line"></span>
-                <span class="en">Coming soon</span><span class="cz">Připravujeme</span>
+                <span class="en">Coming soon</span>
             </span>
         </div>
         <div class="tools-grid">
@@ -696,21 +680,21 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon coming">🔬</div>
-                        <span class="tool-badge coming"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+                        <span class="tool-badge coming"><span class="en">Coming soon</span></span>
                     </div>
-                    <h3><span class="en">Supplier Classifier</span><span class="cz">Klasifikátor dodavatelů</span></h3>
-                    <p><span class="en">Upload a CSV of suppliers and see AI categorization in action. Automatic mapping to commodity hierarchies, GL accounts, and spend categories.</span><span class="cz">Nahrajte CSV s dodavateli a uvidíte AI kategorizaci v akci. Automatické mapování na komoditní hierarchie, GL účty a kategorie nákladů.</span></p>
+                    <h3><span class="en">Supplier Classifier</span></h3>
+                    <p><span class="en">Upload a CSV of suppliers and see AI categorization in action. Automatic mapping to commodity hierarchies, GL accounts, and spend categories.</span></p>
                     <div class="tool-features">
                         <span class="tool-feature">CSV upload</span>
-                        <span class="tool-feature"><span class="en">AI classification</span><span class="cz">AI klasifikace</span></span>
-                        <span class="tool-feature"><span class="en">Export results</span><span class="cz">Export výsledků</span></span>
+                        <span class="tool-feature"><span class="en">AI classification</span></span>
+                        <span class="tool-feature"><span class="en">Export results</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <span class="tool-cta coming-btn">
-                        <span class="en">Coming soon</span><span class="cz">Připravujeme</span>
+                        <span class="en">Coming soon</span>
                     </span>
-                    <span class="tool-meta"><span class="en">Q3 2026</span><span class="cz">Q3 2026</span></span>
+                    <span class="tool-meta"><span class="en">Q3 2026</span></span>
                 </div>
             </div>
 
@@ -718,21 +702,21 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon coming">📑</div>
-                        <span class="tool-badge coming"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+                        <span class="tool-badge coming"><span class="en">Coming soon</span></span>
                     </div>
-                    <h3><span class="en">Contract Risk Scanner</span><span class="cz">Skener rizik ve smlouvách</span></h3>
-                    <p><span class="en">Paste or upload a contract and get instant AI analysis — key terms, risks, missing clauses, expiry dates, and compliance flags.</span><span class="cz">Vložte nebo nahrajte smlouvu a získejte okamžitou AI analýzu — klíčové podmínky, rizika, chybějící klauzule, data expirace a compliance upozornění.</span></p>
+                    <h3><span class="en">Contract Risk Scanner</span></h3>
+                    <p><span class="en">Paste or upload a contract and get instant AI analysis — key terms, risks, missing clauses, expiry dates, and compliance flags.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">Risk scoring</span><span class="cz">Skóre rizik</span></span>
-                        <span class="tool-feature"><span class="en">Key terms</span><span class="cz">Klíčové podmínky</span></span>
-                        <span class="tool-feature"><span class="en">Compliance</span><span class="cz">Compliance</span></span>
+                        <span class="tool-feature"><span class="en">Risk scoring</span></span>
+                        <span class="tool-feature"><span class="en">Key terms</span></span>
+                        <span class="tool-feature"><span class="en">Compliance</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <span class="tool-cta coming-btn">
-                        <span class="en">Coming soon</span><span class="cz">Připravujeme</span>
+                        <span class="en">Coming soon</span>
                     </span>
-                    <span class="tool-meta"><span class="en">Q3 2026</span><span class="cz">Q3 2026</span></span>
+                    <span class="tool-meta"><span class="en">Q3 2026</span></span>
                 </div>
             </div>
 
@@ -740,21 +724,21 @@
                 <div class="tool-card-top">
                     <div class="tool-card-header">
                         <div class="tool-icon coming">📊</div>
-                        <span class="tool-badge coming"><span class="en">Coming soon</span><span class="cz">Připravujeme</span></span>
+                        <span class="tool-badge coming"><span class="en">Coming soon</span></span>
                     </div>
-                    <h3><span class="en">Spend Analyzer</span><span class="cz">Analyzátor nákladů</span></h3>
-                    <p><span class="en">Upload your spend data and get instant category breakdowns, supplier concentration analysis, and savings opportunities — all AI-powered.</span><span class="cz">Nahrajte data o nákladech a získejte okamžitý rozpad do kategorií, analýzu koncentrace dodavatelů a příležitosti k úsporám — vše řízeno AI.</span></p>
+                    <h3><span class="en">Spend Analyzer</span></h3>
+                    <p><span class="en">Upload your spend data and get instant category breakdowns, supplier concentration analysis, and savings opportunities — all AI-powered.</span></p>
                     <div class="tool-features">
-                        <span class="tool-feature"><span class="en">Spend visibility</span><span class="cz">Viditelnost nákladů</span></span>
-                        <span class="tool-feature"><span class="en">Savings ID</span><span class="cz">Identifikace úspor</span></span>
-                        <span class="tool-feature"><span class="en">Charts</span><span class="cz">Grafy</span></span>
+                        <span class="tool-feature"><span class="en">Spend visibility</span></span>
+                        <span class="tool-feature"><span class="en">Savings ID</span></span>
+                        <span class="tool-feature"><span class="en">Charts</span></span>
                     </div>
                 </div>
                 <div class="tool-card-bottom">
                     <span class="tool-cta coming-btn">
-                        <span class="en">Coming soon</span><span class="cz">Připravujeme</span>
+                        <span class="en">Coming soon</span>
                     </span>
-                    <span class="tool-meta"><span class="en">Q2 2026</span><span class="cz">Q2 2026</span></span>
+                    <span class="tool-meta"><span class="en">Q2 2026</span></span>
                 </div>
             </div>
 
@@ -767,15 +751,13 @@
     <div class="container">
         <div class="reveal">
             <span class="section-eyebrow">
-                <span class="en">Your ideas matter</span><span class="cz">Vaše nápady mají smysl</span>
+                <span class="en">Your ideas matter</span>
             </span>
             <h2 class="section-heading">
                 <span class="en">What should I build next?</span>
-                <span class="cz">Co mám vytvořit příště?</span>
             </h2>
             <p class="section-desc">
                 <span class="en">I build tools and write about topics that real people actually need. Your suggestions directly shape what comes next.</span>
-                <span class="cz">Stavím nástroje a píšu o tématech, které lidé skutečně potřebují. Vaše podněty přímo ovlivňují co bude dál.</span>
             </p>
         </div>
 
@@ -785,29 +767,29 @@
                 <div class="suggest-card-header">
                     <div class="suggest-card-icon tools">🛠️</div>
                     <div>
-                        <h3><span class="en">Suggest a tool</span><span class="cz">Navrhnout nástroj</span></h3>
-                        <p><span class="en">What would save you time?</span><span class="cz">Co by vám ušetřilo čas?</span></p>
+                        <h3><span class="en">Suggest a tool</span></h3>
+                        <p><span class="en">What would save you time?</span></p>
                     </div>
                 </div>
                 <div class="suggest-tags" id="toolTags">
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Spend analyzer</span><span class="cz">Analyzátor nákladů</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">RFQ generator</span><span class="cz">RFQ generátor</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Supplier scorecard</span><span class="cz">Scorecard dodavatelů</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Contract analyzer</span><span class="cz">Analyzátor smluv</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Email drafter</span><span class="cz">Tvůrce emailů</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">KPI dashboard</span><span class="cz">KPI dashboard</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Spend analyzer</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">RFQ generator</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Supplier scorecard</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Contract analyzer</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Email drafter</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">KPI dashboard</span></span>
                 </div>
                 <textarea class="suggest-textarea" id="toolIdea"></textarea>
                 <button class="suggest-submit tools-btn" onclick="submitSuggestion('tool')">
-                    <span class="en">Submit idea</span><span class="cz">Odeslat nápad</span>
+                    <span class="en">Submit idea</span>
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                 </button>
-                <div class="suggest-success" id="toolSuccess"><span class="en">🎉 Thanks! Your tool idea has been submitted.</span><span class="cz">🎉 Díky! Váš nápad byl odeslán.</span></div>
+                <div class="suggest-success" id="toolSuccess"><span class="en">🎉 Thanks! Your tool idea has been submitted.</span></div>
                 <div class="suggest-popular">
-                    <h4><span class="en">Popular requests</span><span class="cz">Populární požadavky</span></h4>
-                    <div class="popular-item"><span><span class="en">Supplier categorization tool</span><span class="cz">Kategorizace dodavatelů</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 12</span></div>
-                    <div class="popular-item"><span><span class="en">Contract risk scanner</span><span class="cz">Skener rizik ve smlouvách</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 9</span></div>
-                    <div class="popular-item"><span><span class="en">Savings opportunity finder</span><span class="cz">Hledač příležitostí k úsporám</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 7</span></div>
+                    <h4><span class="en">Popular requests</span></h4>
+                    <div class="popular-item"><span><span class="en">Supplier categorization tool</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 12</span></div>
+                    <div class="popular-item"><span><span class="en">Contract risk scanner</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 9</span></div>
+                    <div class="popular-item"><span><span class="en">Savings opportunity finder</span></span><span class="popular-vote tools-vote" onclick="vote(this)">👍 7</span></div>
                 </div>
             </div>
 
@@ -816,29 +798,29 @@
                 <div class="suggest-card-header">
                     <div class="suggest-card-icon articles">📝</div>
                     <div>
-                        <h3><span class="en">Suggest an article</span><span class="cz">Navrhnout článek</span></h3>
-                        <p><span class="en">What topic interests you?</span><span class="cz">Jaké téma vás zajímá?</span></p>
+                        <h3><span class="en">Suggest an article</span></h3>
+                        <p><span class="en">What topic interests you?</span></p>
                     </div>
                 </div>
                 <div class="suggest-tags" id="articleTags">
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">AI in procurement</span><span class="cz">AI v nákupu</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Process automation</span><span class="cz">Automatizace procesů</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ChatGPT for work</span><span class="cz">ChatGPT pro práci</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Lean + AI</span><span class="cz">Lean + AI</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ROI of automation</span><span class="cz">ROI automatizace</span></span>
-                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Career in AI era</span><span class="cz">Kariéra v éře AI</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">AI in procurement</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Process automation</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ChatGPT for work</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Lean + AI</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">ROI of automation</span></span>
+                    <span class="suggest-tag" onclick="toggleTag(this)"><span class="en">Career in AI era</span></span>
                 </div>
                 <textarea class="suggest-textarea" id="articleIdea"></textarea>
                 <button class="suggest-submit articles-btn" onclick="submitSuggestion('article')">
-                    <span class="en">Submit idea</span><span class="cz">Odeslat nápad</span>
+                    <span class="en">Submit idea</span>
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
                 </button>
-                <div class="suggest-success" id="articleSuccess"><span class="en">🎉 Thanks! Your article suggestion has been submitted.</span><span class="cz">🎉 Díky! Váš návrh byl odeslán.</span></div>
+                <div class="suggest-success" id="articleSuccess"><span class="en">🎉 Thanks! Your article suggestion has been submitted.</span></div>
                 <div class="suggest-popular">
-                    <h4><span class="en">Popular topics</span><span class="cz">Populární témata</span></h4>
-                    <div class="popular-item"><span><span class="en">AI tools comparison for procurement</span><span class="cz">Srovnání AI nástrojů pro nákup</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 15</span></div>
-                    <div class="popular-item"><span><span class="en">How to start with AI automation</span><span class="cz">Jak začít s AI automatizací</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 11</span></div>
-                    <div class="popular-item"><span><span class="en">AI prompt engineering for business</span><span class="cz">Prompt engineering pro business</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 8</span></div>
+                    <h4><span class="en">Popular topics</span></h4>
+                    <div class="popular-item"><span><span class="en">AI tools comparison for procurement</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 15</span></div>
+                    <div class="popular-item"><span><span class="en">How to start with AI automation</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 11</span></div>
+                    <div class="popular-item"><span><span class="en">AI prompt engineering for business</span></span><span class="popular-vote articles-vote" onclick="vote(this)">👍 8</span></div>
                 </div>
             </div>
         </div>
@@ -849,7 +831,7 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-bottom">
-            <p>© 2026 Sourcing Sense · David Račak</p>
+            <p>© 2026 Sourcing Sense · David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -873,6 +855,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // Language
 function setLang(lang) {
+    lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
     // Update placeholders
@@ -912,9 +895,9 @@ async function submitScoreWaitlist(e) {
     const msg = document.getElementById('scoreWaitlistMsg');
     const lang = document.documentElement.getAttribute('data-lang') || 'en';
     try {
-        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+        await (window.ssSend || ((u) => fetch(u, { mode: 'no-cors' })))(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
             type: 'newsletter', email: email, source: 'score-waitlist', lang: lang
-        })), { mode: 'no-cors' });
+        })));
         msg.style.color = '#10b981';
         msg.textContent = lang === 'cs' ? 'Díky! Dáme vám vědět.' : "You're on the list!";
         document.getElementById('scoreWaitlistEmail').value = '';
@@ -929,7 +912,7 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbwrq7oCX7_nX0KfscoDQaxo
 
 function postToGAS(payload) {
     const url = GAS_URL + '?data=' + encodeURIComponent(JSON.stringify(payload));
-    return fetch(url, { mode: 'no-cors' });
+    return window.ssSend ? window.ssSend(url) : fetch(url, { mode: 'no-cors' });
 }
 
 // Suggestion submit
@@ -960,5 +943,6 @@ function vote(el) {
     el.style.opacity = '0.6';
 }
 </script>
+<script src="/assets/ss.js" defer></script>
 </body>
 </html>

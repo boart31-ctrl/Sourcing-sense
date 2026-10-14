@@ -8,25 +8,23 @@
   <link rel="manifest" href="/favicon/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Usage Policy Template — EU AI Act + GDPR Ready | Sourcing Sense</title>
-    <meta name="description" content="Free AI Usage Policy template for companies. Grounded in EU AI Act 2024/1689 and GDPR. Data classification, approved tools, agent rules. Built by a procurement practitioner, not a lawyer.">
+    <title>Free AI Policy Template — EU AI Act, GDPR, NIST, UK ICO | Sourcing Sense</title>
+    <meta name="description" content="Free, editable AI usage policy template: EU AI Act and GDPR baseline, NIST AI RMF and ISO 42001 mapping, UK ICO addendum. Plain language, written by a procurement practitioner.">
     <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sourcing-sense.com/resources/ai-policy-template">
     <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/resources/ai-policy-template">
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/resources/ai-policy-template">
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/resources/ai-policy-template">
 
-    <meta property="og:title" content="Free AI Usage Policy Template — EU AI Act Ready | Sourcing Sense">
-    <meta property="og:description" content="Your company needs an AI usage policy. Here's a free, practical template grounded in EU AI Act and GDPR. Get it in 30 seconds.">
+    <meta property="og:title" content="Free AI Policy Template — EU AI Act, GDPR, NIST, UK ICO | Sourcing Sense">
+    <meta property="og:description" content="Free, editable AI usage policy template: EU AI Act and GDPR baseline, NIST AI RMF and ISO 42001 mapping, UK ICO addendum. Plain language, written by a procurement practitioner.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sourcing-sense.com/resources/ai-policy-template">
     <meta property="og:image" content="https://sourcing-sense.com/og-image.svg">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="cs_CZ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free AI Usage Policy Template — EU AI Act + GDPR Ready">
-    <meta name="twitter:description" content="Practical AI usage policy template for companies. EU AI Act + GDPR compliant. Free download.">
+    <meta name="twitter:title" content="Free AI Policy Template — EU AI Act, GDPR, NIST, UK ICO">
+    <meta name="twitter:description" content="Free, editable AI usage policy template: EU AI Act and GDPR baseline, NIST AI RMF and ISO 42001 mapping, UK ICO addendum. Plain language, written by a procurement practitioner.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -362,7 +360,6 @@
 
         /* LANGUAGE */
         [data-lang="en"] .cz { display: none !important; }
-        [data-lang="cs"] .en { display: none !important; }
 
         /* REVEAL */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
@@ -375,18 +372,20 @@
             .nav-cta { display: none; }
         }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
 <!-- ═══ MOBILE OVERLAY ═══ -->
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+        <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
     
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span></a>
 </div>
 
 <!-- ═══ NAV ═══ -->
@@ -401,20 +400,16 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <div class="nav-center">
-        <a href="/"><span class="en">Home</span><span class="cz">Domů</span></a>
-        <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-        <a href="/resources/ai-policy-template" style="color:var(--accent-light);"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
-        <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
-        <a href="/about"><span class="en">About</span><span class="cz">O mně</span></a>
-        <a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+        <a href="/"><span class="en">Home</span></a>
+        <a href="/tools"><span class="en">Tools</span></a>
+        <a href="/resources/ai-policy-template" style="color:var(--accent-light);"><span class="en">Resources</span></a>
+        <a href="/insights"><span class="en">Insights</span></a>
+        <a href="/about"><span class="en">About</span></a>
+        <a href="/contact"><span class="en">Contact</span></a>
     </div>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
-        </div>
         <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta">
-            <span class="en">Book a Call</span><span class="cz">Domluvit hovor</span>
+            <span class="en">Book a Call</span>
         </a>
         <button class="hamburger" onclick="toggleMob()">☰</button>
     </div>
@@ -426,17 +421,14 @@
         <div class="hero-badge">
             <span class="pulse"></span>
             <span class="en">Free Resource — EU AI Act Compliant</span>
-            <span class="cz">Zdarma — v souladu s EU AI Act</span>
         </div>
 
         <h1>
             <span class="en">Your company probably has<br><span class="accent-word">no AI usage policy.</span></span>
-            <span class="cz">Vaše firma pravděpodobně<br><span class="accent-word">nemá AI politiku.</span></span>
         </h1>
 
         <p class="hero-sub">
             <span class="en">And if the EU AI Act inspector shows up, that's a problem. I built a practical template so you can fix that today — not in six months.</span>
-            <span class="cz">A pokud přijde kontrola EU AI Actu, to je váš problém. Připravil jsem praktickou šablonu, abyste to mohli vyřešit dnes — ne za půl roku.</span>
         </p>
 
         <div class="hero-layout">
@@ -444,44 +436,36 @@
             <div class="contents-card">
                 <p class="contents-title">
                     <span class="en">What's inside</span>
-                    <span class="cz">Co je uvnitř</span>
                 </p>
                 <ul class="contents-list">
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">Approved tools table with conditions (Copilot, Claude, ChatGPT)</span>
-                        <span class="cz">Tabulka schválených nástrojů s podmínkami (Copilot, Claude, ChatGPT)</span>
                     </li>
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">3-colour data classification: Green / Yellow / Red with real examples</span>
-                        <span class="cz">3barevná klasifikace dat: Zelená / Žlutá / Červená s reálnými příklady</span>
                     </li>
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">AI agent rules + approval process for autonomous systems</span>
-                        <span class="cz">Pravidla pro AI agenty + schvalovací proces pro autonomní systémy</span>
                     </li>
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">GDPR data handling rules for AI-processed information</span>
-                        <span class="cz">GDPR pravidla pro zpracování dat pomocí AI</span>
                     </li>
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">Customisation prompts in every section — adapt in 20 minutes</span>
-                        <span class="cz">Pokyny pro přizpůsobení v každé sekci — upravte za 20 minut</span>
                     </li>
                     <li class="contents-item">
                         <span class="contents-item-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="en">Incident response procedure + breach reporting steps</span>
-                        <span class="cz">Postup při incidentu + kroky pro hlášení bezpečnostních incidentů</span>
                     </li>
                 </ul>
                 <div class="legal-strip">
                     <span class="legal-badge eu">EU AI Act 2024/1689</span>
                     <span class="legal-badge gdpr">GDPR</span>
-                    <span class="legal-badge cz">Czech Labour Law</span>
                 </div>
             </div>
 
@@ -489,18 +473,15 @@
             <div class="optin-card">
                 <h2 class="optin-headline">
                     <span class="en">Get the free template</span>
-                    <span class="cz">Získat šablonu zdarma</span>
                 </h2>
                 <p class="optin-sub">
                     <span class="en">Enter your work email and I'll send the download link immediately. No spam — just useful AI procurement content.</span>
-                    <span class="cz">Zadejte pracovní email a okamžitě vám pošlu odkaz ke stažení. Žádný spam — jen užitečný obsah o AI v nákupu.</span>
                 </p>
 
                 <form id="downloadForm" onsubmit="submitDownload(event)">
                     <div class="form-group">
                         <label class="form-label" for="firstName">
                             <span class="en">First name</span>
-                            <span class="cz">Jméno</span>
                         </label>
                         <input type="text" id="firstName" class="form-input" required
                             placeholder="Jan / Jana">
@@ -508,17 +489,16 @@
                     <div class="form-group">
                         <label class="form-label" for="workEmail">
                             <span class="en">Work email</span>
-                            <span class="cz">Pracovní email</span>
                         </label>
                         <input type="email" id="workEmail" class="form-input" required
                             placeholder="jan@firma.cz">
                     </div>
+                    <label class="ss-consent"><input type="checkbox" required form="downloadForm"> <span>I agree that Sourcing Sense stores my name and email to send me the template, plus at most one personal follow-up. No mailing list. <a href="/privacy">Privacy policy</a></span></label>
                     <button type="submit" class="btn-download" id="downloadBtn">
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
                         <span class="en">Send me the template</span>
-                        <span class="cz">Pošlete mi šablonu</span>
                     </button>
                     <div id="formError" style="display:none;color:#ef4444;font-size:0.8rem;margin-top:0.6rem;"></div>
                 </form>
@@ -531,17 +511,14 @@
                     </div>
                     <h3>
                         <span class="en">Check your inbox</span>
-                        <span class="cz">Zkontrolujte doručenou poštu</span>
                     </h3>
                     <p>
                         <span class="en">The template link is on its way. Check your spam folder if you don't see it within 2 minutes.</span>
-                        <span class="cz">Odkaz ke stažení je na cestě. Pokud ho do 2 minut nevidíte, zkontrolujte složku se spamem.</span>
                     </p>
                 </div>
 
                 <p class="form-note">
-                    <span class="en">By submitting, you agree to receive occasional AI procurement insights from Sourcing Sense. Unsubscribe anytime.</span>
-                    <span class="cz">Odesláním souhlasíte s příležitostným zasíláním obsahu o AI v nákupu od Sourcing Sense. Odhlásit se lze kdykoliv.</span>
+                    <span class="en">One email with the template. No mailing list.</span>
                 </p>
             </div>
         </div>
@@ -550,19 +527,19 @@
         <div class="proof-strip">
             <span class="proof-item">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span class="en">No credit card</span><span class="cz">Bez platební karty</span>
+                <span class="en">No credit card</span>
             </span>
             <span class="proof-item">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span class="en">Editable .docx format</span><span class="cz">Editovatelný formát .docx</span>
+                <span class="en">Editable .docx format</span>
             </span>
             <span class="proof-item">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span class="en">Built by a practitioner, not a law firm</span><span class="cz">Vytvořeno praktikem, ne právní firmou</span>
+                <span class="en">Built by a practitioner, not a law firm</span>
             </span>
             <span class="proof-item">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span class="en">Updated for EU AI Act 2024</span><span class="cz">Aktualizováno pro EU AI Act 2024</span>
+                <span class="en">Updated for EU AI Act 2024</span>
             </span>
         </div>
     </div>
@@ -574,37 +551,34 @@
         <div class="reveal">
             <span class="section-eyebrow">
                 <span class="en">Who needs this</span>
-                <span class="cz">Kdo to potřebuje</span>
             </span>
             <h2 class="section-heading">
                 <span class="en">If your team uses AI tools at work, you need a policy</span>
-                <span class="cz">Pokud váš tým používá AI nástroje v práci, potřebujete politiku</span>
             </h2>
             <p class="section-desc">
                 <span class="en">The EU AI Act enforcement begins August 2026. GDPR exposure from unmanaged AI use is already active. Most companies have employees using ChatGPT, Copilot, or Claude daily — with zero governance in place.</span>
-                <span class="cz">Vymáhání EU AI Actu začíná v srpnu 2026. GDPR riziko z nekontrolovaného používání AI je aktivní již nyní. Většina firem má zaměstnance, kteří denně používají ChatGPT, Copilot nebo Claude — bez jakékoliv governance.</span>
             </p>
         </div>
         <div class="who-grid">
             <div class="who-card reveal">
                 <div class="who-card-icon">⚖️</div>
-                <h3><span class="en">CEOs & General Managers</span><span class="cz">CEO a generální ředitelé</span></h3>
-                <p><span class="en">You're liable for how AI is used in your company. This gives you documented evidence of governance — before you need it.</span><span class="cz">Jste zodpovědní za to, jak se AI ve firmě používá. Toto vám dá dokumentovaný důkaz governance — dříve než ho budete potřebovat.</span></p>
+                <h3><span class="en">CEOs & General Managers</span></h3>
+                <p><span class="en">You're liable for how AI is used in your company. This gives you documented evidence of governance — before you need it.</span></p>
             </div>
             <div class="who-card reveal">
                 <div class="who-card-icon">🛡️</div>
-                <h3><span class="en">DPOs & Legal Teams</span><span class="cz">DPO a právní oddělení</span></h3>
-                <p><span class="en">Stop writing this from scratch. This is your starting framework — customize the legal references to your jurisdiction and you're done.</span><span class="cz">Přestaňte to psát od nuly. Toto je váš výchozí rámec — přizpůsobte právní reference vašemu jurisdikci a máte hotovo.</span></p>
+                <h3><span class="en">DPOs & Legal Teams</span></h3>
+                <p><span class="en">Stop writing this from scratch. This is your starting framework — customize the legal references to your jurisdiction and you're done.</span></p>
             </div>
             <div class="who-card reveal">
                 <div class="who-card-icon">📦</div>
-                <h3><span class="en">Procurement & Operations</span><span class="cz">Nákup a provoz</span></h3>
-                <p><span class="en">Your supplier data, spend figures, and negotiation notes go through AI tools every day. This policy defines exactly what's allowed — and what isn't.</span><span class="cz">Data o dodavatelích, čísla o výdajích a poznámky z vyjednávání procházejí AI nástroji každý den. Tato politika přesně definuje, co je povoleno — a co ne.</span></p>
+                <h3><span class="en">Procurement & Operations</span></h3>
+                <p><span class="en">Your supplier data, spend figures, and negotiation notes go through AI tools every day. This policy defines exactly what's allowed — and what isn't.</span></p>
             </div>
             <div class="who-card reveal">
                 <div class="who-card-icon">👥</div>
-                <h3><span class="en">HR & Compliance</span><span class="cz">HR a compliance</span></h3>
-                <p><span class="en">Employee assessments, recruitment data, sensitive HR records. The template includes specific rules for high-risk use cases that touch personal data.</span><span class="cz">Hodnocení zaměstnanců, náborová data, citlivé HR záznamy. Šablona obsahuje konkrétní pravidla pro vysokorizikové případy, které se týkají osobních údajů.</span></p>
+                <h3><span class="en">HR & Compliance</span></h3>
+                <p><span class="en">Employee assessments, recruitment data, sensitive HR records. The template includes specific rules for high-risk use cases that touch personal data.</span></p>
             </div>
         </div>
     </div>
@@ -616,58 +590,54 @@
         <div class="reveal">
             <span class="section-eyebrow" style="color:var(--accent-light);">
                 <span class="en">Inside the template</span>
-                <span class="cz">Uvnitř šablony</span>
             </span>
             <h2 class="section-heading">
                 <span class="en">The data classification system</span>
-                <span class="cz">Systém klasifikace dat</span>
             </h2>
             <p class="section-desc">
                 <span class="en">One of the most practical parts of the template. Before entering any data into an AI tool, employees check this table. No ambiguity.</span>
-                <span class="cz">Jedna z nejpraktičtějších částí šablony. Před vložením jakýchkoliv dat do AI nástroje si zaměstnanec ověří tuto tabulku. Žádná nejednoznačnost.</span>
             </p>
         </div>
         <div style="overflow-x:auto;" class="reveal">
             <table class="preview-table">
                 <thead>
                     <tr>
-                        <th><span class="en">Example data</span><span class="cz">Příklad dat</span></th>
-                        <th><span class="en">Category</span><span class="cz">Kategorie</span></th>
-                        <th><span class="en">Rule</span><span class="cz">Pravidlo</span></th>
+                        <th><span class="en">Example data</span></th>
+                        <th><span class="en">Category</span></th>
+                        <th><span class="en">Rule</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="en">Public market info, competitor news</span><span class="cz">Veřejné tržní informace, zprávy o konkurenci</span></td>
+                        <td><span class="en">Public market info, competitor news</span></td>
                         <td><span class="data-badge green">🟢 Green</span></td>
-                        <td><span class="en">Use in any tool, no restrictions</span><span class="cz">Použít v jakémkoliv nástroji, bez omezení</span></td>
+                        <td><span class="en">Use in any tool, no restrictions</span></td>
                     </tr>
                     <tr>
-                        <td><span class="en">Supplier names & contacts, internal emails</span><span class="cz">Jména a kontakty dodavatelů, interní emaily</span></td>
+                        <td><span class="en">Supplier names & contacts, internal emails</span></td>
                         <td><span class="data-badge yellow">🟡 Yellow</span></td>
-                        <td><span class="en">OK in Copilot (M365 tenant). Anonymise in public chatbots.</span><span class="cz">OK v Copilotu (M365 tenant). Ve veřejných chatbotech anonymizovat.</span></td>
+                        <td><span class="en">OK in Copilot (M365 tenant). Anonymise in public chatbots.</span></td>
                     </tr>
                     <tr>
-                        <td><span class="en">Employee health data, political views</span><span class="cz">Zdravotní data zaměstnanců, politické názory</span></td>
+                        <td><span class="en">Employee health data, political views</span></td>
                         <td><span class="data-badge red">🔴 Red</span></td>
-                        <td><span class="en">Prohibited in any AI tool. Full stop.</span><span class="cz">Zakázáno v jakémkoliv AI nástroji. Konec.</span></td>
+                        <td><span class="en">Prohibited in any AI tool. Full stop.</span></td>
                     </tr>
                     <tr>
-                        <td><span class="en">Unpublished financial forecasts, M&A data</span><span class="cz">Nepublikované finanční forecasty, M&A data</span></td>
+                        <td><span class="en">Unpublished financial forecasts, M&A data</span></td>
                         <td><span class="data-badge red">🔴 Red</span></td>
-                        <td><span class="en">Prohibited without exception. Trade secret + insider risk.</span><span class="cz">Zakázáno bez výjimky. Obchodní tajemství + insider riziko.</span></td>
+                        <td><span class="en">Prohibited without exception. Trade secret + insider risk.</span></td>
                     </tr>
                     <tr>
-                        <td><span class="en">Contracts with pricing & personal data</span><span class="cz">Smlouvy s cenami a osobními údaji</span></td>
+                        <td><span class="en">Contracts with pricing & personal data</span></td>
                         <td><span class="data-badge red">🔴 Red</span></td>
-                        <td><span class="en">Prohibited in public chatbots. Copilot only for internal review.</span><span class="cz">Zakázáno ve veřejných chatbotech. Copilot pouze pro interní kontrolu.</span></td>
+                        <td><span class="en">Prohibited in public chatbots. Copilot only for internal review.</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <p style="font-size:0.78rem;color:var(--dark-text-muted);margin-top:1rem;">
             <span class="en">This is a preview. The full template contains 15+ data categories with detailed conditions for each approved tool.</span>
-            <span class="cz">Toto je náhled. Plná šablona obsahuje 15+ kategorií dat s podrobnými podmínkami pro každý schválený nástroj.</span>
         </p>
     </div>
 </section>
@@ -679,7 +649,6 @@
         <div>
             <p>
                 <span class="en"><strong>David Račak</strong> — Regional Indirect Procurement Manager, 8+ years EMEA experience, Lean Six Sigma Green Belt. I built this template because I couldn't find one that was practical, legally grounded, and written for people who actually run procurement — not lawyers billing by the hour.</span>
-                <span class="cz"><strong>David Račak</strong> — Regional Indirect Procurement Manager, 8+ let EMEA zkušeností, Lean Six Sigma Green Belt. Tuto šablonu jsem vytvořil, protože jsem nenašel žádnou, která by byla praktická, právně zakotvená a napsaná pro lidi, kteří skutečně řídí nákup — ne pro právníky fakturující po hodinách.</span>
             </p>
         </div>
     </div>
@@ -690,26 +659,21 @@
     <div class="container reveal" style="max-width:560px;">
         <span class="section-eyebrow" style="justify-content:center;">
             <span class="en">Still reading?</span>
-            <span class="cz">Stále čtete?</span>
         </span>
         <h2 class="section-heading" style="text-align:center;">
             <span class="en">Get the template. It's free.</span>
-            <span class="cz">Stáhněte šablonu. Je zdarma.</span>
         </h2>
         <p style="text-align:center;color:var(--light-text-secondary);font-size:0.9rem;margin-bottom:1.5rem;">
             <span class="en">Your competitors are figuring out AI governance right now. This gets you there in one afternoon.</span>
-            <span class="cz">Vaše konkurence právě řeší AI governance. Tohle vás tam dostane za jedno odpoledne.</span>
         </p>
         <div style="display:flex;justify-content:center;">
             <a href="#" onclick="document.getElementById('workEmail').focus();window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn-primary">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                 <span class="en">Get free template</span>
-                <span class="cz">Získat šablonu zdarma</span>
             </a>
         </div>
         <p style="text-align:center;font-size:0.75rem;color:var(--light-text-muted);margin-top:1rem;">
             <span class="en">Need help implementing it? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="color:var(--accent-light);">Book a 20-min call.</a></span>
-            <span class="cz">Potřebujete pomoc s implementací? <a href="https://calendly.com/sourcing-sense/" target="_blank" style="color:var(--accent-light);">Domluvte si 20minutový hovor.</a></span>
         </p>
     </div>
 </section>
@@ -730,30 +694,29 @@
                 </a>
                 <p>
                     <span class="en">AI Procurement Consulting. Built by a practitioner.</span>
-                    <span class="cz">AI poradenství v nákupu. Postaveno praktikem.</span>
                 </p>
             </div>
             <div class="footer-col">
-                <h4><span class="en">Navigate</span><span class="cz">Navigace</span></h4>
-                <a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-                <a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
-                <a href="/insights"><span class="en">Insights</span><span class="cz">Insights</span></a>
-                <a href="/about"><span class="en">About</span><span class="cz">O mně</span></a>
+                <h4><span class="en">Navigate</span></h4>
+                <a href="/tools"><span class="en">Tools</span></a>
+                <a href="/resources/ai-policy-template"><span class="en">Resources</span></a>
+                <a href="/insights"><span class="en">Insights</span></a>
+                <a href="/about"><span class="en">About</span></a>
             </div>
             <div class="footer-col">
-                <h4><span class="en">Resources</span><span class="cz">Zdroje</span></h4>
-                <a href="/resources/ai-policy-template"><span class="en">AI Policy Template (CZ)</span><span class="cz">AI Policy šablona (CZ)</span></a>
-                <a href="/tools/ai-readiness-score"><span class="en">AI Readiness Score</span><span class="cz">AI Readiness Score</span></a>
+                <h4><span class="en">Resources</span></h4>
+                <a href="/resources/ai-policy-template"><span class="en">AI Policy Template (CZ)</span></a>
+                <a href="/tools/ai-readiness-score"><span class="en">AI Readiness Score</span></a>
             </div>
             <div class="footer-col">
-                <h4><span class="en">Connect</span><span class="cz">Kontakt</span></h4>
-                <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+                <h4><span class="en">Connect</span></h4>
+                <a href="https://calendly.com/sourcing-sense/" target="_blank"><span class="en">Book a Call</span></a>
                 <a href="mailto:info@sourcing-sense.com">info@sourcing-sense.com</a>
                 <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank">LinkedIn</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Sourcing Sense · David Račak</p>
+            <p>© 2026 Sourcing Sense · David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -777,6 +740,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // LANGUAGE
 function setLang(lang) {
+    lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => {
         b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
@@ -807,14 +771,14 @@ async function submitDownload(e) {
     errEl.style.display = 'none';
 
     try {
-        await fetch(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
+        await (window.ssSend || ((u) => fetch(u, { mode: 'no-cors' })))(GAS_URL + '?data=' + encodeURIComponent(JSON.stringify({
             type: 'resource_download',
             name: name,
             email: email,
             resource: resource,
             source: 'landing-page',
             lang: lang
-        })), { mode: 'no-cors' });
+        })));
 
         // Show success state
         document.getElementById('downloadForm').style.display = 'none';
@@ -831,5 +795,6 @@ async function submitDownload(e) {
 }
 </script>
 
+<script src="/assets/ss.js" defer></script>
 </body>
 </html>

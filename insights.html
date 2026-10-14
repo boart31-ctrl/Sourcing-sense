@@ -8,26 +8,24 @@
   <link rel="manifest" href="/favicon/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procurement Insights — Automation Articles, Use Cases & AI Tutorials | Sourcing Sense</title>
-    <meta name="description" content="Procurement insights blog: practical articles on procurement automation, sourcing automation workflows, AI use cases, and procurement process optimization. Real implementations, not theory.">
+    <title>Procurement Insights Blog — AI & Automation for Buyers | Sourcing Sense</title>
+    <meta name="description" content="Procurement insights from a working category manager: ChatGPT and Copilot for procurement, savings tracking, RFQ and contract automation. Real builds, no vendor hype.">
     <meta name="keywords" content="procurement insights, procurement insights blog, procurement automation, sourcing automation, automated procurement workflows, procurement process automation, procurement workflow automation, automate procurement process, automated sourcing workflow, procurement savings tracking tool, AI procurement, contract management roi, procurement roi, procurement automation microsoft 365, procurement spend analysis">
     <meta name="author" content="David Račak">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://sourcing-sense.com/insights" />
-    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights">
-    <link rel="alternate" hreflang="cs" href="https://sourcing-sense.com/insights">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights">
     <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights">
     <meta property="og:site_name" content="Sourcing Sense" />
-    <meta property="og:title" content="Procurement Insights — Automation Articles & AI Use Cases | Sourcing Sense" />
-    <meta property="og:description" content="Procurement insights blog: automation articles, sourcing automation use cases, procurement process optimization tutorials from real implementations." />
+    <meta property="og:title" content="Procurement Insights Blog — AI & Automation for Buyers | Sourcing Sense" />
+    <meta property="og:description" content="Procurement insights from a working category manager: ChatGPT and Copilot for procurement, savings tracking, RFQ and contract automation. Real builds, no vendor hype." />
     <meta property="og:url" content="https://sourcing-sense.com/insights" />
     <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="cs_CZ" />
+    <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Procurement Insights — Automation & AI Articles | Sourcing Sense" />
-    <meta name="twitter:description" content="Procurement insights blog: automation articles, sourcing workflows, AI procurement use cases. From EMEA procurement expert." />
+    <meta name="twitter:title" content="Procurement Insights Blog — AI & Automation for Buyers" />
+    <meta name="twitter:description" content="Procurement insights from a working category manager: ChatGPT and Copilot for procurement, savings tracking, RFQ and contract automation. Real builds, no vendor hype." />
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -349,7 +347,6 @@
         }
 
         [data-lang="en"] .cz { display: none !important; }
-        [data-lang="cs"] .en { display: none !important; }
 
         /* ═══════════════════════════════════════════
            DARK THEME OVERRIDE
@@ -411,6 +408,7 @@
         }
         input[type="range"] { accent-color: var(--accent); }
     </style>
+    <link rel="stylesheet" href="/assets/ss.css">
 </head>
 <body>
 
@@ -426,59 +424,56 @@
         <span class="nav-logo-text">Sourcing Sense</span>
     </a>
     <ul class="nav-center">
-        <li><a href="/"><span class="en">Home</span><span class="cz">Domů</span></a></li>
-        <li><a href="/tools"><span class="en">Tools</span><span class="cz">Nástroje</span></a></li>
-        <li><a href="/insights" class="active"><span class="en">Insights</span><span class="cz">Insights</span></a></li>
-        <li><a href="/resources/ai-policy-template"><span class="en">Resources</span><span class="cz">Zdroje</span></a></li>
-        <li><a href="/about"><span class="en">About</span><span class="cz">O mně</span></a></li>
-        <li><a href="/contact"><span class="en">Contact</span><span class="cz">Kontakt</span></a></li>
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/ai-use-cases"><span class="en">AI use cases</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span></a></li>
+        <li><a href="/resources/ai-policy-template"><span class="en">Resources</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
     </ul>
     <div class="nav-right">
-        <div class="lang-toggle">
-            <button class="lang-btn active" data-set-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-set-lang="cs" onclick="setLang('cs')">CZ</button>
-        </div>
-        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span><span class="cz">Domluvit hovor</span></a>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span></a>
     </div>
     <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
 <div class="mobile-overlay" id="mob">
     <button class="mobile-close" onclick="toggleMob()">✕</button>
-    <a href="/" onclick="toggleMob()"><span class="en">Home</span><span class="cz">Domů</span></a>
-    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span><span class="cz">Nástroje</span></a>
-    <a href="/insights" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Insights</span><span class="cz">Insights</span></a>
-    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span><span class="cz">Zdroje</span></a>
-    <a href="/about" onclick="toggleMob()"><span class="en">About</span><span class="cz">O mně</span></a>
-    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span><span class="cz">Kontakt</span></a>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()" style="color:var(--accent)"><span class="en">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
 </div>
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero">
     <div class="container">
-        <span class="section-eyebrow"><span class="en">Insights</span><span class="cz">Insights</span></span>
+        <span class="section-eyebrow"><span class="en">Insights</span></span>
         <h1 class="section-heading" style="font-size:clamp(2.2rem,5vw,3.2rem);">
-            <span class="en">Articles, use cases & tutorials</span>
-            <span class="cz">Články, případy & návody</span>
+            <span class="en">Procurement insights: AI and automation from the buyer's desk</span>
         </h1>
         <p class="section-desc" style="margin-bottom:0;">
             <span class="en">Practical insights from real AI implementations. No theory — just what works, what doesn't, and why.</span>
-            <span class="cz">Praktické poznatky z reálných AI implementací. Žádná teorie — jen co funguje, co ne, a proč.</span>
         </p>
+        <p style="margin:0.6rem 0 0;color:var(--ss-text-2);font-size:0.95rem;">Looking for something specific? The <a href="/ai-use-cases" style="color:var(--ss-blue);text-decoration:underline;text-underline-offset:3px;">AI use case library</a> lists 28 things AI can do in procurement today, by stage.</p>
         <div class="filter-tabs">
             <span class="filter-tab active" onclick="filterPosts('all')">
-                <span class="en">All</span><span class="cz">Vše</span>
+                <span class="en">All</span>
             </span>
             <span class="filter-tab" onclick="filterPosts('use-case')">
                 <span class="cat-dot use-case"></span>
-                <span class="en">Use Cases</span><span class="cz">Případy</span>
+                <span class="en">Use Cases</span>
             </span>
             <span class="filter-tab" onclick="filterPosts('article')">
                 <span class="cat-dot article"></span>
-                <span class="en">Articles</span><span class="cz">Články</span>
+                <span class="en">Articles</span>
             </span>
             <span class="filter-tab" onclick="filterPosts('tutorial')">
                 <span class="cat-dot tutorial"></span>
-                <span class="en">Tutorials</span><span class="cz">Návody</span>
+                <span class="en">Tutorials</span>
             </span>
         </div>
     </div>
@@ -489,33 +484,30 @@
     <div class="container">
 
         <!-- Featured post -->
-        <a href="/insights/5-processes-to-automate.html" class="featured-card reveal" data-cat="article">
+        <a href="/insights/5-processes-to-automate" class="featured-card reveal" data-cat="article">
             <div class="featured-content">
                 <span class="featured-badge article">
                     <span class="cat-dot article"></span>
-                    <span class="en">Article</span><span class="cz">Článek</span>
+                    <span class="en">Article</span>
                 </span>
                 <h2>
                     <span class="en">5 Procurement Processes You Should Automate First (And How)</span>
-                    <span class="cz">5 nákupních procesů, které byste měli automatizovat jako první (a jak)</span>
                 </h2>
                 <p>
                     <span class="en">Ranked by ROI vs effort. Real examples, real tool stacks, no theory. Start with quick wins, build momentum, then tackle the complex stuff.</span>
-                    <span class="cz">Seřazeno podle ROI vs náročnosti. Reálné příklady, reálné nástroje, žádná teorie. Začněte quick wins, budujte momentum, pak řešte složité věci.</span>
                 </p>
                 <div class="featured-meta">
-                    <span><span class="en">10 min read</span><span class="cz">10 min čtení</span></span>
+                    <span><span class="en">10 min read</span></span>
                     <span>•</span>
-                    <span><span class="en">Feb 2026</span><span class="cz">Únor 2026</span></span>
+                    <span><span class="en">Feb 2026</span></span>
                     <span>•</span>
-                    <span style="color:var(--accent);font-weight:600;">📊 <span class="en">ROI vs Effort matrix</span><span class="cz">Matice ROI vs náročnost</span></span>
+                    <span style="color:var(--accent);font-weight:600;">📊 <span class="en">ROI vs Effort matrix</span></span>
                 </div>
             </div>
             <div class="featured-visual">
                 <div class="featured-visual-pattern"></div>
                 <div class="featured-visual-label">
                     <span class="en">Procurement × AI<br>Strategy Guide</span>
-                    <span class="cz">Nákup × AI<br>Strategický průvodce</span>
                 </div>
                 <div class="featured-visual-icon">🎯</div>
             </div>
@@ -524,53 +516,101 @@
         <!-- Post grid -->
         <div class="posts-grid">
 
-            <a href="/insights/quotation-analyzer.html" class="post-card reveal d1" data-cat="use-case">
+            <a href="/insights/procurement-savings-tracking" class="post-card reveal" data-cat="use-case">
+                <div class="post-card-visual use-case-bg">
+                    <div class="post-card-visual-pattern"></div>
+                    <div class="post-card-visual-icon">📈</div>
+                </div>
+                <div class="post-card-body">
+                    <span class="post-badge use-case"><span class="cat-dot use-case"></span>Use Case</span>
+                    <h3>AI Savings Tracking: Catch Leakage Automatically</h3>
+                    <p>Three AI steps in Microsoft 365 compare contracts with invoices and explain every price that leaks. Prompt included.</p>
+                    <div class="post-footer">
+                        <span class="post-date">Oct 2026</span>
+                        <span class="post-read">Read <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/insights/how-to-calculate-procurement-savings" class="post-card reveal" data-cat="tutorial">
+                <div class="post-card-visual tutorial-bg">
+                    <div class="post-card-visual-pattern"></div>
+                    <div class="post-card-visual-icon">🧮</div>
+                </div>
+                <div class="post-card-body">
+                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span>Tutorial</span>
+                    <h3>AI in Procurement ROI: Savings and Payback</h3>
+                    <p>The formulas for an AI business case, three worked use cases, and how to estimate what the AI costs to run.</p>
+                    <div class="post-footer">
+                        <span class="post-date">Oct 2026</span>
+                        <span class="post-read">Read <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/insights/will-ai-replace-procurement" class="post-card reveal" data-cat="article">
+                <div class="post-card-visual article-bg">
+                    <div class="post-card-visual-pattern"></div>
+                    <div class="post-card-visual-icon">🧭</div>
+                </div>
+                <div class="post-card-body">
+                    <span class="post-badge article"><span class="cat-dot article"></span>Article</span>
+                    <h3>Will AI Replace Procurement?</h3>
+                    <p>A stage-by-stage walk through source-to-pay: which work AI tools take over today and which stays human.</p>
+                    <div class="post-footer">
+                        <span class="post-date">Oct 2026</span>
+                        <span class="post-read">Read <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/insights/quotation-analyzer" class="post-card reveal d1" data-cat="use-case">
                 <div class="post-card-visual use-case-bg">
                     <div class="post-card-visual-pattern"></div>
                     <div class="post-card-visual-icon">📄</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                    <h3><span class="en">AI Quotation Analyzer in 10 Minutes Using Power Automate</span><span class="cz">AI analyzátor nabídek za 10 minut v Power Automate</span></h3>
-                    <p><span class="en">3 steps, zero extra licenses. Upload a supplier PDF in any language — get a structured procurement analysis in Teams within two minutes.</span><span class="cz">3 kroky, žádné extra licence. Nahrajte PDF od dodavatele v jakémkoliv jazyce — do dvou minut dostanete strukturovanou analýzu v Teams.</span></p>
-                    <span class="post-result">⚡ 10 min <span class="en">to build</span><span class="cz">na sestavení</span></span>
+                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span></span>
+                    <h3><span class="en">AI Quotation Analyzer in 10 Minutes Using Power Automate</span></h3>
+                    <p><span class="en">3 steps, zero extra licenses. Upload a supplier PDF in any language — get a structured procurement analysis in Teams within two minutes.</span></p>
+                    <span class="post-result">⚡ 10 min <span class="en">to build</span></span>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Feb 2026</span><span class="cz">Únor 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Feb 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
 
-            <a href="/insights/car-booking-automation.html" class="post-card reveal d2" data-cat="use-case">
+            <a href="/insights/car-booking-automation" class="post-card reveal d2" data-cat="use-case">
                 <div class="post-card-visual use-case-bg">
                     <div class="post-card-visual-pattern"></div>
                     <div class="post-card-visual-icon">🚗</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                    <h3><span class="en">How I Killed a Useless Corporate Process With a 4-Step Flow</span><span class="cz">Jak jsem zabil zbytečný firemní proces 4krokovým flow</span></h3>
-                    <p><span class="en">Company car booking was paper forms and chaos. Power Automate, resource mailboxes, and automatic manager lookup replaced it all.</span><span class="cz">Rezervace firemních aut byl papírový chaos. Power Automate, resource mailboxy a automatické vyhledání manažera to celé nahradily.</span></p>
-                    <span class="post-result">↓ 100s min <span class="en">saved monthly</span><span class="cz">ušetřeno měsíčně</span></span>
+                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span></span>
+                    <h3><span class="en">How I Killed a Useless Corporate Process With a 4-Step Flow</span></h3>
+                    <p><span class="en">Company car booking was paper forms and chaos. Power Automate, resource mailboxes, and automatic manager lookup replaced it all.</span></p>
+                    <span class="post-result">↓ 100s min <span class="en">saved monthly</span></span>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Feb 2026</span><span class="cz">Únor 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Feb 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
 
-            <a href="/insights/contract-nemesis.html" class="post-card reveal d3" data-cat="use-case">
+            <a href="/insights/contract-nemesis" class="post-card reveal d3" data-cat="use-case">
                 <div class="post-card-visual use-case-bg">
                     <div class="post-card-visual-pattern"></div>
                     <div class="post-card-visual-icon">📑</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                    <h3><span class="en">Contract Nemesis: Automated Contract Monitoring With Power Automate</span><span class="cz">Contract Nemesis: Automatické monitorování smluv přes Power Automate</span></h3>
-                    <p><span class="en">5-step flow that reads every new contract, extracts renewal dates and price clauses, and posts a summary to Teams. Under 30 minutes to build on M365.</span><span class="cz">5krokový flow, který přečte každou novou smlouvu, vytáhne data obnovení a cenové klauzule a zveřejní shrnutí do Teams. Postavení za méně než 30 minut na M365.</span></p>
-                    <span class="post-result">⚡ &lt;30 min <span class="en">to build</span><span class="cz">na sestavení</span></span>
+                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span></span>
+                    <h3><span class="en">Contract Nemesis: Automated Contract Monitoring With Power Automate</span></h3>
+                    <p><span class="en">5-step flow that reads every new contract, extracts renewal dates and price clauses, and posts a summary to Teams. Under 30 minutes to build on M365.</span></p>
+                    <span class="post-result">⚡ &lt;30 min <span class="en">to build</span></span>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">May 2026</span><span class="cz">Květen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">May 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -581,12 +621,12 @@
                     <div class="post-card-visual-icon">📋</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">AI Usage Policy for Procurement Teams</span><span class="cz">AI Usage Policy pro nákupní týmy</span></h3>
-                    <p><span class="en">What to include, what to avoid, and how to roll it out without friction. Free template included.</span><span class="cz">Co zahrnout, čemu se vyhnout a jak to zavést bez odporu. Šablona ke stažení zdarma.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">AI Usage Policy for Procurement Teams</span></h3>
+                    <p><span class="en">What to include, what to avoid, and how to roll it out without friction. Free template included.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -597,12 +637,12 @@
                     <div class="post-card-visual-icon">🤖</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">Why 90% of Procurement AI Projects Fail</span><span class="cz">Proč 90 % AI projektů v nákupu selže</span></h3>
-                    <p><span class="en">It is not the technology. Five real reasons procurement AI projects fail — from someone who has seen it from the inside.</span><span class="cz">Není to technologie. Pět skutečných důvodů, proč AI projekty v nákupu selhávají — zevnitř.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">Why 90% of Procurement AI Projects Fail</span></h3>
+                    <p><span class="en">It is not the technology. Five real reasons procurement AI projects fail — from someone who has seen it from the inside.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Mar 2026</span><span class="cz">Březen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Mar 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -613,12 +653,12 @@
                     <div class="post-card-visual-icon">🎓</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span><span class="cz">Návod</span></span>
-                    <h3><span class="en">Prompt Engineering for Procurement Professionals</span><span class="cz">Prompt engineering pro nákupčí</span></h3>
-                    <p><span class="en">Not ChatGPT basics. How to write prompts for contract risk analysis, spend summaries, quote comparison, and negotiation prep.</span><span class="cz">Ne ChatGPT základy. Jak psát prompty pro analýzu smluv, spend reporting, porovnání nabídek a přípravu na vyjednávání.</span></p>
+                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span></span>
+                    <h3><span class="en">Prompt Engineering for Procurement Professionals</span></h3>
+                    <p><span class="en">Not ChatGPT basics. How to write prompts for contract risk analysis, spend summaries, quote comparison, and negotiation prep.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Mar 2026</span><span class="cz">Březen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Mar 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -629,12 +669,12 @@
                     <div class="post-card-visual-icon">📊</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">How to Build a Supplier Scoreboard Without a Consultant</span><span class="cz">Jak postavit supplier scoreboard bez konzultanta</span></h3>
-                    <p><span class="en">Most scorecards end up unused. A practical framework — KPI selection, Excel logic, how to run reviews, and how to automate scoring with AI.</span><span class="cz">Většina scoreboardů skončí v šuplíku. Praktický framework — výběr KPI, Excel logika, jak vést review, a jak automatizovat scoring pomocí AI.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">How to Build a Supplier Scoreboard Without a Consultant</span></h3>
+                    <p><span class="en">Most scorecards end up unused. A practical framework — KPI selection, Excel logic, how to run reviews, and how to automate scoring with AI.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Mar 2026</span><span class="cz">Březen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Mar 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -645,12 +685,12 @@
                     <div class="post-card-visual-icon">👻</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">Shadow Software: The Unauthorized SaaS Sitting in Your Company Right Now</span><span class="cz">Shadow software: neschválený SaaS, který teď sedí ve vaší firmě</span></h3>
-                    <p><span class="en">84% of SaaS apps sit outside IT oversight. Someone on your team probably bought software this month that nobody approved — here is what that actually means.</span><span class="cz">84 % SaaS aplikací leží mimo dohled IT. Někdo ve vašem týmu si pravděpodobně tento měsíc koupil software, který nikdo neschválil.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">Shadow Software: The Unauthorized SaaS Sitting in Your Company Right Now</span></h3>
+                    <p><span class="en">84% of SaaS apps sit outside IT oversight. Someone on your team probably bought software this month that nobody approved — here is what that actually means.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Mar 2026</span><span class="cz">Březen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Mar 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -661,12 +701,12 @@
                     <div class="post-card-visual-icon">🤝</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">75% of Suppliers Prefer Negotiating With a Bot</span><span class="cz">75 % dodavatelů raději vyjednává s botem</span></h3>
-                    <p><span class="en">Walmart/Pactum data shows 3 out of 4 suppliers prefer AI negotiation over human buyers. The reason is not what you think.</span><span class="cz">Data Walmart/Pactum ukazují, že 3 ze 4 dodavatelů preferují AI vyjednávání před lidskými nákupčími. Důvod vás překvapí.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">75% of Suppliers Prefer Negotiating With a Bot</span></h3>
+                    <p><span class="en">Walmart/Pactum data shows 3 out of 4 suppliers prefer AI negotiation over human buyers. The reason is not what you think.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Mar 2026</span><span class="cz">Březen 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Mar 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -677,12 +717,12 @@
                     <div class="post-card-visual-icon">💰</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">AI Transition Cost Report 2026</span><span class="cz">Zpráva o nákladech AI přechodu 2026</span></h3>
-                    <p><span class="en">What does AI transition actually cost? Real numbers for small and mid-size procurement teams — monthly budgets, year-one breakdown, starter projects.</span><span class="cz">Co AI přechod reálně stojí? Skutečná čísla pro malé a střední nákupní týmy — měsíční rozpočty, první rok, startovací projekty.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">AI Transition Cost Report 2026</span></h3>
+                    <p><span class="en">What does AI transition actually cost? Real numbers for small and mid-size procurement teams — monthly budgets, year-one breakdown, starter projects.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -693,12 +733,12 @@
                     <div class="post-card-visual-icon">🚫</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">Five Things Procurement Teams Believe About AI That Are Wrong</span><span class="cz">Pět věcí, které nákupní týmy věří o AI a které jsou špatně</span></h3>
-                    <p><span class="en">Five common AI misconceptions that stop procurement teams from starting — Copilot, data quality, job risk, all addressed with specific facts.</span><span class="cz">Pět nejčastějších AI mýtů, které brání nákupčím začít — Copilot, datová kvalita, riziko pracovních míst, vše s konkrétními fakty.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">Five Things Procurement Teams Believe About AI That Are Wrong</span></h3>
+                    <p><span class="en">Five common AI misconceptions that stop procurement teams from starting — Copilot, data quality, job risk, all addressed with specific facts.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -709,12 +749,12 @@
                     <div class="post-card-visual-icon">🚀</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">AI in Procurement: Where to Actually Start</span><span class="cz">AI v nákupu: Kde skutečně začít</span></h3>
-                    <p><span class="en">How procurement managers can start with AI — practically. No developer needed. A simple framework for finding your first project and running it in three weeks.</span><span class="cz">Jak mohou nákupní manažeři začít s AI — prakticky. Žádný developer nepotřeba. Jednoduchý framework pro první projekt za tři týdny.</span></p>
+                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span></span>
+                    <h3><span class="en">AI in Procurement: Where to Actually Start</span></h3>
+                    <p><span class="en">How procurement managers can start with AI — practically. No developer needed. A simple framework for finding your first project and running it in three weeks.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -725,12 +765,12 @@
                     <div class="post-card-visual-icon">💬</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span><span class="cz">Návod</span></span>
-                    <h3><span class="en">Ten ChatGPT Prompts Every Procurement Manager Should Have</span><span class="cz">Deset ChatGPT promptů, které by měl mít každý nákupní manažer</span></h3>
-                    <p><span class="en">Stop using ChatGPT like a search engine. Ten production-ready prompts for supplier evaluation, RFQ drafting, contract review, spend analysis, and negotiation prep.</span><span class="cz">Přestaňte používat ChatGPT jako vyhledávač. Deset hotových promptů pro hodnocení dodavatelů, RFQ, kontrolu smluv a přípravu vyjednávání.</span></p>
+                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span></span>
+                    <h3><span class="en">Ten ChatGPT Prompts Every Procurement Manager Should Have</span></h3>
+                    <p><span class="en">Stop using ChatGPT like a search engine. Ten production-ready prompts for supplier evaluation, RFQ drafting, contract review, spend analysis, and negotiation prep.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -741,12 +781,12 @@
                     <div class="post-card-visual-icon">🪟</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span><span class="cz">Návod</span></span>
-                    <h3><span class="en">Microsoft Copilot in Procurement: Five Workflows You Can Start This Week</span><span class="cz">Microsoft Copilot v nákupu: Pět workflow, které spustíte tento týden</span></h3>
-                    <p><span class="en">You have Microsoft Copilot. Here's how to actually use it in procurement — five workflows: supplier email triage, meeting notes, spend analysis, RFQ drafting, and more.</span><span class="cz">Máte Microsoft Copilot. Tady je, jak ho reálně použít v nákupu — pět workflow: třídění emailů, zápisy z meetingů, spend analýza a více.</span></p>
+                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span></span>
+                    <h3><span class="en">Microsoft Copilot in Procurement: Five Workflows You Can Start This Week</span></h3>
+                    <p><span class="en">You have Microsoft Copilot. Here's how to actually use it in procurement — five workflows: supplier email triage, meeting notes, spend analysis, RFQ drafting, and more.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -757,13 +797,13 @@
                     <div class="post-card-visual-icon">🔄</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span><span class="cz">Případ</span></span>
-                    <h3><span class="en">Kaizen Portal with Power Apps: Build It in 2 Days</span><span class="cz">Kaizen portál s Power Apps: Postavte ho za 2 dny</span></h3>
-                    <p><span class="en">How to build a Kaizen continuous improvement portal with Power Apps and Power Automate. Real procurement use case — submitted ideas, AI categorisation, structured board review.</span><span class="cz">Jak postavit Kaizen portál pro kontinuální zlepšování s Power Apps a Power Automate. Reálný případ — nápady, AI kategorizace, review boardu.</span></p>
-                    <span class="post-result">⚡ <span class="en">Built in 2 days</span><span class="cz">Postaveno za 2 dny</span></span>
+                    <span class="post-badge use-case"><span class="cat-dot use-case"></span><span class="en">Use Case</span></span>
+                    <h3><span class="en">Kaizen Portal with Power Apps: Build It in 2 Days</span></h3>
+                    <p><span class="en">How to build a Kaizen continuous improvement portal with Power Apps and Power Automate. Real procurement use case — submitted ideas, AI categorisation, structured board review.</span></p>
+                    <span class="post-result">⚡ <span class="en">Built in 2 days</span></span>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
@@ -774,60 +814,30 @@
                     <div class="post-card-visual-icon">🔒</div>
                 </div>
                 <div class="post-card-body">
-                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span><span class="cz">Návod</span></span>
-                    <h3><span class="en">How to Use Claude Safely: The Differences That Actually Matter for Business</span><span class="cz">Jak bezpečně používat Claude: Rozdíly, na kterých záleží pro business</span></h3>
-                    <p><span class="en">Claude Code, Claude.ai, Claude for Work, VS Code extension — different risk profiles, different setup. Real incidents 2025–26. Setup checklist for business teams.</span><span class="cz">Claude Code, Claude.ai, Claude for Work, VS Code extension — různé rizikové profily, různé nastavení. Reálné incidenty 2025–26. Checklist pro firemní týmy.</span></p>
+                    <span class="post-badge tutorial"><span class="cat-dot tutorial"></span><span class="en">Tutorial</span></span>
+                    <h3><span class="en">How to Use Claude Safely: The Differences That Actually Matter for Business</span></h3>
+                    <p><span class="en">Claude Code, Claude.ai, Claude for Work, VS Code extension — different risk profiles, different setup. Real incidents 2025–26. Setup checklist for business teams.</span></p>
                     <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
+                        <span class="post-date"><span class="en">Apr 2026</span></span>
+                        <span class="post-read"><span class="en">Read</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
                     </div>
                 </div>
             </a>
 
-            <a href="/insights/why-ai-projects-fail" class="post-card reveal" data-cat="article">
-                <div class="post-card-visual article-bg">
-                    <div class="post-card-visual-pattern"></div>
-                    <div class="post-card-visual-icon">⚠️</div>
-                </div>
-                <div class="post-card-body">
-                    <span class="post-badge article"><span class="cat-dot article"></span><span class="en">Article</span><span class="cz">Článek</span></span>
-                    <h3><span class="en">Why Most AI Projects in Procurement Fail</span><span class="cz">Proč většina AI projektů v nákupu selže</span></h3>
-                    <p><span class="en">Most AI projects in procurement don't fail because the technology is wrong. They fail because of four predictable management decisions made before any code is written.</span><span class="cz">Většina AI projektů v nákupu neselhává kvůli technologii. Selhává kvůli čtyřem předvídatelným manažerským rozhodnutím učiněným ještě před napsáním kódu.</span></p>
-                    <div class="post-footer">
-                        <span class="post-date"><span class="en">Apr 2026</span><span class="cz">Duben 2026</span></span>
-                        <span class="post-read"><span class="en">Read</span><span class="cz">Číst</span> <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span>
-                    </div>
-                </div>
-            </a>
 
         </div>
     </div>
 </section>
 
-<!-- ═══ NEWSLETTER ═══ -->
+<!-- ═══ FOLLOW ═══ -->
 <section class="newsletter-section">
     <div class="newsletter-inner reveal">
-        <span class="section-eyebrow">
-            <span class="en">Stay updated</span><span class="cz">Zůstaňte v obraze</span>
-        </span>
-        <h2 class="section-heading" style="font-size:1.8rem;">
-            <span class="en">New insights, straight to your inbox</span>
-            <span class="cz">Nové poznatky přímo do emailu</span>
-        </h2>
-        <p class="section-desc">
-            <span class="en">No spam. Just practical AI insights for business — when there's something worth sharing.</span>
-            <span class="cz">Žádný spam. Jen praktické AI poznatky pro business — když je co sdílet.</span>
-        </p>
-        <div class="newsletter-form">
-            <input type="email" class="newsletter-input" id="nlEmail" placeholder="">
-            <button class="newsletter-btn" onclick="submitNewsletter()">
-                <span class="en">Subscribe</span><span class="cz">Odebírat</span>
-            </button>
+        <h2 class="section-heading" style="font-size:1.8rem;">One build a week, no mailing list</h2>
+        <p class="section-desc">New use cases go out on LinkedIn first. If you'd rather see one for your own process, send it — the good ones become articles.</p>
+        <div class="newsletter-form" style="justify-content:center;gap:0.6rem;flex-wrap:wrap;">
+            <a class="newsletter-btn" style="text-decoration:none;display:inline-flex;align-items:center;" href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+            <a class="newsletter-btn" style="text-decoration:none;display:inline-flex;align-items:center;background:transparent;border:1px solid var(--ss-line-strong);color:var(--ss-text);" href="/contact">Send a process</a>
         </div>
-        <p class="newsletter-note" id="nlNote">
-            <span class="en">Unsubscribe anytime. Your email stays private.</span>
-            <span class="cz">Odhlášení kdykoliv. Váš email zůstane v soukromí.</span>
-        </p>
     </div>
 </section>
 
@@ -835,7 +845,7 @@
 <footer>
     <div class="footer-inner">
         <div class="footer-bottom">
-            <p>© 2026 Sourcing Sense · David Račak</p>
+            <p>© 2026 Sourcing Sense · David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -856,9 +866,9 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 function setLang(lang) {
+    lang = 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
-    document.getElementById('nlEmail').placeholder = lang === 'cs' ? 'Váš email' : 'Your email';
     try { localStorage.setItem('ss-lang', lang); } catch(e) {}
 }
 (function() {
@@ -877,15 +887,7 @@ function filterPosts(cat) {
     });
 }
 
-// Newsletter
-function submitNewsletter() {
-    const email = document.getElementById('nlEmail').value.trim();
-    if (!email || !email.includes('@')) { document.getElementById('nlEmail').style.borderColor = '#ef4444'; setTimeout(() => document.getElementById('nlEmail').style.borderColor = '', 1500); return; }
-    const lang = document.documentElement.getAttribute('data-lang');
-    document.getElementById('nlNote').innerHTML = lang === 'cs' ? '✅ Přihlášeno! Díky.' : '✅ Subscribed! Thanks.';
-    document.getElementById('nlNote').style.color = '#10b981';
-    document.getElementById('nlEmail').value = '';
-}
 </script>
+<script src="/assets/ss.js" defer></script>
 </body>
 </html>

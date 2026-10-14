@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Procurement ROI: How to Calculate Savings &amp; Payback | Sourcing Sense</title>
+    <meta name="description" content="Formulas for an AI business case in procurement: time value, price caught, running cost, ROI and payback, with three worked examples and how to estimate AI token costs.">
+    <meta name="keywords" content="AI in procurement ROI, procurement savings calculation, procurement ROI formula, AI business case procurement, AI use case payback, cost of AI in procurement">
+    <meta name="author" content="David Račak">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:title" content="AI in Procurement ROI: How to Calculate Savings &amp; Payback | Sourcing Sense">
+    <meta property="og:description" content="Formulas for an AI business case in procurement: time value, price caught, running cost, ROI and payback, with three worked examples and how to estimate AI token costs.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sourcing-sense.com/insights/how-to-calculate-procurement-savings">
+    <meta property="og:site_name" content="Sourcing Sense" />
+    <meta property="og:image" content="https://sourcing-sense.com/og-image.svg" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://sourcing-sense.com/insights/how-to-calculate-procurement-savings">
+    <link rel="alternate" hreflang="en" href="https://sourcing-sense.com/insights/how-to-calculate-procurement-savings" />
+    <link rel="alternate" hreflang="x-default" href="https://sourcing-sense.com/insights/how-to-calculate-procurement-savings" />
+    <link rel="alternate" type="text/markdown" href="https://sourcing-sense.com/llms.txt" title="LLM-friendly site description" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI in Procurement ROI: How to Calculate Savings &amp; Payback" />
+    <meta name="twitter:description" content="Formulas for an AI business case in procurement: time value, price caught, running cost, ROI and payback, with three worked examples and how to estimate AI token costs." />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI in Procurement ROI: How to Calculate Savings & Payback",
+  "description": "Formulas for an AI business case in procurement: time value, price caught, running cost, ROI and payback, with three worked examples and how to estimate AI token costs.",
+  "author": {
+    "@type": "Person",
+    "name": "David Račak",
+    "url": "https://sourcing-sense.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sourcing Sense",
+    "url": "https://sourcing-sense.com"
+  },
+  "datePublished": "2026-10-13",
+  "dateModified": "2026-10-13",
+  "url": "https://sourcing-sense.com/insights/how-to-calculate-procurement-savings",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sourcing-sense.com/insights/how-to-calculate-procurement-savings"
+  },
+  "keywords": [
+    "AI in procurement ROI",
+    "procurement savings calculation",
+    "procurement ROI formula",
+    "AI business case procurement",
+    "AI use case payback",
+    "cost of AI in procurement"
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sourcing-sense.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://sourcing-sense.com/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI ROI",
+      "item": "https://sourcing-sense.com/insights/how-to-calculate-procurement-savings"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate the ROI of AI in procurement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add time value (hours saved × loaded hourly cost) and price value (savings or leakage caught), subtract running cost and build cost, and divide by build cost. Payback in months is build cost divided by monthly net value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does running an AI use case in procurement cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For one category, usually tens of euros a month in AI credits or tokens plus a few hours of maintenance. Estimate pages × tokens per page × documents per month × price per token, then double it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for procurement savings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "(Baseline unit price − new unit price) × volume. Use forecast volume for negotiated savings and invoiced volume for realized savings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI use case in procurement pays back fastest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contract renewal monitoring and quotation comparison usually pay back within weeks, because they are quick to build and either save hours every week or prevent a single expensive renewal."
+      }
+    }
+  ]
+}
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --blue-900: #0a1628; --blue-800: #0f2140; --blue-500: #2563eb; --blue-400: #3b82f6; --blue-300: #60a5fa; --blue-200: #93c5fd; --blue-100: #dbeafe; --blue-50: #eff6ff; --accent: #2563eb; --accent-light: #3b82f6; --accent-glow: rgba(37,99,235,0.15); --accent-subtle: rgba(37,99,235,0.06); --emerald: #10b981; --emerald-subtle: rgba(16,185,129,0.08); --purple: #8b5cf6; --purple-subtle: rgba(139,92,246,0.08); --light-bg: #ffffff; --light-bg-alt: #f8fafc; --light-border: #e2e8f0; --light-text: #0f172a; --light-text-secondary: #475569; --light-text-muted: #94a3b8; --dark-border: rgba(255,255,255,0.08); --dark-text-muted: #475569; --font-display: 'DM Serif Display', Georgia, serif; --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-mono: 'JetBrains Mono', monospace; --radius: 14px; --radius-sm: 8px; --ease: cubic-bezier(0.16,1,0.3,1); }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--font-body); background: var(--light-bg); color: var(--light-text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: var(--accent); color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: var(--font-body); border: none; cursor: pointer; background: none; }
+        ul { list-style: none; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--light-border); transition: all 0.3s ease; }
+        nav.scrolled { padding: 0.6rem 2rem; box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+        .nav-logo svg { height: 30px; width: auto; }
+        .nav-logo-text { font-weight: 700; font-size: 1.05rem; color: var(--blue-900); letter-spacing: -0.02em; }
+        .nav-center { display: flex; align-items: center; gap: 2rem; }
+        .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--light-text-secondary); transition: color 0.2s; }
+        .nav-center a:hover { color: var(--accent); }
+        .nav-center a.active { color: var(--accent); font-weight: 600; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .lang-toggle { display: flex; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; padding: 3px; gap: 2px; }
+        .lang-btn { font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 100px; color: var(--light-text-muted); transition: all 0.2s; letter-spacing: 0.03em; }
+        .lang-btn.active { background: white; color: var(--accent); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .nav-cta { font-size: 0.82rem; font-weight: 600; padding: 0.55rem 1.2rem; background: var(--accent); color: white; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+        .hamburger { display: none; color: var(--light-text); font-size: 1.4rem; padding: 0.25rem; }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+        .mobile-overlay a { font-family: var(--font-display); font-size: 1.5rem; color: var(--light-text-secondary); }
+        .mobile-close { position: absolute; top: 1rem; right: 1.5rem; color: var(--light-text); font-size: 1.6rem; }
+        .article-header { padding: 7.5rem 2rem 3rem; background: linear-gradient(175deg, var(--blue-50) 0%, #fff 50%); position: relative; overflow: hidden; }
+        .article-header::before { content: ''; position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 65%); pointer-events: none; }
+        .article-header-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--light-text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--light-text-muted); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb svg { width: 12px; height: 12px; }
+        .article-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; width: fit-content; padding: 0.3rem 0.7rem; border-radius: 100px; }
+        .article-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .article-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .article-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        .article-excerpt { font-size: 1.1rem; color: var(--light-text-secondary); line-height: 1.75; margin-bottom: 1.5rem; max-width: 620px; }
+        .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.82rem; color: var(--light-text-muted); padding-top: 1.25rem; border-top: 1px solid var(--light-border); }
+        .article-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .article-meta svg { width: 14px; height: 14px; }
+        .article-result-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--emerald); padding: 0.25rem 0.7rem; background: var(--emerald-subtle); border-radius: 100px; }
+        .article-body { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .prose h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin: 2.5rem 0 1rem; line-height: 1.25; }
+        .prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+        .prose p { font-size: 1.05rem; color: var(--light-text-secondary); line-height: 1.85; margin-bottom: 1.25rem; }
+        .prose strong { color: var(--light-text); font-weight: 600; }
+        .prose a { color: var(--accent); border-bottom: 1px solid rgba(37,99,235,0.3); transition: border-color 0.2s; }
+        .prose a:hover { border-color: var(--accent); }
+        .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; list-style: disc; }
+        .prose ol { list-style: decimal; }
+        .prose li { font-size: 1.02rem; color: var(--light-text-secondary); line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose blockquote { padding: 1.25rem 1.75rem; background: var(--accent-subtle); border-left: 3px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 2rem 0; font-size: 1.02rem; font-style: italic; color: var(--light-text); line-height: 1.75; }
+        .callout { padding: 1.25rem 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.7; }
+        .callout.tip { background: var(--emerald-subtle); border: 1px solid rgba(16,185,129,0.15); }
+        .callout.warning { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); }
+        .callout.info { background: var(--accent-subtle); border: 1px solid rgba(37,99,235,0.12); }
+        .callout-title { font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+        .callout.tip .callout-title { color: var(--emerald); }
+        .callout.warning .callout-title { color: #d97706; }
+        .callout.info .callout-title { color: var(--accent); }
+        .results-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1.5rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: var(--radius); margin: 2rem 0; }
+        .results-box-item { text-align: center; }
+        .results-box-num { font-family: var(--font-display); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+        .results-box-label { font-size: 0.8rem; color: var(--light-text-muted); font-weight: 500; }
+        .article-footer-strip { max-width: 760px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px solid var(--light-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .article-tag { font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.65rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-radius: 100px; color: var(--light-text-secondary); }
+        .article-share { display: flex; align-items: center; gap: 0.75rem; }
+        .article-share-label { font-size: 0.8rem; color: var(--light-text-muted); }
+        .share-btn { width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--light-bg-alt); border: 1px solid var(--light-border); display: flex; align-items: center; justify-content: center; color: var(--light-text-secondary); transition: all 0.2s; }
+        .share-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+        .share-btn svg { width: 16px; height: 16px; }
+        .related-section { background: var(--light-bg-alt); padding: 3rem 2rem; }
+        .related-inner { max-width: 760px; margin: 0 auto; }
+        .related-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .related-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+        .related-back { font-size: 0.83rem; color: var(--accent); font-weight: 500; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .related-card { padding: 1.25rem; background: white; border: 1px solid var(--light-border); border-radius: var(--radius); transition: all 0.2s; display: block; }
+        .related-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px var(--accent-glow); transform: translateY(-2px); }
+        .related-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.5rem; border-radius: 100px; margin-bottom: 0.75rem; }
+        .related-badge.use-case { background: var(--emerald-subtle); color: var(--emerald); }
+        .related-badge.article { background: var(--accent-subtle); color: var(--accent); }
+        .related-badge.tutorial { background: var(--purple-subtle); color: var(--purple); }
+        .related-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.35; color: var(--light-text); }
+        .related-card p { font-size: 0.83rem; color: var(--light-text-muted); line-height: 1.5; }
+        .cta-strip { padding: 4rem 2rem; background: linear-gradient(135deg, var(--blue-900) 0%, #1e3a6e 100%); color: white; text-align: center; }
+        .cta-strip-inner { max-width: 560px; margin: 0 auto; }
+        .cta-strip h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; margin-bottom: 0.75rem; }
+        .cta-strip p { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.7; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: var(--accent); font-weight: 700; font-size: 0.95rem; padding: 0.85rem 2rem; border-radius: var(--radius-sm); transition: all 0.25s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+        footer { background: var(--blue-900); border-top: 1px solid var(--dark-border); padding: 3rem 2rem 2rem; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.75rem; color: var(--dark-text-muted); }
+        .footer-social { display: flex; gap: 0.5rem; }
+        .footer-social a { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid var(--dark-border); border-radius: 6px; color: var(--dark-text-muted); transition: all 0.2s; }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.15); color: white; }
+        .footer-social a svg { width: 14px; height: 14px; }
+        [data-lang="en"] .cz { display: none; }
+        @media (max-width: 768px) { .nav-center, .nav-right { display: none; } .hamburger { display: block; } .article-meta { gap: 0.75rem; } .related-grid { grid-template-columns: 1fr; } .article-footer-strip { flex-direction: column; align-items: flex-start; } }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .prompt-block {
+            background: #0f172a;
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+            border-left: 3px solid var(--purple);
+            white-space: pre-wrap;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/ss.css">
+
+    <style>
+        .table-wrapper { overflow-x: auto; margin: 1.5rem 0; border: 1px solid var(--light-border); border-radius: var(--radius-sm); }
+        .prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .prose th, .prose td { text-align: left; vertical-align: top; padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--light-border); }
+        .prose th { background: var(--light-bg-alt); font-weight: 600; color: var(--light-text); white-space: nowrap; }
+        .prose tr:last-child td { border-bottom: none; }
+        .formula { font-family: var(--font-mono); font-size: 0.88rem; background: var(--light-bg-alt); border: 1px solid var(--light-border); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); padding: 0.8rem 1rem; margin: 1rem 0; overflow-x: auto; }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 36" fill="none"><path d="M2 2H38L34 10H6L2 2Z" fill="#2563eb" opacity=".9"/><path d="M6 12H34L30 20H10L6 12Z" fill="#3b82f6" opacity=".75"/><path d="M10 22H30L26 30H14L10 22Z" fill="#60a5fa" opacity=".6"/><path d="M14 32H26L20 36L14 32Z" fill="#93c5fd" opacity=".5"/></svg>
+        <span class="nav-logo-text">Sourcing Sense</span>
+    </a>
+    <ul class="nav-center">
+        <li><a href="/"><span class="en">Home</span></a></li>
+        <li><a href="/ai-use-cases"><span class="en">AI use cases</span></a></li>
+        <li><a href="/tools"><span class="en">Tools</span></a></li>
+        <li><a href="/insights" class="active"><span class="en">Insights</span></a></li>
+        <li><a href="/about"><span class="en">About</span></a></li>
+        <li><a href="/contact"><span class="en">Contact</span></a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="nav-cta"><span class="en">Book a Call</span></a>
+    </div>
+    <button class="hamburger" onclick="toggleMob()" aria-label="Menu">☰</button>
+</nav>
+
+<div class="mobile-overlay" id="mob">
+    <button class="mobile-close" onclick="toggleMob()">✕</button>
+    <a href="/" onclick="toggleMob()"><span class="en">Home</span></a>
+    <a href="/ai-use-cases" onclick="toggleMob()"><span class="en">AI use cases</span></a>
+    <a href="/tools" onclick="toggleMob()"><span class="en">Tools</span></a>
+    <a href="/insights" onclick="toggleMob()"><span class="en">Insights</span></a>
+    <a href="/resources/ai-policy-template" onclick="toggleMob()"><span class="en">Resources</span></a>
+    <a href="/about" onclick="toggleMob()"><span class="en">About</span></a>
+    <a href="/contact" onclick="toggleMob()"><span class="en">Contact</span></a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+    <div class="article-header-inner" style="animation: fadeUp 0.5s var(--ease) both;">
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <a href="/insights">Insights</a>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            <span>AI ROI</span>
+        </div>
+
+        <span class="article-badge tutorial">Tutorial</span>
+
+        <h1>AI in Procurement ROI: How to Calculate Savings and Payback of an AI Use Case</h1>
+
+        <p class="article-excerpt">A CFO cannot approve "saves time". The formulas, three worked AI use cases from quote comparison to contract monitoring, and how to estimate what the AI itself costs to run.</p>
+
+        <div class="article-meta">
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg> 8 min read</span>
+            <span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 2v4M8 2v4M3 10h18"/></svg> October 2026</span>
+            <span>David Račak</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+    <div class="prose">
+
+        <p>Most AI business cases in procurement fail before anyone builds anything. Not because the idea is bad, but because the numbers are vague — "saves time", "improves visibility" — and a CFO cannot approve a feeling. The fix is boring: a small set of formulas, honest inputs, and a payback period that fits on one line.</p>
+
+        <p>This is the calculation I use for AI use cases in procurement, with three worked examples from builds that exist on this site. Every number is illustrative. Replace them with yours, and measure your current process for two weeks before you trust any of them.</p>
+
+        <h2>Where the value of an AI use case comes from</h2>
+
+        <p>AI in procurement creates value in four ways, and a business case should name which ones it relies on. <strong>Time</strong>: hours a buyer no longer spends reading, retyping or drafting. <strong>Price</strong>: money recovered or protected because something got checked that used to go unchecked — invoice prices, renewal dates, index clauses. <strong>Speed</strong>: a shorter sourcing cycle, which matters when a production line is waiting. <strong>Risk</strong>: an auto-renewal that did not happen, a supplier issue caught a month earlier. Time is the easiest to prove, price is the easiest to sell, and risk is the hardest to put a number on, so use it as a bonus rather than the core.</p>
+
+        <figure class="ss-figure">
+            <svg viewBox="0 0 720 280" role="img" aria-label="Waterfall: time value plus price value minus running and build cost equals year-one net value.">
+                <line class="wire" x1="40" y1="240" x2="700" y2="240"/>
+                <rect class="box out" x="60" y="110" width="90" height="130" rx="6"/>
+                <text class="t" x="70" y="100">Time saved</text><text class="s" x="70" y="262">+ €10,350</text>
+                <rect class="box out" x="190" y="60" width="90" height="50" rx="6"/>
+                <text class="t" x="196" y="50">Price caught</text><text class="s" x="200" y="262">+ €4,000</text>
+                <rect class="box" x="320" y="60" width="90" height="15" rx="4"/>
+                <text class="t" x="326" y="50">Running cost</text><text class="s" x="330" y="262">− €1,200</text>
+                <rect class="box" x="450" y="75" width="90" height="14" rx="4"/>
+                <text class="t" x="466" y="66">Build cost</text><text class="s" x="460" y="262">− €1,080</text>
+                <rect class="box ai" x="580" y="89" width="100" height="151" rx="6"/>
+                <text class="t" x="584" y="80">Net, year one</text><text class="k" x="590" y="262">= €12,070</text>
+                <path class="wire" d="M150,110 L190,110" stroke-dasharray="3 4"/>
+                <path class="wire" d="M280,60 L320,60" stroke-dasharray="3 4"/>
+                <path class="wire" d="M410,75 L450,75" stroke-dasharray="3 4"/>
+                <path class="wire" d="M540,89 L580,89" stroke-dasharray="3 4"/>
+            </svg>
+            <figcaption>The shape of every AI business case: what it gives back, minus what it costs to build and run. Numbers from example A below.</figcaption>
+        </figure>
+
+        <h2>The formulas</h2>
+
+        <div class="formula">Time value = hours saved per year × loaded hourly cost</div>
+        <div class="formula">Price value = (price difference caught × volume) + leakage recovered</div>
+        <div class="formula">Running cost = licences or AI credits + maintenance hours × hourly cost</div>
+        <div class="formula">Year-one ROI % = (time value + price value − running cost − build cost) ÷ build cost × 100</div>
+        <div class="formula">Payback months = build cost ÷ ((time value + price value − running cost) ÷ 12)</div>
+
+        <p>Loaded hourly cost means salary plus employer contributions and overhead, not the hourly wage. For a mid-senior buyer in the EU, €40–60 is a sensible range; use your own HR number. Count build cost in hours too, even when the person building it is you — especially when it is you.</p>
+
+        <h2>Three worked examples</h2>
+
+        <p><strong>A. Quotation analyzer.</strong> A buyer spends six hours a week comparing supplier quotes in different formats and languages. An <a href="/insights/quotation-analyzer">AI quotation analyzer</a> reads the PDFs and fills a comparison table; the buyer checks it in one hour. Five hours a week over 46 working weeks is 230 hours, or €10,350 at €45. Because every line item is now compared, assume it also catches €4,000 a year in quotes that hid freight or packaging in a separate line. Build: three days, €1,080. Running: AI credits and an hour a month of maintenance, about €1,200. Net year one €12,070, ROI about 1,100%, payback in roughly a month.</p>
+
+        <p><strong>B. Contract renewal monitoring.</strong> The value here is not hours; it is one avoided auto-renewal. <a href="/insights/contract-nemesis">Contract Nemesis</a> reads every new contract and posts renewal dates and price clauses to Teams. If it prevents a single unwanted €20,000 renewal with a 5% uplift, that is €1,000 avoided — plus the leverage of renegotiating on your timeline instead of the supplier's. Build: half a day. This is the use case where the business case is one sentence: it pays for itself the first time it fires.</p>
+
+        <p><strong>C. Spend classification.</strong> Classifying 2,000 suppliers into categories took an analyst about a week each quarter: 160 hours a year, €7,200. A language model with your category tree in the prompt does a first pass in minutes; a human reviews the uncertain 10%. Net time saved is roughly 130 hours, €5,850. The bigger value is indirect — clean categories are the precondition for every other savings initiative — so present it as an enabler rather than a standalone return.</p>
+
+        <div class="table-wrapper"><table>
+            <thead><tr><th>Use case</th><th>Main value</th><th>Build</th><th>Payback</th></tr></thead>
+            <tbody>
+                <tr><td>Quotation analyzer</td><td>Time + price caught</td><td>~3 days</td><td>~1 month</td></tr>
+                <tr><td>Contract renewal monitoring</td><td>Risk avoided</td><td>~½ day</td><td>First avoided renewal</td></tr>
+                <tr><td>Spend classification</td><td>Time, enables savings work</td><td>~2 days</td><td>~6 weeks</td></tr>
+            </tbody>
+        </table></div>
+
+        <h2>Estimating the AI running cost</h2>
+
+        <p>People overestimate this. Language models are priced per token, roughly per word fragment, and procurement documents are short. The method: pages per document × tokens per page (about 500–700 for a dense contract page) × documents per month × your model's price per token, then double it for the prompt and the answer. For most single-category use cases this lands in the tens of euros per month, not hundreds. If your company uses AI Builder, the same logic applies in credits. Get the actual price from whatever your IT has approved — it changes too often to print here.</p>
+
+        <h2>The procurement savings formulas, for completeness</h2>
+
+        <p>When the AI use case recovers price rather than time, you also need the classic savings maths. Price savings are (baseline unit price − new unit price) × volume, with forecast volume for negotiated savings and invoiced volume for realized savings. Savings percentage divides by baseline spend, never by the new spend. Cost avoidance — an increase you prevented — is (requested price − agreed price) × volume and goes in its own column, because spend did not go down. And procurement ROI overall is realized savings divided by the cost of the procurement function, usually shown as a ratio such as 4:1. <a href="/insights/procurement-savings-tracking">AI savings tracking</a> shows how to get the realized number without a spreadsheet marathon.</p>
+
+        <h2>Mistakes that kill AI business cases</h2>
+
+        <p>Overstating hours saved is the classic one — measure, don't estimate. Counting the model's first draft as finished work is the second: always include the human review time. Forgetting maintenance is the third; flows break when a supplier changes their invoice layout. And presenting risk avoidance as a guaranteed return invites the first sceptical question in the room. Put the certain value in the headline and the risk value in the footnote.</p>
+
+        <div class="callout tip">
+            <div class="callout-title">Skip the spreadsheet</div>
+            The free <a href="/tools/savings-calculator">procurement savings calculator</a> runs the time-based calculation with payback and ROI. The <a href="/tools/total-procurement-roi">total procurement ROI calculator</a> adds contract risk, maverick spend, payment terms and more for a CPO-level case.
+        </div>
+
+        <h2>FAQ</h2>
+
+        <h3>How do you calculate the ROI of AI in procurement?</h3>
+        <p>Add time value (hours saved × loaded hourly cost) and price value (savings or leakage caught), subtract running cost and build cost, and divide by build cost. Payback in months is build cost divided by monthly net value.</p>
+
+        <h3>How much does running an AI use case in procurement cost?</h3>
+        <p>For one category, usually tens of euros a month in AI credits or tokens plus a few hours of maintenance. Estimate pages × tokens per page × documents per month × price per token, then double it.</p>
+
+        <h3>What is the formula for procurement savings?</h3>
+        <p>(Baseline unit price − new unit price) × volume. Use forecast volume for negotiated savings and invoiced volume for realized savings.</p>
+
+        <h3>Which AI use case in procurement pays back fastest?</h3>
+        <p>Contract renewal monitoring and quotation comparison usually pay back within weeks, because they are quick to build and either save hours every week or prevent a single expensive renewal.</p>
+
+    </div>
+</article>
+
+<!-- TAGS + SHARE -->
+<div class="article-footer-strip">
+    <div class="article-tags">
+        <span class="article-tag">AI in procurement</span>
+        <span class="article-tag">ROI</span>
+        <span class="article-tag">Business case</span>
+        <span class="article-tag">Savings</span>
+    </div>
+    <div class="article-share">
+        <span class="article-share-label">Share</span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sourcing-sense.com/insights/how-to-calculate-procurement-savings" target="_blank" rel="noopener" class="share-btn" aria-label="Share on LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED -->
+<section class="related-section">
+    <div class="related-inner">
+        <div class="related-header">
+            <h3>Related insights</h3>
+            <a href="/insights" class="related-back">← All articles</a>
+        </div>
+        <div class="related-grid">
+            <a href="/insights/procurement-savings-tracking" class="related-card">
+                <span class="related-badge use-case">Use Case</span>
+                <h4>AI Savings Tracking</h4>
+                <p>Catch savings leakage between contract and invoice automatically.</p>
+            </a>
+            <a href="/insights/quotation-analyzer" class="related-card">
+                <span class="related-badge use-case">Use Case</span>
+                <h4>AI Quotation Analyzer with Power Automate</h4>
+                <p>Compare supplier quotes in any language, automatically.</p>
+            </a>
+            <a href="/insights/ai-transition-cost" class="related-card">
+                <span class="related-badge article">Article</span>
+                <h4>AI Transition Cost Report 2026</h4>
+                <p>What AI actually costs a small or mid-size procurement team.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="cta-strip">
+    <div class="cta-strip-inner">
+        <h3>Want this running in your team, not just on paper?</h3>
+        <p>A 20-minute call is enough to see whether your process is worth automating — and roughly how fast. No licensing upsell.</p>
+        <a href="https://calendly.com/sourcing-sense/" target="_blank" class="btn-primary">
+            Book a free call
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-bottom">
+            <p>© 2026 Sourcing Sense — David Račak · <a href="/privacy" style="color:inherit">Privacy</a></p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/david-ra%C4%8Dak-a579b51a0/" target="_blank" aria-label="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+function toggleMob() { document.getElementById('mob').classList.toggle('open'); }
+function setLang(lang) {
+    lang = 'en';
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-set-lang') === lang));
+  try { localStorage.setItem('ss-lang', lang); } catch(e) {}
+}
+(function() {
+  try { const s = localStorage.getItem('ss-lang'); if (s) { setLang(s); return; } } catch(e) {}
+  const bl = navigator.language || '';
+  setLang(bl.startsWith('cs') || bl.startsWith('sk') ? 'cs' : 'en');
+})();
+</script>
+
+<script src="/assets/ss.js" defer></script>
+</body>
+</html>
